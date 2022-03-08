@@ -1,0 +1,1775 @@
+body {
+    font-family: Titillium Web, sans-serif;
+    overflow:hidden;
+	background: lightblue url("../img/background1.jpg") no-repeat fixed center;
+	background-size: 100% 1500px;
+}
+
+.mini-font {
+	font-size: 10px;
+}
+
+.midi-font {
+	font-size: 12px; 
+}
+
+.titoloPagina {
+	text-align: center;
+	font-size: 24px;
+	color: #3c3c3c;
+}
+
+.sottotitoloPagina {
+	text-align: center;
+	font-size:12px;
+	color: #3c3c3c;
+}
+
+/*STILI "SHORT"*/
+
+
+/*STILI MODAL */
+.titoloModal {
+	width:50%;
+	font-size: 18px;
+}
+
+.subtitleModal {
+	margin-top: 5px;
+	font-size: 16px;
+}
+
+.testoModal {
+	width:50%;
+	font-size: 12px;
+}
+
+.modal-body {
+	padding-top:20px;
+	text-align: center;
+}
+
+.modal-footer {
+	padding-top:5px;
+	border-top: 0px;
+	text-align: center;
+}
+
+
+/* STILI FRAME Excel*/
+.frameXlDownload{
+	position:absolute;
+	right: 5px;
+	top: 5px;
+	font-size: 12px;
+	width: 160px;
+	z-index: 100;
+	border: 1px solid grey;
+	padding: 0px 3px 3px 3px;
+	border-radius: 3px;
+}
+
+.frameTopLeft{
+	position:absolute;
+	left: 50px;
+	top: 5px;
+	font-size: 12px;
+	width: 177px;
+	z-index: 100;
+	border: 1px solid grey;
+	padding: 0px 3px 4px 20px;
+	border-radius: 3px;
+}
+
+.frameTopLeftB{
+	position:absolute;
+	left: 230px;
+	top: 5px;
+	font-size: 12px;
+	width: 177px;
+	z-index: 100;
+	border: 1px solid grey;
+	padding: 0px 3px 4px 20px;
+	border-radius: 3px;
+}
+
+.frameTopCenter{
+	position:relative;
+	margin: auto;
+	font-size: 12px;
+	width: 177px;
+	z-index: 100;
+	border: 1px solid grey;
+	padding: 0px 3px 4px 3px;
+	border-radius: 3px;
+}
+
+@media screen and (max-width: 1024px) {
+	.frameTopLeft {
+		display: none;
+	}
+}
+
+.frameTopRight{
+	position:absolute;
+	right: 5px;
+	top: 55px;
+	font-size: 12px;
+	z-index: 100;
+}
+
+.iconaStd {
+	width: 20px;
+	cursor: pointer
+}
+
+.iconaAbsolute {
+	position: absolute !important;
+	top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.iconaTransparent{
+	opacity: 0.9;
+
+}
+
+.iconaWarning {
+	margin-right: 5px;
+	width: 20px;
+	margin-top: -5px;
+}
+
+.miniButtonXl {
+	cursor: pointer;
+	width: 21px;
+	position: absolute;
+	top: 18px;
+	right: 3px;
+	border-radius: 3px; 
+	background-color: rgb(200,200,200);
+	border: 1px solid grey;
+}
+
+.selectXl {
+	margin-right: 10px;
+	width: 126px;
+}
+
+.imgCrown{
+	width: 12px;
+	position:absolute !important;
+	margin-left: -20px;
+	margin-top: 3px;
+}
+
+.tablelabel0 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    color: white;
+    background-color: #004684;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-align: center;
+}
+
+/* .tablelabel1 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    color: white;
+    background-color: #004684;
+	text-align: center;
+	padding: 0px;
+} */
+
+.tablelabel2 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    color: white;
+    background-color: #004684;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-align: center; 
+    width: 98%;
+}
+
+.tablelabel3 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    color: white;
+    background-color: #004684;
+    text-align: center;
+	width: 98%;
+}
+
+.tablelabel4 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    color: white;
+    background-color: #004684;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+	width: 100%;
+}
+
+.tablecell {
+    border-radius: 3px;
+    border: solid grey 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 153%;
+}
+
+.tablecell2 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 98%;
+    text-align: right; 
+}
+
+.tablecell3 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.tablecell4 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    padding-left: 1px;
+    padding-right: 4px;
+    width: 40px;
+    margin-right: 0px;
+    margin-left: 0px;
+    text-align: right;
+}
+
+
+.tablecell5 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 98%;
+    text-align: center; 
+}
+
+.tablecell6 {
+    /*border-radius: 3px;*/
+    border: solid grey 1px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+    text-align: center; 
+}
+
+.tablecell7 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 85%;
+    text-align: center; 
+}
+
+.tablecell8 {
+    border-radius: 3px;
+    border: solid grey 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 85%;
+}
+
+
+
+.upper, .lower {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: lightblue url("../img/background1.jpg") no-repeat fixed center;
+  background-size: cover;
+}
+
+.upper {
+  top: 0;
+  height: 100%;
+  overflow:scroll;
+  overflow-x: hidden;
+}
+
+.lower {
+  bottom: 0;
+  height: 0%;
+  background-color: blue;    
+}
+
+
+
+/* Divide lo schermo verticalmente: usato ne: I mieialunni*/
+.split {
+  height: 100%;
+
+  position: fixed;
+  /*z-index: 1;*/
+  top: 0;
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+.left {
+  position: absolute; 
+  left: 0;
+  width: 35%;
+  overflow-y: auto; 
+
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  width: 65%;
+
+}
+
+.scroll {
+  max-height: 85%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+/* SIDEBAR E TOPBAR*/
+      /* The side navigation menu */
+      .sidenav {
+          height: 100%; /* 100% Full-height */
+          /*width: 0; /* 0 width - change this with JavaScript */
+		  width: 45px; /* 0 width - change this with JavaScript */
+          position: fixed; /* Stay in place */
+          z-index: 120; /* Stay on top */
+          top: 0; /* Stay at the top */
+          left: 0;
+          background-color: rgba(0,0,0, 0.9); /* Black*/
+          overflow-x: hidden; /* Disable horizontal scroll */
+          padding-top: 10px; /* Place content 60px from the top */
+          /*transition: 0.1s; /* 0.5 second transition effect to slide in the sidenav */
+      }
+      
+      /* The navigation menu links */
+      .sidenav a {
+          /*padding: 8px 8px 8px 32px;*/
+		  /*padding: 2px 7px 2px 7px;*/
+		  padding: 0px 7px 0px 7px;
+          text-decoration: none;
+          font-size: 16px;
+          color: #606060;
+          display: block;
+          transition: 0s;
+      }
+      
+      /* When you mouse over the navigation links, change their color */
+      .sidenav a:hover {
+          color: #f1f1f1;
+      }
+      
+      /* Position and style the close button (top right corner) */
+      .sidenav .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+      }
+      
+      /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+      #main {
+          transition: margin-left .5s;
+          /*padding: 20px;*/
+          
+      }
+      
+      /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+      @media screen and (max-height: 450px) {
+          .sidenav {padding-top: 15px;}
+          .sidenav a {font-size: 18px;}
+      }
+
+	.topnav {
+	  overflow: hidden;
+	  position: relative !important;
+	  z-index: 120;
+	}
+	.topnavlinka {
+		color: grey !important;
+	}
+/* FINE SIDEBAR e TOPBAR */
+
+
+
+.ordinabutton {
+  height: 20px;
+  padding-top: 2px;
+  font-size: 8px;
+}
+
+.filtercell {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 75%;
+  font-size: 10px;
+  height: 15px;
+  border-color: rgba(100,100,100,0.4);
+}
+
+.filtercell2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 70%;
+  font-size: 10px;
+  height: 15px;
+  border-color: rgba(100,100,100,0.4);
+  
+}
+
+.filtercell3 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+	font-size: 10px;
+	height: 15px;
+	border-color: rgba(100,100,100,0.4);
+	
+  }
+
+
+.celladet_imiealunni {
+  padding: 0px;
+  text-align: center;
+}
+
+.voti {
+  height: 40px;
+  overflow-x: hidden;
+}
+
+.materia{
+  background-color: grey;
+  color: white; 
+}
+
+.ta {
+  resize: none;
+  font-size: 12px;
+}
+
+.disab {
+  /*color: #999;*/
+  background-color: rgba(255,255,255);
+  color: #474747; 
+}
+
+
+
+/* BUTTONS*/
+	
+	.btnBlu {
+	  background-color: #289bce;
+	  border: none;
+	  color: white;
+	  border-radius: 3px;
+	  text-align: center;
+	  height: 30px;
+	  font-size: 14px;
+	}
+
+	.btnBlu20 {
+		background-color: #289bce;
+		border: none;
+		color: white;
+		border-radius: 3px;
+		text-align: center;
+		height: 20px;
+		font-size: 11px;
+	  }
+
+
+	.btnGreyBordoViola {
+		border-radius: 3px;
+		border: 3px #990092 solid;
+		background-color: #f4f4f4;
+		color: grey;
+		text-align: center;
+		height: 30px;
+		font-size: 14px;
+	  }
+
+	.btnGreyBordoBlu {
+		border-radius: 3px;
+		border: 3px #1585b7 solid;
+		background-color: #f4f4f4;
+		color: grey;
+		text-align: center;
+		height: 30px;
+		font-size: 14px;
+	}
+
+	.btnGrey {
+		border-radius: 3px;
+		border: 1px grey solid;
+		background-color: #f4f4f4;
+		color: grey;
+	}
+
+	.btnCancellaGiornoOrario {
+		position: relative;
+		float: left; 
+		width: 20px;
+		cursor: pointer;
+		margin-left: 10px;
+		margin-top: -25px;
+		z-index: 15;
+	}
+/* FINE BUTTONS */
+
+/* TABELLE */
+	th, td, tr, thead {
+		border-bottom: 0px solid #000;
+	}
+	
+	/*tr:nth-child(even) {background-color: rgba(200,200,200, 0.6);}*/
+	
+	
+	/*FORMATTAZIONE TABELLE CRUSCOTTO*/
+	
+	#tabellaAlunniCruscotto th {
+	  text-align: center;
+	  /*background-color: #289bce;*/
+	  border:0px; 
+	  color: white;
+	}
+	
+	#tabellaAlunniCruscotto td {
+	  text-align: right;
+	  padding-bottom: 2px;
+	  padding-top: 4px;
+	  padding-left: 2px;
+	  padding-right: 2px;
+	}
+	
+	#tabellaRetteCruscotto th {
+	  text-align: center;
+	  /*background-color: #289bce;*/
+	  border:0px; 
+	  color: white;
+	}
+	
+	#tabellaRetteCruscotto td {
+	  width: 130px;
+	  text-align: right; 
+	}
+	
+	#tabellaRetteCruscotto>thead>tr>td {
+		border-top: 1px solid grey !important;
+	}
+	
+	#tabellaAlunniCruscotto>thead>tr>td {
+		border-top: 1px solid grey !important;
+	}
+	
+	/*FORMATTAZIONE TABELLA ANAGRAFICAPerAnno*/
+	
+	
+	#tabellaAnagraficaPerAnno thead tr {
+		position: relative;
+	}
+	
+	#tabellaAnagraficaPerAnno tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+	
+	#tabellaAnagraficaPerAnno thead {
+		display: inline-block;
+		width: 100%;
+	}
+	
+	#tabellaAnagraficaPerAnno tr{
+	   background-color: transparent;
+	}
+	
+	
+	#tabellaAnagraficaPerAnno tr:nth-child(2n+1) td .tablecell6{
+	  background-color: #e0e0e0;
+	}
+
+	/*FORMATTAZIONE TABELLA ANAGRAFICA*/
+	
+	#tabellaAnagrafica thead tr {
+		position: relative;
+	}
+	
+	#tabellaAnagrafica tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+	
+	#tabellaAnagrafica thead {
+		display: inline-block;
+		width: 100%;
+	}
+	
+	#tabellaAnagrafica tr{
+	   background-color: transparent;
+	}
+	
+	#tabellaAnagrafica tr:nth-child(2n+1) td .tablecell6{
+	  background-color: #e0e0e0;
+	
+	}
+	
+	/*FORMATTAZIONE TABELLA ANAGRAFICAMAESTRI*/
+	#tabellaAnagraficaMaestri thead tr {
+		position: relative;
+	}
+	
+	#tabellaAnagraficaMaestri tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+	
+	#tabellaAnagraficaMaestri thead {
+		display: inline-block;
+		width: 100%;
+	}
+	
+	#tabellaAnagraficaMaestri tr{
+	   background-color: transparent;
+	}
+	
+	#tabellaAnagraficaMaestri tr:nth-child(2n+1) td .tablecell6{
+	  background-color: #e0e0e0;
+	
+	}
+	
+	/*FORMATTAZIONE TABELLA RETTEPERFAMIGLIA*/
+	
+	#tabellaRettePerFamiglia thead tr {
+		position: relative;
+	}
+	
+	#tabellaRettePerFamiglia tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+	
+	#tabellaRettePerFamiglia thead {
+		display: inline-block;
+		width: 100%;
+	}
+	
+	#tabellaRettePerFamiglia tr{
+	   background-color: transparent;
+	}
+	
+	
+	/*FORMATTAZIONE TABELLA IMIEIALUNNI*/
+	
+	
+	/* #tabellaIMieiAlunni thead tr {
+		position: relative;
+	}
+		
+	#tabellaIMieiAlunni tbody {  //sembra non funzionare quando c'è lo split left-right
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%;
+	} */
+
+
+	#tabellaIMieiAlunni tr{
+	   background-color: transparent;
+	}
+	
+	#tabellaIMieiAlunni tbody tr:nth-child(2n+1) td .tablecell3{
+	  background-color: #e0e0e0;
+	}
+	
+
+	/*FORMATTAZIONE TABELLA APPELLO*/
+
+
+	#tabellaAppello thead tr {
+		position: relative;
+	}
+		
+	#tabellaAppello tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+	
+	#tabellaAppello thead {
+		display: inline-block;
+		width: 100%;
+	}
+	
+	#tabellaAppello tr{
+		background-color: transparent;
+	}
+	
+	#tabellaAppello tbody tr:nth-child(2n+1) td .tablecell3{
+		background-color: #e0e0e0;
+	}
+
+	/*FORMATTAZIONE TABELLA ORARIO*/
+	
+	#tabellaOrario.center{
+		margin-left:auto; 
+		margin-right:auto;
+	}
+	
+	#tabellaOrario tr {
+	  line-height: 24px;
+	  background-color: transparent;
+	}
+	
+	#tabellaOrarioNew.center {
+		margin-left:auto; 
+		margin-right:auto;
+	  }
+
+	#tabellaOrarioNew tr {
+		background-color: transparent;
+	  }
+
+	/*FORMATTAZIONE TABELLA VERBALI*/
+	
+	#tabellaVerbali.center{
+		margin-left:auto; 
+		margin-right:auto;
+	}
+	
+	#tabellaVerbali tr {
+	  line-height: 24px;
+	  background-color: transparent;
+	}
+	
+	/*FORMATTAZIONE TABELLA VERBALI*/
+	
+	#tabellaAlunniPagella1.center{
+		margin-left:auto; 
+		margin-right:auto;
+	}
+	
+	#tabellaAlunniPagella1 tr {
+	  line-height: 24px;
+	  background-color: transparent;
+	}
+
+	/*FORMATTAZIONE TABELLA ISCRIZIONI*/
+
+	#tabellaIscrizioni thead tr {
+		position: relative;
+	}
+		
+	#tabellaIscrizioni tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+
+	#tabellaIscrizioni tr:nth-child(2n+1) td .tablecell6{
+		background-color: #e0e0e0;
+	  }
+
+	/*FORMATTAZIONE TABELLA USE OVERVIEW*/
+
+	#tabellaUseOverview thead tr {
+		position: relative;
+	}
+		
+	#tabellaUseOverview tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+
+	/*FORMATTAZIONE TABELLA SET MATERIE*/
+
+	#tabellaSetMaterie thead tr {
+		position: relative;
+	}
+		
+	#tabellaSetMaterie tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+
+	/*FORMATTAZIONE TABELLA SET MATERIE PAGELLE*/
+
+	#tabellaSetMaterieP thead tr {
+		position: relative;
+	}
+		
+	#tabellaSetMaterieP tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+
+	/*FORMATTAZIONE TABELLA SET OBIETTIVI PAGELLE*/
+
+	#tabellaSetObiettiviP thead tr {
+		position: relative;
+	}
+		
+	#tabellaSetObiettiviP tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+
+	/*FORMATTAZIONE TABELLA SET PARAMETRI*/
+
+	#tabellaSetParametri thead tr {
+		position: relative;
+	}
+		
+	#tabellaSetParametri tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	}
+
+	/*FORMATTAZIONE TABELLA SET PARAMETRI x ANNO*/
+
+	 #tabellaSetParametriA thead tr {
+		position: relative;
+	}
+		
+	#tabellaSetParametriA tbody {
+		display: block;
+		max-height: 550px;
+		overflow-x: auto;
+		width: 100%
+	} 
+
+	/* .table-wrapper {
+		overflow-y: scroll;
+		height: 150;
+	}
+
+	.table-wrapper thead th{
+		position: sticky;
+		top: 0;
+	} */
+
+/* FINE TABELLE*/
+
+
+.warnconcordato {
+  background-color: #e5c251;
+  color: white; 
+}
+
+.warnpagato {
+  background-color: #cc4242;
+  color: white; 
+}
+
+
+/* RICERCA AJAX SEARCH AS YOU TYPE*/
+	/*risultati della ricerca ajax su scheda alunno*/
+	.DropDownContainer {
+		height: 0px;
+		position: relative;
+		text-align: center;
+		padding:0px;
+		z-index: 100;
+	
+	}
+
+	#showresult {
+		/*text-align: left;*/
+		color: #fff;
+		background-color: rgba(40,155,206,0.95);
+		font-size: 16px;
+		border: solid 0px #999;
+		border-radius: 2px 2px 2px 2px;
+		box-shadow: 2px 2px 2px rgba(100,100,100,0.6);
+		
+	}
+	
+	#showresult p {
+		margin: 10px;	
+		cursor: pointer;
+	}
+	
+	/*risultati della ricerca ajax su scheda alunno*/
+	.showcomune {
+		/*text-align: left;*/
+		color: #fff;
+		background-color: rgba(40,155,206,0.9);
+		font-size: 16px;
+		border: solid 0px #999;
+		border-radius: 2px 2px 2px 2px;
+
+		max-height: 300px;
+		width: 100%;
+		margin-left: 0px;
+		overflow-y: auto;
+		text-align: center;
+		z-index: 15;
+	}
+	
+	.showcomuneB {
+		/*text-align: left;*/
+		color: #fff;
+		background-color: rgba(40,155,206,0.9);
+		font-size: 16px;
+		border: solid 0px #999;
+		border-radius: 2px 2px 2px 2px;
+
+		max-height: 300px;
+		width: 106%;
+		margin-left: -9px;
+		overflow-y: auto;
+		text-align: center;
+		z-index: 15;
+	}
+	/*showcomune100 non funziona perchè c'è una funzione che si basa sulla classe showcomune!*/
+	/* .showcomune100 {
+		text-align: left;
+		color: #fff;
+		background-color: rgba(40,155,206,0.9);
+		font-size: 16px;
+		border: solid 0px #999;
+		border-radius: 2px 2px 2px 2px;
+
+		max-height: 300px;
+		width: 100%;
+		overflow-y: auto;
+		text-align: center;
+		z-index: 15;
+	} */
+
+	.showcomuneIsc {
+		/*text-align: left;*/
+		color: #fff;
+		background-color: rgba(40,155,206,0.9);
+		font-size: 16px;
+		border: solid 0px #999;
+		border-radius: 2px 2px 2px 2px;
+
+		max-height: 300px;
+		width: 106%;
+		margin-left: -9px;
+		overflow-y: auto;
+		text-align: center;
+		z-index: 15;
+	}
+
+	.showcomune p {
+		margin: 10px;	
+	}
+	
+/* FINE RICERCA AJAX SEARCH AS YOU TYPE*/
+
+
+hr.style14 { 
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+}
+
+hr.style13 {
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+
+/*SERVE PERCHE' SCOMPARIVA NEL MODALE EXPORT RETTE*/
+.datepicker {z-index: 1151 !important ;}
+
+.bootstrap-datetimepicker-widget table td, .bootstrap-datetimepicker-widget table th
+{
+  border-radius: 0px !important;
+}
+
+.bootstrap-datetimepicker-widget {
+	z-index: 1080!important;
+}
+/*.bootstrap-datetimepicker-widget tr:hover {
+    background-color: #808080;
+}*/
+
+
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#imgContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#imgSfondo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#imgContainer1 {
+  top: 0px;
+  left: 0px;
+}
+
+#imgContainerx {
+	background-image: url("../photos/imgs/unknown.png");
+}
+
+#divImgContainer {
+  background-image: url("../photos/imgs/unknown.png");
+  background-repeat: no-repeat;
+  background-size: 120px 120px;
+  background-position: center;
+  min-height: 150px;
+  top: 0px;
+  left: 0px;
+}
+
+.imgName {
+	display: none;
+	border-radius: 10px;
+	text-align:center;
+	height:34px;
+	padding:6px 12px;
+}
+
+/*TABS di navigazione su scheda alunno e scheda maestro*/
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	  background-color : #004684;
+	  border: 1px solid white;
+	  color: white;
+	}
+	
+	.nav-tabs {
+	  border-bottom: 1px solid white; 
+	}
+	
+	
+	.nav-tabs>li>a:hover {
+	  background-color : #ccc;
+	  border: 1px transparent white;
+	  color: white;
+	}
+	
+	.nav-tabs>li>a {
+	  color: #999;
+	}
+	
+	
+	.nav>li>a {
+		padding: 10px 5px;
+	}
+/*FINE TABS di navigazione su scheda alunno e scheda maestro*/
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0; 
+}
+
+.no-gutter {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.no-gutter > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/*navbar addendum*/
+.hrefSelected {
+	color: white;
+}
+
+.imgSelected {
+	width:30px;
+	margin-right: 5px;	
+}
+
+.imgNotSelected {
+	width:30px;
+	margin-right: 5px;	
+}
+
+.txtMenuSelected {
+	color: white;
+	display: none;
+}
+
+.txtMenu {
+	display: none;
+}
+
+
+.tipoverb1 {
+	/*verde*/
+	background-color: #86ce7c;
+	color: white;
+}
+
+.tipoverb2 {
+	/*azzurro*/
+	background-color: #487ecc;
+	color: white;
+}
+
+.tipoverb3 {
+	/*rosso*/
+	background-color: #cc3232;
+	color: white;
+}
+
+.tipoverb4 {
+	/*verde*/
+	background-color: #86ce7c;
+	color: white;
+}
+
+/* Categorie Formazione*/
+	.catForm1{
+		background-color: #ffcc00 !important;
+		color: white !important;
+	}
+	
+	.catForm2{
+		background-color: #ff9900 !important;
+		color: white !important;
+	}
+	
+	.catForm3{
+		background-color: #cc6600 !important;
+		color: white !important;
+	}
+	
+	.catForm4{
+		background-color: #cc3300 !important;
+		color: white !important;
+	}
+	
+	.catForm5{
+		background-color: #cc0066 !important;
+		color: white !important;
+	}
+	
+	.catForm6{
+		background-color: #9900cc !important;
+		color: white !important;
+	}
+	
+	.catForm7{
+		background-color: #0066ff !important;
+		color: white !important;
+	}
+	
+	.catForm8{
+		background-color: #00cc33 !important;
+		color: white !important;
+	}
+/* Fine Categorie Formazione*/
+
+	.rotate {
+	-webkit-transform: rotate(-90deg);
+	-ff-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+	width: 16px;  /* transform: rotate() does not rotate the bounding box. */
+	}
+
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 1279px) {
+    .highres {
+        display: none;
+    }
+    
+    #lowreswarning {
+        display: block !important;
+    }
+}
+
+@media (max-width: 1279px) {
+	.hideonlessthan1280 {display: none !important; }
+}
+
+@media (max-width: 1279px) {
+	.showonlessthan1280 {display: block !important; }
+}
+
+@media screen and (max-width: 1024px) {
+	.hideonsmalldevices {display: none;}
+}
+
+/* FINE MEDIA QUERIES*/
+
+/*.adaptpaddingbottom {
+	padding-bottom: 100px !important;
+}*/
+
+    /*@media screen and (max-width: 1024px) and (orientation: portrait){
+          .adaptpaddingbottom { padding-bottom: 500px !important; }
+    }
+	
+	@media screen and (orientation: portrait){
+          .adaptpaddingbottom { padding-bottom: 500px !important; }
+    }*/
+
+/*.divcellaquote {
+  margin-left: 3px;
+}*/
+
+/*.scrollB {
+  max-height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}*/
+
+/*.col-ord {
+  margin-left: 0px;
+  width: 9.28%;
+  padding-left: 0px;
+  margin-right: 5px;
+  padding-right: 0px; 
+}*/
+/*.cllistaattesa {
+  /*background-color: rgba(0,255,202, 0.3);
+}*/
+  
+  	/*risultati della ricerca ajax su scheda alunno
+	.showcomuneB {
+		/*text-align: left;
+		color: #fff;
+		background-color: rgba(60,60,60,0.9);
+		font-size: 14px;
+		border: solid 0px #999;
+		border-radius: 0px 0px 4px 4px;
+	}
+	
+	.showcomuneB p {
+		margin: 5px;	
+	}*/
+
+
+	.epocacheckbox{
+		-webkit-appearance: initial;
+		appearance: initial;
+		height: 15px;
+		border: 1px solid rgba(20, 20, 20, 0.2);
+		background:  rgba(20, 20, 20, 0.05);
+		border-radius: 20px;
+		position: relative;
+		padding-bottom: 20px;
+		outline: 0;
+		outline: none;
+	}
+	.epocacheckbox:checked {
+		background: rgb(27, 128, 156);
+		outline: none;
+	}
+	.epocacheckbox:checked:after {
+		/* Heres your symbol replacement - this is a tick in Unicode. */
+		content: "E";
+		color: #fff;
+		font-weight: bold;
+		font-size: 11px;
+		/* The following positions my tick in the center, 
+		 * but you could just overlay the entire box
+		 * with a full after element with a background if you want to */
+		position: absolute;
+		left: 50%;
+		top: 46%; /*centratura verticale della E nel cerchio*/
+		-webkit-transform: translate(-50%,-50%);
+		-moz-transform: translate(-50%,-50%);
+		-ms-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+		outline: 0;
+		outline: none;
+		/*
+		 * If you want to fully change the check appearance, use the following:
+		 * content: " ";
+		 * width: 100%;
+		 * height: 100%;
+		 * background: blue;
+		 * top: 0;
+		 * left: 0;
+		 */
+	}
+
+	.DADcheckbox {
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+
+	.toggleDAD {
+		position: absolute;
+		cursor: pointer;
+		top: 4px;
+		left: -5px;
+		right: 0;
+		bottom: 0;
+		background-image: url(../img/Icone/DAD_off.svg);
+		background-repeat: no-repeat;
+		background-size: 16px;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	  
+
+	.DADcheckbox:checked + .toggleDAD{
+		background-image: url(../img/Icone/DAD_on.svg);
+	}
+
+	.btnDAD {
+		background-color: transparent;
+		border-color: transparent;
+		height: 16px;
+		cursor: pointer;
+		background-repeat: no-repeat;
+		background-size: 14px;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+
+	.btnDADAll {
+		background-image: url(../img/Icone/DAD_onAll.svg);
+	}
+
+	.btnDADSome {
+		background-image: url(../img/Icone/DAD_onSome.svg);
+	}
+
+	.btnDADNone {
+		background-image: url(../img/Icone/DAD_onNone.svg);
+	}
+
+	.imgDAD {
+		width: 22px;
+	}
+
+	.imgAssenza {
+		width: 22px;
+	}
+
+	.RiquadroInfoLong {
+		margin: 10px -12px;
+		text-align: center;
+		font-size: 14px;
+		height: 425px;
+		border: 1px solid grey; border-radius: 4px;
+	}
+
+	.RiquadroInfoShort {
+		margin: 10px -12px;
+		text-align: center;
+		font-size: 14px;
+		height: 360px;
+		border: 1px solid grey; border-radius: 4px;
+	}
+
+	.firmaTutti {
+		position: relative;
+		float: left;
+		width: 20px;
+		cursor: pointer;
+		margin-left: 10px;
+		margin-top: -25px;
+		z-index: 15;
+	}
+
+
+	.itemSchedaAnagrafica {
+		position: relative;
+		text-align: center;
+	}
+
+	.h28px {
+		height: 28px;
+	}
+
+	.w5 {
+		width: 5%;
+	}
+	
+	.w15 {
+		width: 15%;
+	}
+	
+
+	.w30 {
+		width: 30%;
+	}
+
+	.w50 {
+		width: 50%;
+	}
+
+	.w80 {
+		width: 80%;
+	}
+
+	.w90 {
+		width: 90%;
+	}
+
+	.w100 {
+		width: 100%;
+	}
+	
+	.w25px {
+		width: 25px;
+	}
+
+	.w30px {
+		width: 30px;
+	}
+
+	.w35px {
+		width: 35px;
+	}
+
+	.w40px {
+		width: 40px;
+	}
+
+	.w45px {
+		width: 45px;
+	}
+
+	.w50px {
+		width: 50px;
+	}
+
+	.w60px {
+		width: 60px;
+	}
+
+	.w80px {
+		width: 80px;
+	}
+
+	.w100px {
+		width: 100px;
+	}
+
+	.w120px {
+		width: 120px;
+	}
+	
+	.w130px {
+		width: 130px;
+	}
+
+	.w140px {
+		width: 140px;
+	}
+
+	.w150px {
+		width: 150px;
+	}
+
+	.w160px {
+		width: 160px;
+	}
+
+	.w200px {
+		width: 200px;
+	}
+	
+	.w300px {
+		width: 300px;
+	}
+
+	.h25 {
+		height: 25px;
+	}
+
+	.h46 {
+		height: 46px;
+	}
+
+	.mb2 {
+		margin-bottom: 2px;
+	}
+	
+	.mb5 {
+		margin-bottom: 5px;
+	}
+
+	.mb10 {
+		margin-bottom: 10px;
+	}
+
+	.mb15 {
+		margin-bottom: 15px;
+	}
+
+	.mb20 {
+		margin-bottom: 20px;
+	}
+
+	.ma{
+		margin: auto;
+	}
+	
+	.mrl-a{
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.mt-10 {
+		margin-top: -10px;
+	}
+
+	.mt5 {
+		margin-top: 5px;
+	}
+	
+	.mt10 {
+		margin-top: 10px;
+	}
+	
+	.mt20 {
+		margin-top: 20px;
+	}
+	
+	.mt30 {
+		margin-top: 30px;
+	}
+
+	.ml5 {
+		margin-left: 5px;
+	}
+
+	.ml20 {
+		margin-left: 20px;
+	}
+
+	.ml25 {
+		margin-left: 25px;
+	}
+
+	.ml50 {
+		margin-left: 50px;
+	}
+
+	.ml60 {
+		margin-left: 60px;
+	}
+
+	.ml150 {
+		margin-left: 150px;
+	}
+
+	.ml250 {
+		margin-left: 250px;
+	}
+
+	.mr20 {
+		margin-right: 20px;
+	}
+	
+	.fs8 {
+		font-size: 8px;
+	}
+
+	.fs10 {
+		font-size: 10px;
+	}
+
+	.fs12 {
+		font-size: 12px;
+	}
+
+	.fs14 {
+		font-size: 14px;
+	}
+
+	.fs16 {
+		font-size: 16px;
+	}
+
+	.center {
+		text-align: center;
+	}
+
+	.left {
+		text-align: left;
+	}
+
+
+	.va-top {
+		vertical-align: top;
+	}
+
+	.bb-dashed {
+		border-bottom: 1px dashed grey;
+	}
+
+	.imgContainerx {
+		border-radius: 3px;
+		border: 1px solid grey;
+		background-size: cover;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.smalltext {
+		line-height: 5px;
+		font-size: 11px;
+	}
+
+	.text-left {
+		text-align: left !important;
+	}
+
+	.ckInvioDatiRette {
+		position: absolute;
+		left: 2px;
+	}
+
+	.charNum {
+		font-size: small;
+	}
+
+	.noteAlunno {
+		height: 56px;
+		max-width: 98%;
+		resize: vertical;
+	}
+
+	.noteMiniText {
+
+		height: 40px;
+		max-width: 98%;
+		resize: vertical;
+		font-size: 10px;
+	}
+
+	.nomeAlunnoDettaglio{
+		position:absolute;
+		margin-left: 10px;
+		margin-top: 10px;
+		width: 200px;
+		font-size: 16px; 
+	}
+
+	.tmpCounterVoti {
+		background-color: yellow;
+		position: absolute;
+		z-index: 1000;
+	}
+
+
+
+	.modal-backdrop {
+		z-index: 0 !important;
+	}
+
+
+	.bordered {
+		border: 1px solid grey;
+		border-radius: 5px;
+	}
+
+	.bordered-red {
+		border: 1px solid red;
+		border-radius: 5px;
+	}
+
+	.rightmenu {
+		cursor: pointer;
+	}
+
+	.rightmenuinput {
+		cursor: pointer;
+		background-color:rgba(227, 47, 47, 1);
+		border-radius: 2px;
+		border: solid grey 1px;
+		color: white;
+	}
+
+	.rightmenuinputalu {
+		cursor: pointer;
+		background-color:rgba(227, 47, 47, 0.8);
+		border-radius: 2px;
+		border: solid grey 1px;
+		color: white;
+	}
+
+
+	.linethrough {
+		text-decoration: line-through;
+	}
+
+	.cambio-sez{
+		width: 14px;
+		position:absolute;
+		left: 10px;
+		top: 5px;
+		cursor: pointer;
+	}
+
+	.pointer {
+		cursor: pointer;
+	}
+
+	.absolute {
+		position: absolute;
+	}
+
+	.pull-right {
+		right: 0px;
+	}
+
+
+
+	
+
+
+

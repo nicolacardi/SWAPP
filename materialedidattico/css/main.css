@@ -1,0 +1,452 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Loginform */
+
+#typecombo{
+	
+	color: #fff;
+	background-color: rgba(0,153,255,0.9);
+	
+}
+
+.header{
+	width: 100%;
+	font-family: 'Titillium Web', sans-serif;
+	position: fixed;
+	color: #333
+}
+
+#logo {
+	/*float:right;*/
+	position: absolute;
+	position: fixed;
+	 top: 0px;
+	 right: 0;
+	 z-index:10;
+	
+	margin-right: 10px;
+}
+
+
+#username, #password{
+	
+	font-family: 'Titillium Web', sans-serif;
+}
+
+input[type=text], [type=text100], [type=textarticolo], input[type=textarticololeft] , [type=date]{
+	
+	padding: 4px;
+    box-sizing: border-box;
+	border: 2px solid #CCC;
+    border-radius: 6px;
+	/*background-color: #333;*/
+    color: #333;
+}
+
+input[type=text] {
+	padding: 4px;
+    margin: 8px;
+    width: 10%;
+}
+
+input[type=text100] {
+	/*padding: 4px;*/
+    margin: 0px;
+    width: 100%;
+	/*padding: 5px;*/
+	/*margin-left: 5px;*/
+}
+
+input[type=textarticolo] {
+	
+    width: 100%;
+	margin-left: 0px;
+	text-align: center;
+}
+
+input[type=textarticololeft] {
+	
+    width: 100%;
+	margin-left: 0px;
+	text-align: left;
+}
+
+input[type=submit] {
+	
+	border-radius: 8px;
+	vertical-align: middle;
+    background-color: #39F;
+    border: none;
+    color: white;
+    padding: 8px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;	
+	font-family: 'Titillium Web', sans-serif;
+}
+
+input[type=submit]{
+	/*width: 10%;*/
+}
+
+#submit2 {
+	width: 50%;
+}
+
+#submit3 {
+	width: 100%;
+
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+#submit4 {
+	width: 100%;
+	background-color: #CCC;
+}
+
+
+h3 {
+	text-align: center;
+	font-family: 'Titillium Web', sans-serif;
+	padding: none;
+	margin-top: none;
+}
+
+h5 {
+	text-alig: center;
+	padding: 4px;
+    box-sizing: border-box;
+	border: 2px solid #CCC;
+    border-radius: 6px;
+	/*background-color: #333;*/
+    color: #333;
+	font-family: 'Titillium Web', sans-serif;	
+}
+
+.evident {
+	border: 2px solid #39F;
+}
+
+h6 {
+	text-align: center;
+	font-size: x-small;
+	font-family: 'Titillium Web', sans-serif;
+	padding: none;
+	margin-top: none;
+}
+
+.info {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 4px;
+	background-color: rgba(0,204,51,0.5);
+	color: #FFF;
+}
+
+.warn {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 4px;
+	background-color: rgba(204,0,0,1);
+	color: #FFF;
+}
+
+h4 {
+	
+	text-align: center;
+	font-family: 'Titillium Web', sans-serif;
+	padding: none;
+	margin-top: none;
+}
+
+/*
+.alert {
+
+	padding: 4px 4px;
+    margin: 8px;
+	text-align: center;
+	font-family: 'Titillium Web', sans-serif;
+	padding: none;
+	margin-top: none;
+	font-size: small;
+	color: #FFF;
+	border: 2px solid #FFF;
+    border-radius: 6px;
+	background-color: #F00;	
+}*/
+
+.alert {
+
+
+
+	text-align: center;
+	font-family: 'Titillium Web', sans-serif;
+	padding: none;
+	margin: none;
+	/*font-size: small;*/
+}
+
+.moduli {
+
+	text-align: center;
+}
+
+a {
+	
+	font-family: 'Titillium Web', sans-serif;	
+}
+
+p {
+	font-size: small;
+	
+}
+
+table, th, td {
+
+	margin:auto;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 13px;
+	
+   	/*border: 1px solid black;*/
+  	/*border-collapse: collapse;*/
+}
+
+
+
+th, td {
+	
+   /*text-align: left;*/
+   vertical-align: middle;
+   /*border: 1px solid black;*/
+}
+
+th {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	
+}
+
+td {
+	/*background-color: red;*/
+	padding: 5px;
+}
+
+
+
+
+#lst tr:nth-child(even) {background-color: #f2f2f2;}
+#lst tr:nth-child(odd) {background-color: #fff;}
+
+#art  {
+	margin: auto;
+}
+
+
+
+#warnstock {
+	background-color: red;
+	color: white;
+}
+
+
+
+#art th,td {
+	border: none;
+}
+
+#columnlabel a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.row2 th{
+	text-align: center;
+	background-color: #999;
+}
+
+ thead tr{
+    display: block;
+    position: relative;
+ }
+
+/*NAVIGATION BAR*/
+
+/* Add a black background color to the top navigation */
+
+
+.topnav {
+	
+	position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+	margin: auto;;
+	width: 100%;
+	text-align: center; 
+    background-color: white;
+    overflow: hidden;
+
+}
+
+div.topnav table 
+{
+    margin: 0 auto; 
+    text-align: left;
+}
+
+.result {
+	text-align: left;
+	color: #fff;
+	background-color: rgba(0,153,255,0.9);
+	font-size: 16px;
+	border: solid 0px #999;
+	border-radius: 5px;
+}
+
+.result p {
+	margin: 10px;	
+}
+
+
+
+/*  SIDENAV */
+.sidenav {
+	display:none;
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    
+    background-color: rgba(0,0,0,0.9);
+    overflow-x: hidden;
+    
+    padding-top: 60px;
+}
+
+#openNav {
+	margin-left: 5px;
+}
+
+/*
+.w3-animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+.w3-button{border:none;display:inline-block;outline:0;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+*/
+
+.sidenav a {
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #999;
+    display: block;
+    transition: 0.9s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.hideaccordion{display:none!important}
+.w3-bar .w3-bar-item{padding:8px 16px;float:left;width:auto;border:none;outline:none;display:block}
+.w3-show{display:block!important}
+
+
+/* Style the links inside the navigation bar */
+.topnav a {
+	
+	width: 180px;
+	height: 14px;
+    float: none;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 7px;
+    text-decoration: none;
+    /*font-size: 17px;*/
+	border-radius: 20px;
+	font-size: small;
+}
+
+
+
+/* Change the color of links on hover */
+.topnav a:hover {
+
+    background-color: #009;
+    color: white;
+}
+
+/* Add a color to the active/current link */
+.active {
+
+    background-color: #09F;
+    /*border: 2px solid #09F;*/
+	color: #FFF;
+}
+
+
+
+/*RICERCA*/
+.ricerca1 {
+	float:left;
+	
+}
+
+.ricerca2 {
+	float:left;
+
+	
+}
+
+
+
+
+
+/*SELECT Opzioni*/
+
+.styled-select { /*aspetto esterno*/
+	text-align: center;
+   /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+   height: 29px;
+   overflow: hidden;
+   width: 100%;
+   border-color: #CCC;
+}
+
+.styled-select select { /*aspetto interno*/
+	text-align: center;
+	font-family: 'Titillium Web', sans-serif;
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 100%;
+}
+
+.semi-square {
+   -webkit-border-radius: 6px;
+   -moz-border-radius: 6px;
+   border-radius: 6px;
+}
+
+
+.black   { background-color: rgba(0,153,255,0.8); }
+
+
+.black select   { color: #FFF; }
+
+
