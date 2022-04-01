@@ -48,7 +48,7 @@
             $spreadsheet->getActiveSheet()->SetCellValue("C".$j, $campo[$x] );
         $x  = 33;
             $spreadsheet->getActiveSheet()->SetCellValue("D".$j, $campo[$x] );
-        $x  = 33;
+        $x  = 34;
             $spreadsheet->getActiveSheet()->SetCellValue("E".$j, $campo[$x] );
         $x  = 37;
             $spreadsheet->getActiveSheet()->SetCellValue("F".$j, $campo[$x] );
@@ -57,9 +57,9 @@
             $spreadsheet->getActiveSheet()->SetCellValue("B".$j, $campo[$x] );
         $x  = 31;
             $spreadsheet->getActiveSheet()->SetCellValue("C".$j, $campo[$x] );
-        $x  = 34;
-            $spreadsheet->getActiveSheet()->SetCellValue("D".$j, $campo[$x] );
         $x  = 35;
+            $spreadsheet->getActiveSheet()->SetCellValue("D".$j, $campo[$x] );
+        $x  = 36;
             $spreadsheet->getActiveSheet()->SetCellValue("E".$j, $campo[$x] );
         $x  = 38;
             $spreadsheet->getActiveSheet()->SetCellValue("F".$j, $campo[$x] );
