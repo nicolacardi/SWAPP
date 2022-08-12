@@ -11,6 +11,19 @@
 	WHERE annoscolastico_cla = ? AND listaattesa_cla = 0 
 	ORDER BY classe_cla, sezione_cla, cognome_alu, nome_alu, ord_mese ;";
 
+
+//questa estrae la quota contarin veronica quella sopra no
+// $sql = "SELECT ID_alu_ret, nome_alu, cognome_alu, annoscolastico_ret, SUM(importo_pag) as totalePag, MONTH(data_pag), YEAR(data_pag)  
+// 	FROM ((tab_pagamenti LEFT JOIN tab_mensilirette ON ID_ret = ID_ret_pag)
+// 	LEFT JOIN tab_anagraficaalunni ON ID_alu = ID_alu_ret) 
+// 	LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla AND annoscolastico_ret = annoscolastico_cla 
+// 	WHERE annoscolastico_cla = ? 
+// 	AND (data_pag <> '0000-00-00' AND data_pag <> '1900-01-01') AND listaattesa_cla = 0 
+// 	GROUP BY ID_ret, MONTH(data_pag), YEAR(data_pag)  
+// 	ORDER BY cognome_alu, nome_alu, ord_mese ;";
+
+
+
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "s", $annoscolastico_cla);
 	mysqli_stmt_execute($stmt);

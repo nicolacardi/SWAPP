@@ -119,13 +119,29 @@
 
 <script>
 
+	let consentiRunAway = true;
+
 	$(document).ready(function(){
 		
 		ChangeAnnoScolastico();
 		copyToHiddenAndSetSession();
 		aggiornaComboMaestri();  //Attenzione: si porta dietro anche 	<input id="hidden_ID_mae" type="text" value ='<?//=$_SESSION['ID_mae'];?>' hidden>
 		//requery();
+
+
+		window.onbeforeunload = function(e) {
+			if (!consentiRunAway) {
+				return "ALERT"
+
+			}
+		}
+
+
 	});
+
+
+
+
 	
 	function aggiornaComboMaestri() {
 		annoscolastico_cma = $( "#selectannoscolastico option:selected" ).val();

@@ -179,16 +179,23 @@
         
         $pdf->SetFillColor(255,255,0);
         $pdf->SetFont('TitilliumWeb-SemiBold','',10);
-        if ($ckmensa_alu == -1) {
-            $pdf->Cell(60,4,"",0,0);
-            $pdf->Cell(10,4,"NON",0,0,'R', True);
-            $pdf->Cell(120,4," AVVALERSI DEL SERVIZIO MENSA",0,1,'L');
+        if ($blank){
+            $pdf->Cell(0,4,
+            $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY(),5)."       AVVALERSI DEL SERVIZIO MENSA".
+            $pdf->Image($imgsquare,$pdf->GetX()+94, $pdf->GetY(),5)."                                                        NON AVVALERSI DEL SERVIZIO MENSA"
+            ,0,1,'L');
         } else {
-            $pdf->Cell(0,4," AVVALERSI DEL SERVIZIO MENSA",0,1,'C');
+            if ($ckmensa_alu == -1) {
+                $pdf->Cell(60,4,"",0,0);
+                $pdf->Cell(10,4,"NON",0,0,'R', True);
+                $pdf->Cell(120,4," AVVALERSI DEL SERVIZIO MENSA",0,1,'L');
+            } else {
+                $pdf->Cell(0,4," AVVALERSI DEL SERVIZIO MENSA",0,1,'C');
+            }
         }
         $pdf->SetFont($fontdefault,'',8);
 	    $pdf->SetFillColor(220,220,220);
-
+        $pdf->Ln(1);
         $testo="Tale indirizzo, espresso all'atto dell'iscrizione ha effetto per l'intero anno scolastico cui si riferisce.";
         $testo = utf8_decode($testo);
         $pdf->MultiCell(0,3.6,$testo);

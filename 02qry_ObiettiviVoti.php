@@ -76,7 +76,7 @@ $Hriga = '44px';
                     <textarea class="w100" style="min-height: 46px; resize: vertical;" readonly><?=$desc_obd?></textarea>
                 </td>
                 <td>
-                <select id ="vot<?=$quad?>_clo<?=$n_obiettivo?>" class="votcellgiu" style="height:<?=$Hriga?>; font-size: <?=$fontS?>px;">
+                <select id ="vot<?=$quad?>_clo<?=$n_obiettivo?>" class="votcellgiu" style="height:<?=$Hriga?>; font-size: <?=$fontS?>px;" >
                     <?for ($x = 1; $x <= $CODtipovotoN; $x++) {?>
                         <option value="<?=$CODtipovoto[$x]?>" 
                             <? if($vot_clo==$CODtipovoto[$x]) {echo ('selected');} ?>><?=$DESCtipovoto[$x]?></option>

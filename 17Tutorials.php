@@ -90,6 +90,19 @@
 								Impostazione e Gestione <br> della DAD
 							</td>
 						</tr>
+						<tr style="margin-top: 10px; border-top:1px solid black; text-align: center; font-size: 16px; color: #3c3c3c; " >
+							<td style="margin-left: 30px; padding-top:10px;">
+								<video width="320" height="180" controls>
+								<source style="margin-left: 30px;" src="assets/tutorials/iscrizioni2.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+								</video>
+								<br>
+								Iscrizioni <br> all'anno successivo
+							</td>
+							<td style="margin-left: 30px; padding-top:10px;">
+								
+							</td>
+						</tr>
 					</table>
 				</div>
 			</div>

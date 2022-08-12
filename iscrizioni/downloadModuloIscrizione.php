@@ -1693,12 +1693,18 @@ $h1 = 6;
 
 	//privacy1 ****************************************************************************************************************************************
 	$pdf->SetFont($fontdefault,'',11);
-	if ($ckprivacy1_alu == 1) {
-		$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+
+	if ($blank) { //caso modulo BLANK
+		$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
 		$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
 	} else {
-		$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
-		$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		if ($ckprivacy1_alu == 1) {
+			$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+			$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		} else {
+			$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+			$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		}
 	}
 	$pdf->Ln(8);
 	$pdf->Cell(0,5,utf8_decode("al trattamento dei dati personali al fine di permettere di gestire le attività di istruzione"),0,1,"C");
@@ -1721,12 +1727,17 @@ $h1 = 6;
 	$pdf->Ln(5);
 	//privacy2 ****************************************************************************************************************************************
 	$pdf->SetFont($fontdefault,'',11);
-	if ($ckprivacy2_alu == 1) {
-		$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+	if ($blank) { //caso modulo BLANK
+		$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
 		$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
 	} else {
-		$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
-		$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		if ($ckprivacy2_alu == 1) {
+			$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+			$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		} else {
+			$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+			$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		}
 	}
 	$pdf->Ln(8);
 	$pdf->Cell(0,5,utf8_decode("al trattamento dei dati identificativi degli orientamenti religiosi, politici e relativi alla salute"),0,1,"C");
@@ -1744,12 +1755,17 @@ $h1 = 6;
 	$pdf->Ln(5);
 	//privacy3 ****************************************************************************************************************************************
 	$pdf->SetFont($fontdefault,'',11);
-	if ($ckprivacy2_alu == 1) {
-		$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+	if ($blank) { //caso modulo BLANK
+		$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
 		$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
 	} else {
-		$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
-		$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		if ($ckprivacy3_alu == 1) {
+			$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+			$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		} else {
+			$pdf->Cell(95,7,"Presto il consenso".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+			$pdf->Cell(95,7,"Nego il consenso".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		}
 	}
 	$pdf->Ln(8);
 	$pdf->Cell(0,5,utf8_decode("per l'invio di comunicazioni elettroniche anche tramite messaggi SMS, MMS ecc. "),0,1,"C");

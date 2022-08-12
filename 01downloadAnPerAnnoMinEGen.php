@@ -42,9 +42,9 @@
         $spreadsheet->getActiveSheet()->getStyle('A'.$j.":C".$j)
             ->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_RED);
         $j++;
-        $x  = 28;
-            $spreadsheet->getActiveSheet()->SetCellValue("B".$j, $campo[$x] );
         $x  = 29;
+            $spreadsheet->getActiveSheet()->SetCellValue("B".$j, $campo[$x] );
+        $x  = 30;
             $spreadsheet->getActiveSheet()->SetCellValue("C".$j, $campo[$x] );
         $x  = 33;
             $spreadsheet->getActiveSheet()->SetCellValue("D".$j, $campo[$x] );
@@ -53,9 +53,9 @@
         $x  = 37;
             $spreadsheet->getActiveSheet()->SetCellValue("F".$j, $campo[$x] );
         $j++;
-        $x  = 30;
-            $spreadsheet->getActiveSheet()->SetCellValue("B".$j, $campo[$x] );
         $x  = 31;
+            $spreadsheet->getActiveSheet()->SetCellValue("B".$j, $campo[$x] );
+        $x  = 32;
             $spreadsheet->getActiveSheet()->SetCellValue("C".$j, $campo[$x] );
         $x  = 35;
             $spreadsheet->getActiveSheet()->SetCellValue("D".$j, $campo[$x] );

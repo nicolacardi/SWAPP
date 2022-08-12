@@ -120,7 +120,7 @@ if ($aselme_cla=="EL")  {
                     </td>
                     <td>
                         <!--Commento Interno-->
-                        <textarea class="tablecell6 voti ta" id ="com1_<?=$j?>_<?=$tipopagella?>" style="margin-bottom: -3px; font-size: 12px; height:<?=$Hriga?>" rows= "2" maxlength="255"><?=$commento1_cla_det;?></textarea>
+                        <textarea class="tablecell6 voti ta" id ="com1_<?=$j?>_<?=$tipopagella?>" style="margin-bottom: -3px; font-size: 12px; height:<?=$Hriga?>" rows= "2" maxlength="255" oninput="setRunawayFalse()"><?=$commento1_cla_det;?></textarea>
                     </td>
                     <td  style="position: relative">
                         <!--Voto-->
@@ -326,6 +326,13 @@ if ($aselme_cla=="EL")  {
 	</div>
 <!--***************************************FINE FORM MODALE INSERIMENTO OBIETTIVI NELLE MATERIE **************************************************-->
 <script>
+
+    function setRunawayFalse() {
+        //ogni volta che viene digitata una lettera la variabile che impedisce la chiusura accidentale viene valorizzata a false
+        consentiRunAway = false;
+    }
+
+
     function showModalAddObiettivi(ID_mat_obi, ID_cla, quad){
 		//Mostro il form modale di inserimento degli obiettivi
 		//Attenzione: potrebbe esistere già un ID_cla oppure potrebbe essere undefined
@@ -409,7 +416,7 @@ if ($aselme_cla=="EL")  {
 
 
     function countCharGiu(idToCount) {
-
+        setRunawayFalse();
         //console.log(idToCount);
         var len = $('#'+idToCount).val().length;
         maxnchar = $('#nchar').val();

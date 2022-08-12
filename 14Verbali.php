@@ -104,7 +104,7 @@
 		</div>
 	</div>
 	<!--*******************************************MODAL FORM ADD VERBALE-->
-	<div class="modal" id="modalAddVerbale" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	<div class="modal" id="modalAddVerbale" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog" style="font-size:14px; width: 80%">
 			<div class="modal-content">
 				<div class="modal-body white">           
@@ -195,25 +195,25 @@
 							</div>
 							<hr>
 							<div class="row">
-								<div class="col-md-1" style="width: 40px; margin-left: 50px;">
+								<div class="col-md-1" style="width: 40px; margin-left: 20px;">
 								</div>
-								<div class="col-md-3" style="width: 280px;">
+								<div class="col-md-2" style="width: 280px;">
 									Argomenti trattati
 								</div>
-								<div class="col-md-3 w300px">
+								<div class="col-md-6 w600px" style="padding-left: 5px; padding-right: 5px">
 									Tematiche affrontate*
 								</div>
-								<div class="col-md-4 w300px">
+								<div class="col-md-3 w200px" style="padding-left: 5px; padding-right: 5px">
 									Decisioni assunte
 								</div>
 							</div>
 							<div id="recordsVerbaleContainer">
 							</div>
 							<div class="row">
-								<div class="col-md-1" style="width: 40px; margin-left: 50px; font-size: 9px; text-align: center; ">
+								<div class="col-md-1" style="width: 40px; margin-left: 20px; font-size: 9px; text-align: center; ">
 									nuova tematica
 								</div>
-								<div class="col-md-3" style="width: 280px; text-align: center; " id="selecttipoargomentoContainer">
+								<div class="col-md-2" style="width: 280px; text-align: center; " id="selecttipoargomentoContainer">
 									<select name="argnum_ver_new0"  style="font-size: 11px;"  id="argnum_ver_new0" onchange="MostraNascondiAltro(0);">
 										<? $sql = "SELECT numtipo_tip, desctipo_tip FROM tab_tipiargomentoverbali ORDER BY numtipo_tip";
 										$stmt = mysqli_prepare($mysqli, $sql);
@@ -225,11 +225,11 @@
 									</select>
 									<input style="width: 85%; margin-top: 5px; text-align: left; display:none;" class="tablecell5" type="text"  id="argomentoaltro_ver0" name="argomentoaltro_ver0" placeholder="...prego specificare">
 								</div>
-								<div class="col-md-3 w300px">
-									<textarea style="text-align: left; font-size: 11px; height: 60px;" class="tablecell5" id="tematiche_new"></textarea>
+								<div class="col-md-6 w600px" style="padding-left: 5px; padding-right: 5px">
+									<textarea style="text-align: left; font-size: 13px; height: 80px; resize: vertical" class="tablecell5" id="tematiche_new"></textarea>
 								</div>
-								<div class="col-md-4 w300px">
-									<textarea onkeyup="countChar(this)" style="text-align: left; font-size: 11px; height: 60px;" class="tablecell5" id="decisioni_new"></textarea>
+								<div class="col-md-3 w200px" style="padding-left: 5px; padding-right: 5px">
+									<textarea onkeyup="countChar(this)" style="text-align: left; font-size: 13px; height: 80px; resize: vertical" class="tablecell5" id="decisioni_new"></textarea>
 								</div>
 								<div id="charNum" class="charNum"></div>
 							</div>

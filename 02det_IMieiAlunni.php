@@ -625,7 +625,9 @@ while (mysqli_stmt_fetch($stmt4))
 	}
 	
 	function salvaVoti(quadrimestre, tipopagella) {
-		
+		//ogni volta che viene salvata la pagella viene resettata la variabile che impedisce la chiusura accidentale valorizzandola a true
+		consentiRunAway = true;
+
 		//questa funzione viene attribuita al pulsante btn_OKSalvaPagella del form modale che compare cliccando sul pulsante Salva Voti 1^ o 2^ Quadr.
 		//gli vengono passati due parametri, uno è il quadrimestre, l'altro il tipo di pagella
 		let ID_alu_cla = $('#hidden_ID_alu').val();
@@ -960,6 +962,8 @@ while (mysqli_stmt_fetch($stmt4))
 	function modificaincorso(ID) {
 		//questa routine modifica il colore del background della casella a discesa
 	//	console.log (ID);
+
+		setRunawayFalse();
 		if (document.getElementById(ID).value == "") { document.getElementById(ID).style.backgroundColor = "#f4f4f4";} else {document.getElementById(ID).style.backgroundColor = "white"; }		
 	}
 	

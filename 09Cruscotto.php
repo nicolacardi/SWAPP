@@ -30,7 +30,11 @@
 			<input class="ml50" id="data_limite_re_hidden" 	value = "<?=$_SESSION['data_limite_re']?>" 		hidden>
 			<input class="ml50" id="primo_giorno_re_hidden" value = "<?=$_SESSION['primo_giorno_re']?>" 	hidden>
 			<input class="ml50" id="nido" 					value = "<?=$_SESSION['nido']?>" 				hidden>
+			<input class="ml50" id="materna" 				value = "<?=$_SESSION['materna']?>" 			hidden>
+			<input class="ml50" id="elementari" 			value = "<?=$_SESSION['elementari']?>" 			hidden>
+			<input class="ml50" id="medie" 					value = "<?=$_SESSION['medie']?>" 				hidden>
 			<input class="ml50" id="superiori" 				value = "<?=$_SESSION['superiori']?>" 			hidden>
+
 
 			<div class="frameTopCenter" style="padding-left: 20px;">
 				<div class="row mt5">
@@ -186,7 +190,7 @@
 	function requery(){
 
 
-		//console.log("09Cruscotto.php: entro in requery");
+		console.log("09Cruscotto.php: entro in requery");
 		var viewportWidth = $(window).width();
 		if (viewportWidth < 1280) { hide = '; display:none;'; } else { hide = ""; }
 		
@@ -247,9 +251,9 @@
 				//console.log("09Cruscotto.php: role_usr"+ role_usr);
 				for (i = 0; i < (numeroClassi+1); i++) {
 					// console.log("09Cruscotto.php: nomeClasse + nomeSezione ("+i+")");
-					// console.log(nomeClasse[i]+nomeSezione[i]);
+						console.log(nomeClasse[i]+nomeSezione[i]);
 					// console.log("09Cruscotto.php: numeroAlunni("+i+")");
-					// console.log(numeroAlunni[i]);
+					 console.log(numeroAlunni[i]);
 					// console.log("09Cruscotto.php: numeroAlunniPrima("+i+")");
 					// console.log(numeroAlunniPrima[i]);
 					// console.log("-------------------------------------------");
@@ -300,13 +304,16 @@
 				if ($('#nido').val() == 'si') {
 					$('#tabellaAlunniCruscotto tr:last').after("<tr style='font-weight: bold; color: black'><td style='text-align: left;'>TOT NIDO</td><td style='text-align: center;'>"+TotAlunniNI+"</td><td style='text-align: center;'>"+TotAlunniMaschiNI+"</td><td style='text-align: center;'>"+TotAlunniFemmineNI+"</td><td style='text-align: center;'>-</td><td style='text-align: center;'>-</td><td style='text-align: center;"+hide+"'>-</td><td><button onclick=\"postToAnagraficaPerAnno('"+listaattesa+"', '"+annoscolastico+"', 'NI', '', '');\"><img style='width: 16px; cursor: pointer' src='assets/img/Icone/search-plus-solid.svg'></button></td></tr>");
 				}
-				$('#tabellaAlunniCruscotto tr:last').after("<tr style='font-weight: bold; color: black'><td style='text-align: left;'>TOT MATERNA</td><td style='text-align: center;'>"+TotAlunniAS+"</td><td style='text-align: center;'>"+TotAlunniMaschiAS+"</td><td style='text-align: center;'>"+TotAlunniFemmineAS+"</td><td style='text-align: center;'>"+TotAlunniPrima+"</td><td style='text-align: center;'>"+TotAlunniAnnoRe+"</td><td style='text-align: center;"+hide+"'>"+TotAlunniPrima_2+"</td><td><button  onclick=\"postToAnagraficaPerAnno('"+listaattesa+"', '"+annoscolastico+"', 'AS', '', '');\"><img style='width: 16px; cursor: pointer' src='assets/img/Icone/search-plus-solid.svg'></button></td></tr>");
-				
-				$('#tabellaAlunniCruscotto tr:last').after("<tr style='font-weight: bold; color: black'><td style='text-align: left;'>TOT PRIMARIA</td><td style='text-align: center;'>"+TotAlunniEL+"</td><td style='text-align: center;'>"+TotAlunniMaschiEL+"</td><td style='text-align: center;'>"+TotAlunniFemmineEL+"</td><td style='text-align: center;'>-</td><td style='text-align: center;'>-</td><td style='text-align: center;"+hide+"'>-</td><td><button  onclick=\"postToAnagraficaPerAnno('"+listaattesa+"', '"+annoscolastico+"', 'EL', '', '');\"><img style='width: 16px; cursor: pointer' src='assets/img/Icone/search-plus-solid.svg'></button></td></tr>");
-				
-				$('#tabellaAlunniCruscotto tr:last').after("<tr style='font-weight: bold; color: black'><td style='text-align: left;'>TOT MEDIE</td><td style='text-align: center;'>"+TotAlunniME+"</td><td style='text-align: center;'>"+TotAlunniMaschiME+"</td><td style='text-align: center;'>"+TotAlunniFemmineME+"</td><td style='text-align: center;'>-</td><td style='text-align: center;'>-</td><td style='text-align: center;"+hide+"'>-</td><td><button  onclick=\"postToAnagraficaPerAnno('"+listaattesa+"', '"+annoscolastico+"', 'ME', '', '');\"><img style='width: 16px; cursor: pointer' src='assets/img/Icone/search-plus-solid.svg'></button></td></tr>");
-				
-				if ($('#superiori').val() == 'si') {
+				if ($('#materna').val() == 1) {
+					$('#tabellaAlunniCruscotto tr:last').after("<tr style='font-weight: bold; color: black'><td style='text-align: left;'>TOT MATERNA</td><td style='text-align: center;'>"+TotAlunniAS+"</td><td style='text-align: center;'>"+TotAlunniMaschiAS+"</td><td style='text-align: center;'>"+TotAlunniFemmineAS+"</td><td style='text-align: center;'>"+TotAlunniPrima+"</td><td style='text-align: center;'>"+TotAlunniAnnoRe+"</td><td style='text-align: center;"+hide+"'>"+TotAlunniPrima_2+"</td><td><button  onclick=\"postToAnagraficaPerAnno('"+listaattesa+"', '"+annoscolastico+"', 'AS', '', '');\"><img style='width: 16px; cursor: pointer' src='assets/img/Icone/search-plus-solid.svg'></button></td></tr>");
+				}
+				if ($('#elementari').val() == 1) {
+					$('#tabellaAlunniCruscotto tr:last').after("<tr style='font-weight: bold; color: black'><td style='text-align: left;'>TOT PRIMARIA</td><td style='text-align: center;'>"+TotAlunniEL+"</td><td style='text-align: center;'>"+TotAlunniMaschiEL+"</td><td style='text-align: center;'>"+TotAlunniFemmineEL+"</td><td style='text-align: center;'>-</td><td style='text-align: center;'>-</td><td style='text-align: center;"+hide+"'>-</td><td><button  onclick=\"postToAnagraficaPerAnno('"+listaattesa+"', '"+annoscolastico+"', 'EL', '', '');\"><img style='width: 16px; cursor: pointer' src='assets/img/Icone/search-plus-solid.svg'></button></td></tr>");
+				}
+				if ($('#medie').val() == 1) {
+					$('#tabellaAlunniCruscotto tr:last').after("<tr style='font-weight: bold; color: black'><td style='text-align: left;'>TOT MEDIE</td><td style='text-align: center;'>"+TotAlunniME+"</td><td style='text-align: center;'>"+TotAlunniMaschiME+"</td><td style='text-align: center;'>"+TotAlunniFemmineME+"</td><td style='text-align: center;'>-</td><td style='text-align: center;'>-</td><td style='text-align: center;"+hide+"'>-</td><td><button  onclick=\"postToAnagraficaPerAnno('"+listaattesa+"', '"+annoscolastico+"', 'ME', '', '');\"><img style='width: 16px; cursor: pointer' src='assets/img/Icone/search-plus-solid.svg'></button></td></tr>");
+				}
+				if ($('#superiori').val() == 1) {
 					$('#tabellaAlunniCruscotto tr:last').after("<tr style='font-weight: bold; color: black'><td style='text-align: left;'>TOT SUPERIORI</td><td style='text-align: center;'>"+TotAlunniSU+"</td><td style='text-align: center;'>"+TotAlunniMaschiSU+"</td><td style='text-align: center;'>"+TotAlunniFemmineSU+"</td><td style='text-align: center;'>-</td><td style='text-align: center;'>-</td><td style='text-align: center;"+hide+"'>-</td><td><button  onclick=\"postToAnagraficaPerAnno('"+listaattesa+"', '"+annoscolastico+"', 'SU', '', '');\"><img style='width: 16px; cursor: pointer' src='assets/img/Icone/search-plus-solid.svg'></button></td></tr>");
 				}
 				
