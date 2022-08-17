@@ -258,7 +258,7 @@
 			<div class="row" style="text-align: justify; margin-left: 2px; margin-right: 2px; font-size: 14px; line-height: 2">
 				<div class="col-md-6 col-md-offset-3">
 					<br>
-					Al fine dell’ammissione del/i proprio/i figlio/i alla Scuola i genitori dichiarano inoltre:
+					Al fine dell’ammissione del/i proprio/i figlio/i i genitori dichiarano inoltre:
 					<br>
 					<?if ($ISC_mostra_allegatoA == 1) {?>
 						<div class="col-md-12 col-sm-12" >
@@ -267,7 +267,7 @@
 					<?}?>
 
 					<div class="col-md-12 col-sm-12" >
-						<span style="padding-left: 2px; padding-right: 2px;" id="blockckpresavisione7"><input type="checkbox" class="presavisione" id="ckpresavisione7" name="ckpresavisione7" <?if ($ckpresavisione7_fam == 1) {echo "checked";}?>></span> che hanno preso visione del <a href="<?=$linkPTOF?>"  target="_blank">PTOF</a> della scuola
+						<span style="padding-left: 2px; padding-right: 2px;" id="blockckpresavisione7"><input type="checkbox" class="presavisione" id="ckpresavisione7" name="ckpresavisione7" <?if ($ckpresavisione7_fam == 1) {echo "checked";}?>></span> che hanno preso visione del <a href="<?=$linkPTOF?>"  target="_blank"><?=$POF_PTOF_PSD?></a>
 					</div>
 					
 					<?if ($ISC_mostra_regolinterno == 1) {?>
@@ -283,11 +283,11 @@
 					<?}?>
 					<?if ($ISC_mostra_dietespeciali == 1) {?>
 						<div class="col-md-12 col-sm-12">
-							<span style="padding-left: 2px; padding-right: 2px;" id="blockckpresavisione4"><input type="checkbox" class="presavisione" id="ckpresavisione4" name="ckpresavisione5" <?if ($ckpresavisione4_fam == 1) {echo "checked";}?>></span> che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da allergie, intolleranze o patologie che richiedano diete speciali ne daranno tempestiva comunicazione alla segreteria della Scuola tramite la compilazione del <a href="downloadAllegato.php?nomeallegato=E"  target="_blank">MODULO DI RICHIESTA DIETE SPECIALI</a> (corredato da certificato medico specialistico)
+							<span style="padding-left: 2px; padding-right: 2px;" id="blockckpresavisione4"><input type="checkbox" class="presavisione" id="ckpresavisione4" name="ckpresavisione5" <?if ($ckpresavisione4_fam == 1) {echo "checked";}?>></span> che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da allergie, intolleranze o patologie che richiedano diete speciali ne daranno tempestiva comunicazione alla segreteria tramite la compilazione del <a href="downloadAllegato.php?nomeallegato=E"  target="_blank">MODULO DI RICHIESTA DIETE SPECIALI</a> (corredato da certificato medico specialistico)
 						</div>
 					<?} else  {?>
 						<div class="col-md-12 col-sm-12">
-							<span style="padding-left: 2px; padding-right: 2px;" id="blockckpresavisione4"><input type="checkbox" class="presavisione" id="ckpresavisione4" name="ckpresavisione5" <?if ($ckpresavisione4_fam == 1) {echo "checked";}?>></span> che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da allergie ad alimenti, farmaci, insetti, metalli o altro ne daranno tempestiva comunicazione alla segreteria della Scuola allegando certificato medico specialistico
+							<span style="padding-left: 2px; padding-right: 2px;" id="blockckpresavisione4"><input type="checkbox" class="presavisione" id="ckpresavisione4" name="ckpresavisione5" <?if ($ckpresavisione4_fam == 1) {echo "checked";}?>></span> che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da allergie ad alimenti, farmaci, insetti, metalli o altro ne daranno tempestiva comunicazione alla segreteria allegando certificato medico specialistico
 						</div>
 					<?}?> 
 					<div class="col-md-12 col-sm-12">

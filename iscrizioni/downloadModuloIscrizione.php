@@ -1,21 +1,24 @@
 <?
 include_once("../database/databaseBii.php");
 
-$annoiscrizioni = 				$_SESSION['anno_iscrizioni'];
-$ISC_include_SDD = 				$_SESSION['ISC_include_SDD'];
-$ISC_mostra_sociovolontario=	$_SESSION['ISC_mostra_sociovolontario'];
-$ISC_mostra_sceltareligione=	$_SESSION['ISC_mostra_sceltareligione'];
-$ISC_mostra_regolpediatrico=	$_SESSION['ISC_mostra_regolpediatrico'];
-$ISC_mostra_religione=			$_SESSION['ISC_mostra_religione'];
-$ISC_mostra_regolinterno=		$_SESSION['ISC_mostra_regolinterno'];
-$ISC_mostra_dietespeciali=		$_SESSION['ISC_mostra_dietespeciali'];
-$ISC_mostra_trasportopubblico=	$_SESSION['ISC_mostra_trasportopubblico'];
-$ISC_mostra_mensa=				$_SESSION['ISC_mostra_mensa'];
-$ISC_mostra_firmaunica=			$_SESSION['ISC_mostra_firmaunica'];
-$ISC_mostra_intestazionefatt = 	$_SESSION['ISC_mostra_intestazionefatt'];
-$ISC_mostra_carpooling = 		$_SESSION['ISC_mostra_carpooling'];
-$ISC_mostra_tipopag =	 		$_SESSION['ISC_mostra_tipopag'];
-$ISC_mostra_soci =				$_SESSION['ISC_mostra_soci'];
+$annoiscrizioni = 					$_SESSION['anno_iscrizioni'];
+$ISC_include_SDD = 					$_SESSION['ISC_include_SDD'];
+$ISC_mostra_sociovolontario=		$_SESSION['ISC_mostra_sociovolontario'];
+$ISC_mostra_sceltareligione=		$_SESSION['ISC_mostra_sceltareligione'];
+$ISC_mostra_regolpediatrico=		$_SESSION['ISC_mostra_regolpediatrico'];
+$ISC_mostra_regolinterno=			$_SESSION['ISC_mostra_regolinterno'];
+$ISC_mostra_dietespeciali=			$_SESSION['ISC_mostra_dietespeciali'];
+$ISC_mostra_trasportopubblico=		$_SESSION['ISC_mostra_trasportopubblico'];
+$ISC_mostra_mensa=					$_SESSION['ISC_mostra_mensa'];
+$ISC_mostra_firmaunica=				$_SESSION['ISC_mostra_firmaunica'];
+$ISC_mostra_intestazionefatt = 		$_SESSION['ISC_mostra_intestazionefatt'];
+$ISC_mostra_carpooling = 			$_SESSION['ISC_mostra_carpooling'];
+$ISC_mostra_tipopag =	 			$_SESSION['ISC_mostra_tipopag'];
+$ISC_mostra_soci =					$_SESSION['ISC_mostra_soci'];
+$ISC_mostra_quotaiscrizione =		$_SESSION['ISC_mostra_quotaiscrizione'];
+$ISC_mostracinquepermille =			$_SESSION['ISC_mostracinquepermille'];
+$ISC_mostra_premesso_che_lo_stato =	$_SESSION['ISC_mostra_premesso_che_lo_stato'];
+
 
 //ISC_mostra_uscitaautonoma viene settato più avanti quando si conosce anche il valore di classe_cla
 
@@ -325,9 +328,9 @@ $h1 = 6;
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_bind_result($stmt, $ID_alu, $mf_alu, $nome_alu, $cognome_alu, $datanascita_alu, $comunenascita_alu, $provnascita_alu, $paesenascita_alu, $cittadinanza_alu, $cf_alu, $indirizzo_alu, $citta_alu, $CAP_alu, $prov_alu, $paese_alu, $disabilita_alu, $DSA_alu, $ckprivacy1_alu, $ckprivacy2_alu, $ckprivacy3_alu, $ckautfoto_alu, $ckautmateriale_alu, $ckautuscite_alu, $ckautuscitaautonoma_alu, $ckdoposcuola_alu, $ckreligione_alu, $altreligione_alu, $ckmensa_alu, $cktrasportopubblico_alu, $scuolaprovenienza_alu, $indirizzoscproven_alu, $classe_cla );
 	$nn = 0;
-	$classi = array("ASILO"=>"SCUOLA MATERNA", "I"=>"classe PRIMA ELEMENTARE", "II"=>"classe SECONDA ELEMENTARE", "III"=>"classe TERZA ELEMENTARE", "IV"=>"classe QUARTA ELEMENTARE", "V"=>"classe QUINTA ELEMENTARE", "VI"=>"classe PRIMA MEDIA (VI)", "VII"=>"classe SECONDA MEDIA (VII)", "VIII"=>"classe TERZA MEDIA (VIII)", "NIDO"=>"ASILO NIDO");
-	$classiV = array("ASILO"=>"<5", "I"=>"<5", "II"=>"<5", "III"=>"<5", "IV"=>"<5", "V"=>">5", "VI"=>">5", "VII"=>">5", "VIII"=>">5", "NIDO"=>"<5");
-	$classiI_IV = array("ASILO"=>"0", "I"=>"1", "II"=>"1", "III"=>"1", "IV"=>"1", "V"=>"0", "VI"=>"0", "VII"=>"0", "VIII"=>"0", "NIDO"=>"0");
+	$classi = array("ASILO"=>"la SCUOLA MATERNA", "I"=>"la classe PRIMA ELEMENTARE", "II"=>"la classe SECONDA ELEMENTARE", "III"=>"la classe TERZA ELEMENTARE", "IV"=>"la classe QUARTA ELEMENTARE", "V"=>"la classe QUINTA ELEMENTARE", "VI"=>"la classe PRIMA MEDIA (VI)", "VII"=>"la classe SECONDA MEDIA (VII)", "VIII"=>"la classe TERZA MEDIA (VIII)", "NIDO"=>"l' ASILO NIDO", "IX"=>" programma di supporto alla didattica per la classe PRIMA SUPERIORE", "X"=>" programma di supporto alla didattica per la classe SECONDA superiore", "XI"=>"programma di supporto alla didattica per la classe TERZA superiore", "XII"=>"programma di supporto alla didattica per la classe QUARTA superiore", "XIII"=>"programma di supporto alla didattica per la classe QUINTA superiore");
+	$classiV = array("ASILO"=>"<5", "I"=>"<5", "II"=>"<5", "III"=>"<5", "IV"=>"<5", "V"=>">5", "VI"=>">5", "VII"=>">5", "VIII"=>">5", "IX"=>">5", "X"=>">5","XI"=>">5","XII"=>">5","XIII"=>">5","NIDO"=>"<5");
+	$classiI_IV = array("ASILO"=>"0", "I"=>"1", "II"=>"1", "III"=>"1", "IV"=>"1", "V"=>"0", "VI"=>"0", "VII"=>"0", "VIII"=>"0", "IX"=>"0", "X"=>"0", "XI"=>"0", "XII"=>"0", "XIII"=>"0", "NIDO"=>"0");
 
 
 	while (mysqli_stmt_fetch($stmt)) {
@@ -385,7 +388,7 @@ $h1 = 6;
 	$MF = array("M"=>"o figlio", "F"=>"a figlia");
 	$tipiquota = array("0"=>"Completa", "1"=>"Ridotta", "2"=>"Minima"); //usato solo da "CI"
 	$modalitapag = array("0"=>$modalitaPagSDD, "1"=>$modalitaPagBonifico, "2"=>"in contanti.", "3"=>"con modalità da concordare con l'amministrazione");  //usato solo da "CI"
-	$classi = array("ASILO"=>"MATERNA", "I"=>"PRIMA ELEMENTARE", "II"=>"SECONDA ELEMENTARE", "III"=>"TERZA ELEMENTARE", "IV"=>"QUARTA ELEMENTARE", "V"=>"QUINTA ELEMENTARE", "VI"=>"PRIMA MEDIA (VI)", "VII"=>"SECONDA MEDIA (VII)", "VIII"=>"TERZA MEDIA (VIII)", "NIDO"=>"ASILO NIDO");			
+	$classi = array("ASILO"=>"MATERNA", "I"=>"PRIMA ELEMENTARE", "II"=>"SECONDA ELEMENTARE", "III"=>"TERZA ELEMENTARE", "IV"=>"QUARTA ELEMENTARE", "V"=>"QUINTA ELEMENTARE", "VI"=>"PRIMA MEDIA (VI)", "VII"=>"SECONDA MEDIA (VII)", "VIII"=>"TERZA MEDIA (VIII)", "IX"=>"I Sup.", "X"=>"II Sup.", "XI"=>"III Sup.", "XII"=>"IV Sup.", "XIII"=>"V Sup.", "NIDO"=>"ASILO NIDO");			
 
 	//preparo l'elenco di nomi e cognomi dei figli, onde costruire la variabile $nomi
 	$sql = "SELECT nome_alu, cognome_alu, classe_cla FROM (tab_anagraficaalunni JOIN tab_classialunni ON ID_alu = ID_alu_cla) JOIN tab_famiglie ON ID_fam_alu = ID_fam WHERE ID_fam_alu= ? AND noniscritto_alu = 0 ORDER BY datanascita_alu ASC";
@@ -426,6 +429,281 @@ $h1 = 6;
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_bind_result($stmt, $ID_alu, $mf_alu, $nome_alu, $cognome_alu, $classe_cla, $quotapromessa_alu, $quotaconcordata_alu, $tipoquota_alu, $ratepromesse_fam, $quotacontraggiuntivo_fam, $ratecontraggiuntivo_fam, $pulizie_fam, $richcolloquio_fam, $intestazionefatt_fam, $modalitapag_fam);
 	//fine preparazione stmt
+
+//PAGINE CONTRATTO ARCA ********************************************************************************************
+
+if ($codscuola =='AR') {
+	$pdf->AddPage();
+
+
+	//I sottoscritti...
+	$pdf->SetFont('TitilliumWeb-SemiBold','',16);
+	$pdf->Cell(0,10,$titolocontratto, 0,1, 'C');
+	$pdf->SetFont($fontdefault,'',11);
+
+	$pdf->Ln(2);
+	$testo="Con la presente scrittura privata, tra le parti:";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(2);
+	$testo="- <b>Societa' Cooperativa Sociale ARCA Educazione</b>, con sede in Padova, via T. Aspetti 248, di seguito 'ARCA Educazione' e";
+	$testo = utf8_decode($testo);
+	$pdf->WriteHTML($testo);
+
+	$pdf->Ln(8);
+	$testo="- Il Sig. <b>".strtoupper($cognomepadre_fam). " ".strtoupper($nomepadre_fam)."</b>, codice fiscale ". $cfpadre_fam ." nato il ". $datanascitapadre_fam." a ".$comunenascitapadre_fam." (".$provnascitapadre_fam."), residente a ". $comunepadre_fam." (".$provpadre_fam.")- ".$indirizzopadre_fam."<br>e la Sig.ra <b>".strtoupper($cognomemadre_fam). " ".strtoupper($nomemadre_fam). "</b>, codice fiscale ". $cfmadre_fam." nata il ". $datanascitamadre_fam." a ".$comunenascitamadre_fam." (".$provnascitamadre_fam."), residente a ". $comunemadre_fam." (".$provmadre_fam.") - ".$indirizzomadre_fam.", <br>genitori/esercenti la responsabilita' genitoriale di:".$nomi.".";  //utilizzo di $nomi
+
+	if ($blank) {
+		$testo="- Il Sig. __________________________, codice fiscale ____________________ nato il ___________ a __________________________ (___), residente a ________________________________ (___) Via/piazza_____________________________________________________________________<br> - e la Sig.ra ______________________, codice fiscale ____________________ nata il ___________ a __________________________ (___), residente a ________________________________ (___) Via/piazza_____________________________________________________________________ <br><b>genitori/esercenti la responsabilità genitoriale di<b>: ___________________________________________<br>";  //utilizzo di $nomi
+	}
+	$testo = utf8_decode($testo);
+	$pdf->WriteHTML($testo);
+
+	//$pdf->WriteHTML($testo);
+
+	//PREMESSO CHE...
+	$pdf->Ln(4);
+	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
+	$pdf->Cell(0,8,"PREMESSO CHE", 0,1, 'C');
+	$pdf->SetFont($fontdefault,'',11);
+
+	$pdf->Ln(4);
+	$testo="-	ARCA Educazione gestisce un programma di supporto alla didattica per ragazzi delle Scuole Superiori in istruzione parentale;";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="-	ARCA Educazione si finanzia in massima parte con contributi e donazioni delle famiglie; la puntualita' e regolarita' nei pagamenti sono necessari per la copertura delle spese del personale e per il buon funzionamento del progetto;";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="-	nell'economia di ARCA Educazione la solidarietà della comunità dei genitori rappresenta un presupposto irrinunciabile;";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSDext." (disponibili in segreteria o scaricabili dal sito www.arcascuola.it);<br>";
+	$testo = utf8_decode($testo);
+	$pdf->WriteHTML($testo);
+	if ($ISC_mostra_regolinterno ==1) {
+		$pdf->Ln(4);
+		$testo="-	si è presa visione e si condivide il Regolamento Interno (<a href='downloadAllegato.php?nomeallegato=B_".$codscuola."'>Allegato B</a>);<br>";
+		$testo = utf8_decode($testo);
+		$pdf->WriteHTML($testo);
+	}
+	if ($ISC_mostra_regolpediatrico ==1) {
+		$pdf->Ln(4);
+		$testo="-	si è presa visione e si condivide il Regolamento Pediatrico (<a href='downloadAllegato.php?nomeallegato=C_AR'>Allegato C</a>);<br>";
+		$testo = utf8_decode($testo);
+		$pdf->WriteHTML($testo);
+	}
+	$pdf->Ln(4);
+	$testo="-	l'ammissione al progetto è subordinato al parere del Collegio Docenti e del Consiglio di Amministrazione;";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="-	si dichiara di aver presentato domanda di iscrizione per l'anno scolastico ".$annoscolastico." obbligandosi, in caso di accettazione della medesima domanda da parte di ARCA Educazioe, a sottoscrivere il presente contratto;
+	";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	//TUTTO CIO'PREMESSO...
+	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
+	$pdf->Cell(0,8,"TUTTO CIO' PREMESSO SI CONVIENE E SI STIPULA QUANTO SEGUE", 0,1, 'C');
+	$pdf->SetFont($fontdefault,'',11);
+
+	$pdf->Ln(4);
+	$testo="art.1)	Le premesse e gli allegati richiamati sono parte integrante e sostanziale del presente atto;";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="art.2)	ARCA Educazione si obbliga nei confronti dell'altra parte contraente a fornire le prestazioni formative previste dal Programma di supporto alla didattica;";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 245/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	//-------
+
+	$pdf->AddPage();
+
+	$testo= "art.4)	I genitori/tutori/esercenti la responsabilità genitoriale si obbligano in solido a corrispondere ad ARCA Educazione per l'anno scolastico ".$annoscolastico.", una quota annua a titolo di  CONTRIBUTO MINIMO così definito (vedi <a href='downloadAllegato.php?nomeallegato=D_".$codscuola."'>Allegato D</a>):
+	";
+	$testo = utf8_decode($testo);
+	$pdf->WriteHTML($testo);
+
+
+	$pdf->Ln(10);
+	$pdf->SetFont($fontdefault,'',11);
+	$n = 0;
+	$totquotapromessa = 0;
+
+	//TABELLINA********
+	$pdf->Cell(75,5,"NOME e COGNOME","LTR",0,'C');
+	$pdf->Cell(40,5,"# figlio","LTR",0,'C');
+	$pdf->Cell(45,5,"Iscrizione alla classe","LTR",0,'C');
+	$pdf->Cell(30,5,"Quota annua","LTR",1,'C');
+	$pdf->Cell(75,5,"","LBR",0,'L');
+	$pdf->Cell(40,5,"","LBR",0,'L');
+	$pdf->Cell(45,5,"","LBR",0,'L');
+	$pdf->Cell(30,5,"(euro)","LBR",1,'C');
+	while (mysqli_stmt_fetch($stmt)) {
+		$totquotapromessa = $totquotapromessa + intval($quotapromessa_alu);
+		$n++;
+		$pdf->Cell(75,8,$nome_alu." ".$cognome_alu,1,0,'L');
+		$pdf->Cell(40,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
+		$pdf->Cell(45,8,$classi[$classe_cla],1,0,'L');
+		$pdf->Cell(30,8,$quotapromessa_alu,1,1,'C');
+	}
+	if ($blank) { //caso modulo BLANK
+		for ($i = 1; $i <= 4; $i++) 
+			{
+				$n++;
+				$pdf->Cell(75,8,"",1,0,'L');
+				$pdf->Cell(40,8,"",1,0,'L');
+				$pdf->Cell(45,8,"",1,0,'L');
+				$pdf->Cell(30,8,"",1,1,'C');
+			}
+	}
+	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
+	$pdf->Cell(160,10,"Totale contributo annuo",1,0,'L');
+	if ($totquotapromessa !=0) {
+		$pdf->Cell(30,10,$totquotapromessa,1,1,'C');
+	} else {
+		$pdf->Cell(30,10,"",1,1,'C');
+	}
+
+
+	/*if ($quotaconcordata_alu == 1) {
+		$testo12= "(la quota espressa è soggetta ad approvazione da parte del Cons. di Amministrazione e potrà quindi subire variazioni, da concordare con la famiglia)";
+		$testo12 = utf8_decode($testo12);
+		$pdf->SetFont($fontdefault,'',9);
+		$pdf->Cell(0,5,$testo12,0,1,"L");	
+	}*/
+
+	$testo12= "il versamento di tale quota annua avverrà in soluzione:";
+	$testo12 = utf8_decode($testo12);
+	$pdf->SetFont($fontdefault,'',11);
+	$pdf->Cell(0,10,$testo12,0,1,"L");
+
+	$unicasoluzione = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 05/09/".$anno1;
+	if ($ratepromesse_fam == 1) {
+		$unicasoluzione = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 05/09/".$anno1;
+	}
+	$pdf->Cell(0,8,$unicasoluzione,0,1,'L');
+
+	$diecirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
+	if ($ratepromesse_fam == 10) {
+		$diecirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
+	}
+	$pdf->Cell(0,8,$diecirate,0,1,'L');
+
+	//$dodicirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("     DILAZIONATA entro il giorno 5 di ciascun mese in 12 mensilità (da settembre a agosto)");
+	if ($ratepromesse_fam == 12) {
+		$dodicirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("     DILAZIONATA entro il giorno 5 di ciascun mese in 12 mensilità (da settembre a agosto)");
+		$pdf->Cell(0,8,$dodicirate,0,1,'L');
+	}
+
+
+	$pdf->Ln(4);
+	$testo="art.5)	I genitori/tutori/esercenti la responsabilità genitoriale si impegnano a versare a consuntivo entro il 15/06/".$anno2." l'eventuale conguaglio per le spese didattiche anticipate dalla Società Cooperativa.";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	if($quotacontraggiuntivo_fam!=0) {$frasequotacontraggiuntivo_fam = $quotacontraggiuntivo_fam;} else {$frasequotacontraggiuntivo_fam = ".....................";}
+	if($ratecontraggiuntivo_fam!=0) {$fraseratecontraggiuntivo_fam = $ratecontraggiuntivo_fam;} else {$fraseratecontraggiuntivo_fam = ".....";};
+	$testo ="I sottoscritti intendono inoltre versare un CONTRIBUTO AGGIUNTIVO di euro  ".$frasequotacontraggiuntivo_fam." versato in ".$fraseratecontraggiuntivo_fam." rate.";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+	$pdf->Ln(4);
+
+	if ($ISC_mostra_intestazionefatt ==1) {
+
+		switch ($intestazionefatt_fam) {
+			case "altro":
+				$testointestazione ="a : ....................................................................................";
+			break;
+			case "padre":
+				$testointestazione ="al padre.";
+			break;
+			case "madre":
+				$testointestazione ="alla madre.";
+			break;
+			case null:
+				$testointestazione ="a : ....................................................................................";
+			}
+		$testo= "I sottoscritti chiedono che le fatture vengano intestate <b>".$testointestazione."<b>";
+		$pdf->SetFont($fontdefault,'',11);
+		$testo = utf8_decode($testo);
+		$pdf->WriteHTML($testo);
+	}
+	$pdf->Ln(8);
+	$testo = "I contributi vanno versati entro il 5 di ogni mese sul conto";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo, 0, 'C');
+
+	$testo = "YYYYYYYYYY IBAN: ITXXXXXXXXXXXXXXXXXXXX 
+	Il contributo annuo è dovuto anche in caso di prolungata assenza o ritiro anticipato del discente.";
+
+	$testo = utf8_decode($testo);
+	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
+	$pdf->MultiCell(0,5,$testo, 0, 'C');
+	$pdf->SetFont($fontdefault,'',11);
+
+	$pdf->Ln(4);
+	$testo= "Art.6) E' riconosciuto ad ARCA Educazione il diritto di richiedere il rispetto dei tempi dei versamenti. Si precisa che il contributo non potrà essere mensilmente suddiviso tra entrambi i genitori, ma dovrà essere necessariamente versato interamente da uno dei due.";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="Art.7) Nel caso di astensione prolungata dal programma per cause non imputabili ad ARCA Educazione (malattia, impegni sportivi, studio all'estero, etc.) è fatto obbligo ai genitori di continuare a versare le quote dovute secondo quanto stabilito.";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="In caso di risoluzione del contratto e di ritiro del discente per cause non imputabili alla Soc. Cooperativa, prima dell'inizio dell'anno scolastico, si riconosce ad ARCA Educazione la facoltà di avvalersi del diritto di non restituire nessun importo già versato alla Soc. Cooperativa, e i Genitori/Tutori/esercenti la responsabilità genitoriale si obbligano a versare ad ARCA Educazione le quote relative a tre mensilità.";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="In caso di ritiro durante l'anno scolastico è prevista una riduzione della quota annuale (CONTRIBUTO MINIMO) del 50% qualora questo avvenga prima del 31 dicembre, mentre la quota annuale è interamente dovuta in caso di ritiro successivo.";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+	
+	$pdf->Ln(4);
+	$testo="Art.8) In applicazione di quanto previsto dall'art. 1456 c.c., in caso di violazione da parte dei Genitori/Tutori/esercenti la responsabilità genitoriale degli impegni contenuti nel presente contratto, ARCA Educazione potrà risolvere di diritto il presente contratto comunicando ai Genitori/Tutori/esercenti la responsabilità genitoriale l'intenzione di avvalersi della presente clausola risolutiva.";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="Art.9) Per quanto non previsto nel presente contratto, le cui clausole si intendono tutte essenziali ed inderogabili, si rinvia alle norme di legge in materia.";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+	$pdf->Ln(4);
+	$testo="Art.10) Ogni controversia inerente l'applicazione e /o l'interpretazione del presente contratto che non richieda l'intervento obbligatorio del Pubblico Ministero sarà prima sottoposta al Collegio dei Probiviri di ARCA EDUCAZIONE Cooperativa Sociale e, qualora non risolta, sarà fatta oggetto di un tentativo preliminare di mediazione presso l'organismo della Camera di Commercio di Padova. Foro competente è il foro di Padova.";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+	
+
+	//FIRMA PADRE FIRMA MADRE DATA E LUOGO AFFIANCATI
+	$pdf->Ln(8);
+	include("firmepadremadreluogo.php");
+
+	$pdf->Ln(10);
+	$pdf->Cell(60,5,"Per la Soc. Coop Sociale Arca Educazione",0,1,'C');
+	$pdf->Cell(60,5,"(Il rappresentante legale)",0,1,'C');
+	$pdf->Ln(4);
+	$pdf->Cell(60,5,"","B",1);
+}
 
 
 //PAGINE CONTRATTO PADOVA ********************************************************************************************
@@ -482,7 +760,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il PTOF e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.waldorfpadova.it);<br>";
+		$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSD." e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.waldorfpadova.it);<br>";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 		if ($ISC_mostra_regolinterno ==1) {
@@ -519,7 +797,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="art.2)	l'Ente Gestore suindicato si obbliga nei confronti dell'altra parte contraente a fornire le prestazioni scolastiche previste dal PTOF della Scuola;";
+		$testo="art.2)	l'Ente Gestore suindicato si obbliga nei confronti dell'altra parte contraente a fornire le prestazioni scolastiche previste dal ".$POF_PTOF_PSD." della Scuola;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -1057,7 +1335,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il PTOF e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.scuolawaldorfverona.it);<br>";
+		$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSD." e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.scuolawaldorfverona.it);<br>";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 		if ($ISC_mostra_regolinterno ==1) {
@@ -1478,20 +1756,20 @@ $h1 = 6;
 	$pdf->Cell(0,10,"DICHIARAZIONI", 0,1, 'C');
 	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Ln(1);
-	if ($ISC_mostra_religione == 0) {
-		$testo="Premesso che lo Stato assicura l'insegnamento della religione cattolica nelle scuole di ogni ordine e grado in conformità all'accordo che apporta modifiche al Concordato Lateranense (art. 9.2), il presente modulo costituisce richiesta dell'autorità scolastica in ordine all'esercizio del diritto di scegliere se avvalersi o non avvalersi dell'insegnamento della religione cattolica. I sottoscritti prendono atto che il Piano Triennale dell'Offerta Formativa, accettato all'atto della presente iscrizione, attualmente non prevede l'insegnamento specifico della religione intesa come materia curriculare che viene perciò sostituita da attività didattiche formative.";
+	if ($ISC_mostra_sceltareligione == 0 && $ISC_mostra_premesso_che_lo_stato != 0) {
+		$testo="Premesso che lo Stato assicura l'insegnamento della religione cattolica nelle scuole di ogni ordine e grado in conformità all'accordo che apporta modifiche al Concordato Lateranense (art. 9.2), il presente modulo costituisce richiesta dell'autorità scolastica in ordine all'esercizio del diritto di scegliere se avvalersi o non avvalersi dell'insegnamento della religione cattolica. I sottoscritti prendono atto che il ".$POF_PTOF_PSDext.", accettato all'atto della presente iscrizione, attualmente non prevede l'insegnamento specifico della religione intesa come materia curriculare che viene perciò sostituita da attività didattiche formative.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,4.3,$testo);
 		$pdf->Ln(2);
 	}
 
 	$pdf->SetFont($fontdefault,'',10);
-	$testo="Al fine dell'ammissione del/i proprio/i figlio/i alla Scuola i genitori dichiarano:";
+	$testo="Al fine dell'ammissione del/i proprio/i figlio/i i genitori dichiarano:";
 	$testo = utf8_decode($testo);
 	$pdf->MultiCell(0,4.3,$testo);
 	$pdf->Ln(2);
 
-	if ($ISC_mostra_religione == 0) {
+	if ($ISC_mostra_sceltareligione == 0 && $ISC_mostra_premesso_che_lo_stato != 0) {
 		$testo="-	l'intenzione di non avvalersi per il/i proprio/i figlio/i dell'insegnamento della religione cattolica";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,4.3,$testo);
@@ -1503,7 +1781,7 @@ $h1 = 6;
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 	} else {
-		$testo="-	che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da allergie ad alimenti, farmaci, insetti, metalli o altro ne daranno tempestiva comunicazione alla segreteria della Scuola allegando certificato medico specialistico";
+		$testo="-	che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da allergie ad alimenti, farmaci, insetti, metalli o altro ne daranno tempestiva comunicazione alla segreteria allegando certificato medico specialistico";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,4.3,$testo);
 	}
@@ -1599,7 +1877,7 @@ $h1 = 6;
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
-		$testo= "<n>Il/la sottoscritto/a, consapevole delle conseguenze amministrative e penali per chi rilasci dichiarazioni non corrispondenti a verita', ai sensi del DPR 445/2000, dichiara di avere effettuato tutte le scelte in esso comprese in osservanza delle disposizioni sulla responsabilita' genitoriale di cui agli artt. 316, 337 ter e 337 quater c.c., che richiedono il consenso di <b> entrambi </b> i genitori.<n>Dichiara in particolare che <b>la scelta dell'istituzione scolastica dei minori indicati nel documento e' stata condivisa.</b>";
+		$testo= "<n>Il/la sottoscritto/a, consapevole delle conseguenze amministrative e penali per chi rilasci dichiarazioni non corrispondenti a verita', ai sensi del DPR 445/2000, dichiara di avere effettuato tutte le scelte in esso comprese in osservanza delle disposizioni sulla responsabilita' genitoriale di cui agli artt. 316, 337 ter e 337 quater c.c., che richiedono il consenso di <b> entrambi </b> i genitori.<n>Dichiara in particolare che <b>la scelta del".$istituzione_supporto." per i minori indicati nel documento e' stata condivisa.</b>";
 		$pdf->Ln(3);
 		$pdf->SetFont($fontdefault,'',10);
 		$testo = utf8_decode($testo);
@@ -1708,7 +1986,7 @@ $h1 = 6;
 	}
 	$pdf->Ln(8);
 	$pdf->Cell(0,5,utf8_decode("al trattamento dei dati personali al fine di permettere di gestire le attività di istruzione"),0,1,"C");
-	$pdf->Cell(0,5,utf8_decode("educative e formative stabilite dal Piano dell'Offerta Formativa"),0,1,"C");
+	$pdf->Cell(0,5,utf8_decode("educative e formative stabilite dal ".$POF_PTOF_PSDext),0,1,"C");
 
 
 				//FIRMA PADRE FIRMA MADRE E DATA E LUOGO AFFIANCATI
@@ -1741,7 +2019,7 @@ $h1 = 6;
 	}
 	$pdf->Ln(8);
 	$pdf->Cell(0,5,utf8_decode("al trattamento dei dati identificativi degli orientamenti religiosi, politici e relativi alla salute"),0,1,"C");
-	$pdf->Cell(0,5,utf8_decode("al solo fine di permettere di gestire le attività di istruzione, educative e formative stabilite dal PTOF"),0,1,"C");
+	$pdf->Cell(0,5,utf8_decode("al solo fine di permettere di gestire le attività di istruzione, educative e formative stabilite dal ".$POF_PTOF_PSD),0,1,"C");
 				
 				//FIRMA PADRE FIRMA MADRE E DATA E LUOGO AFFIANCATI
 				$pdf->Ln(3);
@@ -1810,7 +2088,7 @@ $h1 = 6;
 		$pdf->SetFont('TitilliumWeb-SemiBold','',14);
 		$pdf->Cell(0,8,utf8_decode("A.	UTILIZZO DI RIPRESE VIDEO E IMMAGINI FOTOGRAFICHE"), 0,1, 'C', True);
 		$testo5= "Informativa per la pubblicazione dei dati
-		Ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, unitamente all'art. 13 del D. Lgs. n. 196/2003 e degli artt. 13-14 Regolamento UE n. 676/2016, si informa che i dati personali conferiti con la liberatoria allegata saranno trattati con modalità cartacee e telematiche nel rispetto della vigente normativa e dei principi di correttezza, liceità, trasparenza e riservatezza; in tale ottica i dati forniti, ivi inclusi ritratti contenuti nelle fotografie, potranno essere utilizzati per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte dalla scuola.
+		Ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, unitamente all'art. 13 del D. Lgs. n. 196/2003 e degli artt. 13-14 Regolamento UE n. 676/2016, si informa che i dati personali conferiti con la liberatoria allegata saranno trattati con modalità cartacee e telematiche nel rispetto della vigente normativa e dei principi di correttezza, liceità, trasparenza e riservatezza; in tale ottica i dati forniti, ivi inclusi ritratti contenuti nelle fotografie, potranno essere utilizzati per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte.
 		La richiesta ha ad oggetto un dato biometrico normativamente definito dall'art. 4, punto 14 del Regolamento UE n. 676/2016. 
 		A scopo di completezza si specifica che, in materia di privacy, rappresenta giurisprudenza consolidata il ritenere che una grave ed oggettiva imperfezione fisica o una deformazione del volto, possano essere considerate elementi sufficienti a legittimare il diniego del consenso all'inserimento della foto.
 		Con riferimento alle foto e/o alle riprese audio/video scattate e/o riprese dalla ".$ragionesocialescuola." con la presente:";
@@ -1826,7 +2104,7 @@ $h1 = 6;
 			$pdf->Cell(95,7,"Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
 			$pdf->Cell(95,7,"Non Autorizzo".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
 		}
-		$testo6= "la stessa a titolo gratuito, anche ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, l'acquisizione di immagini e riprese video per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte dalla scuola.";
+		$testo6= "la stessa a titolo gratuito, anche ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, l'acquisizione di immagini e riprese video per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte.";
 		$pdf->Ln(8);
 		$pdf->SetFont($fontdefault,'',9);
 		$testo6 = utf8_decode($testo6);
@@ -1841,7 +2119,7 @@ $h1 = 6;
 			$titoloUtilizzo = "B.	UTILIZZO DEL MATERIALE PRODOTTO DALL'ALUNNO";
 		}
 		$pdf->Cell(0,8,utf8_decode($titoloUtilizzo), 0,1, 'C', True);
-		$testo7= "Considerato che la Scuola nello svolgimento delle attività per documentare i percorsi ed i progressi svolti può trovarsi nella condizione di utilizzare elaborati di vario tipo (relazioni, disegni, temi, fotografie, filmati, registrazioni, ...) ";
+		$testo7= "Considerato che nello svolgimento delle attività per documentare i percorsi ed i progressi svolti ci si può trovare nella condizione di utilizzare elaborati di vario tipo (relazioni, disegni, temi, fotografie, filmati, registrazioni, ...) ";
 		$pdf->Ln(3);
 		$pdf->SetFont($fontdefault,'',9);
 		$testo7 = utf8_decode($testo7);
@@ -1854,7 +2132,7 @@ $h1 = 6;
 			$pdf->Cell(95,7,"Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
 			$pdf->Cell(95,7,"Non Autorizzo".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
 		}
-		$testo8= "l'Istituto a servirsi di tale documentazione a testimonianza e a corredo di quanto si svolge a Scuola, nel rispetto della normativa sulla privacy.
+		$testo8= "l'Istituto a servirsi di tale documentazione a testimonianza e a corredo di quanto si realizza, nel rispetto della normativa sulla privacy.
 		La presente liberatoria/autorizzazione potrà essere revocata in ogni tempo con comunicazione scritta da inviare via posta comune o e-mail.";
 		$pdf->Ln(8);
 		$pdf->SetFont($fontdefault,'',9);
@@ -1873,7 +2151,7 @@ $h1 = 6;
 			$pdf->Cell(95,7,"Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
 			$pdf->Cell(95,7,"Non Autorizzo".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
 		}
-		$testo9= "le uscite didattiche sul territorio cittadino all'interno dell'orario scolastico. Tali uscite saranno man mano presentate ai genitori nell'ambito delle riunioni di classe. Gli alunni saranno accompagnati dagli insegnanti. Sarà cura degli insegnanti dare avviso dell'uscita mediante brevi comunicazioni sul diario alcuni giorni prima delle visite previste. Con la presente si esonera anche l'Amministrazione scolastica da qualsiasi responsabilità derivante da comportamenti dell'alunno/a difformi dalle disposizioni impartite dagli insegnanti.";
+		$testo9= "le uscite sul territorio cittadino all'interno dell'orario scolastico. Tali uscite saranno man mano presentate ai genitori nell'ambito delle riunioni periodiche. Gli alunni saranno accompagnati dai docenti. Sarà cura dei docenti dare avviso dell'uscita mediante brevi comunicazioni sul diario alcuni giorni prima delle visite previste. Con la presente si esonera anche l'Amministrazione da qualsiasi responsabilità derivante da comportamenti dell'alunno/a difformi dalle disposizioni impartite dai docenti.";
 		$pdf->Ln(8);
 		$pdf->SetFont($fontdefault,'',9);
 		$testo9 = utf8_decode($testo9);

@@ -781,8 +781,8 @@
 				//serve anche annocorrente per trovare se ci sono fratelli in questo anno e ricopiare anche loro
 				postData2 = { ID_fam_alu : ID_fam_alu, annoscolastico_cla : annoscolastico_cla };
 				//copia in DB B tutti gli alunni della famiglia se già non ci sono
-				console.log ("19qry_Iscrizioni.php - inviamail - postData a 19copiainDBB_alu");
-				console.log (postData2);
+				// console.log ("19qry_Iscrizioni.php - inviamail - postData a 19copiainDBB_alu");
+				// console.log (postData2);
 				$.ajax({
 					type: 'POST',
 					url: "19copiainDBB_alu.php",
@@ -794,15 +794,15 @@
 						//ora devo inserire le quote calcolate per default per ogni ID_alu
 
 						ArrayAlunni = data2.alunniA;
-						//console.log (data2.alunniA);
+						// console.log ("19qry_Iscrizioni.php - inviamail - ritorno da 19copiainDBB_alu", data2.alunniA);
 						for (k = 0; k < ArrayAlunni.length; k++) {
 							aggiornaQuote(ArrayAlunni[k]);
 						}
 						
-
 						postData = { ID_fam_alu : ID_fam_alu };
-						//console.log (postData);
-						
+						// console.log ("19qry_Iscrizioni.php - inviamail - postData a 19generatepsw_fam.php", postData);
+						// console.log (postData);
+
 						$.ajax({
 							type: 'POST',
 							url: "19generatepsw_fam.php",
@@ -819,16 +819,22 @@
 								//let annoscolastico_cla = $( "#annoscolastico" ).val();
 
 								postData = { ID_fam_alu : ID_fam_alu, annoscolastico_cla: annoscolastico_cla, login: login, psw: psw };
-								// console.log ("19qry_Iscrizioni.php - inviamail - postData a 19sendemail_fam");
-								// console.log (postData);
+								//  console.log ("19qry_Iscrizioni.php - inviamail - postData a 19sendemail_fam");
+								//  console.log (postData);
 								$.ajax({
 									type: 'POST',
 									url: "19sendemail_fam.php",
 									data: postData,
 									dataType: 'json',
 									success: function(data){
-										// console.log ("19qry_Iscrizioni.php - inviamail - ritorno da 19sendemail_fam");
-										// console.log (data.result);
+										//  console.log ("19qry_Iscrizioni.php - inviamail - ritorno da 19sendemail_fam");
+										//  console.log (data.result);
+										//  console.log ("from",		data.from);
+										//  console.log ("subject", 	data.subject);
+										//  console.log ("to", 		data.to);
+										//  console.log ("content", 	data.content);
+
+
 										//$('#modalmailinviata').modal('show');
 										requery();
 										

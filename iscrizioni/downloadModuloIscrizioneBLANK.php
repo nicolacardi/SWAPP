@@ -346,7 +346,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->MultiCell(0,5,$testo);
 		$pdf->Ln(4);
 
-		$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A'>Allegato A</a>) ed il PTOF e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.waldorfpadova.it);<br>";
+		$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A'>Allegato A</a>) ed il ".$POF_PTOF_PSD." e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.waldorfpadova.it);<br>";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 		$pdf->Ln(4);
@@ -383,7 +383,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->MultiCell(0,5,$testo);
 		$pdf->Ln(4);
 
-		$testo="art.2)	l'Ente Gestore suindicato si obbliga nei confronti dell'altra parte contraente a fornire le prestazioni scolastiche previste dal PTOF della Scuola;";
+		$testo="art.2)	l'Ente Gestore suindicato si obbliga nei confronti dell'altra parte contraente a fornire le prestazioni scolastiche previste dal ".$POF_PTOF_PSD." della Scuola;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 		$pdf->Ln(4);
@@ -898,13 +898,13 @@ $pdf->SetFont($fontdefault,'',10);
 	$pdf->Cell(0,10,"DICHIARAZIONI", 0,1, 'C');
 	$pdf->SetFont($fontdefault,'',11);
 	$pdf->Ln(4);
-	$testo="Premesso che lo Stato assicura l'insegnamento della religione cattolica nelle scuole di ogni ordine e grado in conformità all'accordo che apporta modifiche al Concordato Lateranense (art. 9.2), il presente modulo costituisce richiesta dell'autorità scolastica in ordine all'esercizio del diritto di scegliere se avvalersi o non avvalersi dell'insegnamento della religione cattolica. I sottoscritti prendono atto che il Piano dell'Offerta Formativa, accettato all'atto della presente iscrizione, attualmente non prevede l'insegnamento specifico della religione intesa come materia curriculare che viene perciò sostituita da attività didattiche formative.";
+	$testo="Premesso che lo Stato assicura l'insegnamento della religione cattolica nelle scuole di ogni ordine e grado in conformità all'accordo che apporta modifiche al Concordato Lateranense (art. 9.2), il presente modulo costituisce richiesta dell'autorità scolastica in ordine all'esercizio del diritto di scegliere se avvalersi o non avvalersi dell'insegnamento della religione cattolica. I sottoscritti prendono atto che il ".$POF_PTOF_PSDext.", accettato all'atto della presente iscrizione, attualmente non prevede l'insegnamento specifico della religione intesa come materia curriculare che viene perciò sostituita da attività didattiche formative.";
 	$testo = utf8_decode($testo);
 	$pdf->MultiCell(0,5,$testo);
 	$pdf->Ln(2);
 
 	$pdf->SetFont($fontdefault,'',11);
-	$testo="Al fine dell'ammissione del/i proprio/i figlio/i alla Scuola i genitori dichiarano:";
+	$testo="Al fine dell'ammissione del/i proprio/i figlio/i i genitori dichiarano:";
 	$testo = utf8_decode($testo);
 	$pdf->MultiCell(0,5,$testo);
 	$pdf->Ln(2);
@@ -1033,7 +1033,7 @@ $pdf->SetFont($fontdefault,'',10);
 
 	$pdf->Ln(8);
 	$pdf->Cell(0,5,utf8_decode("al trattamento dei dati personali al fine di permettere di gestire le attività di istruzione"),0,1,"C");
-	$pdf->Cell(0,5,utf8_decode("educative e formative stabilite dal Piano dell'Offerta Formativa"),0,1,"C");
+	$pdf->Cell(0,5,utf8_decode("educative e formative stabilite dal ".$POF_PTOF_PSDext),0,1,"C");
 
 
 				//FIRMA PADRE FIRMA MADRE E DATA E LUOGO AFFIANCATI
@@ -1075,7 +1075,7 @@ $pdf->SetFont($fontdefault,'',10);
 
 	$pdf->Ln(8);
 	$pdf->Cell(0,5,utf8_decode("al trattamento dei dati identificativi degli orientamenti religiosi, politici e relativi alla salute"),0,1,"C");
-	$pdf->Cell(0,5,utf8_decode("al solo fine di permettere di gestire le attività di istruzione, educative e formative stabilite dal PTOF"),0,1,"C");
+	$pdf->Cell(0,5,utf8_decode("al solo fine di permettere di gestire le attività di istruzione, educative e formative stabilite dal ". $POF_PTOF_PSD),0,1,"C");
 
 				//FIRMA PADRE FIRMA MADRE E DATA E LUOGO AFFIANCATI
 				$pdf->Ln(3);
@@ -1175,7 +1175,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->SetFont('TitilliumWeb-SemiBold','',14);
 		$pdf->Cell(0,8,utf8_decode("A.	UTILIZZO DI RIPRESE VIDEO E IMMAGINI FOTOGRAFICHE"), 0,1, 'C', True);
 		$testo5= "Informativa per la pubblicazione dei dati
-		Ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, unitamente all'art. 13 del D. Lgs. n. 196/2003 e degli artt. 13-14 Regolamento UE n. 676/2016, si informa che i dati personali conferiti con la liberatoria allegata saranno trattati con modalità cartacee e telematiche nel rispetto della vigente normativa e dei principi di correttezza, liceità, trasparenza e riservatezza; in tale ottica i dati forniti, ivi inclusi ritratti contenuti nelle fotografie, potranno essere utilizzati per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte dalla scuola.
+		Ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, unitamente all'art. 13 del D. Lgs. n. 196/2003 e degli artt. 13-14 Regolamento UE n. 676/2016, si informa che i dati personali conferiti con la liberatoria allegata saranno trattati con modalità cartacee e telematiche nel rispetto della vigente normativa e dei principi di correttezza, liceità, trasparenza e riservatezza; in tale ottica i dati forniti, ivi inclusi ritratti contenuti nelle fotografie, potranno essere utilizzati per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte.
 		La richiesta ha ad oggetto un dato biometrico normativamente definito dall'art. 4, punto 14 del Regolamento UE n. 676/2016. 
 		A scopo di completezza si specifica che, in materia di privacy, rappresenta giurisprudenza consolidata il ritenere che una grave ed oggettiva imperfezione fisica o una deformazione del volto, possano essere considerate elementi sufficienti a legittimare il diniego del consenso all'inserimento della foto.
 		Con riferimento alle foto e/o alle riprese audio/video scattate e/o riprese dalla ".$ragionesocialescuola." con la presente:";
@@ -1188,7 +1188,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->Cell(95,7,"Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
 		$pdf->Cell(95,7,"Non Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
 
-		$testo6= "la stessa a titolo gratuito, anche ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, l'acquisizione di immagini e riprese video per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte dalla scuola.";
+		$testo6= "la stessa a titolo gratuito, anche ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, l'acquisizione di immagini e riprese video per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte.";
 		$pdf->Ln(8);
 		$pdf->SetFont($fontdefault,'',9);
 		$testo6 = utf8_decode($testo6);
@@ -1213,7 +1213,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->Cell(95,7,"Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
 		$pdf->Cell(95,7,"Non Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
 
-		$testo8= "l'Istituto a servirsi di tale documentazione a testimonianza e a corredo di quanto si svolge a Scuola, nel rispetto della normativa sulla privacy.
+		$testo8= "l'Istituto a servirsi di tale documentazione a testimonianza e a corredo di quanto si realizza, nel rispetto della normativa sulla privacy.
 		La presente liberatoria/autorizzazione potrà essere revocata in ogni tempo con comunicazione scritta da inviare via posta comune o e-mail.";
 		$pdf->Ln(8);
 		$pdf->SetFont($fontdefault,'',9);

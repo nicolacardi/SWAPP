@@ -53,7 +53,10 @@
 	<? $ISC_mostra_tipopagamentiSDD = 			$_SESSION['ISC_mostra_tipopagamentiSDD'];?>		
 	<? $ISC_mostra_tipopagamentiCONTANTI = 		$_SESSION['ISC_mostra_tipopagamentiCONTANTI'];?>		
 	<? $ISC_mostra_tipopagamentiALTRO = 		$_SESSION['ISC_mostra_tipopagamentiALTRO'];?>			
-	<? $ISC_mostra_richcolloquio = 		$_SESSION['ISC_mostra_richcolloquio'];?>		
+	<? $ISC_mostra_richcolloquio = 			$_SESSION['ISC_mostra_richcolloquio'];?>
+	<? $ISC_mostra_quotaiscrizione =		$_SESSION['ISC_mostra_quotaiscrizione'];?>
+	<? $ISC_mostracinquepermille =			$_SESSION['ISC_mostracinquepermille'];?>
+
 
 
 	
@@ -114,14 +117,16 @@
 		<form id="formiscrizione" style="margin-top: 100px; ">
 			<div class="row" style="text-align: justify; font-size: 14px; line-height: 2; margin-left: 2px; margin-right: 2px; ">
 				<div class="col-md-6 col-md-offset-3">
-					La <?=$nomescuola?> si finanzia, in massima parte, con contributi e donazioni delle famiglie, necessari alla copertura delle spese del personale (maestri, segreteria...) e al buon funzionamento della Scuola: per questi motivi la puntualità nei pagamenti, la correttezza e la solidarietà rappresentano valori irrinunciabili.
+					La <?=$nomescuola?> si finanzia, in massima parte, con contributi e donazioni delle famiglie, necessari alla copertura delle spese del personale (maestri, segreteria...) e al buon funzionamento dell'organizzazione: per questi motivi la puntualità nei pagamenti, la correttezza e la solidarietà rappresentano valori irrinunciabili.
 				</div>
 				<div class="col-md-6 col-md-offset-3" style="text-align: center;" >
 					<h4>I GENITORI SI IMPEGNANO<br>IN SOLIDO:</h4>
 				</div>
-				<div class="col-md-6 col-md-offset-3">
-					-	a versare entro il <?=$scadiscrizione?><?= $_SESSION['anno1']?> la quota di iscrizione per l'a.s. <?=$_SESSION['annopreiscrizione_fam']?>, pari a € <?=$quotaiscrizione?> 
-				</div>
+				<? if ($ISC_mostra_quotaiscrizione==1) {?>
+					<div class="col-md-6 col-md-offset-3">
+						-	a versare entro il <?=$scadiscrizione?><?= $_SESSION['anno1']?> la quota di iscrizione per l'a.s. <?=$_SESSION['annopreiscrizione_fam']?>, pari a € <?=$quotaiscrizione?> 
+					</div>
+				<?}?>
 				<div class="col-md-6 col-md-offset-3">
 					-	a versare, con regolarità e puntualità, per l'a.s. <?=$_SESSION['annopreiscrizione_fam']?>, una quota annua così definita (v. <a href="downloadAllegato.php?nomeallegato=D_<?=$codscuola?>"  target="_blank">Allegato D</a>):
 				</div>
@@ -161,7 +166,7 @@
 <!-- ESTRAZIONE DATI ********************************************************************* -->
 							
 							<?
-							$classi = array("ASILO"=>"MATERNA", "I"=>"I ELEMENTARE", "II"=>"II ELEMENTARE", "III"=>"III ELEMENTARE", "IV"=>"IV ELEMENTARE", "V"=>"V ELEMENTARE", "VI"=>"I MEDIA (VI)", "VII"=>"II MEDIA (VII)", "VIII"=>"III MEDIA (VIII)", "NIDO"=>"ASILO NIDO");
+							$classi = array("ASILO"=>"MATERNA", "I"=>"I ELEMENTARE", "II"=>"II ELEMENTARE", "III"=>"III ELEMENTARE", "IV"=>"IV ELEMENTARE", "V"=>"V ELEMENTARE", "VI"=>"I MEDIA (VI)", "VII"=>"II MEDIA (VII)", "VIII"=>"III MEDIA (VIII)", "IX"=>"I Sup.", "X"=>"II Sup.", "XI"=>"III Sup.", "XII"=>"IV Sup.", "XIII"=>"V Sup.", "NIDO"=>"ASILO NIDO");
 							
 							$Nfiglio = array("1"=>"Prim", "2"=>"Second", "3"=>"Terz", "4"=>"Quart", "5"=>"Quint");
 							
@@ -359,10 +364,12 @@
 							</select>
 						</div>
 					<?}?>
-					<div class="col-md-12 col-sm-12 mt10 bordered-red center" >
-						<h4>CINQUE PER MILLE</h4>
-						Nell'occasione invitiamo le famiglie ed i loro congiunti ad indicare la scuola in dichiarazione dei redditi quale <br><span style="text-decoration: underline">destinatario del 5xmille</span> tramite il Codice fiscale: <?=$cfscuola?>.
-					</div>
+					<? if ($ISC_mostracinquepermille == 1) { ?>
+						<div class="col-md-12 col-sm-12 mt10 bordered-red center" >
+							<h4>CINQUE PER MILLE</h4>
+							Nell'occasione invitiamo le famiglie ed i loro congiunti ad indicare la scuola in dichiarazione dei redditi quale <br><span style="text-decoration: underline">destinatario del 5xmille</span> tramite il Codice fiscale: <?=$cfscuola?>.
+						</div>
+					<?}?>
 				</div>
 
 

@@ -94,7 +94,7 @@
 // ...ALLA CLASSE ************************************************************************************
     $pdf->SetFont('TitilliumWeb-SemiBold','',14);
     if (!$blank) {
-        $pdf->Cell(0,7,"alla ".$classi[$classe_cla],0,1,'C');
+        $pdf->Cell(0,7,"al".$classi[$classe_cla],0,1,'C');
     }
     else {
         $pdf->Cell(0,7,"alla classe..................................................",0,1,'C');
@@ -225,7 +225,7 @@
         $pdf->SetFont($fontdefault,'',8);
 	    $pdf->SetFillColor(220,220,220);
 
-        $testo="ai sensi dell'art.19bis	L.172 del04.12.2017, la scuola a consentire l'uscita autonoma del minore da scuola al termine dell'orario delle lezioni, anche in caso di variazioni di orario (ad es. scioperi, assemblee sindacali...) e di ogni altra attività curricolare o extracurricolare prevista dal PTOF della scuola, così come anche al periodo di svolgimento degli Esami di Stato conclusivi del I ciclo d'istruzione. La presente autorizzazione esonera il personale scolastico da ogni responsabilità connessa all'adempimento dell'obbligo di vigilanza ed ha efficacia per l'anno scolastico oggetto dell'iscrizione.";
+        $testo="ai sensi dell'art.19bis	L.172 del04.12.2017, la scuola a consentire l'uscita autonoma del minore da scuola al termine dell'orario delle lezioni, anche in caso di variazioni di orario (ad es. scioperi, assemblee sindacali...) e di ogni altra attività curricolare o extracurricolare prevista dal ".$POF_PTOF_PSD." della scuola, così come anche al periodo di svolgimento degli Esami di Stato conclusivi del I ciclo d'istruzione. La presente autorizzazione esonera il personale scolastico da ogni responsabilità connessa all'adempimento dell'obbligo di vigilanza ed ha efficacia per l'anno scolastico oggetto dell'iscrizione.";
         $testo = utf8_decode($testo);
         $pdf->MultiCell(0,3.7,$testo);
         

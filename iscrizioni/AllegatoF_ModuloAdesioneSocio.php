@@ -24,6 +24,9 @@
 		if ($sociopadre_fam == 1 || $blank) {
 
 			$volontario = 0;
+			if ($codscuola =='AR') {
+				include("AllegatoF_ModuloAdesioneSocio_AR.php");
+			}
 			if ($codscuola =='PD') {
 				include("AllegatoF_ModuloAdesioneSocio_PD.php");
 			}
@@ -65,6 +68,9 @@
 		if ($sociomadre_fam == 1) {
 
 			$volontario = 0;
+			if ($codscuola =='AR') {
+				include("AllegatoF_ModuloAdesioneSocio_AR.php");
+			}
 			if ($codscuola =='PD') {
 				include("AllegatoF_ModuloAdesioneSocio_PD.php");
 			}

@@ -36,6 +36,9 @@
     setSessionPar('ISC_include_SDD');
     setSessionPar('ISC_mostra_firmaunica');
     setSessionPar('ISC_mostra_allegatoA');
+    setSessionPar('ISC_mostra_quotaiscrizione');
+    setSessionPar('ISC_mostracinquepermille');
+    setSessionPar('ISC_mostra_premesso_che_lo_stato');  //attenzione non è lo stesso della scelta della religione: si può p.e. voler evitare di dare la scelta ma inserire la dicitura sullo stato
     
 
 ?>

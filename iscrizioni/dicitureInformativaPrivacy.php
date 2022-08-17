@@ -1,6 +1,6 @@
 <?
 $informativaprivacy= "Nel ringraziarLa per averci fornito i Suoi dati personali, portiamo a Sua conoscenza le finalità e le modalità del trattamento cui essi sono destinati.
-Secondo quanto previsto dagli artt. 13 e 14 del REG. UE 2016/679  recante disposizioni sulla tutela della persona e di altri soggetti, rispetto al trattamento di dati personali questa Istituzione Scolastica, rappresentata dal presidente pro-tempore, in qualità di Titolare del trattamento dei dati personali, per espletare le sue funzioni istituzionali e, in particolare, per gestire le attività di istruzione, educative e formative stabilite dal Piano dell'Offerta Formativa, nonchè per accogliere l'eventuale domanda di adesione a socio, deve acquisire i dati personali che Vi riguardano, inclusi quei dati che il REG. UE 2016/679 definisce ''dati personali relativi all'orientamento religioso, opinioni politiche e relativi alla salute''. 
+Secondo quanto previsto dagli artt. 13 e 14 del REG. UE 2016/679  recante disposizioni sulla tutela della persona e di altri soggetti, rispetto al trattamento di dati personali questa Istituzione Scolastica, rappresentata dal presidente pro-tempore, in qualità di Titolare del trattamento dei dati personali, per espletare le sue funzioni istituzionali e, in particolare, per gestire le attività di istruzione, educative e formative stabilite dal ".$POF_PTOF_PSDext.", nonchè per accogliere l'eventuale domanda di adesione a socio, deve acquisire i dati personali che Vi riguardano, inclusi quei dati che il REG. UE 2016/679 definisce ''dati personali relativi all'orientamento religioso, opinioni politiche e relativi alla salute''. 
 Vi informiamo pertanto che, per le esigenze di gestione sopra indicate, possono essere oggetto di trattamento le seguenti categorie di dati: 
 -	dati anagrafici (residenza, telefono email) relativi agli alunni, idonei a rilevare lo stato di salute e di regime alimentare, raccolti in riferimento a certificazioni di malattia, infortunio, esposizione a fattori di rischio, appartenenza a categorie protette, idoneità allo svolgimento di determinate attività, sorveglianza sanitaria; 
 -	dati relativi agli alunni idonei a rilevare opinioni politiche o adesioni sindacali ed associative, derivanti da richieste di organizzazione o partecipazione ad attività opzionali, facoltative o stabilite autonomamente dagli organismi rappresentativi studenteschi; 
@@ -8,7 +8,7 @@ Vi informiamo pertanto che, per le esigenze di gestione sopra indicate, possono 
 -   dati relativi alla famiglia di origine;
 Il conferimento dei dati è libero ma il rifiuto di conferire alcuni dati potrebbe dar luogo all'impossibilità di eseguire gli adempimenti necessari.
 Vi informiamo inoltre che il trattamento dei vostri dati personali avrà le seguenti finalità: 
--	partecipazione degli alunni alle attività organizzate in attuazione del Piano dell'Offerta Formativa; 
+-	partecipazione degli alunni alle attività organizzate in attuazione del ".$POF_PTOF_PSDext."; 
 -	adempimento di obblighi derivanti da leggi, contratti, regolamenti in materia di igiene e sicurezza, in materia fiscale, in materia assicurativa, erogazione assegni di studio, buoni di servizio, eventuale servizio trasporti e/o erogazione di altri servizi; 
 -	tutela dei diritti in sede giudiziaria. 
 Vi forniamo a tal fine le seguenti ulteriori informazioni: 

@@ -1,6 +1,62 @@
 <?$codscuola = $_SESSION['codscuola'];
 
 switch ($codscuola) {
+    case 'AR':
+        $nickscuola = "Scuola Arca";
+        $shortnameScuola = "Arca";
+        $citta= "Padova";
+        $li= "Padova";
+        $nomescuola = "Iniziativa ARCA Padova";
+        $nomecittascuola = "Iniziativa ARCA di Padova - programma di supporto alla didattica";
+        $indirizzoscuola = "Via T.Aspetti 248 - Padova - PD";
+        $indirizzocompletoscuola= "Via T.Aspetti, 248 - 35133 - Padova - tel.XXX/XX.XX.XX - segreteria@arcascuola.it";
+        $datiscuola = "C.F. e P.IVA 05484330286";
+        $cfscuola = "05484330286";
+        $ragionesocialescuola = "Società Cooperativa Sociale ARCA Educazione";
+        $titolaretrattamentoTitolo = "il presidente pro-tempore della Società Cooperativa Sociale ARCA Educazione";
+        $titolaretrattamento = "Nicola cardi";
+        $linkPTOF = "http://arcascuola.it";
+        $scadpagamenti ="entro il giorno 5 di ciascun mese";
+        $quotaiscrizione = "";
+        $scadrientromodulo = "28/01/";
+        $scadrientromodulolett = "28 gennaio ";
+        $scadiscrizione = "28/01/";
+        $scadiscrizionelett = "28 gennaio ";
+        $scadfrase1 = "";
+        $scadfrase2 = "sottoscriverli dove indicato e consegnarli in Segreteria <br>entro la scadenza del ";
+        $scadrataunicaDDMM = "30/09/";
+        $scadrataunica = "30 settembre";
+        $scad3rate = "---";
+        $formagiuridica = "cooperativa";
+        $emailscuola= "segreteria@arcascuola.it";
+        $emailamministrazionescuola= "segreteria@arcascuola.it ";
+
+
+        $swapp = "www.arcascuola.it/swapp";
+        $fraseAllegatoC= "l Regolamento Pediatrico";
+        $fraseAllegatoC= "l Regolamento Pediatrico";
+        $titoloPagColonnaVoti = "Obiettivi di Apprendimento";
+
+        //per pagelle
+        $TipoVoto = "Livello di Apprendimento";
+        $codIdentificativo = "XXXXXXXXXXXXXXXXX";
+
+        //per richiesta adesione socio
+        $intestazione1 = "Società Cooperativa Sociale";
+        $intestazione2 = "ARCA Educazione";
+
+        $titolocontratto = "CONTRATTO DI PRESTAZIONE SCOLASTICA";
+
+        $testoarticolomensa = "";
+
+        $modalitaPagSDD = "con mandato per addebito diretto SEPA-SDD Core (ex RID)";
+        $modalitaPagBonifico = "con bonifico";
+        $POF_PTOF_PSD = "PSD"; //Piano di supporto alla didattica
+        $POF_PTOF_PSDext = "Piano di Supporto alla Didattica";
+        $istituzione_supporto =" programma di supporto alla didattica ";
+
+        break;
+
     case 'PD':
         $nickscuola = "Scuola Waldorf PD";
         $shortnameScuola = "Sophia";
@@ -52,6 +108,10 @@ switch ($codscuola) {
         $modalitaPagSDD = "con mandato per addebito diretto SEPA-SDD Core (ex RID)";
         $modalitaPagBonifico = "con bonifico";
 
+        $POF_PTOF_PSD = "PTOF"; //Piano di supporto alla didattica
+        $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
+        $istituzione_supporto ="l'istituzione scolastica ";
+
         break;
     case 'CI':
         $nickscuola = "Sc. Waldorf Cittadella";
@@ -101,6 +161,10 @@ switch ($codscuola) {
 
         $modalitaPagSDD = "con mandato per addebito diretto SEPA-SDD Core (ex RID)";
         $modalitaPagBonifico = "con bonifico";
+
+        $POF_PTOF_PSD = "PTOF"; //Piano di supporto alla didattica
+        $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
+        $istituzione_supporto ="l'istituzione scolastica ";
 
         break;
     case "VR":
@@ -152,6 +216,10 @@ switch ($codscuola) {
         $modalitaPagSDD = "con mandato per addebito diretto SEPA-SDD Core (ex RID)";
         $modalitaPagBonifico = "con bonifico (per iscrizione e/o pagamento dell'intera retta in unica soluzione)";
 
+        $POF_PTOF_PSD = "PTOF"; //Piano di supporto alla didattica
+        $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
+        $istituzione_supporto ="l'istituzione scolastica ";
+
         break;
     case "TV":
         $nickscuola = "Scuola Waldorf TV";
@@ -201,7 +269,11 @@ switch ($codscuola) {
 
         $modalitaPagSDD = "con mandato per addebito diretto SEPA-SDD Core (ex RID)";
         $modalitaPagBonifico = "con bonifico";
-        
+
+        $POF_PTOF_PSD = "PTOF"; //Piano di supporto alla didattica
+        $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
+        $istituzione_supporto ="l'istituzione scolastica ";
+
         break;
     case "TN":
         $nickscuola = "Scuola Waldorf TN";
@@ -252,6 +324,10 @@ switch ($codscuola) {
         $modalitaPagSDD = "con mandato per addebito diretto SEPA-SDD Core (ex RID)";
         $modalitaPagBonifico = "con bonifico";
 
+        $POF_PTOF_PSD = "PTOF"; //Piano di supporto alla didattica
+        $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
+        $istituzione_supporto ="l'istituzione scolastica ";
+        
         break;
     default:
         break;
