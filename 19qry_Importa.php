@@ -295,6 +295,16 @@
 						}
 					}
 					break;
+				case 2:
+					$SeqMesi2RateDefault = $_SESSION['SeqMesi2RateDefault'];
+					//2 rate: vanno attribuite ai mesi che compaiono in SeqMesi2RateDefault
+					for ($x = 0; $x <= 11; $x++) {
+						if (substr($SeqMesi2RateDefault, $x, 1) == 1) {
+							$D[$x+1] = $QuotaProRataDefault;
+							$C[$x+1] = $QuotaProRata;
+						}
+					}
+					break;
 				case 3:
 					$SeqMesi3RateDefault = $_SESSION['SeqMesi3RateDefault'];
 					//3 rate: vanno attribuite ai mesi che compaiono in SeqMesi3RateDefault
@@ -355,9 +365,9 @@
 	$return['importato'] = $importatofam[1][1][1];
 	$return['test'] = $annoscolastico;
 
-	$return['test2'] = $ID_alu_ret;
+	$return['test2'] = $SeqMesiRataUnicaDefault;
 
-	$return['test3'] = $sql7;
+	$return['test3'] = $annoscolastico;
 	
      echo json_encode($return);?>
 

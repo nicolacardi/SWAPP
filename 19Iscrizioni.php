@@ -52,6 +52,7 @@
 				<input id="pswOperazioni0" 			class="ml50" value="<?=$_SESSION['pswOperazioni0']?>" 			hidden>
 				<input id="pswOperazioni1" 			class="ml50" value="<?=$_SESSION['pswOperazioni1']?>"			hidden>
 
+
 			</div>
 			<div class="frameXlDownload">
 				<div class="row center">
@@ -603,7 +604,7 @@
 				// console.log(data.importato);
 				//   console.log(data.test);
 				//   console.log(data.test2);
-				//   console.log (data.test3);
+				   console.log ("test3", data.test3);
 				$("#remove-contentImportazione").slideUp();
 				$("#alertaggiungiImportazione").removeClass('alert-danger');
 				$("#alertaggiungiImportazione").addClass('alert-success');

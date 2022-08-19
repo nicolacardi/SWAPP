@@ -9,13 +9,13 @@
 	$citta_alu = $_POST['citta_alu'];
 	$CAP_alu = $_POST['CAP_alu'];
 	$prov_alu = strtoupper($_POST['prov_alu']);
-	$paese_alu = ucwords(strtolower($_POST['paese_alu']));
+	$paese_alu = strtoupper($_POST['paese_alu']);
 	$cf_alu = strtoupper($_POST['cf_alu']);
 	$datanascita_alu = $_POST['datanascita_alu'];
 	$datanascita_alu = date('Y-m-d', strtotime(str_replace('/','-', $datanascita_alu)));
 	$comunenascita_alu = $_POST['comunenascita_alu'];
 	$provnascita_alu = strtoupper($_POST['provnascita_alu']);
-	$paesenascita_alu = $_POST['paesenascita_alu'];
+	$paesenascita_alu = strtoupper($_POST['paesenascita_alu']);
 	$cittadinanza_alu = $_POST['cittadinanza_alu'];
 	$scuolaprimaprovenienza_alu= $_POST['scuolaprimaprovenienza_alu'];
 	$indirizzoscprimaproven_alu= $_POST['indirizzoscprimaproven_alu'];
@@ -141,13 +141,13 @@
 	
 	$comunenascitapadre_fam= $_POST['comunenascitapadre_fam'];
 	$provnascitapadre_fam=  strtoupper($_POST['provnascitapadre_fam']);
-	$paesenascitapadre_fam= $_POST['paesenascitapadre_fam'];
+	$paesenascitapadre_fam= strtoupper($_POST['paesenascitapadre_fam']);
 	$cfpadre_fam = strtoupper($_POST['cfpadre_fam']);
 	$indirizzopadre_fam= $_POST['indirizzopadre_fam'];
 	
 	$comunepadre_fam= $_POST['comunepadre_fam'];
 	$provpadre_fam= strtoupper($_POST['provpadre_fam']);
-	$paesepadre_fam= $_POST['paesepadre_fam'];
+	$paesepadre_fam= strtoupper($_POST['paesepadre_fam']);
 	$CAPpadre_fam= $_POST['CAPpadre_fam'];
 	$titolopadre_fam= $_POST['titolopadre_fam'];
 	$profpadre_fam= $_POST['profpadre_fam'];
@@ -160,12 +160,12 @@
 	}
 	$comunenascitamadre_fam= $_POST['comunenascitamadre_fam'];
 	$provnascitamadre_fam=  strtoupper($_POST['provnascitamadre_fam']);
-	$paesenascitamadre_fam= $_POST['paesenascitamadre_fam'];
+	$paesenascitamadre_fam= strtoupper($_POST['paesenascitamadre_fam']);
 	$cfmadre_fam = strtoupper($_POST['cfmadre_fam']);
 	$indirizzomadre_fam= $_POST['indirizzomadre_fam'];
 	$comunemadre_fam= $_POST['comunemadre_fam'];
 	$provmadre_fam= strtoupper($_POST['provmadre_fam']);
-	$paesemadre_fam= $_POST['paesemadre_fam'];
+	$paesemadre_fam= strtoupper($_POST['paesemadre_fam']);
 	$CAPmadre_fam= $_POST['CAPmadre_fam'];
 	$titolomadre_fam= $_POST['titolomadre_fam'];
 	$profmadre_fam= $_POST['profmadre_fam'];

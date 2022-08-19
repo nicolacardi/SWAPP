@@ -14,6 +14,7 @@
     setSessionPar('ISC_mostra_12rate');
     setSessionPar('ISC_mostra_3rate');
     setSessionPar('ISC_mostra_13rate');
+    setSessionPar('ISC_mostra_2rate');
     setSessionPar('ISC_mostra_ratealtro');
     setSessionPar('ISC_mostra_pulizie');
     setSessionPar('ISC_mostra_conguagliospesedid');

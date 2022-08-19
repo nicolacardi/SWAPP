@@ -44,6 +44,7 @@
 	<? $ISC_mostra_12rate = 			$_SESSION['ISC_mostra_12rate'];?>
 	<? $ISC_mostra_3rate = 				$_SESSION['ISC_mostra_3rate'];?>
 	<? $ISC_mostra_13rate = 			$_SESSION['ISC_mostra_13rate'];?>
+	<? $ISC_mostra_2rate = 				$_SESSION['ISC_mostra_2rate'];?>
 	<? $ISC_mostra_ratealtro = 			$_SESSION['ISC_mostra_ratealtro'];?>
 	<? $ISC_mostra_pulizie = 			$_SESSION['ISC_mostra_pulizie'];?>
 	<? $ISC_mostra_conguagliospesedid = $_SESSION['ISC_mostra_conguagliospesedid'];?>
@@ -255,6 +256,10 @@
 					<div class="col-md-12 col-sm-12">
 						<select name="selectnumerorate_fam"  style="margin-left: 0px; width: 100%"  id="selectnumerorate_fam">
 							<option value="1" <?if ($ratepromesse_fam ==1) {echo("selected");}?>>UNICA entro il <?=$scadrataunica?> <?=$_SESSION['anno1']?></option>
+
+							<? if ($ISC_mostra_2rate == 1) { ?>
+								<option value="2" <?if ($ratepromesse_fam ==2) {echo("selected");}?>>DIVISA in 2 rate: <?=$scad2rate?></option>
+							<?}?>
 
 							<? if ($ISC_mostra_3rate == 1) { ?>
 								<option value="3" <?if ($ratepromesse_fam ==3) {echo("selected");}?>>DIVISA in 3 rate: <?=$scad3rate?></option>

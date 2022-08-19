@@ -384,7 +384,7 @@
 			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; border-top: 1px solid grey; margin-top: 10px; ">
 				<div class="col-md-12 col-sm-12" style="display: flex; text-align: center; font-size: 14px;">
 						<div class="col-md-6 col-sm-6" style="text-align: center; font-size:14px;">
-							PRIMA DI QUESTA SCUOLA HA FREQUENTATO
+							PROVIENE DALLA SCUOLA
 						</div>
 						<div class="col-md-6 col-sm-6" style="text-align: center; font-size:12px;">
 							<input type="checkbox" style="margin-left: 20px; margin-top: 10px;" id="ckscuolawaldorf" name="ckscuolawaldorf" onclick="PopolaScuolaProvenienza()">&nbsp;Nessuna Scuola

@@ -599,6 +599,11 @@ if ($codscuola =='AR') {
 	}
 	$pdf->Cell(0,8,$unicasoluzione,0,1,'L');
 
+	if ($ratepromesse_fam == 2) {
+		$duerate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      due rate (entro il ".$scadrata1duerate.$anno1." e entro il".$scadrata2duerate.$anno2.")");
+	}
+	$pdf->Cell(0,8,$duerate,0,1,'L');
+
 	$diecirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
 	if ($ratepromesse_fam == 10) {
 		$diecirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");

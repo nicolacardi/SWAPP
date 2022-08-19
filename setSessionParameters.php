@@ -29,8 +29,10 @@ setSessionPar('tipo_pag_obbligatorio');
 setSessionPar('anno_iscrizioni');
 setSessionPar('mostra_giudizi_compiti_verifiche');
 setSessionPar('seqMesiDefault');
-setSessionPar('seqMesiRataUnicaDefault');
-setSessionPar('seqMesi3RateDefault');
+setSessionPar('SeqMesiRataUnicaDefault');
+setSessionPar('SeqMesi3RateDefault');
+setSessionPar('SeqMesi2RateDefault');
+
 setSessionPar('scalino');
 
 include_once("iscrizioni/setSessionParametersISC.php");

@@ -27,6 +27,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "30/09/";
         $scadrataunica = "30 settembre";
         $scad3rate = "---";
+        $scad2rate = "10 Settembre + 10 Febbraio";
+        $scadrata1duerate ="10/09/";
+        $scadrata2duerate ="10/02/";
         $formagiuridica = "cooperativa";
         $emailscuola= "segreteria@arcascuola.it";
         $emailamministrazionescuola= "segreteria@arcascuola.it ";
@@ -83,6 +86,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "30/09/";
         $scadrataunica = "30 settembre";
         $scad3rate = "---";
+        $scad2rate = "---";
+        $scadrata1duerate ="---/";
+        $scadrata2duerate ="---";
         $formagiuridica = "cooperativa";
         $emailscuola= "segreteria@waldorfpadova.edu.it";
         $emailamministrazionescuola= "segreteria@waldorfpadova.edu.it ";
@@ -139,6 +145,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "05/09/";
         $scadrataunica = "5 settembre";
         $scad3rate = "10 Ottobre + 10 Gennaio + 10 Aprile";
+        $scad2rate = "---";
+        $scadrata1duerate ="---";
+        $scadrata2duerate ="---";
         $formagiuridica = "associazione";
         $emailscuola= "info@aurorascuola.it";
         $emailamministrazionescuola= "info@aurorascuola.it ";
@@ -193,6 +202,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "05/09/";
         $scadrataunica = "5 settembre";
         $scad3rate = "---";
+        $scad2rate = "---";
+        $scadrata1duerate ="---";
+        $scadrata2duerate ="---";
         $formagiuridica = "cooperativa";
         $emailscuola= "segreteria@scuolawaldorfverona.it";
         $emailamministrazionescuola= "amministrazione@scuolawaldorfverona.it ";
@@ -247,6 +259,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "05/09/";
         $scadrataunica = "5 settembre";
         $scad3rate = "---";
+        $scad2rate = "---";
+        $scadrata1duerate ="---";
+        $scadrata2duerate ="---";
         $formagiuridica = "associazione";
         $emailscuola= "amministrazione@scuolawaldorftreviso.it";
         $emailamministrazionescuola= "amministrazione@scuolawaldorftreviso.it ";
@@ -301,6 +316,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "15/12/";
         $scadrataunica = "15 dicembre";
         $scad3rate = "15 Settembre + 15 Dicembre + 15 Aprile";
+        $scad2rate = "---";
+        $scadrata1duerate ="---";
+        $scadrata2duerate ="---";
         $formagiuridica = "associazione";
         $emailscuola= "segreteria@scuolasteiner-trento.it ";
         $emailamministrazionescuola= "amministrazione@scuolasteiner-trento.it ";
