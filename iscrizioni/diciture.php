@@ -27,6 +27,10 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "30/09/";
         $scadrataunica = "30 settembre";
         $scad3rate = "---";
+        $scadrata1trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata2trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata3trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata2duerate ="10/02/";
         $scad2rate = "10 Settembre + 10 Febbraio";
         $scadrata1duerate ="10/09/";
         $scadrata2duerate ="10/02/";
@@ -86,6 +90,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "30/09/";
         $scadrataunica = "30 settembre";
         $scad3rate = "---";
+        $scadrata1trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata2trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata3trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
         $scad2rate = "---";
         $scadrata1duerate ="---/";
         $scadrata2duerate ="---";
@@ -145,6 +152,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "05/09/";
         $scadrataunica = "5 settembre";
         $scad3rate = "10 Ottobre + 10 Gennaio + 10 Aprile";
+        $scadrata1trerate ="10/10/";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata2trerate ="10/01/";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata3trerate ="10/04/";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
         $scad2rate = "---";
         $scadrata1duerate ="---";
         $scadrata2duerate ="---";
@@ -202,6 +212,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "05/09/";
         $scadrataunica = "5 settembre";
         $scad3rate = "---";
+        $scadrata1trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata2trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata3trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
         $scad2rate = "---";
         $scadrata1duerate ="---";
         $scadrata2duerate ="---";
@@ -259,6 +272,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "05/09/";
         $scadrataunica = "5 settembre";
         $scad3rate = "---";
+        $scadrata1trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata2trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata3trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
         $scad2rate = "---";
         $scadrata1duerate ="---";
         $scadrata2duerate ="---";
@@ -316,6 +332,9 @@ switch ($codscuola) {
         $scadrataunicaDDMM = "15/12/";
         $scadrataunica = "15 dicembre";
         $scad3rate = "15 Settembre + 15 Dicembre + 15 Aprile";
+        $scadrata1trerate ="15/09/";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata2trerate ="15/12/";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
+        $scadrata3trerate ="15/04/";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
         $scad2rate = "---";
         $scadrata1duerate ="---";
         $scadrata2duerate ="---";
