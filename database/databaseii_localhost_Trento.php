@@ -8,7 +8,7 @@ $codscuola="TN";
 
 // Variabili per accesso al database
 //$username = "Sql1592916";
-//$password = "Nicolone2!";
+//$password = "LUR$YkgD76";
 //$database = "Sql1592916_1";
 //$host = "31.11.39.64";
 

@@ -3,10 +3,11 @@
 # Fill our vars and run on cli
 # $ php -f db-connect-test.php
 
-$dbname = 'Sql1592916_1';
-$dbuser = 'Sql1592916';
-$dbpass = 'LUR$YkgD76';
-$dbhost = '31.11.39.64';
+$dbname = 'Sql1256175_1';
+$dbuser = 'Sql1256175';
+$dbpass = '586531rtj5';
+$dbhost = "89.46.111.73";
+
 
 
 $mysqli_connection = new MySQLi($dbhost, $dbuser, $dbpass, $dbname);
