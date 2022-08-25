@@ -10,7 +10,7 @@ switch ($codscuola) {
         $nomecittascuola = "Iniziativa ARCA di Padova - programma di supporto alla didattica";
         $indirizzoscuola = "Via T.Aspetti 248 - Padova - PD";
         $indirizzocompletoscuola= "Via T.Aspetti, 248 - 35133 - Padova - tel.XXX/XX.XX.XX - segreteria@arcascuola.it";
-        $datiscuola = "C.F. e P.IVA 05484330286";
+        $datiscuola = "C.F. e P.IVA 05484330286 - iscrizione albo nazionale società cooperative n° C138857";
         $cfscuola = "05484330286";
         $ragionesocialescuola = "Società Cooperativa Sociale ARCA Educazione";
         $titolaretrattamentoTitolo = "il presidente pro-tempore della Società Cooperativa Sociale ARCA Educazione";
@@ -58,8 +58,8 @@ switch ($codscuola) {
 
         $modalitaPagSDD = "con mandato per addebito diretto SEPA-SDD Core (ex RID)";
         $modalitaPagBonifico = "con bonifico";
-        $POF_PTOF_PSD = "PSD"; //Piano di supporto alla didattica
-        $POF_PTOF_PSDext = "Piano di Supporto alla Didattica";
+        $POF_PTOF_PSD = "PED"; //Piano di supporto alla didattica
+        $POF_PTOF_PSDext = "Progetto Educativo-Didattico";
         $istituzione_supporto =" programma di supporto alla didattica ";
 
         break;

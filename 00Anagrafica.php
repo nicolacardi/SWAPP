@@ -400,7 +400,7 @@
 								<div class="col-md-3">
 									<input type="text" class="tablecell5"  id="emailpadre_fam_new"  maxlength="80" name="emailpadre_fam_new">
 								</div>
-								<div class="col-md-1" style="text-align: right">
+								<div class="col-md-1" style="text-align: right" >
 									<input type="checkbox" class="tablecell5" id="sociopadre_fam_new" name="sociopadre_fam_new">
 								</div>
 							</div>

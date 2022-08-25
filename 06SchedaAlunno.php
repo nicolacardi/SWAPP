@@ -357,8 +357,8 @@
 								<div class="col-md-3 center">
 									<input type="text" class="tablecell5"  id="emailpadre_fam_new"  maxlength="80" name="emailpadre_fam_new">
 								</div>
-								<div class="col-md-1" style="text-align: right">
-									<input type="checkbox" class="tablecell5" id="sociopadre_fam_new" name="sociopadre_fam_new">
+								<div class="col-md-1" style="text-align: right;">
+									<input type="checkbox" class="tablecell5" id="sociopadre_fam_new" name="sociopadre_fam_new" >
 								</div>
 							</div>
 						</div> <!-- END REMOVE CONTENT -->
@@ -733,7 +733,7 @@
 	}
 
 	$('#form_AddAlunno').on('click', function (event){ 
-     event.preventDefault(); 
+     //event.preventDefault(); 
 	});
 
 	function addAnagrafica () {

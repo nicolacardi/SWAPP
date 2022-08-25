@@ -454,7 +454,10 @@
 	LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla AND annoscolastico_pag = annoscolastico_cla 
 	WHERE annoscolastico_cla = ?  AND listaattesa_cla = 0 AND causale_pag <> 1 ORDER BY classe_cla, sezione_cla, cognome_alu, nome_alu, data_pag ;";
 
-
+$sqlxxx = "SELECT nome_alu, cognome_alu, ID_pag, data_pag, importo_pag, causale_pag, tipo_pag, soggetto_pag, annoscolastico_pag, classe_cla, sezione_cla
+FROM tab_pagamenti	LEFT JOIN tab_anagraficaalunni ON ID_alu = ID_alu_pag
+LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla AND annoscolastico_pag = annoscolastico_cla 
+WHERE annoscolastico_cla = ".$annoscolastico_cla."  AND listaattesa_cla = 0 AND causale_pag <> 1 ORDER BY classe_cla, sezione_cla, cognome_alu, nome_alu, data_pag ;";
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "s", $annoscolastico_cla);
 	mysqli_stmt_execute($stmt);
@@ -463,7 +466,8 @@
 	while (mysqli_stmt_fetch($stmt)) {
 		//a seconda di causale_pag vado a scrivere in un foglio o in un altro
 		//c'è un counter per ogni foglio (e per ogni tipo di causale, dunque)
-		if ($n>1) {
+		//if ($n>1) {
+		if ($causale_pag>1) {
 			$n = $causale_pag - 2;
 			$spreadsheet->setActiveSheetIndex($causale_pag+7); // Comincia da 0
 
@@ -480,6 +484,9 @@
 			$rigaA[$n] = $rigaA[$n] + 1;
 		}
 	}
+
+
+		//$causali_pagA = ["non rilevato", "retta", "iscrizione", "donazione", "spese didattiche", "quota associativa", "cauzione"];
 
 
 	$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
