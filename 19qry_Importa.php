@@ -264,9 +264,12 @@
 				$quota = $_POST["alu-".$ID_alu_ret."-quotapromessa_alu-2"];
 				//$rate = $importato[22][3][$nfratello];
 				$rate = $_POST["alu-".$ID_alu_ret."-ratepromesse_alu-2"];
-				$QuotaProRata = $quota/$rate;
 
-				//pesco la quota di default totale inserita in database A per l'alunno
+				// if ($rate == 99) { $QuotaProRata = $quota/10; } //in caso di rate "da concordare" si usa lo standard 10 rate
+				// else {
+					$QuotaProRata = $quota/$rate;
+				// };
+
 				$sql7 = "SELECT SUM(default_ret) as quotadefault FROM ".$_SESSION['databaseA'].".tab_mensilirette WHERE ID_alu_ret = ? AND annoscolastico_ret = ?;";
 				$stmt7 = mysqli_prepare($mysqli, $sql7);
 				mysqli_stmt_bind_param($stmt7, "is", $ID_alu_ret, $annoscolastico);
@@ -275,7 +278,10 @@
 				while (mysqli_stmt_fetch($stmt7)) {
 				}
 
-				$QuotaProRataDefault = $quotadefault/$rate;
+				// if ($rate == 99) { $QuotaProRataDefault = $quotadefault/10; } //in caso di rate "da concordare" si usa lo standard 10 rate
+				// else { 
+					$QuotaProRataDefault = $quotadefault/$rate;
+				// }
 
 				for ($x = 1; $x <= 12; $x++) {
 					$D[$x] = 0;
@@ -332,6 +338,17 @@
 						$C[$x] = $QuotaProRata;
 					}
 					break;
+				case 99:
+					//uso per il caso di "rata da concordare" le 10 rate: da Gennaio a Giugno e da Settembre a Dicembre
+					for ($x = 1; $x <= 6; $x++) {
+						$D[$x] = $QuotaProRataDefault;
+						$C[$x] = $QuotaProRata;
+					}
+					for ($x = 9; $x <= 12; $x++) {
+						$D[$x] = $QuotaProRataDefault;
+						$C[$x] = $QuotaProRata;
+					}
+					break;
 
 				default:
 				}
@@ -368,6 +385,9 @@
 	$return['test2'] = $SeqMesiRataUnicaDefault;
 
 	$return['test3'] = $annoscolastico;
+	$return['test4'] = $rate;
+	$return['test5'] = $ratepromesse_alu;
+
 	
      echo json_encode($return);?>
 

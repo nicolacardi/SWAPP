@@ -2,7 +2,7 @@
 <?	
 	include_once("database/databaseii.php");
 	include_once("assets/functions/functions.php");
-
+	$annoscolastico  = $_POST['annoscolastico_cla'];
 	$dbA = $_SESSION['databaseA'];
 	$dbB = $_SESSION['databaseB'];
 	//estraggo il valore dei singoli campi: serve per eseguire la query estraendo i campi in maniera dinamica
@@ -179,6 +179,7 @@
 	$dbA.".tab_classialunni.annoscolastico_cla, ".
 
 	$dbB.".tab_famiglie.mailinviate_fam, ".
+	$dbB.".tab_famiglie.promemoriainviati_fam, ".
 	$dbB.".tab_famiglie.loginusata_fam, ".
 	$dbB.".tab_famiglie.iscrizionecompleta_fam, ".
 	$dbB.".tab_famiglie.iscrizioneinviata_fam, ".
@@ -222,7 +223,7 @@
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_execute($stmt);
 	
-	mysqli_stmt_bind_result($stmt, $ID_alu, $ID_fam_alu, $nome_alu, $cognome_alu, $listaattesa_cla, $emailpadre_fam, $emailmadre_fam, $campo3value, $campo4value, $campo5value, $mailinviate_fam, $loginusata_fam, $iscrizionecompleta_fam, $iscrizioneinviata_fam, $datirecuperati_fam, $TotIscrizione, $noniscritto_alu, $ID_usr, $login_usr, $bloccato_usr, $annopreiscrizione_fam);
+	mysqli_stmt_bind_result($stmt, $ID_alu, $ID_fam_alu, $nome_alu, $cognome_alu, $listaattesa_cla, $emailpadre_fam, $emailmadre_fam, $campo3value, $campo4value, $campo5value, $mailinviate_fam, $promemoriainviati_fam, $loginusata_fam, $iscrizionecompleta_fam, $iscrizioneinviata_fam, $datirecuperati_fam, $TotIscrizione, $noniscritto_alu, $ID_usr, $login_usr, $bloccato_usr, $annopreiscrizione_fam);
 	//id_asc è l'indice che corrisponde in tabella anniscolastici all'annoscolastico del record selezionato. Lo estraggo per metterlo nell'attributo name del campo tipo checkbox perchè serve
 	//a effettuare le promozioni: con il codice id_asc si può accedere alla tabella anniscolastici ed estrarre l'anno scolastico "+1". Va salvato "padded" nel name della checkbox per poterlo poi estrarre.
 	
@@ -258,10 +259,10 @@
 		<tr>
 			<td oncontextmenu="rightClickAlu(event, <?=$ID_alu?>)" style="position:relative">
 				<? if ($mails!=0 && $datirecuperati_fam!=0) {?>
-					<div id="rightmenualu<?=$ID_alu?>" class="rightmenu fs12" style="position: absolute; left: 30px; top: -3px; display: none;" onclick="rightClicked(<?=$ID_fam_alu?>, '<?=$_POST['annoscolastico_cla']?>')">
+					<!-- <div id="rightmenualu<?//=$ID_alu?>" class="rightmenu fs12" style="position: absolute; left: 30px; top: -3px; display: none;" onclick="rightClicked(<?=$ID_fam_alu?>, '<?=$_POST['annoscolastico_cla']?>')">
 						<img href="" title="Invia Mail" style="position: absolute; left: 5px; width: 23px; " src='assets/img/Icone/envelope-regular-white.svg'>
 						<input class="rightmenuinputalu w160px" style="text-align: right" id="rightmenuinputalu<?=$ID_alu?>"	value="invia mail di Promemoria" readonly>
-					</div>
+					</div> -->
 				<?}?>
 
 				<input class="" type="text"  id="ID_alu_riga_<?=$riga?>" name="aluriga_<?=$riga?>" value = "<?=$ID_alu?>" 		hidden>
@@ -315,9 +316,7 @@
 				<input id="mailinviate_fam_<?=$riga?>" class="tablecell6 val<?=$ID_alu?> <?=$cllistaattesa?>" type="text" value = "<?=$mailinviate_fam?>" style="<?if($mailinviate_fam!=0 && $mailinviate_fam!=''){ echo('background-color: #07ff00;');}?> width: 80px;" disabled>
 			</td>
 			<td class="w100px">
-
 				<button id="btn_login" class="val<?=$ID_alu?> <?=$cllistaattesa?> w100px" style="<?if($login_usr ==''){ echo('display: none;');}?> font-size: 10px; padding: 0px; height: 24px; " onclick="apriPortaleIscrizioni('<?=$login_usr?>');" title="vai a Portale iscrizioni"><?=$login_usr?></button>
-
 			</td>
 			<td class="w60px">
 			<button id="btn_login" class="val<?=$ID_alu?> <?=$cllistaattesa?> w60px" style="<?if($login_usr ==''){ echo('display: none;');}?> font-size: 10px; padding: 0px; height: 24px; text-decoration: underline" onclick="showModalChgPsw(<?=$ID_usr?>, '<?=$login_usr?>');" title="imposta la Password">***</button>
@@ -354,8 +353,16 @@
 			<td>
 				<input class="tablecell6 disab val<?=$ID_alu?> <?=$cllistaattesa?>" type="text" value = "<?if ($datirecuperati_fam == 0) {echo("-");}else{echo("OK");}?>" style="<?if($datirecuperati_fam !=0 && $datirecuperati_fam!=''){ echo('background-color: #07ff00;');}?> width: 80px;" disabled>
 			</td>
+
 			<td>
 				<input class="tablecell6 disab val<?=$ID_alu?> <?=$cllistaattesa?>" type="text" value = "<?=intval($TotIscrizione)?>" style="width: 80px;" disabled>	
+			</td>
+			<td>
+				
+				<button style="    <? if ($mails==0 || $datirecuperati_fam==0) {echo("visibility: hidden;");}?>   width: 30px; padding: 0px; height: 24px;  <? if ($noniscritto_alu ==1) {echo("background-color: red;");} ?>" onclick="inviaPromemoriaImpegni(<?=$ID_fam_alu?>, '<?=$annoscolastico?>' );">
+					<img title="Invia Promemoria" style="width: 22px; cursor: pointer" src='assets/img/Icone/BellPromemoria.svg'>
+				</button>
+				<input class="tablecell6 disab val<?=$ID_alu?> <?=$cllistaattesa?>" type="text" value = "<?=$promemoriainviati_fam?>" style="<?if($datirecuperati_fam !=0 && $datirecuperati_fam!=''){ echo('background-color: #07ff00;');}?> width: 45px;" disabled>
 			</td>
 
 			<!--<td>
@@ -872,10 +879,30 @@
 			data: postData,
 			dataType: 'json',
 			success: function(data){
-				// console.log ("19qry_Iscrizioni.php - inviamail - ritorno da 19sendemail_fam");
-				// console.log (data.result);
+				console.log ("19qry_Iscrizioni.php - inviaPromemoriaImpegni - ritorno da 19sendemail_fam");
+				 console.log (data.result);
 				//$('#modalmailinviata').modal('show');
-				requery();
+				if (data.check == 'inviato'){
+					console.log ("19qry_Iscrizioni.php - inviaPromemoriaImpegni - postData a 19qry_updatePromemoriaInviati");
+					console.log (postData);
+					$.ajax({
+						type: 'POST',
+						url: "19qry_updatePromemoriaInviati.php",
+						data: postData,
+						dataType: 'json',
+						success: function(data){
+							console.log ("19qry_Iscrizioni.php - inviaPromemoriaImpegni - ritorno da 19qry_updatePromemoriaInviati");
+							console.log (data.test);
+							requery();
+							
+						},
+						error: function(){
+							alert("Errore: contattare l'amministratore fornendo il codice di errore '19qry_Iscrizioni ##inviaPromemoriaImpegni##'");     
+						}
+					});
+		
+				}
+				
 				
 			},
 			error: function(){

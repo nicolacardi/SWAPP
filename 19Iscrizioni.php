@@ -160,8 +160,12 @@
 							<th>
 								<input class="tablelabel4"  style="width:80px" type="text" value = "Recuperato" disabled>
 							</th>
+
 							<th>
 								<input class="tablelabel4"  style="width:80px" type="text" value = "Iscrizione" disabled>
+							</th>
+							<th>
+								<input class="tablelabel4"  style="width:80px" type="text" value = "Promemoria" disabled>
 							</th>
 
 						</tr>
@@ -217,8 +221,11 @@
 							</th>
 							<th>
 							</th>
+
 							<th>
 								<button id="ordinacampo6" class="ordinabutton" onclick="ordina(6);" style="font-size:8px">--</button>
+							</th>
+							<th>
 							</th>
 						</tr>
 					</thead>
@@ -600,11 +607,13 @@
 			dataType: 'json',
 			success: function(data){
 				// console.log ("19Iscrizioni.php - ImportaSelezionati - ritorno da 19qry_Importa.php")
-				//console.log(data.sql3);
-				// console.log(data.importato);
-				//   console.log(data.test);
-				//   console.log(data.test2);
-				   console.log ("test3", data.test3);
+				console.log(data.sql3);
+				 console.log(data.importato);
+				   console.log ("test", 					data.test);
+				   console.log ("test2", 					data.test2);
+				   console.log ("test3", 					data.test3);
+				   console.log ("test4 rate", 				data.test4);
+				   console.log ("test5 ratepromesse_alu", 	data.test5);
 				$("#remove-contentImportazione").slideUp();
 				$("#alertaggiungiImportazione").removeClass('alert-danger');
 				$("#alertaggiungiImportazione").addClass('alert-success');
