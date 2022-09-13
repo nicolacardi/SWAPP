@@ -9,7 +9,7 @@ switch ($codscuola) {
         $nomescuola = "Iniziativa ARCA Padova";
         $nomecittascuola = "Iniziativa ARCA di Padova - programma di supporto alla didattica";
         $indirizzoscuola = "Via T.Aspetti 248 - Padova - PD";
-        $indirizzocompletoscuola= "Via T.Aspetti, 248 - 35133 - Padova - tel.XXX/XX.XX.XX - segreteria@arcascuola.it";
+        $indirizzocompletoscuola= "Via T.Aspetti, 248 - 35133 - Padova - tel.346 2245653 - segreteria@arcascuola.it";
         $datiscuola = "C.F. e P.IVA 05484330286 - iscrizione albo nazionale società cooperative n° C138857";
         $cfscuola = "05484330286";
         $ragionesocialescuola = "Società Cooperativa Sociale ARCA Educazione";
@@ -18,10 +18,10 @@ switch ($codscuola) {
         $linkPTOF = "http://arcascuola.it";
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
         $quotaiscrizione = "";
-        $scadrientromodulo = "28/01/";
-        $scadrientromodulolett = "28 gennaio ";
-        $scadiscrizione = "28/01/";
-        $scadiscrizionelett = "28 gennaio ";
+        $scadrientromodulo = "12/09/";                  //TEMPORANEO
+        $scadrientromodulolett = "12 settembre ";       //TEMPORANEO
+        $scadiscrizione = "12/09/";                     //TEMPORANEO
+        $scadiscrizionelett = "12 settembre ";          //TEMPORANEO
         $scadfrase1 = "";
         $scadfrase2 = "sottoscriverli dove indicato e consegnarli in Segreteria <br>entro la scadenza del ";
         $scadrataunicaDDMM = "30/09/";
@@ -40,8 +40,8 @@ switch ($codscuola) {
 
 
         $swapp = "www.arcascuola.it/swapp";
-        $fraseAllegatoC= "l Regolamento Pediatrico";
-        $fraseAllegatoC= "l Regolamento Pediatrico";
+        $fraseAllegatoC= "le norme igienico sanitarie";
+        $fraseAllegatoCALL= "NORME IGIENICO SANITARIE";
         $titoloPagColonnaVoti = "Obiettivi di Apprendimento";
 
         //per pagelle
@@ -52,7 +52,7 @@ switch ($codscuola) {
         $intestazione1 = "Società Cooperativa Sociale";
         $intestazione2 = "ARCA Educazione";
 
-        $titolocontratto = "CONTRATTO DI PRESTAZIONE SCOLASTICA";
+        $titolocontratto = "CONTRATTO DI PRESTAZIONE DI SUPPORTO ALLA DIDATTICA";
 
         $testoarticolomensa = "";
 
@@ -61,6 +61,7 @@ switch ($codscuola) {
         $POF_PTOF_PSD = "PED"; //Piano di supporto alla didattica
         $POF_PTOF_PSDext = "Progetto Educativo-Didattico";
         $istituzione_supporto =" programma di supporto alla didattica ";
+
 
         break;
 
@@ -103,7 +104,8 @@ switch ($codscuola) {
 
         $swapp = "www.steinerwaldorfpadova.it";
         $fraseAllegatoC= "l Regolamento Pediatrico";
-        $fraseAllegatoC= "l Regolamento Pediatrico";
+        $fraseAllegatoCALL= "REGOLAMENTO PEDIATRICO";
+
         $titoloPagColonnaVoti = "Obiettivi di Apprendimento";
 
         //per pagelle
@@ -124,6 +126,7 @@ switch ($codscuola) {
         $POF_PTOF_PSD = "PTOF"; //Piano di supporto alla didattica
         $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
         $istituzione_supporto ="l'istituzione scolastica ";
+
 
         break;
     case 'CI':
@@ -164,6 +167,8 @@ switch ($codscuola) {
 
         $swapp = "www.steinerwaldorfcittadella.it";
         $fraseAllegatoC= "l documento: 'Indicazioni per il Controllo e Prevenzione delle Malattie Infettive'";
+        $fraseAllegatoCALL= "INDICAZIONI PER IL CONTROLLO E LA PREVENZIONE DELLE MALATTIE INFETTIVE";
+
         $titoloPagColonnaVoti = "Giudizio Descrittivo";
 
         //per pagelle
@@ -184,6 +189,7 @@ switch ($codscuola) {
         $POF_PTOF_PSD = "PTOF"; //Piano di supporto alla didattica
         $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
         $istituzione_supporto ="l'istituzione scolastica ";
+
 
         break;
     case "VR":
@@ -224,6 +230,8 @@ switch ($codscuola) {
 
         $swapp = "www.steinerwaldorfverona.it";
         $fraseAllegatoC= "l Regolamento Pediatrico";
+        $fraseAllegatoCALL= "REGOLAMENTO PEDIATRICO";
+
         $titoloPagColonnaVoti = "Giudizio Descrittivo";
         
         //per pagelle
@@ -244,6 +252,8 @@ switch ($codscuola) {
         $POF_PTOF_PSD = "PTOF"; //Piano di supporto alla didattica
         $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
         $istituzione_supporto ="l'istituzione scolastica ";
+
+
 
         break;
     case "TV":
@@ -284,6 +294,8 @@ switch ($codscuola) {
 
         $swapp = "www.scuolawaldorftreviso.it";
         $fraseAllegatoC= "l Regolamento Pediatrico";
+        $fraseAllegatoCALL= "REGOLAMENTO PEDIATRICO";
+
         $titoloPagColonnaVoti = "Giudizio Descrittivo";
         
         //per pagelle
@@ -304,6 +316,8 @@ switch ($codscuola) {
         $POF_PTOF_PSD = "PTOF"; //Piano di supporto alla didattica
         $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
         $istituzione_supporto ="l'istituzione scolastica ";
+
+
 
         break;
     case "TN":
@@ -344,6 +358,8 @@ switch ($codscuola) {
 
         $swapp = "www.steinertn.it";
         $fraseAllegatoC= "l Regolamento Pediatrico";
+        $fraseAllegatoCALL= "REGOLAMENTO PEDIATRICO";
+
         $titoloPagColonnaVoti = "Giudizio Descrittivo";
         
         //per pagelle
@@ -365,6 +381,7 @@ switch ($codscuola) {
         $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
         $istituzione_supporto ="l'istituzione scolastica ";
         
+
         break;
     default:
         break;

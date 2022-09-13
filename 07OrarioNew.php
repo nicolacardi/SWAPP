@@ -94,7 +94,7 @@
 							<td>
 								sezione
 								<select name="selectsezione"  style="margin-left: 0px"  id="selectsezione" onchange="requery();">
-									<? $sql = "SELECT DISTINCT sezione_cla FROM tab_classialunnivoti ORDER BY sezione_cla ";
+									<? $sql = "SELECT DISTINCT sezione_cla FROM tab_classialunni ORDER BY sezione_cla ";
 									$stmt = mysqli_prepare($mysqli, $sql);
 									mysqli_stmt_execute($stmt);
 									mysqli_stmt_bind_result($stmt, $sezione_cla);

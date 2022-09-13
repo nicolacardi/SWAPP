@@ -45,6 +45,7 @@
 
             //estraggo tutte le materie che PER LA CLASSE, LA SEZIONE e L'ANNO SCOLASTICO sono state assegnate a qualche maestro
             $sql3 = "SELECT DISTINCT codmat_cma, descmateria_mtt, ord_mtt FROM tab_classimaestri LEFT JOIN tab_materie ON codmat_cma = codmat_mtt WHERE annoscolastico_cma = ? AND classe_cma = ?  AND sezione_cma = ? ORDER BY descmateria_mtt, ord_mtt";
+            $sql3xx = "SELECT DISTINCT codmat_cma, descmateria_mtt, ord_mtt FROM tab_classimaestri LEFT JOIN tab_materie ON codmat_cma = codmat_mtt WHERE annoscolastico_cma = '".$annoscolastico_asc."' AND classe_cma = '".$classe."'  AND sezione_cma = '".$sezione."' ORDER BY descmateria_mtt, ord_mtt";
             $stmt3 = mysqli_prepare($mysqli, $sql3);
             mysqli_stmt_bind_param($stmt3,  "sss", $annoscolastico_asc, $classe, $sezione);
             mysqli_stmt_execute($stmt3);
@@ -62,7 +63,14 @@
             array_push($codmat_mttA,"XX1","XX3");
             array_push($descmateria_mttA,"[PRANZO]","[INTERVALLO]");
             $nummaterie = $nummaterie + 2;
+            ?>
+            <!-- <tr>
+                <td>
+                    debug <?//=$sql3xx?>
+                </td>
+            </tr> -->
             
+            <?
 
             //estraggo le materie/maestri già assegnati all'ora/data di questa classe/sezione. Estraggo prima solo le ore NON di tutoring.
             $sql2 = "SELECT ID_ora, data_ora, ora_ora, IDfirmatutor_ora, codmat_ora, ID_mae, nome_mae, cognome_mae, firma_mae_ora, assente_ora, secondomaestro_ora, descmateria_mtt  FROM tab_orario LEFT JOIN tab_anagraficamaestri ON ID_mae = ID_mae_ora LEFT JOIN tab_materie ON codmat_ora = codmat_mtt WHERE data_ora = ? AND ora_ora = ? AND classe_ora = ? AND sezione_ora= ? AND codmat_ora <> 'TUX' ORDER BY secondomaestro_ora";
@@ -90,6 +98,7 @@
                     <td>
                         <!-- icona eliminazione -->
                         <img title="Elimina Maestro" style="width: 20px; cursor: pointer; <? if($_SESSION['role_usr'] == 2) {echo ("display:none;");}?>" src="assets/img/Icone/times-circle-solid.svg" onclick = "eliminaIDora(<?=$ID_ora?>);">
+                        
                     </td>
                     <td>
                         <!-- descmateria -->
@@ -119,7 +128,9 @@
                             style="font-size: 14px" 
                             <?if ( $IDfirmatutor_ora!=0 ) {echo('checked');} ?>>
                         <?}?>
+                        
                     </td>
+                    
 
                 </tr>
             <?}?>
@@ -130,6 +141,7 @@
                 <td>
                 <img id="plusaggiungi" title="Aggiungi nuovo Maestro Ulteriore" style="<? if($_SESSION['role_usr'] == 2) {echo ("display:none;");}?>  width: 20px; cursor: pointer" src='assets/img/Icone/circle-plus.svg' onclick="aggiungiMaestroUlteriore(<?=$j?>, <?=$x?>, <?=($n+1)?>, '<?=$data?>', <?=$nummaterie?>);">
                 </td>
+                <!-- <td><?//=$sezione?></td> -->
             </tr>
         </tbody>
     </table>
@@ -140,8 +152,13 @@
     function aggiungiMaestroUlteriore(j,x,n, data, nummaterie) {
         //aggiunge una riga alla tabella con tanto di select per la scelta della materia e pulsante save
         //nel caso i due array siano vuoti SOLO ONLINE non funziona
-        codmttA = <? echo '["' . implode('", "', $codmat_mttA) . '"]' ?>;
-        descmateria_mttA= <? echo '["' . implode('", "', $descmateria_mttA) . '"]' ?>;
+        // console.log ("07qry_getMaterieEMaestriNew.php -  aggiungiMaestroUlteriore - codmttA");
+        // console.log ("07qry_getMaterieEMaestriNew.php -  aggiungiMaestroUlteriore - descmateria_mttA");
+
+        //devo ora estrarre i valori dai due array che sono stati popolati da php!
+        codmttA =               <? echo '["' . implode('", "', $codmat_mttA) . '"]' ?>;
+        descmateria_mttA=       <? echo '["' . implode('", "', $descmateria_mttA) . '"]' ?>;
+
         //codmttA.unshift("nomat"); //aggiungeva un elemento in prima posizione
         //descmateria_mttA.unshift("-"); //aggiungeva un elemento in prima posizione
 		appendhtml = "<td>"

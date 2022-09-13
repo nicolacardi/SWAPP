@@ -979,7 +979,7 @@ $pdf->SetFont($fontdefault,'',10);
 	$pdf->SetFont($fontdefault,'',12);
 	$pdf->Cell(0,8,"..................................................................................................", 0,1, 'C');
 
-	$testo4="Con la presente dichiariamo di aver acquisito le informazioni fornite dal titolare del trattamento e compreso e condiviso il significato di quanto sopra indicato, facendo salvo il rinvio a tutta la normativa vigente e applicabile alla materia, consapevoli che i servizi da noi richiesti, ovvero richiesti da nostro/a figlio/a minore di 14 anni di età, ricadono nell'ambito della società dell'informazione e pertanto secondo la norma (art. 8 Regolamento UE 2016/679) è necessario che il consenso sia prestato o autorizzato dai titolari della responsabilità genitoriale sul minore (DPR 28/2/2000 N. 445 Art. 46 punto ''u'').";
+	$testo4="Con la presente dichiariamo di aver acquisito le informazioni fornite dal titolare del trattamento e compreso e condiviso il significato di quanto sopra indicato, facendo salvo il rinvio a tutta la normativa vigente e applicabile alla materia, consapevoli che i servizi da noi richiesti, ovvero richiesti da nostro/a figlio/a, ricadono nell'ambito della società dell'informazione e pertanto secondo la norma (art. 8 Regolamento UE 2016/679) è necessario che il consenso sia prestato o autorizzato dai titolari della responsabilità genitoriale sul minore (DPR 28/2/2000 N. 445 Art. 46 punto ''u'').";
 
 	$pdf->Ln(1);
 	$pdf->SetFont($fontdefault,'',10);

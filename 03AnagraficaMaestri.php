@@ -45,6 +45,7 @@
 				<div>
 					<select class="selectXl" id="selectDownloadExcel">
 						<option value="DownloadExcelAnagraficaMaestri">Anagrafiche Maestri</option>
+						<option value="DownloadExcelReportMaterie">Report Materie</option>
 					</select>
 					<img onclick="DownloadExcel()" class="miniButtonXl" src='assets/img/Icone/logoexcel2019.svg'>
 				</div>
@@ -353,7 +354,11 @@
 	function DownloadExcelAnagraficaMaestri() {
 		window.location.href='03downloadAnMaestri.php';
 	}
-	
+
+	function DownloadExcelReportMaterie() {
+		window.location.href='03downloadReportMaterie.php';
+	}
+
 	$("#mf_mae_new").keypress(function(e){
 		let inputValue = event.which;
 		// F = 70, M = 77

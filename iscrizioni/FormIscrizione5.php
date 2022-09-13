@@ -102,7 +102,7 @@
 
 			<div class="col-md-8 col-sm-12 col-md-offset-2" style="text-align: center; font-size: 24px; margin-bottom: 20px; color: #3c3c3c;">
 				
-					 CONTRIBUTI SCOLASTICI <?=$_SESSION['annopreiscrizione_fam']?>
+					 CONTRIBUTI <?=$_SESSION['annopreiscrizione_fam']?>
 					 
 			</div>
 			<div class="row">

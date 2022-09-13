@@ -95,6 +95,7 @@ $pdf->Cell(60,10,"", "B" ,0, 'C');
 $pdf->SetDash(); //Restore dash
 $pdf->SetTextColor(0,0,0);
 $pdf->SetDrawColor(0,0,0);
+
  //FINE FRONTESPIZIO************************************************************************************************************************************
 //pagina bianca
 $pdf->AddPage();

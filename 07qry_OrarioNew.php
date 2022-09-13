@@ -248,12 +248,18 @@
         
         postData = {data: data, ora: ora, classe: classe, sezione: sezione, j: j, x: x};
         //vado a popolare la tabella materie e maestri a partire da data, ora, classe, sezione
+
+        console.log ("07OrarioNew.php - showModalTutor - postData a 07qry_getMaterieEMaestriNew.php")
+		console.log (postData);
         $.ajax({
             type: 'POST',
             url: "07qry_getMaterieEMaestriNew.php",
             data: postData,
             dataType: 'html',
             success: function(html){
+                // console.log ("07OrarioNew.php - showModalTutor - ritorno da 07qry_getMaterieEMaestriNew.php")
+		        // console.log (html);
+
                 $("#MaterieEMaestriContainer").html(html);
                 $('#alertModalTutor').removeClass('alert-danger');
                 $('#alertModalTutor').addClass('alert-success');
@@ -274,8 +280,8 @@
 
         let epoca = $('#epoca'+indiceora_jx).prop("checked");
         postData = {data: data, ora: ora, classe: classe, sezione: sezione, epoca: epoca};
-        console.log ("07OrarioNew.php - setEpoca - postData a 07qry_setEpocaNew.php")
-		console.log (postData);
+        // console.log ("07OrarioNew.php - setEpoca - postData a 07qry_setEpocaNew.php")
+		// console.log (postData);
         $.ajax({
             type: 'POST',
             url: "07qry_setEpocaNew.php",

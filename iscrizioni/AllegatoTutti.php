@@ -32,7 +32,7 @@ if ($ISC_mostra_regolinterno ==1) {
 }
 if ($ISC_mostra_regolpediatrico ==1) {
     $pdf->Ln(10);
-    $pdf->Write(10,'> ALLEGATO C: INDICAZIONI PER IL CONTROLLO E PREVENZIONE DELLE MALATTIE INFETTIVE',$link4);
+    $pdf->Write(10,'> ALLEGATO C: '.$fraseAllegatoCALL,$link4);
 }
 
 

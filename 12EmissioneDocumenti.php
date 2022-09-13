@@ -402,8 +402,8 @@
 		let classe_cla = $( "#selectclasse option:selected" ).val();
 		let sezione_cla = $( "#selectsezione option:selected" ).val();
 		postData = { ID_mae : ID_mae, annoscolastico_cla: annoscolastico_cla, classe_cla: classe_cla, sezione_cla: sezione_cla};
-		console.log ("passo a 12qry_getElencoAlunni:_");
-		console.log (postData);
+		//console.log ("passo a 12qry_getElencoAlunni:_");
+		//console.log (postData);
 		$.ajax({
 			type: 'POST',
 			url: "12qry_getElencoAlunni.php",
@@ -549,6 +549,7 @@
 		let settimane = $( "#settimane").val();
 		let paginauno = $( "#paginauno").val();
 
+		console.log (annoscolastico, classe_ora, sezione_ora, datalunedi, settimane, paginauno);
 		url = "12downloadGiornaleClasse.php";
 		
 		let form = $('<form target="_blank" action="' + url + '"method="post"></form>');

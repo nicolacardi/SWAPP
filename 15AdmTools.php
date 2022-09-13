@@ -617,6 +617,10 @@
 										Medie
 										<input class="tablecell5" type="checkbox"  id="me_mtt_new" name="me_mtt_new">
 								</div>
+								<div class="row">
+										Superiori
+										<input class="tablecell5" type="checkbox"  id="su_mtt_new" name="su_mtt_new">
+								</div>
 							</div>
 
 						</div> <!-- END REMOVE CONTENT -->
@@ -1248,6 +1252,7 @@
 		let as_mtt = $('#as_mtt_new').val();
 		let el_mtt = $('#el_mtt_new').val();
 		let me_mtt = $('#me_mtt_new').val();
+		let su_mtt = $('#sus_mtt_new').val();
 
 		let postData = $("#form_AddMateria").serializeArray();
 

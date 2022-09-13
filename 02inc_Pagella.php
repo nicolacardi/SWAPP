@@ -95,7 +95,7 @@ if ($aselme_cla=="EL")  {
             <thead>
                 <tr>
                     <td class="center w15">
-                        Materia 
+                        Materia
                     </td>
                     <td class="center w30">
                         Commento interno

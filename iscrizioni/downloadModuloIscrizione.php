@@ -4,6 +4,7 @@ include_once("../database/databaseBii.php");
 $annoiscrizioni = 					$_SESSION['anno_iscrizioni'];
 $ISC_include_SDD = 					$_SESSION['ISC_include_SDD'];
 $ISC_mostra_sociovolontario=		$_SESSION['ISC_mostra_sociovolontario'];
+$ISC_mostra_allegatoA=				$_SESSION['ISC_mostra_allegatoA'];
 $ISC_mostra_sceltareligione=		$_SESSION['ISC_mostra_sceltareligione'];
 $ISC_mostra_regolpediatrico=		$_SESSION['ISC_mostra_regolpediatrico'];
 $ISC_mostra_regolinterno=			$_SESSION['ISC_mostra_regolinterno'];
@@ -218,12 +219,12 @@ $h1 = 6;
 	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
 	$pdf->Cell(70,$h1,"DATI ANAGRAFICI DELLA MADRE",1,0,'L');
 
-	$pdf->SetFont($fontdefault,'',12);
+	$pdf->SetFont($fontdefault,'',10);
 	if ($sociomadre_fam == 1) {
 		if ($ISC_mostra_soci == 0) {
-			$testo = "Socia della ".$formagiuridica."     ".$pdf->Image($imgsquarecrossed,$pdf->GetX()+52, $pdf->GetY()+1,5);
-		} else {
 			$testo = "";
+		} else {
+			$testo = "Socia della ".$formagiuridica."     ".$pdf->Image($imgsquarecrossed,$pdf->GetX()+52, $pdf->GetY()+1,5);
 		}
 		$pdf->Cell(60,$h1,$testo,1,0,'L');
 		$pdf->Cell(60,$h1,"",1,1,'L');
@@ -242,6 +243,8 @@ $h1 = 6;
 			$pdf->Cell(60,$h1,"",1,1,'L');
 		}
 	}
+
+
 
 	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Cell(40,$h1,"Cognome",1,0,'L');
@@ -369,6 +372,8 @@ $h1 = 6;
 		$precdisabilita_alu = $disabilita_alu;
 	}
 
+	
+
 	if ($blank) { //caso modulo BLANK
 		$pdf->AddPage();
 	
@@ -469,9 +474,18 @@ if ($codscuola =='AR') {
 	$pdf->SetFont($fontdefault,'',11);
 
 	$pdf->Ln(4);
+	$testo="-	La Cooperativa ARCA Educazione, ispirandosi agli insegnamenti ed ai principi del pensiero di Rudolf Steiner e della pedagogia Steiner-Waldorf, ha come oggetto la promozione, l'organizzazione e la gestione di servizi socio-sanitari ed educativi ai sensi dell'art. 1, lett. a) della Legge n. 381 del 1991 (estratto dall'art. 4 dello Statuto della Cooperativa Sociale ARCA Educazione);";
+	$testo = utf8_decode($testo);
+	$pdf->MultiCell(0,5,$testo);
+
+
+	$pdf->Ln(4);
 	$testo="-	ARCA Educazione gestisce un programma di supporto alla didattica per ragazzi delle Scuole Superiori in istruzione parentale;";
 	$testo = utf8_decode($testo);
 	$pdf->MultiCell(0,5,$testo);
+
+
+
 
 	$pdf->Ln(4);
 	$testo="-	ARCA Educazione si finanzia in massima parte con contributi e donazioni delle famiglie; la puntualita' e regolarita' nei pagamenti sono necessari per la copertura delle spese del personale e per il buon funzionamento del progetto;";
@@ -483,19 +497,24 @@ if ($codscuola =='AR') {
 	$testo = utf8_decode($testo);
 	$pdf->MultiCell(0,5,$testo);
 
-	$pdf->Ln(4);
-	$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSDext." (disponibili in segreteria o scaricabili dal sito www.arcascuola.it);<br>";
-	$testo = utf8_decode($testo);
-	$pdf->WriteHTML($testo);
+	if ($ISC_mostra_allegatoA ==1) {
+		
+		$pdf->Ln(4);
+
+		$testo="-	si è presa visione di e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSDext." (disponibili in segreteria o scaricabili dal sito www.arcascuola.it);<br>";
+		$testo = utf8_decode($testo);
+		$pdf->WriteHTML($testo);
+	}
+
 	if ($ISC_mostra_regolinterno ==1) {
 		$pdf->Ln(4);
-		$testo="-	si è presa visione e si condivide il Regolamento Interno (<a href='downloadAllegato.php?nomeallegato=B_".$codscuola."'>Allegato B</a>);<br>";
+		$testo="-	si è presa visione di e si condivide il Regolamento Interno (<a href='downloadAllegato.php?nomeallegato=B_".$codscuola."'>Allegato B</a>);<br>";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 	}
 	if ($ISC_mostra_regolpediatrico ==1) {
 		$pdf->Ln(4);
-		$testo="-	si è presa visione e si condivide il Regolamento Pediatrico (<a href='downloadAllegato.php?nomeallegato=C_AR'>Allegato C</a>);<br>";
+		$testo="-	si è presa visione di e si condividono le norme igienico sanitarie (<a href='downloadAllegato.php?nomeallegato=C_AR'>Allegato C</a>);<br>";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 	}
@@ -505,7 +524,7 @@ if ($codscuola =='AR') {
 	$pdf->MultiCell(0,5,$testo);
 
 	$pdf->Ln(4);
-	$testo="-	si dichiara di aver presentato domanda di iscrizione per l'anno scolastico ".$annoscolastico." obbligandosi, in caso di accettazione della medesima domanda da parte di ARCA Educazioe, a sottoscrivere il presente contratto;
+	$testo="-	si dichiara di aver presentato domanda di iscrizione per l'anno scolastico ".$annoscolastico." obbligandosi, in caso di accettazione della medesima domanda da parte di ARCA Educazione, a sottoscrivere il presente contratto;
 	";
 	$testo = utf8_decode($testo);
 	$pdf->MultiCell(0,5,$testo);
@@ -599,16 +618,26 @@ if ($codscuola =='AR') {
 	}
 	$pdf->Cell(0,8,$unicasoluzione,0,1,'L');
 
-	if ($ratepromesse_fam == 2) {
-		$duerate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      due rate (entro il ".$scadrata1duerate.$anno1." e entro il".$scadrata2duerate.$anno2.")");
-	}
-	$pdf->Cell(0,8,$duerate,0,1,'L');
 
-	if ($ratepromesse_fam == 3) {
-		$trerate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      tre rate (entro il ".$scadrata1trerate.$anno1.", entro il".$scadrata2trerate.$anno2." e entro il".$scadrata3trerate.$anno2.")");
-	}
-	$pdf->Cell(0,8,$trerate,0,1,'L');
+	if ($_SESSION['ISC_mostra_2rate'] == 1) {
 
+		$duerate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      due rate (entro il ".$scadrata1duerate.$anno1." e entro il".$scadrata2duerate.$anno2.")");
+
+			if ($ratepromesse_fam == 2) {
+				$duerate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      due rate (entro il ".$scadrata1duerate.$anno1." e entro il".$scadrata2duerate.$anno2.")");
+			}
+		$pdf->Cell(0,8,$duerate,0,1,'L');
+	}
+
+	if ($_SESSION['ISC_mostra_3rate'] == 1) {
+
+		$trerate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      tre rate (entro il ".$scadrata1trerate.$anno1.", entro il".$scadrata2trerate.$anno2." e entro il".$scadrata3trerate.$anno2.")");
+
+		if ($ratepromesse_fam == 3) {
+			$trerate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      tre rate (entro il ".$scadrata1trerate.$anno1.", entro il".$scadrata2trerate.$anno2." e entro il".$scadrata3trerate.$anno2.")");
+		}
+		$pdf->Cell(0,8,$trerate,0,1,'L');
+	}
 	$diecirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
 	if ($ratepromesse_fam == 10) {
 		$diecirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
@@ -660,7 +689,7 @@ if ($codscuola =='AR') {
 	$testo = utf8_decode($testo);
 	$pdf->MultiCell(0,5,$testo, 0, 'C');
 
-	$testo = "YYYYYYYYYY IBAN: ITXXXXXXXXXXXXXXXXXXXX 
+	$testo = "Banca di Credito Cooperativo di Roma - IBAN: IT76 F083 2712 1000 0000 0800 907 
 	Il contributo annuo è dovuto anche in caso di prolungata assenza o ritiro anticipato del discente.";
 
 	$testo = utf8_decode($testo);
@@ -713,6 +742,9 @@ if ($codscuola =='AR') {
 	$pdf->Cell(60,5,"(Il rappresentante legale)",0,1,'C');
 	$pdf->Ln(4);
 	$pdf->Cell(60,5,"","B",1);
+
+
+	include("inc_pattocorresponsabilitaModuloIscrizione.php");
 }
 
 
@@ -1956,7 +1988,7 @@ if ($codscuola =='AR') {
 	} else {
 		$pdf->Cell(0,8,utf8_decode($nomi), 0,1, 'C');
 	}
-	$testo4="Con la presente dichiariamo di aver acquisito le informazioni fornite dal titolare del trattamento e compreso e condiviso il significato di quanto sopra indicato, facendo salvo il rinvio a tutta la normativa vigente e applicabile alla materia, consapevoli che i servizi da noi richiesti, ovvero richiesti da nostro/a figlio/a minore di 14 anni di età, ricadono nell'ambito della società dell'informazione e pertanto secondo la norma (art. 8 Regolamento UE 2016/679) è necessario che il consenso sia prestato o autorizzato dai titolari della responsabilità genitoriale sul minore (DPR 28/2/2000 N. 445 Art. 46 punto ''u'').";
+	$testo4="Con la presente dichiariamo di aver acquisito le informazioni fornite dal titolare del trattamento e compreso e condiviso il significato di quanto sopra indicato, facendo salvo il rinvio a tutta la normativa vigente e applicabile alla materia, consapevoli che i servizi da noi richiesti, ovvero richiesti da nostro/a figlio/a, ricadono nell'ambito della società dell'informazione e pertanto secondo la norma (art. 8 Regolamento UE 2016/679) è necessario che il consenso sia prestato o autorizzato dai titolari della responsabilità genitoriale sul minore (DPR 28/2/2000 N. 445 Art. 46 punto ''u'').";
 
 	$pdf->Ln(1);
 	$pdf->SetFont($fontdefault,'',10);

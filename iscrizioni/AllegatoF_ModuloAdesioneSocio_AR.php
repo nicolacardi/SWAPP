@@ -30,11 +30,11 @@ $pdf->AddPage();
     $pdf->Cell(35,7,"Il/la sottoscritto/a ",0,0,'L');
     $pdf->Cell(95,7,strtoupper($nome_socio)." ".strtoupper($cognome_socio),"B",1,'C');
     $pdf->Cell(35,7,"nato/a a ",0,0,'L');
-    $pdf->Cell(95,7,strtoupper($comunenascita_socio." (".$provnascita_socio.") - ".$paesenascita_socio),"B",0,'C');
+    $pdf->Cell(95,7,strtoupper($comunenascita_socio." ".$provnascita_socio." ".$paesenascita_socio),"B",0,'C');
     $pdf->Cell(10,7," il ",0,0,'C');
     $pdf->Cell(40,7,strtoupper($datanascita_socio),"B",1,'C');
     $pdf->Cell(35,7,"residente a ",0,0,'L');
-    $pdf->Cell(95,7,strtoupper($comune_socio." (".$prov_socio.") - ".$paese_socio),"B",0,'C');
+    $pdf->Cell(95,7,strtoupper($comune_socio." ".$prov_socio." ".$paese_socio),"B",0,'C');
     $pdf->Cell(10,7," CAP ",0,0,'C');
     $pdf->Cell(40,7,strtoupper($CAP_socio),"B",1,'C');
     $pdf->Cell(35,7,"in via ",0,0,'L');
@@ -52,7 +52,11 @@ $pdf->AddPage();
     $pdf->Cell(0,10,utf8_decode("Con la presente chiede di poter essere ammesso in qualità di:"), 0,1, 'C');
     $pdf->SetFont($fontdefault,'',11);
     //$pdf->Cell(10,7,"",0,0);
-    $pdf->Cell(47.5,7,$pdf->Image($imgsquarecrossedmini,$pdf->GetX()+3, $pdf->GetY()+1)."          Socio Fruitore",1,0,"L");
+    if ($blank) {
+        $pdf->Cell(47.5,7,$pdf->Image($imgsquaremini,$pdf->GetX()+3, $pdf->GetY()+1)."          Socio Fruitore",1,0,"L");
+    } else {
+        $pdf->Cell(47.5,7,$pdf->Image($imgsquarecrossedmini,$pdf->GetX()+3, $pdf->GetY()+1)."          Socio Fruitore",1,0,"L");
+    }
     $pdf->Cell(47.5,7,$pdf->Image($imgsquaremini,$pdf->GetX()+3, $pdf->GetY()+1)."          Socio Lavoratore",1,0,"L");
     $pdf->Cell(47.5,7,$pdf->Image($imgsquaremini,$pdf->GetX()+3, $pdf->GetY()+1)."          Socio Volontario",1,0,"L");
     $pdf->Cell(47.5,7,$pdf->Image($imgsquaremini,$pdf->GetX()+3, $pdf->GetY()+1)."          Altro",1,1,"L");
@@ -69,13 +73,14 @@ $pdf->AddPage();
     $pdf->Cell(0,10,utf8_decode("DICHIARA:"), 0,1, 'C');
     $pdf->SetFont($fontdefault,'',10);
 
-    $testo="di non svolgere alcuna attività in contrasto con gli scopi sociali della Cooperativa
-    - di essere a conoscenza ed approvare lo Statuto della Cooperativa
+    $testo="
+    - di non svolgere alcuna attività in contrasto con gli scopi sociali della Cooperativa
+    - di essere a conoscenza ed approvare lo Statuto della Cooperativa, consultabile presso la segreteria
     - di accettare le deliberazioni legalmente adottate dagli organismi sociali
     - di accettare le clausole arbitrali come previsto dallo Statuto
     - di aver preso visione delle informazioni di seguito riportate, relative all' 'INFORMATIVA AI SENSI E PER GLI EFFETTI DI CUI
-    ALL'ARTICOLO 13, D. LGS. 30 GIUGNO 2003 N. 196' ed esprime altresì il proprio consenso al trattamento e alla comunicazione
-    dei propri dati personali.";
+    ALL'ARTICOLO 13, D. LGS. 30 GIUGNO 2003 N. 196' ed esprime altresì il proprio consenso al trattamento e alla
+    comunicazione dei propri dati personali.";
     $pdf->MultiCell(0,5,utf8_decode($testo), 0, "L");
 
     //FIRME

@@ -121,10 +121,10 @@ $pdf->MultiCell(0,5,$testo);
 
 $pdf->Ln(5);
 $pdf->SetFont('TitilliumWeb-SemiBold','',12);
-$testo= utf8_decode("Le quote vanno versate entro il 5 di ogni mese sul conto XXXXXXXXXXXXX");
+$testo= utf8_decode("Le quote vanno versate entro il 5 di ogni mese sul conto BCC Roma");
 $pdf->Cell(0,5,$testo,0,1, "C");
 
-$testo= utf8_decode("IBAN: XXXXXXXXXXXXXXXXXXXXXXXXX");
+$testo= utf8_decode("IBAN: IT76 F083 2712 1000 0000 0800 907");
 $pdf->Cell(0,5,$testo,0,1,"C");
 
 
