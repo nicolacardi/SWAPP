@@ -1128,12 +1128,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .imgSelected {
-	width:30px;
+	width:28px;
 	margin-right: 5px;	
 }
 
 .imgNotSelected {
-	width:30px;
+	width:28px;
 	margin-right: 5px;	
 }
 

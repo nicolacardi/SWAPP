@@ -155,7 +155,26 @@
 				}
 			} ?>
 			
+			<? if ($role_usr == 0 || $role_usr == 1 || $role_usr ==4) {echo "<hr style='margin-top: 0px; margin-bottom: 0px; border-color:grey'>"; }?>
 			
+			
+			<? if ($role_usr == 0 || $role_usr == 1 || $role_usr ==4) {
+				if ($_SESSION['page']=="Anagrafica Soci") {
+					echo ("<a class='hrefSelected' href='#' ><img class='imgSelected' src='assets/img/Icone/white/20AnagraficaSoci.svg'><span class='txtMenuSelected'>Anagrafica Soci/span></a>");
+				} else {
+					echo ("<a title='Anagrafica Soci' href='20AnagraficaSoci.php'><img class='imgNotSelected' src='assets/img/Icone/grey/20AnagraficaSoci.svg'><span class='txtMenu'>Anagrafica Soci</span></a>");
+				}
+			} ?>
+			
+			
+			<? if ($role_usr == 0 || $role_usr == 1 || $role_usr == 3 || $role_usr ==4) {
+				if ($_SESSION['page']=="Scheda Socio") {
+					echo ("<a class='hrefSelected' href='#'><img class='imgSelected' src='assets/img/Icone/white/21SchedaSocio.svg'><span class='txtMenuSelected'>Scheda singolo Socio</span></a>");
+				} else {
+					echo ("<a title='Scheda singolo Socio' href='21SchedaSocio.php' ><img class='imgNotSelected' src='assets/img/Icone/grey/21SchedaSocio.svg'><span class='txtMenu'>Scheda singolo Socio</span></a>");
+				}
+			} ?>
+
 			<? if ($role_usr == 0 || $role_usr == 1 || $role_usr ==4) {echo "<hr style='margin-top: 0px; margin-bottom: 0px; border-color:grey'>"; }?>
 			
 			

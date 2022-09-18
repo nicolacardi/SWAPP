@@ -579,7 +579,7 @@ if ($codscuola =='AR') {
 		$pdf->Cell(75,8,$nome_alu." ".$cognome_alu,1,0,'L');
 		$pdf->Cell(40,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
 		$pdf->Cell(45,8,$classi[$classe_cla],1,0,'L');
-		$pdf->Cell(30,8,$quotapromessa_alu,1,1,'C');
+		$pdf->Cell(30,8,$quotapromessa_alu.",00",1,1,'C');
 	}
 	if ($blank) { //caso modulo BLANK
 		for ($i = 1; $i <= 4; $i++) 
@@ -594,7 +594,7 @@ if ($codscuola =='AR') {
 	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
 	$pdf->Cell(160,10,"Totale contributo annuo",1,0,'L');
 	if ($totquotapromessa !=0) {
-		$pdf->Cell(30,10,$totquotapromessa,1,1,'C');
+		$pdf->Cell(30,10,$totquotapromessa.",00",1,1,'C');
 	} else {
 		$pdf->Cell(30,10,"",1,1,'C');
 	}
@@ -879,7 +879,7 @@ if ($codscuola =='AR') {
 			$pdf->Cell(75,8,$nome_alu." ".$cognome_alu,1,0,'L');
 			$pdf->Cell(40,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
 			$pdf->Cell(45,8,$classi[$classe_cla],1,0,'L');
-			$pdf->Cell(30,8,$quotapromessa_alu,1,1,'C');
+			$pdf->Cell(30,8,$quotapromessa_alu.",00",1,1,'C');
 		}
 		if ($blank) { //caso modulo BLANK
 			for ($i = 1; $i <= 4; $i++) 
@@ -894,7 +894,7 @@ if ($codscuola =='AR') {
 		$pdf->SetFont('TitilliumWeb-SemiBold','',12);
 		$pdf->Cell(160,10,"Totale contributo annuo",1,0,'L');
 		if ($totquotapromessa !=0) {
-			$pdf->Cell(30,10,$totquotapromessa,1,1,'C');
+			$pdf->Cell(30,10,$totquotapromessa.",00",1,1,'C');
 		} else {
 			$pdf->Cell(30,10,"",1,1,'C');
 		}
@@ -1074,7 +1074,7 @@ if ($codscuola =='AR') {
 			$pdf->Cell(25,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'C');
 			$pdf->Cell(50,8,$classi[$classe_cla],1,0,'C');
 			$pdf->Cell(30,8,$tipiquota[$tipoquota_alu],1,0,'C');
-			$pdf->Cell(35,8,$quotapromessa_alu,1,1,'C');
+			$pdf->Cell(35,8,$quotapromessa_alu.",00",1,1,'C');
 
 
 
@@ -1094,7 +1094,7 @@ if ($codscuola =='AR') {
 
 		$pdf->SetFont('TitilliumWeb-SemiBold','',12);
 		$pdf->Cell(155,10,"Totale annuo contributo di gestione",1,0,'L');
-		$pdf->Cell(35,10,$totquotapromessa,1,1,'C');
+		$pdf->Cell(35,10,$totquotapromessa.",00",1,1,'C');
 
 		$pdf->Ln(2);
 		
@@ -1255,11 +1255,11 @@ if ($codscuola =='AR') {
 			$pdf->Cell(30,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
 			$pdf->Cell(70,8,$classi[$classe_cla],1,0,'L');
 			//$pdf->Cell(30,8,$tipiquota[$tipoquota_alu],1,0,'C');
-			$pdf->Cell(35,8,$quotapromessa_alu,1,1,'C');
+			$pdf->Cell(35,8,$quotapromessa_alu.",00",1,1,'C');
 		}
 		$pdf->SetFont('TitilliumWeb-SemiBold','',12);
 		$pdf->Cell(155,10,"Totale annuo quota di frequenza",1,0,'L');
-		$pdf->Cell(35,10,$totquotapromessa,1,1,'C');
+		$pdf->Cell(35,10,$totquotapromessa.",00",1,1,'C');
 
 		$pdf->Ln(2);
 		
@@ -1454,7 +1454,7 @@ if ($codscuola =='AR') {
 			$pdf->Cell(75,8,$nome_alu." ".$cognome_alu,1,0,'L');
 			$pdf->Cell(40,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
 			$pdf->Cell(45,8,$classi[$classe_cla],1,0,'L');
-			$pdf->Cell(30,8,$quotapromessa_alu,1,1,'C');
+			$pdf->Cell(30,8,$quotapromessa_alu.",00",1,1,'C');
 		}
 		if ($blank) { //caso modulo BLANK
 			for ($i = 1; $i <= 4; $i++) 
@@ -1471,7 +1471,7 @@ if ($codscuola =='AR') {
 		$pdf->Cell(30,10,"PROVVISORIO","TB",0,'C', True);
 		$pdf->Cell(85,10," ad esclusione della quota di iscrizione","RTB",0,'L');
 		if ($totquotapromessa !=0) {
-			$pdf->Cell(30,10,$totquotapromessa,1,1,'C');
+			$pdf->Cell(30,10,$totquotapromessa.",00",1,1,'C');
 		} else {
 			$pdf->Cell(30,10,"",1,1,'C');
 		}

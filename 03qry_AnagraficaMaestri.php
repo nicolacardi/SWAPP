@@ -23,7 +23,7 @@
 	
 	if (isset ($_POST['ord6'])){
 		$ord6 = $_POST['ord6'];
-		$ordsql = orderbysql( $ord6, 'note_mae', $ordsql);
+		$ordsql = orderbysql( $ord6, 'email_mae', $ordsql);
 	}
 
 	function orderbysql ($ord, $campo, $ordsq) {
@@ -50,11 +50,11 @@
 
 	//Manteniamo il filtro dell'anno solo per uniformità con qry_AnagraficaPerAnno ma in qs caso non serve a nulla
 	$whereannocorrente = "WHERE 1=1 ";
-	$sql = "SELECT DISTINCT ID_mae, nome_mae, cognome_mae, tipo_per, in_organico_mae, telefono_mae, note_mae FROM tab_anagraficamaestri ".$whereannocorrente.$ordsql;
+	$sql = "SELECT DISTINCT ID_mae, nome_mae, cognome_mae, tipo_per, in_organico_mae, telefono_mae, email_mae, note_mae FROM tab_anagraficamaestri ".$whereannocorrente.$ordsql;
 	//DA RENDERE PARAMETRICA - DIFFICILE
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_execute($stmt);
-	mysqli_stmt_bind_result($stmt, $ID_mae, $nome_mae, $cognome_mae, $tipo_per, $in_organico_mae, $telefono_mae, $note_mae);
+	mysqli_stmt_bind_result($stmt, $ID_mae, $nome_mae, $cognome_mae, $tipo_per, $in_organico_mae, $telefono_mae, $email_mae, $note_mae);
 	$riga =  0;
 	while (mysqli_stmt_fetch($stmt)) {
 	$riga++;	?>
@@ -79,6 +79,9 @@
 			</td>
 			<td>
 				<input class="tablecell6 disab val<?=$ID_mae?>" style="width: 115px;" type="text" id="telefono_mae<?=$ID_mae?>" name="telefono_mae" value = "<?=$telefono_mae?>" disabled>
+			</td>
+			<td>
+				<input class="tablecell6 disab val<?=$ID_mae?>" style="width: 200px;" type="text" id="email_mae<?=$ID_mae?>" name="email_mae" value = "<?=$email_mae?>" disabled>
 			</td>
 			<td>
 				<input class="tablecell6 disab val<?=$ID_mae?>" style="width: 457px;" type="text" id="note_mae<?=$ID_mae?>" name="note_mae" value = "<?=$note_mae?>" disabled>

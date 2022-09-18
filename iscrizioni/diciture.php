@@ -12,8 +12,8 @@ switch ($codscuola) {
         $indirizzocompletoscuola= "Via T.Aspetti, 248 - 35133 - Padova - tel.346 2245653 - segreteria@arcascuola.it";
         $datiscuola = "C.F. e P.IVA 05484330286 - iscrizione albo nazionale società cooperative n° C138857";
         $cfscuola = "05484330286";
-        $ragionesocialescuola = "Società Cooperativa Sociale ARCA Educazione";
-        $titolaretrattamentoTitolo = "il presidente pro-tempore della Società Cooperativa Sociale ARCA Educazione";
+        $ragionesocialescuola = "Cooperativa Sociale ARCA Educazione";
+        $titolaretrattamentoTitolo = "il presidente pro-tempore di ARCA Educazione Cooperativa Sociale";
         $titolaretrattamento = "Nicola cardi";
         $linkPTOF = "http://arcascuola.it";
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
@@ -49,7 +49,7 @@ switch ($codscuola) {
         $codIdentificativo = "XXXXXXXXXXXXXXXXX";
 
         //per richiesta adesione socio
-        $intestazione1 = "Società Cooperativa Sociale";
+        $intestazione1 = "Cooperativa Sociale";
         $intestazione2 = "ARCA Educazione";
 
         $titolocontratto = "CONTRATTO DI PRESTAZIONE DI SUPPORTO ALLA DIDATTICA";

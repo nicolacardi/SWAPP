@@ -73,8 +73,8 @@ $pdf->AddPage();
     $pdf->Cell(0,10,utf8_decode("DICHIARA:"), 0,1, 'C');
     $pdf->SetFont($fontdefault,'',10);
 
-    $testo="
-    - di non svolgere alcuna attività in contrasto con gli scopi sociali della Cooperativa
+    $testo=
+    "    - di non svolgere alcuna attività in contrasto con gli scopi sociali della Cooperativa
     - di essere a conoscenza ed approvare lo Statuto della Cooperativa, consultabile presso la segreteria
     - di accettare le deliberazioni legalmente adottate dagli organismi sociali
     - di accettare le clausole arbitrali come previsto dallo Statuto
@@ -89,14 +89,28 @@ $pdf->AddPage();
     $pdf->Cell(100,5,"","B",1);
     $pdf->Image('../assets/img/Icone/frecciafirmablack.png', 100, $pdf->GetY()-18, 20);
 
-    $pdf->Ln(7);
+    $pdf->Ln(3);
     $pdf->Cell(100,5,"Allegati:",0,1,'L');
     $pdf->Cell(100,5,utf8_decode("1. Fotocopia del documento di identità valido"),0,1,'L');
     $pdf->Cell(100,5,utf8_decode("2. Fotocopia del codice fiscale"),0,0,'L');
 
-    $pdf->Ln(15);
+    $pdf->Ln(10);
     $pdf->Cell(90,5,utf8_decode("Per la ".$ragionesocialescuola),0,1,'L');
     $pdf->Cell(90,5,"Firma rappresentante del CDA",0,0,'L');
     $pdf->Cell(100,5,"","B",1);
+
+
+    $pdf->SetFillColor(220,220,220);
+
+    $pdf->Ln(3);
+    $pdf->SetFont($fontdefault,'',8);
+    $pdf->Cell(70,7,"Spazio riservato alla segreteria","LT",0,"L");
+    $pdf->Cell(60,7,"Data Pagamento","T",0,"C");
+    $pdf->Cell(60,7,"Per la Segreteria","TR",1,"C");
+
+    $pdf->SetFont($fontdefault,'',10);
+    $pdf->Cell(70,7,$pdf->Image($imgsquaremini,$pdf->GetX()+3, $pdf->GetY()+1)."          Quota pagata","LB",0,"L");
+    $pdf->Cell(60,7,"________________________","B",0,"C");
+    $pdf->Cell(60,7,"________________________","BR",1,"C");
 
     ?>

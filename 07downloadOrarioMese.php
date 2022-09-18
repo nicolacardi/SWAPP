@@ -100,7 +100,7 @@
 			}
 			$spreadsheet->getActiveSheet()->getStyle($cella)->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
 			$spreadsheet->getActiveSheet()->getStyle($cella)->applyFromArray($styleArray);
-			if (($codmat_ora !="XX1") && ($codmat_ora !="XX3")) {
+			if (($codmat_ora !="XX1") && ($codmat_ora !="XX3") && ($codmat_ora !="XX4")) {
 
 				switch ($firma_mae_ora) {
 					case 0:

@@ -60,9 +60,9 @@
             }
 
             //bisogna in questa fase AGGIUNGERE l'intervallo e la pausa pranzo perchè non sono tra le materie assegnate ad alcun maestro
-            array_push($codmat_mttA,"XX1","XX3");
-            array_push($descmateria_mttA,"[PRANZO]","[INTERVALLO]");
-            $nummaterie = $nummaterie + 2;
+            array_push($codmat_mttA,"XX1","XX3","XX4");
+            array_push($descmateria_mttA,"[PRANZO]","[INTERVALLO]", "[USCITA DID.]");
+            $nummaterie = $nummaterie + 3;
             ?>
             <!-- <tr>
                 <td>
@@ -177,6 +177,9 @@
 		$('#aggiungihtml').append(appendhtml);
 		$('#inmodifica').val("1");
 		$('#plusaggiungi').css('visibility','hidden');
+
+        console.log ("07qry_getUlterioriMaestri.php - aggiungiMaestroUlteriore - descmateria_mttA");	
+        console.log (descmateria_mttA);	
 	}
 
 
@@ -192,7 +195,7 @@
 
 		let codmat_mtt = $( "#GH"+j+x+n+"new option:selected" ).val();		
 		
-		if (codmat_mtt != 'nomat' && codmat_mtt != 'XX1' && codmat_mtt != 'XX3') {  //in teoria non serve questo if
+		if (codmat_mtt != 'nomat' && codmat_mtt != 'XX1' && codmat_mtt != 'XX3' && codmat_mtt != 'XX4') {  //in teoria non serve questo if
 			let classe_ora = $( "#classe2_new" ).val();                             //campo del modale dove ho scritto la classe
 			let sezione_ora= $( "#sezione2_new" ).val();                            //campo del modale dove ho scritto la sezione
 			postData = { codmat_mtt : codmat_mtt, classe_ora: classe_ora, sezione_ora: sezione_ora, dataGG: dataGG, ora: x };

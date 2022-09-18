@@ -107,7 +107,7 @@
 				if ($interval > 60) {
 					header('Location: 10ModificaPassword.php');
 				} else {
-					if ($_SESSION ["role_usr"] <= 1 ) {
+					if ($_SESSION ["role_usr"] <= 1 || $_SESSION ["role_usr"] == 4 ) {
 						header('Location: 09Cruscotto.php');
 					} else {
 						header('Location: 11IlmioRegistro.php');

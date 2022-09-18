@@ -167,7 +167,7 @@
 		let codmat_mtt = $( "#GH"+j+x+n+"new option:selected" ).val();		
 		//if (codmat_mtt != 'nomat' && codmat_mtt !='XX1' && codmat_mtt != 'XX2' ) {
 		
-		if (codmat_mtt != 'nomat' && codmat_mtt != 'XX1' && codmat_mtt != 'XX3') {
+		if (codmat_mtt != 'nomat' && codmat_mtt != 'XX1' && codmat_mtt != 'XX3' && codmat_mtt != 'XX4') {
 			let classe_ora = $( "#classe2_new" ).val();
 			let sezione_ora= $( "#sezione2_new" ).val();
 			postData = { codmat_mtt : codmat_mtt, classe_ora: classe_ora, sezione_ora: sezione_ora, dataGG: dataGG, ora: x };

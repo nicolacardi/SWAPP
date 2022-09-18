@@ -21,7 +21,7 @@
 	function CheckIdleTime() {
 			_idleSecondsCounter++;
 			//console.log(_idleSecondsCounter+"/"+ IDLE_TIMEOUT);				//per test
-			//var oPanel = document.getElementById("SecondsUntilExpire"); 	//per mostrare un counter nella pagina
+			//var oPanel = document.getElementById("SecondsUntilExpire"); 		//per mostrare un counter nella pagina
 			//if (oPanel)
 			//oPanel.innerHTML = (IDLE_TIMEOUT - _idleSecondsCounter) + "";
 			if (_idleSecondsCounter >= IDLE_TIMEOUT) {

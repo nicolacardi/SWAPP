@@ -4,10 +4,11 @@
         <div class="modal-content">
             <div class="modal-body white">           
                 <form id="form_News" method="post">
-                    <span class="titoloModal">Novità di SWAPP - Marzo 2022</span><br>
+                    <span class="titoloModal">Novità di SWAPP - Settembre 2022</span><br>
                     <img style="width: 80px; text-align: center;" src="assets/img/Icone/Megafono.svg">
                     <div id="remove-content" style="text-align: justify; margin-top: 5px; margin-left: 80px; margin-right: 80px;"> <!-- START REMOVE CONTENT -->
                         PER I MAESTRI<br>
+                        - E' ora possibile inserire nell'orario anche le uscite didattiche (senza l'indicazione di un maestro]<br>
                         - E' ora possibile impostare la DAD sia individualmente per un singolo alunno che per una classe intera<br>
                         - A questo scopo è disponibile un nuovo video specifico nella sezione  <a href ="./17Tutorials.php">Tutorials</a>
                         <br><br>

@@ -8,7 +8,7 @@ $IDora2 = $_POST['IDora2'];
 $materia2 = $_POST['materia2'];
 
 //se è stato selezionato Pranzo o Intervallo non c'è un ID_mae, quindi bisogna mettercelo = 0 altrimenti la insert non funziona
-if($materia2 == 'XX1' || $materia2 == 'XX3') {
+if($materia2 == 'XX1' || $materia2 == 'XX3' || $materia2 == 'XX4') {
     $ID_mae2 = 0;
 } else {
     $ID_mae2 = $_POST['ID_mae2'];
