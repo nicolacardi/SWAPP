@@ -26,6 +26,14 @@
                 <input class="tablecell5" type="text"  id="mf_mae_det" name="mf_mae_det" maxlength="1" value="<?=$mf_mae_det?>" >
             </div>
         </div>
+        <div class="col-md-1 col-sm-1 itemSchedaAnagrafica">
+            <div class="row">
+            (in libro soci)
+            </div>
+            <div class="row">
+                <input style="width:20%;" class="tablecell" type="checkbox"  id="socio_mae_det" name="socio_mae_det" value="socio" <? if ($socio_mae_det == 1) { echo ('checked');} ?> onclick="showModalAffiliazione(<?=$ID_mae?>, '<?=$nome_mae_det?>', '<?=$cognome_mae_det?>')">
+            </div>
+        </div>
     </div>
 
 

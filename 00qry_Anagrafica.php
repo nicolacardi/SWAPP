@@ -23,10 +23,10 @@
 				<button  id="goto<?=$alunno->ID_alu?>" ondblclick="postToSchedaAlunno(<?=$alunno->ID_alu?>, '<?=addslashes($alunno->nome_alu)?>', '<?=addslashes($alunno->cognome_alu)?>');" onclick="coloraRighe(<?=$alunno->ID_alu?>);" style="width: 90%; font-size:12px;"><?=$riga?></button>
 			</td>
 			<td style="width:139px;">
-				<input class="tablecell6 disab val<?=$alunno->ID_alu?>" type="text"  id="nome_alu" name="nome_alu" value = "<?=$alunno->nome_alu?>">
+				<input class="tablecell6 disab val<?=$alunno->ID_alu?>" type="text"  name="nome_alu" value = "<?=$alunno->nome_alu?>">
 			</td>
 			<td style="width:139px;">
-				<input class="tablecell6 disab val<?=$alunno->ID_alu?>" type="text" id="cognome_alu" name="cognome_alu" value = "<?=$alunno->cognome_alu?>" disabled>
+				<input class="tablecell6 disab val<?=$alunno->ID_alu?>" type="text" name="cognome_alu" value = "<?=$alunno->cognome_alu?>" disabled>
 			</td>
 			<td style="width:145px;">
 				<input class="tablecell6 disab val<?=$alunno->ID_alu?>" type="text" value = "<?=$alunno->{$_POST['campo'][3]}?>" disabled>

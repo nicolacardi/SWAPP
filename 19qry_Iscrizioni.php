@@ -359,10 +359,10 @@
 			</td>
 			<td>
 				
-				<button style="    <? if ($mails==0 || $datirecuperati_fam==0) {echo("visibility: hidden;");}?>   width: 30px; padding: 0px; height: 24px;  <? if ($noniscritto_alu ==1) {echo("background-color: red;");} ?>" onclick="inviaPromemoriaImpegni(<?=$ID_fam_alu?>, '<?=$annoscolastico?>' );">
+				<button style="    <? if ($mails==0 || $datirecuperati_fam==0) {echo("visibility: hidden;");}?>   width: 25px; padding: 0px; height: 24px;  <? if ($noniscritto_alu ==1) {echo("background-color: red;");} ?>" onclick="inviaPromemoriaImpegni(<?=$ID_fam_alu?>, '<?=$annoscolastico?>' );">
 					<img title="Invia Promemoria" style="width: 22px; cursor: pointer" src='assets/img/Icone/BellPromemoria.svg'>
 				</button>
-				<input class="tablecell6 disab val<?=$ID_alu?> <?=$cllistaattesa?>" type="text" value = "<?=$promemoriainviati_fam?>" style="<?if($datirecuperati_fam !=0 && $datirecuperati_fam!=''){ echo('background-color: #07ff00;');}?> width: 45px;" disabled>
+				<input class="tablecell6 disab val<?=$ID_alu?> <?=$cllistaattesa?>" type="text" value = "<?=$promemoriainviati_fam?>" style="<?if($datirecuperati_fam !=0 && $datirecuperati_fam!=''){ echo('background-color: #07ff00;');}?> width: 40px;" disabled>
 			</td>
 
 			<!--<td>
@@ -969,6 +969,64 @@
 	
 	
 	function RecuperaDati (ID_fam_alu) {
+
+		//Prima di mostrarre il modale di recupero dei dati verifichiamo che il socio non sia cambiato, ossia che il padre (o la madre) fosse socio ed ora in importazione non sia stato tolto
+		//o viceversa che non sia stato inserito e prima non c'era. In tutti e due i casi è necessario decidere come comportarsi.
+		//questo si fa utilizzando le stesse routine già inserite sia in 06SchedaAlunno che in 08Schedamaestro
+		//infatti a questo punto sarà bene spostare queste routine (showModalAffiliazione, hideAffiliazione, eliminaAffiliazione, aggiornaAffiliazione, inserisciAffiliazione)
+		//ed il modale relativo in un file da includere che chiameremo 06Inc_Affiliazione
+
+		postData = { ID_fam_alu : ID_fam_alu};
+		// console.log (postData);
+		$.ajax({
+			type: 'POST',
+			url: "19qry_CheckSoci.php",
+			data: postData,
+			dataType: 'json',
+			success: function(data){
+
+				//console.log(data);
+				if (data.socioMadreChanged) {
+					console.log ("socioMadreChanged", data.socioMadreChanged)
+					let subtitleDuringImport1 = "";
+					let subtitleDuringImport2 = "";
+					if (data.socioMadreDa == 1) {subtitleDuringImport2="La madre è attualmente socia e la famiglia ha indicato di disiscriverla.<br>";}
+					else {subtitleDuringImport2="La madre non è attualmente socia, e nel modulo è stato chiesto di associarla<br>";}
+					
+					let subtitleDuringImport3 = "Scegliere qui come procedere.<br>Se si annulla tutto resterà come attualmente.<br>ATTENZIONE: LA PROCEDURA DI IMPORTAZIONE DOVRA'ESSERE RIPETUTA<br><br>";
+
+					$('#subtitleDuringImport').html(subtitleDuringImport1+subtitleDuringImport2+subtitleDuringImport3);
+					
+					showModalAffiliazione(ID_fam_alu, 'madre', data.nomemadre_fam, data.cognomemadre_fam);
+					return;
+				}
+				if (data.socioPadreChanged) {
+					console.log ("socioPadreChanged", data.socioPadreChanged)
+
+					let subtitleDuringImport1 = "";
+					let subtitleDuringImport2 = "";
+
+					if (data.socioPadreDa == 1) {subtitleDuringImport2="Il padre è attualmente socio e la famiglia ha indicato di disiscriverlo.<br>";}
+					else {subtitleDuringImport2="Il padre non è attualmente socio, e nel modulo è stato chiesto di associarlo<br>";}
+					
+					let subtitleDuringImport3 = "Scegliere qui come procedere.<br>Se si annulla tutto resterà come attualmente.<br><br>ATTENZIONE: LA PROCEDURA DI IMPORTAZIONE DOVRA'ESSERE RIPETUTA<br><br>";
+
+					$('#subtitleDuringImport').html(subtitleDuringImport1+subtitleDuringImport2+subtitleDuringImport3);
+					
+
+					showModalAffiliazione(ID_fam_alu, 'padre', data.nomepadre_fam, data.cognomepadre_fam);
+					return;
+				}
+				EstraiDatiEMostraModal(ID_fam_alu);
+
+
+			},
+			error: function(){
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '19qry_Iscrizioni ##RecuperaDati##'");     
+			}
+		});
+	}
+	function EstraiDatiEMostraModal (ID_fam_alu) {
 		//devo estrarre tutti i dati di tab_famiglieB, tab_anagraficalunniB e tab_composizionefamB e portarli in db A
 		//o meglio confrontarli con gli omologhi in db A e "proporli" all'utente
 		//scelgo di creare un form modale dove inserisco TUTTI i campi delle tre tabelle. In questi campi vado a scrivere i dati estratti.

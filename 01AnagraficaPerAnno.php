@@ -472,12 +472,12 @@
 								ID_alu = parseInt(nomeinput.substr(16,4), 10); 				//è l'ID_alu ...parseInt dovrebbe togliere gli zeri...
 								ord_clsold = parseInt(nomeinput.substr(26, 1),10);			//ord_cls estratto dalla stringa
 								sezione_cla = nomeinput.substr(27, 1);						//sezione classe
-								console.log ("01AnagraficaPerAnno.php - promuoviTutti - estrazione dei parametri da passare a 01qry_Promuovi.php");
-								console.log("i="+i+": ID anno scolastico = "+ID_asc);
-								console.log ("i="+i+": anno scolastico = "+annoscolastico);
-								console.log("i="+i+": ID alunno = "+ID_alu);
-								console.log("i="+i+": ordine classe old = "+ord_clsold);
-								console.log("i="+i+": sezione = "+sezione_cla);
+								//console.log ("01AnagraficaPerAnno.php - promuoviTutti - estrazione dei parametri da passare a 01qry_Promuovi.php");
+								//console.log("i="+i+": ID anno scolastico = "+ID_asc);
+								//console.log ("i="+i+": anno scolastico = "+annoscolastico);
+								//console.log("i="+i+": ID alunno = "+ID_alu);
+								//console.log("i="+i+": ordine classe old = "+ord_clsold);
+								//console.log("i="+i+": sezione = "+sezione_cla);
 								ID_asc =  ID_asc +1;
 								//ordclsold è ord_cls estratto per la classe CORRENTE: quindi
 								// 0 per nido (se c'è)
@@ -490,7 +490,7 @@
 								//asilosuasilo vale 0 per iscrizione a stesso anno e 1 per iscrizione a anno successivo
 
 								ord_cls = ord_clsold + asilosuasilo; //in questo modo se è stata indicata la A (reiscrizione all'asilo) non c'è la 'promozione' ma solo la 'reiscrizione'. E nel caso si siano selezionate delle classi el o me e indicata la A non dovrebbe fare nulla. Invece se si è indicata la S (promozione), la classe è quella successiva in quanto asilosuasilo = 1
-								console.log ("ordcls dopo che ord_cls = ord_clsold + asilosuasilo", ord_cls);
+								//console.log ("ordcls dopo che ord_cls = ord_clsold + asilosuasilo", ord_cls);
 								//quindi ord_cls ora varrà IN CASO DI PROMOZIONE
 
 								// 3 per il passaggio in seconda classe
@@ -534,7 +534,7 @@
 											B= (" per l'a.s. "+annoscolastico_asc_new);
 											C= (" alla classe "+classe_cla_new);
 											D= (" sezione "+sezione_cla_new);
-											console.log (A+B+C+D);
+											//console.log (A+B+C+D);
 											//ATTENZIONE!!! ERA 01qry_insertAnnoScolastico.php *******
 											//Ho voluto tenere SOLO la 06qry_InsertAnnoScolastico.php per ridurre
 											//il numero di file e non avere due ROUTINE IDENTICHE
@@ -549,8 +549,8 @@
 												data: postData2,
 												dataType: 'json',
 												success: function(data){	
-													console.log ("processato/a alunno/a con ID "+data.ID_alu_cla+" per a.s. "+data.annoscolastico_asc+" a classe "+data.classe_cla+" sezione "+data.sezione_cla);
-													console.log ("esito:", data.result);
+													//console.log ("processato/a alunno/a con ID "+data.ID_alu_cla+" per a.s. "+data.annoscolastico_asc+" a classe "+data.classe_cla+" sezione "+data.sezione_cla);
+													//console.log ("esito:", data.result);
 
 													if (data.result == 'OK') {
 														totIscritti++;

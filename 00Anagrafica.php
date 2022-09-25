@@ -334,9 +334,9 @@
 								<div class="col-md-3">
 									email
 								</div>
-								<div class="col-md-1">
+								<!-- <div class="col-md-1">
 									Socio
-								</div>
+								</div> -->
 							</div>
 							<div class="row">
 								<div class="col-md-1">
@@ -354,9 +354,9 @@
 								<div class="col-md-3">
 									<input type="text" class="tablecell5"  id="emailmadre_fam_new"  maxlength="80" name="emailmadre_fam_new">
 								</div>
-								<div class="col-md-1" style="text-align: right">
+								<!-- <div class="col-md-1" style="text-align: right">
 									<input type="checkbox" class="tablecell5" id="sociomadre_fam_new" name="sociomadre_fam_new">
-								</div>
+								</div> -->
 							</div>
 							
 							<div class="row">
@@ -380,9 +380,9 @@
 								<div class="col-md-3">
 									email
 								</div>
-								<div class="col-md-1">
+								<!-- <div class="col-md-1">
 									Socio
-								</div>
+								</div> -->
 							</div>
 							<div class="row">
 								<div class="col-md-1">
@@ -400,9 +400,9 @@
 								<div class="col-md-3">
 									<input type="text" class="tablecell5"  id="emailpadre_fam_new"  maxlength="80" name="emailpadre_fam_new">
 								</div>
-								<div class="col-md-1" style="text-align: right" >
+								<!-- <div class="col-md-1" style="text-align: right" >
 									<input type="checkbox" class="tablecell5" id="sociopadre_fam_new" name="sociopadre_fam_new">
-								</div>
+								</div> -->
 							</div>
 						</div> <!-- END REMOVE CONTENT -->
 						<div class="alert alert-success" id="alertaggiungi" style="display:none; margin-top:10px;">
@@ -580,8 +580,8 @@
 					$("#telefonopadre_fam_new").val(data.telefonopadre_fam);
 					$("#emailmadre_fam_new").val(data.emailmadre_fam);
 					$("#emailpadre_fam_new").val(data.emailpadre_fam);
-					if (data.sociomadre_fam == 1) {$("#sociomadre_fam_new").prop("checked", true);} else {$("#sociomadre_fam_new").prop("checked", false);} 
-					if (data.sociopadre_fam == 1) {$("#sociopadre_fam_new").prop("checked", true);} else {$("#sociopadre_fam_new").prop("checked", false);}
+					// if (data.sociomadre_fam == 1) {$("#sociomadre_fam_new").prop("checked", true);} else {$("#sociomadre_fam_new").prop("checked", false);} 
+					// if (data.sociopadre_fam == 1) {$("#sociopadre_fam_new").prop("checked", true);} else {$("#sociopadre_fam_new").prop("checked", false);}
 				},
 				error: function(){
 					alert("Errore: contattare l'amministratore fornendo il codice di errore '00Anagrafica ##fname##'"); 
@@ -599,8 +599,8 @@
 			$("#telefonopadre_fam_new").val("");
 			$("#emailmadre_fam_new").val("");
 			$("#emailpadre_fam_new").val("");
-			$("#sociomadre_fam_new").prop("checked", false);
-			$("#sociopadre_fam_new").prop("checked", false);
+			// $("#sociomadre_fam_new").prop("checked", false);
+			// $("#sociopadre_fam_new").prop("checked", false);
 		}
 	}
 
@@ -663,6 +663,7 @@
 				return;
 			}
 		}
+
 		let postData = $("#form_AddAlunno").serializeArray();
 		$.ajax({
 			url : "00qry_checkIfAnagraficaDuplicate.php",
@@ -697,6 +698,8 @@
 								//$("#btn_OK1").hide();
 								return;
 							} else {
+								console.log ("00anagrafica.php - addAnagrafica - postData a 00qry_insertAnagrafica.php ");
+								console.log (postData);
 								$.ajax({
 									url : "00qry_insertAnagrafica.php",
 									type: "POST",

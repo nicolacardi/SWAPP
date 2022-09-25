@@ -107,19 +107,44 @@ CFisc.calcola_codice_data=function(gg,mm,aa,sesso)
 
 };
 
-CFisc.trova_comune=function(pattern_comune)
+CFisc.trova_comune= function(pattern_comune)
 {
 	pattern_comune= pattern_comune.toUpperCase();
-  var codice,comune,ret=[]; //costruisce tre array, uno per il codice, uno per il comune e uno per 'ret'
-  for(codice in this.codici_catastaliNoProv)
-  {
-    comune=this.codici_catastaliNoProv[codice];
-    if(comune == pattern_comune) {ret.push([comune,codice]);}  //aggiunge all'array comune e codice (fa una push) se il comune corrisponde....
-	//Serve per cercare TUTTI i comuni che contengono quella parola. cioè ad esempio se cerco PADOVA con questa funzione viene restituio anche GAZZO PADOVANO!
-  }
-  return ret;
 
-//
+
+	//INSPIEGABILMENTE quello che segue non funziona: sembra arrivare DOPO la valutazione catch dell'errore nella chiamata della funzione.
+	//se infatti si prova a abilitare questo modo di estrarre il codice fiscale, che pesca nella tabella tab_CAP invece che nei testi sottostanti in qs file si ottiene un errore
+	//NB per testare inibire la parte successiva in questa funzione
+
+	// var ret=[];
+	// postData = { pattern_comune: pattern_comune};
+	// $.ajax({
+	// 	type: 'POST',
+	// 	async: false, //questa non sembra funzionare! non viene attesa!
+	// 	url: "qry_getCodCatasto.php",
+	// 	data: postData,
+	// 	dataType: 'json',
+	// 	success: function(data){
+	// 		ret.push([pattern_comune,data.codcatasto])
+	// 		console.log ("ret", ret);
+	// 		console.log ("2");
+	// 		return ret;
+	// 	},
+	// 	error: function(){
+	// 		alert("Errore: contattare l'amministratore fornendo il codice di errore ##trova_comune##");      
+	// 	}
+	// });
+
+
+					var codice,comune,ret=[]; //costruisce tre variabili e un array 'ret'
+					for(codice in this.codici_catastaliNoProv)
+					{
+						comune=this.codici_catastaliNoProv[codice];
+						if(comune == pattern_comune) {ret.push([comune,codice]);}  //aggiunge all'array comune e codice (fa una push) se il comune corrisponde....
+					}
+
+
+// ROBA VECCHIA
 //  var codice,comune,ret=[]; //costruisce tre array, uno per il codice, uno per il comune e uno per 'ret'
 //  var quoted = pattern_comune.replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");  //incomprensibile
 //  var re=new RegExp(quoted,'i'); //alla fine mi trovo con /Cassano Magnago/i o /Padova/i...a cosa mi serve?
@@ -133,15 +158,22 @@ CFisc.trova_comune=function(pattern_comune)
 //    if(comune.match(re)) {ret.push([comune,codice]);}  //aggiunge all'array comune e codice (fa una push) se il comune corrisponde....
 //	//Serve per cercare TUTTI i comuni che contengono quella parola. cioè ad esempio se cerco PADOVA con questa funzione viene restituio anche GAZZO PADOVANO!
 //  }
-//  console.log (ret);
-//  return ret;
+// FINE ROBA VECCHIA
+  console.log ("ret", ret);
+  return ret;
 };
 
-CFisc.calcola_codice_comune=function(pattern_comune){
+CFisc.calcola_codice_comune = function(pattern_comune){
 
   if(pattern_comune.match(/^[A-Z]\d\d\d$/i)) return pattern_comune;
-  try {return this.trova_comune(pattern_comune)[0][1];} catch (err) { console.log ("Comune non trovato."); return ("XXXX");}
+
+  try 			{return this.trova_comune(pattern_comune)[0][1]; } 
+  catch (err) 	{console.log ( err, "Comune non trovato."); return ("XXXX");}
 };
+
+
+
+
 
 
 CFisc.calcola_codice=function(nome,cognome,sesso,giorno,mese,anno,luogo)

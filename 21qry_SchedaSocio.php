@@ -8,13 +8,13 @@
 
 		<?
 		//estraggo i dati da mostrare nella parte anagrafica
-		$sql2 = "SELECT ID_soc, tipo_soc, mf_soc, nome_soc, cognome_soc, datanascita_soc, comunenascita_soc, provnascita_soc, paesenascita_soc, cittadinanza_soc, cf_soc, indirizzo_soc, citta_soc, prov_soc, paese_soc, CAP_soc, telefono_soc, altrotelefono_soc, email_soc, note_soc, img_soc ".
+		$sql2 = "SELECT ID_soc, ID_fam_soc, ID_mae_soc, padremadre_soc, tipo_soc, dataiscrizione_soc, datapagamentoquota_soc, quotapagata_soc, datadisiscrizione_soc, datarestituzionequota_soc, ckrinunciaquota_soc, mf_soc, nome_soc, cognome_soc, datanascita_soc, comunenascita_soc, provnascita_soc, paesenascita_soc, cittadinanza_soc, cf_soc, indirizzo_soc, comune_soc, prov_soc, paese_soc, CAP_soc, telefono_soc, altrotel_soc, email_soc, note_soc, img_soc ".
 		"FROM tab_anagraficasoci ".
 		"WHERE ID_soc = ?;";
 		$stmt2 = mysqli_prepare($mysqli, $sql2);
 		mysqli_stmt_bind_param($stmt2, "i", $ID_soc);
 		mysqli_stmt_execute($stmt2);
-		mysqli_stmt_bind_result($stmt2, $ID_soc_det, $tipo_soc_det, $mf_soc_det, $nome_soc_det, $cognome_soc_det, $datanascita_soc_det, $comunenascita_soc_det, $provnascita_soc_det, $paesenascita_soc_det, $cittadinanza_soc_det, $cf_soc_det, $indirizzo_soc_det, $citta_soc_det, $prov_soc_det, $paese_soc_det, $CAP_soc_det, $telefono_soc_det, $altrotelefono_soc_det, $email_soc_det, $note_soc_det, $img_soc);
+		mysqli_stmt_bind_result($stmt2, $ID_soc_det, $ID_fam_soc, $ID_mae_soc, $padremadre_soc, $tipo_soc_det, $dataiscrizione_soc_det, $datapagamentoquota_soc_det, $quotapagata_soc_det,  $datadisiscrizione_soc_det, $datarestituzionequota_soc_det, $ckrinunciaquota_soc_det, $mf_soc_det, $nome_soc_det, $cognome_soc_det, $datanascita_soc_det, $comunenascita_soc_det, $provnascita_soc_det, $paesenascita_soc_det, $cittadinanza_soc_det, $cf_soc_det, $indirizzo_soc_det, $comune_soc_det, $prov_soc_det, $paese_soc_det, $CAP_soc_det, $telefono_soc_det, $altrotel_soc_det, $email_soc_det, $note_soc_det, $img_soc);
 		$i=0;
 		while (mysqli_stmt_fetch($stmt2)) {
 		$i++;
@@ -209,12 +209,16 @@
 	// }
 	
 	function aggiornaAnagrafica (pagina) {
+
 		let img_soc = $('#imgName').val();
 		//estraggo tutti i valori da salvare
 		let ID_soc = $('#ID_soc_det_hidden').val();
 		let nome_soc = $('#nome_soc_det').val();
 		let cognome_soc = $('#cognome_soc_det').val();
 		let mf_soc = $('#mf_soc_det').val();
+		let ID_fam_soc = $('#ID_fam_hidden').val();
+
+
 		if (img_soc != "") {
 			fileName = nome_soc + cognome_soc;
 			fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
@@ -224,13 +228,13 @@
 			img_soc = fileName+".png";
 		}
 		let indirizzo_soc = $('#indirizzo_soc_det').val();
-		let citta_soc = $('#citta_soc_det').val();
+		let comune_soc = $('#comune_soc_det').val();
 		let CAP_soc = $('#CAP_soc_det').val();
 		let prov_soc = $('#prov_soc_det').val();
 		let paese_soc = $('#paese_soc_det').val();
 		let cf_soc = $('#cf_soc_det').val();
 		let datanascita_soc = $('#datanascita_soc_det').val();
-		if (controllaDataNascita(datanascita_soc, 1940, 2000)){
+		if (controllaDataNascita(datanascita_soc, 1940, 2010)){
 		} else {
 			$('#titolo01Msg_OK').html('AGGIORNAMENTO ANAGRAFICA');
 			$('#msg01Msg_OK').html("Verificare la data di nascita");
@@ -242,7 +246,7 @@
 		let paesenascita_soc = $('#paesenascita_soc_det').val();
 		let cittadinanza_soc = $('#cittadinanza_soc_det').val();
 		let telefono_soc = $('#telefono_soc_det').val();
-		let altrotelefono_soc = $('#altrotelefono_soc_det').val();
+		let altrotel_soc = $('#altrotel_soc_det').val();
 		let note_soc = $('#note_soc_det').val();
 		let email_soc = $('#email_soc_det').val();
 
@@ -250,9 +254,52 @@
 		let tipo_soc =  $("#selectTipoSoc").val();
 
 
+		let dataiscrizione_soc = $('#dataiscrizione_soc_det').val();
+		if (dataiscrizione_soc == undefined) {dataiscrizione_soc = ''}
+		if (dataiscrizione_soc == '' || controllaDataNascita(dataiscrizione_soc, 2015, 2035)){
+		} else {
+			$('#titolo01Msg_OK').html('AGGIORNAMENTO ANAGRAFICA');
+			$('#msg01Msg_OK').html("Verificare la data di iscrizione");
+			$('#modal01Msg_OK').modal('show');
+			return;
+		}
+
+		let datadisiscrizione_soc = $('#datadisiscrizione_soc_det').val();
+		if (datadisiscrizione_soc == undefined) {datadisiscrizione_soc = ''}
+		if (datadisiscrizione_soc == '' ||  controllaDataNascita(datadisiscrizione_soc, 2015, 2035)){
+		} else {
+			$('#titolo01Msg_OK').html('AGGIORNAMENTO ANAGRAFICA');
+			$('#msg01Msg_OK').html("Verificare la data di disiscrizione");
+			$('#modal01Msg_OK').modal('show');
+			return;
+		}
+
+		let datapagamentoquota_soc = $('#datapagamentoquota_soc_det').val();
+		if (datapagamentoquota_soc == undefined) {datapagamentoquota_soc = ''}
+		if (datapagamentoquota_soc == '' ||  controllaDataNascita(datapagamentoquota_soc, 2015, 2035)){
+		} else {
+			$('#titolo01Msg_OK').html('AGGIORNAMENTO ANAGRAFICA');
+			$('#msg01Msg_OK').html("Verificare la data di pagamento quota");
+			$('#modal01Msg_OK').modal('show');
+			return;
+		}
+
+		let datarestituzionequota_soc = $('#datarestituzionequota_soc_det').val();
+		if (datarestituzionequota_soc == undefined) {datarestituzionequota_soc = ''}
+		if (datarestituzionequota_soc == '' ||  controllaDataNascita(datarestituzionequota_soc, 2015, 2035)){
+		} else {
+			$('#titolo01Msg_OK').html('AGGIORNAMENTO ANAGRAFICA');
+			$('#msg01Msg_OK').html("Verificare la data di restituzione quota");
+			$('#modal01Msg_OK').modal('show');
+			return;
+		}
+		let quotapagata_soc = $('#quotapagata_soc_det').val();
+
+		let ckrinunciaquota_soc = $("#ckrinunciaquota_soc_det").is(":checked");
+		if (ckrinunciaquota_soc == false) {ckrinunciaquota_soc = 0;} else {ckrinunciaquota_soc =1;}
 
 
-		postData = { ID_soc: ID_soc, nome_soc: nome_soc, cognome_soc: cognome_soc, indirizzo_soc: indirizzo_soc, citta_soc: citta_soc, CAP_soc: CAP_soc, prov_soc: prov_soc, paese_soc: paese_soc, mf_soc: mf_soc, cf_soc: cf_soc, datanascita_soc: datanascita_soc, comunenascita_soc: comunenascita_soc, provnascita_soc: provnascita_soc, paesenascita_soc: paesenascita_soc, cittadinanza_soc: cittadinanza_soc, telefono_soc: telefono_soc, altrotelefono_soc: altrotelefono_soc, note_soc: note_soc, email_soc: email_soc, img_soc: img_soc, tipo_soc: tipo_soc};
+		postData = { ID_fam_soc: ID_fam_soc, ID_soc: ID_soc, nome_soc: nome_soc, cognome_soc: cognome_soc, indirizzo_soc: indirizzo_soc, comune_soc: comune_soc, CAP_soc: CAP_soc, prov_soc: prov_soc, paese_soc: paese_soc, mf_soc: mf_soc, cf_soc: cf_soc, datanascita_soc: datanascita_soc, comunenascita_soc: comunenascita_soc, provnascita_soc: provnascita_soc, paesenascita_soc: paesenascita_soc, cittadinanza_soc: cittadinanza_soc, telefono_soc: telefono_soc, altrotel_soc: altrotel_soc, note_soc: note_soc, email_soc: email_soc, img_soc: img_soc, tipo_soc: tipo_soc, dataiscrizione_soc: dataiscrizione_soc, datadisiscrizione_soc: datadisiscrizione_soc, datapagamentoquota_soc: datapagamentoquota_soc, datarestituzionequota_soc: datarestituzionequota_soc, quotapagata_soc: quotapagata_soc, ckrinunciaquota_soc: ckrinunciaquota_soc};
 		console.log ("21qry_SchedaSocio.php - aggiornaAnagrafica - postData a 21qry_updateAnagraficaSocio.php") ;
 		console.log (postData) ;
 		$.ajax({
@@ -261,7 +308,7 @@
 			data: postData,
 			dataType: 'json',
 			success: function(data){
-				console.log (data.test);
+				console.log (data);
 				$('#alertModificaAnagrafica').html(data.msg);
 				$("#alertModificaAnagrafica").show();
 				$("#pagtoshow_hidden").val(pagina);
@@ -287,13 +334,13 @@
 			case "comunenascita_soc_new":
 				resultDropdown = $("#showComuneNascita_new");
 			break;
-			case "citta_soc_new":
+			case "comune_soc_new":
 				resultDropdown = $("#showComuneResidenza_new");
 			break;
 			case "comunenascita_soc_det":
 				resultDropdown = $("#showComuneNascita_det");
 			break;
-			case "citta_soc_det":
+			case "comune_soc_det":
 				resultDropdown = $("#showComuneResidenza_det");
 			break;
 		}

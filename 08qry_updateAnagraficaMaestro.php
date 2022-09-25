@@ -1,5 +1,6 @@
 <?	include_once("database/databaseii.php");
 	$ID_mae = $_POST['ID_mae'];
+	$socio_mae = $_POST['socio_mae'];
 	$nome_mae = addslashes($_POST['nome_mae']);
 	$cognome_mae = addslashes($_POST['cognome_mae']);
 	$indirizzo_mae = addslashes($_POST['indirizzo_mae']);
@@ -79,6 +80,7 @@
 	// " WHERE ID_mae  = ? ;";
 
 	$sql = "UPDATE tab_anagraficamaestri SET 
+	socio_mae = ?,
 	in_organico_mae = ?,
 	tipo_per = ?,
 	mf_mae= ?,
@@ -120,7 +122,7 @@
 	 WHERE ID_mae  = ? ;";
 
 	$stmt = mysqli_prepare($mysqli, $sql);
-	mysqli_stmt_bind_param($stmt, "iisssssissssssssssssssissssssiiiiissii", $in_organico_mae, $tipo_per, $mf_mae, $nome_mae, $cognome_mae, $indirizzo_mae, $citta_mae, $CAP_mae, $prov_mae, $paese_mae, $cf_mae, $datanascita_mae, $comunenascita_mae, $provnascita_mae, $paesenascita_mae, $cittadinanza_mae, $titolo_mae, $telefono_mae, $altrotelefono_mae, $email_mae, $note_mae, $img_mae, $vede_mae,
+	mysqli_stmt_bind_param($stmt, "iiisssssissssssssssssssissssssiiiiissii", $socio_mae, $in_organico_mae, $tipo_per, $mf_mae, $nome_mae, $cognome_mae, $indirizzo_mae, $citta_mae, $CAP_mae, $prov_mae, $paese_mae, $cf_mae, $datanascita_mae, $comunenascita_mae, $provnascita_mae, $paesenascita_mae, $cittadinanza_mae, $titolo_mae, $telefono_mae, $altrotelefono_mae, $email_mae, $note_mae, $img_mae, $vede_mae,
 	$matricola_mae,	$matrinps_mae, $matrinail_mae, $certpencg_mae, $dataass_mae, $datalic_mae, $tipocontr_mae, $livello_mae, $orecontr_mae, $ud_mae, $parttimeperc_mae, $iban_mae, $noterapporto_mae, $ral_mae, $ID_mae);
 	mysqli_stmt_execute($stmt);
 

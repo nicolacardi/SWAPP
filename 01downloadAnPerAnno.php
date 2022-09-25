@@ -86,7 +86,7 @@
 	while (mysqli_stmt_fetch($stmt)) { 
 		//14 e 26 sono gli indici dei campi data
 		$j++;
-		$spreadsheet->getActiveSheet()->SetCellValue("A".$j, $j-4 );
+		$spreadsheet->getActiveSheet()->SetCellValue("A".$j, $j-5 );
 		for ($x = 1; $x <= 43; $x++) {
 			// if ($campo[40] == 1) { //in campo 40 c'è lista d'attesa: non ha senso: è un campo dei figli: se si ritira un solo figlio?? la distinct restituisce un record per ogni figlio, a quel punto...
 			// 	$spreadsheet->getActiveSheet()->getStyle($colonna[$x].$j)->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);

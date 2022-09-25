@@ -36,6 +36,7 @@
 			<div class="titoloPagina" >
 				Scheda Singolo Socio
 				<input id="role_usr" name="role_usr" value= "<?=$role_usr?>" hidden>
+
 			</div>
 			<div class="row">
 				<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0" style="text-align: center; font-size: 16px;">
@@ -126,7 +127,7 @@
 				$("#paesenascita_soc_new").val(paeseselected);
 			break;
 			case "showComuneResidenza_new":
-				$("#citta_soc_new").val(comuneselected);
+				$("#comune_soc_new").val(comuneselected);
 				$("#prov_soc_new").val(provselected);
 				$("#paese_soc_new").val(paeseselected);
 				$("#CAP_soc_new").val(CAPselected);
@@ -137,7 +138,7 @@
 				$("#paesenascita_soc_det").val(paeseselected);
 			break;
 			case "showComuneResidenza_det":
-				$("#citta_soc_det").val(comuneselected);
+				$("#comune_soc_det").val(comuneselected);
 				$("#prov_soc_det").val(provselected);
 				$("#paese_soc_det").val(paeseselected);
 				$("#CAP_soc_det").val(CAPselected);

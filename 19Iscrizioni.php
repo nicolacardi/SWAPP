@@ -108,19 +108,19 @@
 								<!-- <img title="Iscrizione al volo" class="iconaStd" class="hideonsmalldevices" src='assets/img/Icone/circle-plus.svg' onclick="showModalAddIscrizioneAlVolo();"> -->
 							</th>
 							<th>
-								<input class="tablelabel4" style="width:120px" type="text" id="nome_alu" name="nome_alu" value = "NOME" disabled>
+								<input class="tablelabel4" style="width:120px" type="text" value = "NOME" disabled>
 							</th>
 							<th>
-								<input class="tablelabel4"  style="width:120px" type="text" id="cognome_alu" name="cognome_alu" value = "COGNOME" disabled>
+								<input class="tablelabel4"  style="width:120px" type="text" value = "COGNOME" disabled>
 							</th>
 							<th>
-								<input class="tablelabel4"  style="width:90px" type="text" id="classe_cla" name="classe_cla" value = "CLASSE" disabled>
+								<input class="tablelabel4"  style="width:90px" type="text" value = "CLASSE" disabled>
 							</th>
 							<th>
-								<input class="tablelabel4"  style="width:50px" type="text" id="sezione_cla" name="sezione_cla" value = "SEZ." disabled>
+								<input class="tablelabel4"  style="width:50px" type="text" value = "SEZ." disabled>
 							</th>
 							<!-- <th>
-								<input class="tablelabel4"  style="width:90px" type="text" id="annoscolastico_cla" name="annoscolastico_cla" value = "A.S." disabled>
+								<input class="tablelabel4"  style="width:90px" type="text" value = "A.S." disabled>
 							</th> -->
 							<th>
 								<button class="ordinabutton w100" style="width: 90px; height: 24px;" onclick="showModalInviaMailATutti()" >
@@ -132,22 +132,22 @@
 								<input class="tablelabel4"  style="width:20px" type="text" value = "X" disabled>
 							</th>
 							<th>
-								<input class="tablelabel4 w80px"  type="text" id="mailinviate_fam" name="mailinviate_fam" value = "Mail Inviate" disabled>
+								<input class="tablelabel4 w80px"  type="text" value = "Mail Inviate" disabled>
 							</th>
 							<th>
-								<input class="tablelabel4 w100px" type="text" id="login_fam" name="login_fam" value = "Login" disabled>
+								<input class="tablelabel4 w100px" type="text" value = "Login" disabled>
 							</th>
 							<th>
-								<input class="tablelabel4 w60px"  type="text" id="login_fam" name="login_fam" value = "Set Psw" disabled>
+								<input class="tablelabel4 w60px"  type="text" value = "Set Psw" disabled>
 							</th>
 							<th>
 								<img style="position: relative; float: left;  width: 20px; cursor: pointer;  z-index: 15; " src='assets/img/Icone/unlock.svg'>
 							</th>
 							<th>
-								<input class="tablelabel4"  style="width:90px" type="text" id="loginusata_fam" name="loginusata_fam" value = "Login usata" disabled>
+								<input class="tablelabel4"  style="width:90px" type="text" value = "Login usata" disabled>
 							</th>
 							<th>
-								<input class="tablelabel4"  style="width:90px" type="text" id="iscrcompleta_fam" name="iscrcompleta_fam" value = "Iscrizione%" disabled>
+								<input class="tablelabel4"  style="width:90px" type="text" value = "Iscrizione%" disabled>
 							</th>
 							<th>
 								<button class="ordinabutton" style="width: 60px; padding: 0px; height: 24px;" onclick="downloadModuloIscrizione(10000000);" >
@@ -165,7 +165,7 @@
 								<input class="tablelabel4"  style="width:80px" type="text" value = "Iscrizione" disabled>
 							</th>
 							<th>
-								<input class="tablelabel4"  style="width:80px" type="text" value = "Promemoria" disabled>
+								<input class="tablelabel4"  style="width:65px; height: 24px; font-size: 10px" type="text" value = "Promemoria" disabled>
 							</th>
 
 						</tr>
@@ -463,6 +463,7 @@
 	
 
 
+	<?include_once ('06inc_Affiliazione.php');?>
 
 
 
@@ -584,9 +585,6 @@
 	//}
 	
 	function ImportaSelezionati() {
-
-
-
 
 
 		let postData = $("#form_Importazione").serializeArray();

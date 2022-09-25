@@ -9,11 +9,11 @@
 	$telefonopadre_fam_new = addslashes($_POST['telefonopadre_fam_new']);
 	$emailmadre_fam_new = addslashes($_POST['emailmadre_fam_new']);
 	$emailpadre_fam_new = addslashes($_POST['emailpadre_fam_new']);
-	$sociomadre_fam_new = $_POST['sociomadre_fam_new'];
-	$sociopadre_fam_new = $_POST['sociopadre_fam_new'];
+	// $sociomadre_fam_new = $_POST['sociomadre_fam_new'];
+	// $sociopadre_fam_new = $_POST['sociopadre_fam_new'];
 	
-	if ($sociomadre_fam_new == "on") {$sociomadre_fam_new = 1;} else {$sociomadre_fam_new = 0;}
-	if ($sociopadre_fam_new == "on") {$sociopadre_fam_new = 1;} else {$sociopadre_fam_new = 0;}
+	// if ($sociomadre_fam_new == "on") {$sociomadre_fam_new = 1;} else {$sociomadre_fam_new = 0;}
+	// if ($sociopadre_fam_new == "on") {$sociopadre_fam_new = 1;} else {$sociopadre_fam_new = 0;}
 
 	//se la selezione nella select vale none allora devo inserire una nuova famiglia
 	$selectFamiglia = $_POST['selectFamiglia'];
@@ -21,7 +21,8 @@
 	
 	if ($selectFamiglia == "none"){
 		//inserisco nuova famiglia con i dati che ho
-
+		// sociomadre_fam, 
+		// sociopadre_fam
 		$sql1 = "INSERT INTO tab_famiglie ( 
 		nomemadre_fam, 
 		cognomemadre_fam, 
@@ -31,9 +32,9 @@
 		telefonomadre_fam, 
 		telefonopadre_fam, 
 		emailmadre_fam, 
-		emailpadre_fam, 
-		sociomadre_fam, 
-		sociopadre_fam) 
+		emailpadre_fam
+
+		) 
 		VALUES ( 
 		? ,
 		? ,
@@ -43,13 +44,12 @@
 		? ,
 		? ,
 		? ,
-		? ,
-		? ,
-		?);";
+		? );";
 
 
 		$stmt1 = mysqli_prepare($mysqli, $sql1);
-		mysqli_stmt_bind_param($stmt1, "sssssssssii", $nomemadre_fam_new, $cognomemadre_fam_new, $nomepadre_fam_new, $cognomepadre_fam_new, $cognomepadre_fam_new, $telefonomadre_fam_new, $telefonopadre_fam_new, $emailmadre_fam_new, $emailpadre_fam_new, $sociomadre_fam_new, $sociopadre_fam_new);
+		mysqli_stmt_bind_param($stmt1, "sssssssss", $nomemadre_fam_new, $cognomemadre_fam_new, $nomepadre_fam_new, $cognomepadre_fam_new, $cognomepadre_fam_new, $telefonomadre_fam_new, $telefonopadre_fam_new, $emailmadre_fam_new, $emailpadre_fam_new);
+		//$sociomadre_fam_new, $sociopadre_fam_new);
 		mysqli_stmt_execute($stmt1);
 		$ID_fam_alu = mysqli_insert_id($mysqli);
 	} else {

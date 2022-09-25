@@ -42,6 +42,7 @@
 				Scheda Singolo Alunno
 
 				<input id="ID_alu_det_hidden" <? if (isset ($_POST['ID_aluDaAltraPag'])) {echo ("value ='".$_POST['ID_aluDaAltraPag']."'");}?>hidden>
+
 				<input id="IDAnagraficaAppenaInseritaHidden" 																hidden>
 				<input id="pagtoshow_hidden" 					value=	"DatiAnagrafici" 									hidden>
 				<input id="cognome_alunno_padre_uguali" 		value=	"<?=$_SESSION['cognome_alunno_padre_uguali']?>" 	hidden>
@@ -289,9 +290,9 @@
 								<div class="col-md-3 center">
 									email
 								</div>
-								<div class="col-md-1 center">
+								<!-- <div class="col-md-1 center">
 									Socio
-								</div>
+								</div> -->
 							</div>
 
 							<div class="row">
@@ -310,9 +311,9 @@
 								<div class="col-md-3 center">
 									<input type="text" class="tablecell5"  id="emailmadre_fam_new"  maxlength="80" name="emailmadre_fam_new">
 								</div>
-								<div class="col-md-1" style="text-align: right">
+								<!-- <div class="col-md-1" style="text-align: right">
 									<input type="checkbox" class="tablecell5" id="sociomadre_fam_new" name="sociomadre_fam_new">
-								</div>
+								</div> -->
 							</div>
 
 							<div class="row">
@@ -336,9 +337,9 @@
 								<div class="col-md-3 center">
 									email
 								</div>
-								<div class="col-md-1 center">
+								<!-- <div class="col-md-1 center">
 									Socio
-								</div>
+								</div> -->
 							</div>
 
 							<div class="row">
@@ -357,9 +358,9 @@
 								<div class="col-md-3 center">
 									<input type="text" class="tablecell5"  id="emailpadre_fam_new"  maxlength="80" name="emailpadre_fam_new">
 								</div>
-								<div class="col-md-1" style="text-align: right;">
+								<!-- <div class="col-md-1" style="text-align: right;">
 									<input type="checkbox" class="tablecell5" id="sociopadre_fam_new" name="sociopadre_fam_new" >
-								</div>
+								</div> -->
 							</div>
 						</div> <!-- END REMOVE CONTENT -->
 
@@ -505,6 +506,9 @@
 <!--FINE FORM MODALE VERIFICA ANNO SCOLASTICO ************************************************************************-->
 
 
+	<?include_once ('06inc_Affiliazione.php');?>
+
+
 
 <script>
 
@@ -622,6 +626,21 @@
 
 		let ID_alu = $("#ID_alu_det_hidden").val();
 		postData = { ID_alu : ID_alu };
+		$.ajax({
+			type: 'POST',
+			url: "06qry_getIDFam.php",
+			data: postData,
+			dataType: 'json',
+			success: function(data){
+				$("#ID_fam_hidden").val(data.ID_fam);
+			},
+			error: function(){
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '06SchedaAlunno ##requery##'");      
+			}
+		});
+
+
+
 		$.ajax({
 
 			type: 'POST',
@@ -826,7 +845,7 @@
 									dataType: "json",
 									success:function(data)
 									{
-										console.log(data.test1);
+										//console.log(data.test1);
 										$("#IDAnagraficaAppenaInseritaHidden").val(data.ID);
 										$("#remove-content").slideUp();
 										$("#alertaggiungi").removeClass('alert-danger');
@@ -860,7 +879,7 @@
 		let ID = $("#IDAnagraficaAppenaInseritaHidden").val();
 		let nome = $('#nome_alu_new').val();
 		let cognome = $('#cognome_alu_new').val();
-		console.log (ID);
+		//console.log (ID);
 		let form = $(document.createElement('form'));
 		$(form).attr("action", "06SchedaAlunno.php");
 		$(form).attr("method", "POST");
@@ -967,7 +986,7 @@
 
 	function evidenziaQuale (){
 
-		console.log ("funzione evidenziaQuale");
+		//console.log ("funzione evidenziaQuale");
 		resetBordi();
 		datanascitatock =  moment($('#datanascita_tock').val(), "DD-MM-YYYY");
 		fromdate ="01/01/1900";

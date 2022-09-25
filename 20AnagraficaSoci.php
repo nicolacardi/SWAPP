@@ -61,16 +61,19 @@
 								
 							</th>
 							<th>
-								<input class="tablelabel0" style="width: 200px; " type="text" id="nome_soc" name="nome_soc" value="NOME" disabled>
+								<input class="tablelabel0" style="width: 200px; " type="text" value="NOME" disabled>
 							</th>
 							<th>
-								<input class="tablelabel0"  style="width: 200px;" type="text" id="cognome_soc" name="cognome_soc" value="COGNOME" disabled>
+								<input class="tablelabel0"  style="width: 200px;" type="text" value="COGNOME" disabled>
 							</th>
 							<th>
 								<input class="tablelabel0 w150px" type="text" id="tipo_per" name="tipo_per" value="Tipo Socio" disabled>
 							</th>
 							<th>
-								<input class="tablelabel0"  style="width: 150px;" type="text" id="dataiscrizione_soc" name="dataiscrizione_soc" value="Data Isc." disabled>
+								<input class="tablelabel0"  style="width: 150px;" type="text" value="Data Iscrizione" disabled>
+							</th>
+							<th>
+								<input class="tablelabel0"  style="width: 150px;" type="text" value="Data Disiscrizione" disabled>
 							</th>
 						<tr>
 							<th style="width:22px;">
@@ -88,6 +91,9 @@
 							</th>
 							<th>
 								<button id="ordinacampo4" class="ordinabutton" onclick="ordina(4);" >--</button>
+							</th>
+							<th>
+								<button id="ordinacampo5" class="ordinabutton" onclick="ordina(5);" >--</button>
 							</th>
 							<th>
 
@@ -108,6 +114,10 @@
 				<div class="modal-body white">           
 					<form id="form_AddSocio" method="post">
 						<span class="titoloModal">Inserimento nuova Anagrafica Socio</span>
+						<div style="text-align: center;">
+							Attenzione! Se si desidera associare un genitore è necessario farlo dalla scheda Alunno di uno dei figli<br>
+							In questo modo i dati anagrafici verranno direttamente importati!
+						</div>
 						<div class="alert alert-success" id="alertaggiungi" style="display:none; margin-top:10px; padding: 10px;">
 							<h5 id="alertmsg" style="text-align:center;"> 
 							  Iscrizione completata con successo!
@@ -235,7 +245,7 @@
 									<input type="text"  class="tablecell5"  id="indirizzo_soc_new" name="indirizzo_soc_new">
 								</div>
 								<div class="col-md-3 center">
-									<input type="text"  class="tablecell5 search-comune"  id="citta_soc_new" name="citta_soc_new">
+									<input type="text"  class="tablecell5 search-comune"  id="comune_soc_new" name="comune_soc_new">
 								</div>
 								<div class="col-md-1 center">
 									<input type="text" class="tablecell5"  id="prov_soc_new" name="prov_soc_new" >
@@ -346,7 +356,7 @@
 		let inputVal = $(this).val();
 		if (campo == "comunenascita_soc_new"){
 			resultDropdown = $("#showComuneNascita_new");
-		} else if (campo == "citta_soc_new"){
+		} else if (campo == "comune_soc_new"){
 			resultDropdown = $("#showComuneResidenza_new");
 		}
 		if(inputVal.length>2){
@@ -380,7 +390,7 @@
 
 			break;
 			case "showComuneResidenza_new":
-				$("#citta_soc_new").val(comuneselected);
+				$("#comune_soc_new").val(comuneselected);
 				$("#prov_soc_new").val(provselected);
 				$("#paese_soc_new").val(paeseselected);
 				$("#CAP_soc_new").val(CAPselected);

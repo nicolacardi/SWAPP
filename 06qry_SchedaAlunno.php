@@ -216,6 +216,9 @@ $ID_alu = $_POST['ID_alu'];?>
 	</div>
 <!-- FINE FORM MODALE FRATELLI E MODIFICA FAMIGLIA ************************************************************-->
 
+
+
+
 <!-- FORM MODALE ISCRIZIONE/AGGIUNTA ANNO SCOLASTICO **********************************************************-->
 	<div class="modal" id="modalAggiungiAnnoScolastico" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog" style="font-size:14px;">
@@ -576,10 +579,19 @@ $ID_alu = $_POST['ID_alu'];?>
 	// }
 	
 	function aggiornaAnagrafica (pagina) {
+
+		let sociomadre = $("#sociomadre_det").is(":checked");
+		if (sociomadre == false) {sociomadre = 0;} else {sociomadre =1;}
+
+		let sociopadre = $("#sociopadre_det").is(":checked");
+		if (sociopadre == false) {sociopadre = 0;} else {sociopadre =1;}
+
+
 		let img_alu = $('#imgName').val();
 
 		//estraggo tutti i valori da salvare
 		let ID_alu = $('#ID_alu_det_hidden').val();
+		let ID_fam = $('#ID_fam_hidden').val();
 		let nome_alu = $('#nome_alu_det').val();
 		let cognome_alu = $('#cognome_alu_det').val();
 		let mf_alu = $('#mf_alu_det').val();
@@ -630,16 +642,14 @@ $ID_alu = $_POST['ID_alu'];?>
 		let telefonomadre_fam = $('#telefonomadre_fam_det').val();
 		let altrotelmadre_fam = $('#altrotelmadre_fam_det').val();
 		let emailmadre_fam = $('#emailmadre_fam_det').val();
-		let sociomadre = $("#sociomadre_det").is(":checked");
-		if (sociomadre == false) {sociomadre = 0;} else {sociomadre =1;}
+
 		
 		let nomepadre_fam = $('#nomepadre_fam_det').val();
 		let cognomepadre_fam = $('#cognomepadre_fam_det').val();
 		let telefonopadre_fam = $('#telefonopadre_fam_det').val();
 		let altrotelpadre_fam = $('#altrotelpadre_fam_det').val();
 		let emailpadre_fam = $('#emailpadre_fam_det').val();
-		let sociopadre = $("#sociopadre_det").is(":checked");
-		if (sociopadre == false) {sociopadre = 0;} else {sociopadre =1;}
+
 		let scuolaprimaprovenienza_alu = $("#scuolaprimaprovenienza_alu_det").val();
 		let indirizzoscprimaproven_alu = $("#indirizzoscprimaproven_alu_det").val();
 		let scuolaprovenienza_alu = $("#scuolaprovenienza_alu_det").val();
@@ -724,7 +734,7 @@ $ID_alu = $_POST['ID_alu'];?>
 		}
 
 
-		postData = { ID_alu: ID_alu, nome_alu: nome_alu, cognome_alu: cognome_alu, mf_alu: mf_alu, indirizzo_alu: indirizzo_alu, citta_alu: citta_alu, CAP_alu: CAP_alu, prov_alu: prov_alu, paese_alu: paese_alu, cf_alu: cf_alu, datanascita_alu: datanascita_alu, comunenascita_alu: comunenascita_alu, provnascita_alu: provnascita_alu, paesenascita_alu: paesenascita_alu, cittadinanza_alu: cittadinanza_alu, nomemadre_fam: nomemadre_fam, cognomemadre_fam: cognomemadre_fam, telefonomadre_fam: telefonomadre_fam, altrotelmadre_fam: altrotelmadre_fam, emailmadre_fam: emailmadre_fam, sociomadre: sociomadre, nomepadre_fam: nomepadre_fam, cognomepadre_fam: cognomepadre_fam, telefonopadre_fam: telefonopadre_fam, altrotelpadre_fam: altrotelpadre_fam, emailpadre_fam: emailpadre_fam, sociopadre: sociopadre, note_alu: note_alu, img_alu: img_alu, autfoto_alu: autfoto_alu, disabilita_alu: disabilita_alu, dettaglidisabilita_alu: dettaglidisabilita_alu, DSA_alu: DSA_alu, scuolaprimaprovenienza_alu: scuolaprimaprovenienza_alu, indirizzoscprimaproven_alu: indirizzoscprimaproven_alu, scuolaprovenienza_alu: scuolaprovenienza_alu, indirizzoscproven_alu: indirizzoscproven_alu, ckautfoto_alu: ckautfoto_alu, ckautmateriale_alu: ckautmateriale_alu, ckautuscite_alu: ckautuscite_alu, ckautuscitaautonoma_alu: ckautuscitaautonoma_alu, ckdoposcuola_alu: ckdoposcuola_alu, cktrasportopubblico_alu: cktrasportopubblico_alu, ckmensa_alu: ckmensa_alu, ckreligione_alu: ckreligione_alu, altreligione_alu: altreligione_alu, datanascitapadre_fam: datanascitapadre_fam , comunenascitapadre_fam : comunenascitapadre_fam, provnascitapadre_fam: provnascitapadre_fam, paesenascitapadre_fam: paesenascitapadre_fam, cfpadre_fam:cfpadre_fam, indirizzopadre_fam:indirizzopadre_fam, comunepadre_fam:comunepadre_fam, provpadre_fam:provpadre_fam, paesepadre_fam:paesepadre_fam, CAPpadre_fam:CAPpadre_fam, titolopadre_fam:titolopadre_fam, profpadre_fam:profpadre_fam, datanascitamadre_fam: datanascitamadre_fam , comunenascitamadre_fam : comunenascitamadre_fam, provnascitamadre_fam: provnascitamadre_fam, paesenascitamadre_fam: paesenascitamadre_fam, cfmadre_fam:cfmadre_fam, indirizzomadre_fam:indirizzomadre_fam, comunemadre_fam:comunemadre_fam, provmadre_fam:provmadre_fam, paesemadre_fam:paesemadre_fam, CAPmadre_fam:CAPmadre_fam, titolomadre_fam:titolomadre_fam, profmadre_fam:profmadre_fam, imgpadre_fam: imgpadre_fam, imgmadre_fam: imgmadre_fam, notemadre_fam: notemadre_fam, notepadre_fam: notepadre_fam, intestazionefatt_fam: intestazionefatt_fam, ibanmadre_fam: ibanmadre_fam, ibanpadre_fam: ibanpadre_fam, rapprmadre_fam: rapprmadre_fam, rapprpadre_fam: rapprpadre_fam};
+		postData = { ID_alu: ID_alu, nome_alu: nome_alu, cognome_alu: cognome_alu, mf_alu: mf_alu, indirizzo_alu: indirizzo_alu, citta_alu: citta_alu, CAP_alu: CAP_alu, prov_alu: prov_alu, paese_alu: paese_alu, cf_alu: cf_alu, datanascita_alu: datanascita_alu, comunenascita_alu: comunenascita_alu, provnascita_alu: provnascita_alu, paesenascita_alu: paesenascita_alu, cittadinanza_alu: cittadinanza_alu, nomemadre_fam: nomemadre_fam, cognomemadre_fam: cognomemadre_fam, telefonomadre_fam: telefonomadre_fam, altrotelmadre_fam: altrotelmadre_fam, emailmadre_fam: emailmadre_fam, sociomadre: sociomadre, nomepadre_fam: nomepadre_fam, cognomepadre_fam: cognomepadre_fam, telefonopadre_fam: telefonopadre_fam, altrotelpadre_fam: altrotelpadre_fam, emailpadre_fam: emailpadre_fam, sociopadre: sociopadre, note_alu: note_alu, img_alu: img_alu, autfoto_alu: autfoto_alu, disabilita_alu: disabilita_alu, dettaglidisabilita_alu: dettaglidisabilita_alu, DSA_alu: DSA_alu, scuolaprimaprovenienza_alu: scuolaprimaprovenienza_alu, indirizzoscprimaproven_alu: indirizzoscprimaproven_alu, scuolaprovenienza_alu: scuolaprovenienza_alu, indirizzoscproven_alu: indirizzoscproven_alu, ckautfoto_alu: ckautfoto_alu, ckautmateriale_alu: ckautmateriale_alu, ckautuscite_alu: ckautuscite_alu, ckautuscitaautonoma_alu: ckautuscitaautonoma_alu, ckdoposcuola_alu: ckdoposcuola_alu, cktrasportopubblico_alu: cktrasportopubblico_alu, ckmensa_alu: ckmensa_alu, ckreligione_alu: ckreligione_alu, altreligione_alu: altreligione_alu, datanascitapadre_fam: datanascitapadre_fam , comunenascitapadre_fam : comunenascitapadre_fam, provnascitapadre_fam: provnascitapadre_fam, paesenascitapadre_fam: paesenascitapadre_fam, cfpadre_fam:cfpadre_fam, indirizzopadre_fam:indirizzopadre_fam, comunepadre_fam:comunepadre_fam, provpadre_fam:provpadre_fam, paesepadre_fam:paesepadre_fam, CAPpadre_fam:CAPpadre_fam, titolopadre_fam:titolopadre_fam, profpadre_fam:profpadre_fam, datanascitamadre_fam: datanascitamadre_fam , comunenascitamadre_fam : comunenascitamadre_fam, provnascitamadre_fam: provnascitamadre_fam, paesenascitamadre_fam: paesenascitamadre_fam, cfmadre_fam:cfmadre_fam, indirizzomadre_fam:indirizzomadre_fam, comunemadre_fam:comunemadre_fam, provmadre_fam:provmadre_fam, paesemadre_fam:paesemadre_fam, CAPmadre_fam:CAPmadre_fam, titolomadre_fam:titolomadre_fam, profmadre_fam:profmadre_fam, imgpadre_fam: imgpadre_fam, imgmadre_fam: imgmadre_fam, notemadre_fam: notemadre_fam, notepadre_fam: notepadre_fam, intestazionefatt_fam: intestazionefatt_fam, ibanmadre_fam: ibanmadre_fam, ibanpadre_fam: ibanpadre_fam, rapprmadre_fam: rapprmadre_fam, rapprpadre_fam: rapprpadre_fam, ID_fam_soc: ID_fam, padremadre: "any"};
 		console.log("06qry_SchedaAlunno.php - AggiornaAnagrafica - postData a 06qry_updateAnagrafica");
 		console.log (postData);
 		$.ajax({
@@ -743,6 +753,23 @@ $ID_alu = $_POST['ID_alu'];?>
 				alert("Errore: contattare l'amministratore fornendo il codice di errore '06qry_SchedaAlunno aggiornaAnagrafica'");      
 			}
 		});
+
+
+		$.ajax({
+			type: 'POST',
+			url: "21qry_updateAnagraficaSocio.php",
+			data: postData,
+			dataType: 'json',
+			success: function(data){
+				console.log (data);
+			},
+			error: function(){
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '06qry_updateAnagraficaSocio'");      
+			}
+		});
+
+
+		
 	}
 	
 	function MostraModalIscrizione (cosa){
@@ -806,15 +833,15 @@ $ID_alu = $_POST['ID_alu'];?>
 		sezione = $('#selectCambioSezione').val();
 		let ID_alu = $('#ID_alu_det_hidden').val();
 		postData = { ID_cla: ID_cla, sezione: sezione, annoscolastico_cla: annoscolastico_cla, ID_alu: ID_alu} ;
-		console.log ("06qry_SchedaAlunno/ funzione cambioSezione - Dati di post a: 06qry_setSezione.php");
-		console.log ("postData", postData);
+		//console.log ("06qry_SchedaAlunno/ funzione cambioSezione - Dati di post a: 06qry_setSezione.php");
+		//console.log ("postData", postData);
 		$.ajax({
 			type: 'POST',
 			url: "06qry_setSezione.php",
 			data: postData,
 			dataType: 'json',
 			success: function(data){
-				console.log (data);
+				//console.log (data);
 				$("#alertCambioSezione").removeClass('alert-danger');
 				$("#alertCambioSezione").addClass('alert-success');
 				$("#alertCambioSezione").show();
@@ -840,8 +867,8 @@ $ID_alu = $_POST['ID_alu'];?>
 
 
 		postData = { ID_alu_cla: ID_alu_cla, annoscolastico_asc: annoscolastico_asc, classe_cla: classe_cla, sezione_cla: sezione_cla, bocciato: bocciato, ListaDAttesa: ListaDAttesa, scalino: scalino};
-		console.log ("06qry_SchedaAlunno/ funzione aggiungiAnnoscolastico - Dati di post a: 06_qry_insertAnnoscolastico.php")
-		console.log ("postData", postData);
+		//console.log ("06qry_SchedaAlunno/ funzione aggiungiAnnoscolastico - Dati di post a: 06_qry_insertAnnoscolastico.php")
+		//console.log ("postData", postData);
 		
 		$.ajax({
 			type: 'POST',
@@ -849,7 +876,7 @@ $ID_alu = $_POST['ID_alu'];?>
 			data: postData,
 			dataType: 'json',
 			success: function(data){
-					console.log(data.test);
+					//console.log(data.test);
 					$("#alertaggiungiAS").removeClass('alert-success');
 					$("#alertaggiungiAS").addClass('alert-danger');
 					$('#alertaggiungimsg').html(data.msg);
@@ -883,7 +910,7 @@ $ID_alu = $_POST['ID_alu'];?>
 		let selectfamigliaTMP = document.getElementById("selectFamigliaF");
 		let selectFamiglia = selectfamigliaTMP.options[selectfamigliaTMP.selectedIndex].value;
 		postData = { ID_alu : ID_alu, ID_fam_alu: ID_fam_alu, fratelli: fratelli, nomemadre_fam_new: nomemadre_fam_new, cognomemadre_fam_new: cognomemadre_fam_new, nomepadre_fam_new: nomepadre_fam_new, cognomepadre_fam_new: cognomepadre_fam_new, selectFamiglia: selectFamiglia }
-		console.log (postData);
+		//console.log (postData);
 
 		if (cognomepadre_fam_new == '') {
 			$("#alertFRATELLI").removeClass('alert-success');
@@ -1563,15 +1590,15 @@ $ID_alu = $_POST['ID_alu'];?>
 		if (scalino_bool) {scalino_cla = 1;} else {scalino_cla = 0;}
 		postData = { ID_cla: ID_cla, scalino_cla: scalino_cla};
 
-		console.log ("06qry_SchedaAlunno.php - checkScalino: postData a 06qry_updateCheckScalino.php");
-		console.log (postData);
+		//console.log ("06qry_SchedaAlunno.php - checkScalino: postData a 06qry_updateCheckScalino.php");
+		//console.log (postData);
 		$.ajax({
 		type: 'POST',
 		url: "06qry_updateCheckScalino.php",
 		data: postData,
 		dataType: 'json',
 		success: function(data){
-				console.log (data.test);
+				//console.log (data.test);
 			}
 		});
 

@@ -8,14 +8,14 @@
 
 		<?
 		//estraggo i dati da mostrare nella parte anagrafica
-		$sql2 = "SELECT ID_mae, ID_usr_mae, login_usr, in_organico_mae, tipo_per, mf_mae, nome_mae, cognome_mae, datanascita_mae, comunenascita_mae, provnascita_mae, paesenascita_mae, cittadinanza_mae, cf_mae, indirizzo_mae, citta_mae, prov_mae, paese_mae, CAP_mae, titolo_mae, telefono_mae, altrotelefono_mae, email_mae, note_mae, img_mae, vede_mae,
+		$sql2 = "SELECT ID_mae, ID_usr_mae, socio_mae, login_usr, in_organico_mae, tipo_per, mf_mae, nome_mae, cognome_mae, datanascita_mae, comunenascita_mae, provnascita_mae, paesenascita_mae, cittadinanza_mae, cf_mae, indirizzo_mae, citta_mae, prov_mae, paese_mae, CAP_mae, titolo_mae, telefono_mae, altrotelefono_mae, email_mae, note_mae, img_mae, vede_mae,
 		matricola_mae, matrinps_mae, matrinail_mae, certpencg_mae, dataass_mae, datalic_mae, tipocontr_mae, livello_mae, orecontr_mae, ud_mae, parttimeperc_mae, iban_mae, noterapporto_mae, ral_mae ".
 		"FROM tab_anagraficamaestri LEFT JOIN tab_users ON ID_usr_mae = ID_usr ".
 		"WHERE ID_mae = ?;";
 		$stmt2 = mysqli_prepare($mysqli, $sql2);
 		mysqli_stmt_bind_param($stmt2, "i", $ID_mae);
 		mysqli_stmt_execute($stmt2);
-		mysqli_stmt_bind_result($stmt2, $ID_mae_det, $ID_usr_mae_det, $login_usr, $in_organico_mae_det, $tipo_per_det, $mf_mae_det, $nome_mae_det, $cognome_mae_det, $datanascita_mae_det, $comunenascita_mae_det, $provnascita_mae_det, $paesenascita_mae_det, $cittadinanza_mae_det, $cf_mae_det, $indirizzo_mae_det, $citta_mae_det, $prov_mae_det, $paese_mae_det, $CAP_mae_det, $titolo_mae_det, $telefono_mae_det, $altrotelefono_mae_det, $email_mae_det, $note_mae_det, $img_mae, $vede_mae, $matricola_mae, $matrinps_mae, $matrinail_mae, $certpencg_mae, $dataass_mae, $datalic_mae, $tipocontr_mae, $livello_mae, $orecontr_mae, $ud_mae, $parttimeperc_mae, $iban_mae, $noterapporto_mae, $ral_mae);
+		mysqli_stmt_bind_result($stmt2, $ID_mae_det, $ID_usr_mae_det, $socio_mae_det, $login_usr, $in_organico_mae_det, $tipo_per_det, $mf_mae_det, $nome_mae_det, $cognome_mae_det, $datanascita_mae_det, $comunenascita_mae_det, $provnascita_mae_det, $paesenascita_mae_det, $cittadinanza_mae_det, $cf_mae_det, $indirizzo_mae_det, $citta_mae_det, $prov_mae_det, $paese_mae_det, $CAP_mae_det, $titolo_mae_det, $telefono_mae_det, $altrotelefono_mae_det, $email_mae_det, $note_mae_det, $img_mae, $vede_mae, $matricola_mae, $matrinps_mae, $matrinail_mae, $certpencg_mae, $dataass_mae, $datalic_mae, $tipocontr_mae, $livello_mae, $orecontr_mae, $ud_mae, $parttimeperc_mae, $iban_mae, $noterapporto_mae, $ral_mae);
 		$i=0;
 		while (mysqli_stmt_fetch($stmt2)) {
 		$i++;
@@ -439,9 +439,14 @@
 		//estraggo tutti i valori da salvare
 		let ID_mae = $('#ID_mae_det_hidden').val();
 		let ID_usr_mae = $('#ID_usr_mae_det_hidden').val();
+
+		let socio_mae = $("#socio_mae_det").is(":checked");
+		if (socio_mae == false) {socio_mae = 0;} else {socio_mae =1;}
+
 		let nome_mae = $('#nome_mae_det').val();
 		let cognome_mae = $('#cognome_mae_det').val();
 		let mf_mae = $('#mf_mae_det').val();
+
 		if (img_mae != "") {
 			fileName = nome_mae + cognome_mae;
 			fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
@@ -501,7 +506,7 @@
 
 
 
-		postData = { ID_mae: ID_mae, nome_mae: nome_mae, cognome_mae: cognome_mae, indirizzo_mae: indirizzo_mae, citta_mae: citta_mae, CAP_mae: CAP_mae, prov_mae: prov_mae, paese_mae: paese_mae, mf_mae: mf_mae, cf_mae: cf_mae, datanascita_mae: datanascita_mae, comunenascita_mae: comunenascita_mae, provnascita_mae: provnascita_mae, paesenascita_mae: paesenascita_mae, cittadinanza_mae: cittadinanza_mae, telefono_mae: telefono_mae, altrotelefono_mae: altrotelefono_mae, titolo_mae: titolo_mae, note_mae: note_mae, email_mae: email_mae, img_mae: img_mae, vede_mae: vede_mae, in_organico_mae: in_organico_mae, tipo_per: tipo_per, login_usr: login_usr, ID_usr_mae: ID_usr_mae, matricola_mae: matricola_mae, matrinps_mae: matrinps_mae, matrinail_mae: matrinail_mae, certpencg_mae: certpencg_mae, dataass_mae: dataass_mae, datalic_mae: datalic_mae, tipocontr_mae: tipocontr_mae, livello_mae: livello_mae, orecontr_mae: orecontr_mae, ud_mae: ud_mae, parttimeperc_mae: parttimeperc_mae, iban_mae: iban_mae, noterapporto_mae: noterapporto_mae, ral_mae: ral_mae};
+		postData = { ID_mae: ID_mae, socio_mae: socio_mae, nome_mae: nome_mae, cognome_mae: cognome_mae, indirizzo_mae: indirizzo_mae, citta_mae: citta_mae, CAP_mae: CAP_mae, prov_mae: prov_mae, paese_mae: paese_mae, mf_mae: mf_mae, cf_mae: cf_mae, datanascita_mae: datanascita_mae, comunenascita_mae: comunenascita_mae, provnascita_mae: provnascita_mae, paesenascita_mae: paesenascita_mae, cittadinanza_mae: cittadinanza_mae, telefono_mae: telefono_mae, altrotelefono_mae: altrotelefono_mae, titolo_mae: titolo_mae, note_mae: note_mae, email_mae: email_mae, img_mae: img_mae, vede_mae: vede_mae, in_organico_mae: in_organico_mae, tipo_per: tipo_per, login_usr: login_usr, ID_usr_mae: ID_usr_mae, matricola_mae: matricola_mae, matrinps_mae: matrinps_mae, matrinail_mae: matrinail_mae, certpencg_mae: certpencg_mae, dataass_mae: dataass_mae, datalic_mae: datalic_mae, tipocontr_mae: tipocontr_mae, livello_mae: livello_mae, orecontr_mae: orecontr_mae, ud_mae: ud_mae, parttimeperc_mae: parttimeperc_mae, iban_mae: iban_mae, noterapporto_mae: noterapporto_mae, ral_mae: ral_mae};
 		console.log ("08qry_SchedaMaestro.php - aggiornaAnagrafica - postData a 08qry_updateAnagraficaMaestro.php") ;
 		console.log (postData) ;
 		$.ajax({

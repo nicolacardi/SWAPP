@@ -22,10 +22,10 @@
         </div>
         <div class="col-md-1 col-sm-1 itemSchedaAnagrafica">
             <div class="row">
-            (socio)
+            (in libro soci)
             </div>
             <div class="row">
-                <input style="width:20%;" class="tablecell" type="checkbox"  id="sociomadre_det" name="sociomadre_det" value="socio" <? if ($sociomadre_fam_det == 1) { echo ('checked');} ?>>
+                <input style="width:20%;" class="tablecell" type="checkbox"  id="sociomadre_det" name="sociomadre_det" value="socio" <? if ($sociomadre_fam_det == 1) { echo ('checked');} ?> onclick="showModalAffiliazione(<?=$ID_fam_alu?>, 'madre', '<?=$nomemadre_fam_det?>', '<?=$cognomemadre_fam_det?>')">
             </div>
         </div>
     </div>
