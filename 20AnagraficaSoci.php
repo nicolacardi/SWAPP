@@ -334,8 +334,24 @@
 	}
 
 	function DownloadExcelAnagraficaSoci() {
-		window.location.href='20downloadAnSoci.php';
+
+		template =		"AnagraficaSoci";
+		filetitle = 	"AnagraficaSoci";
+		title=			"Anagrafica Soci";
+		from = 			" tab_anagraficasoci LEFT JOIN tab_tipisoci ON tipo_soc = ID_tsc ";
+		where =			" 1=1 ";
+		orderBY = 		" cognome_soc ";
+		nomiCampiA = 	[ "idle", "descrizione_tsc", "dataiscrizione_soc", "cognome_soc", "nome_soc", "telefono_soc", "altrotel_soc", "email_soc", "datanascita_soc", "comunenascita_soc", "provnascita_soc", "paesenascita_soc", "cf_soc", "indirizzo_soc", "comune_soc", "CAP_soc", "prov_soc", "paese_soc"];
+		//nomiCampiA = 	[ "idle", "tipo_soc", "dataiscrizione_soc", "cognome_soc", "nome_soc", "telefono_soc", "altrotel_soc", "email_soc", "datanascita_soc", "comunenascita_soc", "provnascita_soc", "paesenascita_soc", "cf_soc", "indirizzo_soc", "comune_soc", "CAP_soc", "prov_soc", "paese_soc"];
+		dataNonDataA = 	["idle", 0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0];
+		columnColoring =	"";
+		postToDownload(template, filetitle, title, from, where, orderBY, nomiCampiA, dataNonDataA, columnColoring);
+
+
+		//window.location.href='20DownloadAnSoci.php';
+
 	}
+
 
 
 	$("#mf_soc_new").keypress(function(e){

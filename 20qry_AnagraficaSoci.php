@@ -1,5 +1,6 @@
 <?include_once("database/databaseii.php");
 	include_once("assets/functions/functions.php");
+	$ordsql = "";
 	if (isset ($_POST['ord1'])){
 		$ord1 = $_POST['ord1'];
 		$ordsql = orderbysql( $ord1, 'nome_soc', $ordsql);

@@ -38,7 +38,7 @@
 
 	$spreadsheet->setActiveSheetIndex(0); // Comincia da 0
 	$spreadsheet->getActiveSheet()->SetCellValue("A1", $annoscolastico_cla);
-	$j = 4; //j è un numero che cresce di una unità ogni volta che scrivo un alunno-corrisponde al numero di riga di excel
+	$j = 5; //j è un numero che cresce di una unità ogni volta che scrivo un alunno-corrisponde al numero di riga di excel
 	$date1=date_create("1900-01-01");
 	while (mysqli_stmt_fetch($stmt)) { 
 		//10,49,61 sono gli indici dei campi data

@@ -18,6 +18,8 @@
 	<script src="assets/bootstrap/bootstrap.min.js" type="text/javascript"></script>
 	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 	<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+	<script src="assets/functions/functionsJS.js"></script>
+
 	<? $_SESSION['page'] = "Anagrafica x as";?>
 </head>
 
@@ -606,30 +608,67 @@
 	}
 
 	function DownloadExcelTutti() {
+
+		// let annoscolastico_cla = $("#selectannoscolastico").val();
+		// template = 		"AnagraficaPerAnno";
+		// filetitle = 	"AnagraficaPerAnno"+annoscolastico_cla;
+		// title=			"Anagrafica per Anno - Alunni "+annoscolastico_cla;
+		// from = 			" ((tab_anagraficaalunni LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla) LEFT JOIN tab_famiglie ON ID_fam_alu = ID_fam)  ";
+		// where =			" annoscolastico_cla = '"+annoscolastico_cla+"' ";
+		// orderBY = 		" classe_cla ASC, cognome_alu ";
+		// nomiCampiA = 	[ "idle", "nome_alu", "cognome_alu", "indirizzo_alu", "citta_alu", "CAP_alu", "prov_alu", "paese_alu", "cf_alu", "mf_alu", "datanascita_alu", "comunenascita_alu", "provnascita_alu", "paesenascita_alu", "cittadinanza_alu", "note_alu", "scuolaprovenienza_alu", "indirizzoscproven_alu", "ckprivacy1_alu", "ckprivacy2_alu", "ckprivacy3_alu", "ckautfoto_alu", "ckautmateriale_alu", "ckautuscite_alu", "ckautuscitaautonoma_alu", "ckdoposcuola_alu", "ckreligione_alu", "ckmensa_alu", "cktrasportopubblico_alu",	"classe_cla", "sezione_cla", "aselme_cla", "listaattesa_cla", "ritirato_cla", "scalino_cla", "tiposcuolasucc_alu", "sottotiposcuolasucc_alu", "nomescuolasucc_alu", "votoesamiVIII_alu", "cognome_fam", "nomemadre_fam", "cognomemadre_fam", "nomepadre_fam", "cognomepadre_fam", "telefonomadre_fam", "altrotelmadre_fam", "telefonopadre_fam", "altrotelpadre_fam", "emailmadre_fam", "emailpadre_fam", "sociomadre_fam", "sociopadre_fam", "datanascitamadre_fam", "comunenascitamadre_fam", "provnascitamadre_fam", "paesenascitamadre_fam", "cfmadre_fam", "indirizzomadre_fam", "comunemadre_fam", "CAPmadre_fam", "provmadre_fam", "paesemadre_fam", "titolomadre_fam", "profmadre_fam", "datanascitapadre_fam", "comunenascitapadre_fam", "provnascitapadre_fam", "paesenascitapadre_fam", "cfpadre_fam", "indirizzopadre_fam", "comunepadre_fam", "CAPpadre_fam", "provpadre_fam", "paesepadre_fam", "titolopadre_fam", "profpadre_fam"  ];
+		// dataNonDataA = 	[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0];
+		// columnColoring =	[]
+		
+		// postToDownload( template, filetitle, title, from, where, orderBY, nomiCampiA, dataNonDataA, columnColoring);
+
+		//DEVE SCRIVERE SU DUE FOGLI QUINDI AL MOMENTO NON RIESCO A USARE 99DOWNLOAD
 		let annoscolastico_cla = $("#selectannoscolastico").val();
 		window.location.href='01downloadAnPerAnno.php?annoscolastico_cla='+annoscolastico_cla;
 	}
 	
 	function DownloadExcelFiltered (){
+		//DEVE SCRIVERE SU DUE FOGLI QUINDI AL MOMENTO NON RIESCO A USARE 99DOWNLOAD
+
 		let annoscolastico_cla = $("#selectannoscolastico").val();
 		let sql_hidden = $("#sql_hidden").val();
-		//console.log (sql_hidden);
 		window.location.href='01downloadAnPerAnno.php?annoscolastico_cla='+annoscolastico_cla+'&where='+sql_hidden;
 	}
 	
 	function DownloadExcelFilteredMin (){
+
 		let annoscolastico_cla = $("#selectannoscolastico").val();
 		let sql_hidden = $("#sql_hidden").val();
-		window.location.href='01downloadAnPerAnnoMin.php?annoscolastico_cla='+annoscolastico_cla+'&where='+sql_hidden;
+
+		template = 		"AnagraficaPerAnnoMin";
+		filetitle = 	"AnagraficaPerAnnoMin"+annoscolastico_cla;
+		title=			"Anagrafica per Anno - dati minimi "+annoscolastico_cla;
+		from = 			" ((tab_anagraficaalunni LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla) LEFT JOIN tab_famiglie ON ID_fam_alu = ID_fam)  ";
+		where =			" annoscolastico_cla = '"+annoscolastico_cla+"' "+sql_hidden;
+		orderBY = 		" classe_cla ASC, cognome_alu ";
+		nomiCampiA = 	[ "idle", "nome_alu", "cognome_alu", "datanascita_alu", "comunenascita_alu", "provnascita_alu", "classe_cla", "sezione_cla", "listaattesa_cla", "ritirato_cla"];
+		dataNonDataA = 	["idle",0,0,1,0,0,0,0,0,0];
+		columnColoring =	["idle", 0,0,0,0,0,0,0,"FFACACAC","FFFFC000"]
+
+		postToDownload( template, filetitle, title, from, where, orderBY, nomiCampiA, dataNonDataA, columnColoring);
+
+
+		//let annoscolastico_cla = $("#selectannoscolastico").val();
+		//let sql_hidden = $("#sql_hidden").val();
+		//window.location.href='01downloadAnPerAnnoMin.php?annoscolastico_cla='+annoscolastico_cla+'&where='+sql_hidden;
 	}
 
 	function DownloadExcelFilteredEGen (){
+		//E' TUTTA STRANA (VOLUTA DA TV) QUINDI AL MOMENTO NON RIESCO A USARE 99DOWNLOAD
+
 		let annoscolastico_cla = $("#selectannoscolastico").val();
 		let sql_hidden = $("#sql_hidden").val();
 		window.location.href='01downloadAnPerAnnoMinEGen.php?annoscolastico_cla='+annoscolastico_cla+'&where='+sql_hidden;
 	} 
 
 	function DownloadExcelElisa() {
+		//E' TUTTA STRANA (VOLUTA DA ELISA) QUINDI AL MOMENTO NON RIESCO A USARE 99DOWNLOAD
+
 		let annoscolastico_cla = $("#selectannoscolastico").val();
 		window.location.href='01downloadAnPerAnnoElisa.php?annoscolastico_cla='+annoscolastico_cla;
 	}
@@ -640,6 +679,8 @@
 	}
 
 	function DownloadExcelFilteredASL (){
+		//E' TUTTA STRANA (CONTIENE I CODICI DELLE SCUOLE) QUINDI AL MOMENTO NON RIESCO A USARE 99DOWNLOAD
+
 		let annoscolastico_cla = $("#selectannoscolastico").val();
 		let sql_hidden = $("#sql_hidden").val();
 		//console.log (sql_hidden);
@@ -647,12 +688,27 @@
 	}
 
 	function DownloadExcelRappresentanti() {
+		//E' TUTTA STRANA (DEVE FARE DEI GIRI SUL RECORD FAMIGLIA) QUINDI AL MOMENTO NON RIESCO A USARE 99DOWNLOAD
+
 		let annoscolastico_cla = $("#selectannoscolastico").val();
 		window.location.href='01downloadRappresentanti.php?annoscolastico_cla='+annoscolastico_cla;
 	}
 
 	function DownloadExcelStatisticaScuoleSucc() {
-		window.location.href='01downloadStatisticaScuoleSucc.php';
+
+		template= 		"StatisticheScuoleSucc";
+		filetitle = 	"StatisticheScuoleSucc";
+		title=			"Statistiche Scuole Successive";
+		from = 			" (tab_anagraficaalunni LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla)  ";
+		where=			" tiposcuolasucc_alu <> '' AND classe_cla = 'VIII' ";
+		orderBY = 		" annoscolastico_cla, cognome_alu ";
+		nomiCampiA = 	["idle", "nome_alu", "cognome_alu", "annoscolastico_cla", "tiposcuolasucc_alu", "sottotiposcuolasucc_alu", "nomescuolasucc_alu", "votoesamiVIII_alu"];
+		dataNonDataA = 	["idle", 0,0,0,0,0,0,0,0];
+		columnColoring=	"";
+
+		postToDownload( template, filetitle, title, from, where, orderBY, nomiCampiA, dataNonDataA, columnColoring);
+
+		//window.location.href='01downloadStatisticaScuoleSucc.php';
 	}
 
 

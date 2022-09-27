@@ -604,16 +604,6 @@
 		}
 	}
 
-	// function controllaDataNascita (data, annomin, annomax) {
-	// 	if ((data != "") && (data != null)) {
-	// 		let datam = moment(data, "DD-MM-YYYY" );
-	// 		let annom = moment(datam).year();
-	// 		if ((datam.isValid()) && (annom > annomin) && (annom < annomax) ) { return true; } else { return false;}
-	// 	} else {
-	// 		return true;
-	// 	}
-	// }
-
 
 	function addAnagrafica () {
 		//attenzione: questa funzione si trova sia in 06SchedaAlunno.php che in 00Anagrafica.php

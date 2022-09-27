@@ -8,7 +8,7 @@
 	$objPHPExcel = \PhpOffice\PhpSpreadsheet\IOFactory::load("TemplateExportRappresentanti.xlsx");
 
 	//per foglio famiglie
-	$sql = "SELECT DISTINCT cognome_fam, nomemadre_fam, cognomemadre_fam, nomepadre_fam, cognomepadre_fam, telefonomadre_fam, altrotelmadre_fam, telefonopadre_fam, altrotelpadre_fam, emailmadre_fam, emailpadre_fam, rapprmadre_fam, rapprpadre_fam 
+	$sql = "SELECT cognome_fam, nomemadre_fam, cognomemadre_fam, nomepadre_fam, cognomepadre_fam, telefonomadre_fam, altrotelmadre_fam, telefonopadre_fam, altrotelpadre_fam, emailmadre_fam, emailpadre_fam, rapprmadre_fam, rapprpadre_fam 
 	FROM ((tab_anagraficaalunni LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla) 
 	LEFT JOIN tab_famiglie ON ID_fam_alu = ID_fam) WHERE annoscolastico_cla = ? AND (rapprmadre_fam = 1 OR rapprpadre_fam = 1) ORDER BY cognome_fam";
 	$stmt = mysqli_prepare($mysqli, $sql);
