@@ -674,6 +674,8 @@
 	}
 
 	function DownloadExcelEmail() {
+		//E' TUTTA STRANA (VOLUTA DA ELISA) QUINDI AL MOMENTO NON RIESCO A USARE 99DOWNLOAD
+		
 		let annoscolastico_cla = $("#selectannoscolastico").val();
 		window.location.href='01downloadEmail.php?annoscolastico_cla='+annoscolastico_cla;
 	}
