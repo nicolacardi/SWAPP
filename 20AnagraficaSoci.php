@@ -75,6 +75,8 @@
 							<th>
 								<input class="tablelabel0"  style="width: 150px;" type="text" value="Data Disiscrizione" disabled>
 							</th>
+							<th>
+							</th>
 						<tr>
 							<th style="width:22px;">
 							</th>
@@ -96,7 +98,8 @@
 								<button id="ordinacampo5" class="ordinabutton" onclick="ordina(5);" >--</button>
 							</th>
 							<th>
-
+							</th>
+							<th>
 							</th>
 					</thead>
 					<tbody class="scroll" id="maintable">

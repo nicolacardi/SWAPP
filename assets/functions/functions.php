@@ -57,6 +57,8 @@
 	}
 
 
+
+
 	function getAnnoScolastico ($data) {
 		// //estraggo l'anno scolastico di cui fa parte la data
 		// $sql3 = "SELECT annoscolastico_asc FROM tab_anniscolastici WHERE datainizio_asc <= ? AND datafine_asc > ?";

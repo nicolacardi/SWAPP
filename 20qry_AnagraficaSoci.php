@@ -78,6 +78,9 @@
 			<td>
 				<input class="tablecell6 disab val<?=$ID_soc?> w150px" type="text" id="datadisiscrizione_soc<?=$ID_soc?>" name="datadisiscrizione_soc" value = "<?=timestamp_to_ggmmaaaa($datadisiscrizione_soc);?>" disabled>
 			</td>
+			<td >
+				<button class="h24px" title="Pdf scheda socio per registro soci" onclick="downloadSchedaSocio(<?=$ID_soc?>)"><img class="iconaStd2" src='assets/img/Icone/pdf.svg'></button>
+			</td>
 		</tr>
 	<?}?>
 <script>
@@ -112,4 +115,20 @@
 		form.appendTo( document.body );
 		$(form).submit();
 	}
+
+	function downloadSchedaSocio(ID_soc) {
+		url = "20downloadSchedaSocio.php";
+		let form = $('<form action="' + url + '"method="post"></form>');
+		
+		let input_ID_soc = $("<input>")
+		.attr("type", "text")
+		.attr("name", "ID_soc")
+		.val(ID_soc);
+		$(form).append($(input_ID_soc));;
+		
+		form.appendTo( document.body );
+		
+		$(form).submit();
+	}
+
 </script>

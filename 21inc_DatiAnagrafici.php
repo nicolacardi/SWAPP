@@ -240,7 +240,9 @@
                 <div  class="row mt5">
                     <input style="width:10%;" class="tablecell" type="checkbox"  id="ckrinunciaquota_soc_det" name="ckrinunciaquota_soc_det" value="RinunciaQuota" <? if ($ckrinunciaquota_soc_det == 1) { echo ('checked');} ?>> Rinuncia Rest. Quota
                 </div>
-                
+                <div>
+            <button title="Pdf scheda socio per registro soci" onclick="downloadSchedaSocio(<?=$ID_soc?>)"><img class="iconaStd" src='assets/img/Icone/pdf.svg'></button>
+        </div>
             </div>
         </div>
         <div class="col-md-12" style="text-align: center; font-size: 14px; ">
@@ -252,3 +254,22 @@
         </div>
     </div>
 </div>
+
+
+    <script>
+    function downloadSchedaSocio(ID_soc) {
+		url = "20downloadSchedaSocio.php";
+		let form = $('<form action="' + url + '"method="post"></form>');
+		
+		let input_ID_soc = $("<input>")
+		.attr("type", "text")
+		.attr("name", "ID_soc")
+		.val(ID_soc);
+		$(form).append($(input_ID_soc));;
+		
+		form.appendTo( document.body );
+		
+		$(form).submit();
+	}
+
+    </script>

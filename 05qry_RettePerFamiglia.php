@@ -139,10 +139,10 @@
 					//$cognomifigli = substr($cognomifigli, 1);
 				?>
 				<input class="tablecell3 disab" style="width: 50%; text-align: center;" type="text" value = "<? echo(intval($fratelli)) ?>" disabled>
-				<button title="Mostra sulla base del cognome del padre" onclick="postToRette('<? echo ($annoscolastico_ret); ?>', '<? echo (addslashes($cognomifigli)) ?>');"><img class="iconaStd" src='assets/img/Icone/search-plus-solid.svg'></button>
+				<button class="h24px" title="Mostra sulla base del cognome del padre" onclick="postToRette('<? echo ($annoscolastico_ret); ?>', '<? echo (addslashes($cognomifigli)) ?>');"><img class="iconaStd" src='assets/img/Icone/search-plus-solid.svg'></button>
 			</td>
 			<td style="width: 1%;">
-				<button title="Report Pagamenti della famiglia per l'anno selezionato" onclick="reportPagamentiFam('<? echo ($annoscolastico_ret); ?>', '<?echo ($ID_fam);?>');"><img class="iconaStd" src='assets/img/Icone/pdf.svg'></button>
+				<button class="h24px" title="Report Pagamenti della famiglia per l'anno selezionato" onclick="reportPagamentiFam('<? echo ($annoscolastico_ret); ?>', '<?echo ($ID_fam);?>');"><img class="iconaStd2" src='assets/img/Icone/pdf.svg'></button>
 			</td>
 			<td style="width: 1%;">
 				<input class="tablecell3 disab" style="width: 20px; font-size:10px; text-align: center;" type="text" value = "<?=intval($RATE)?>" disabled>
