@@ -45,6 +45,8 @@
 				<div>
 					<select class="selectXl" id="selectDownloadExcel">
 						<option value="DownloadExcelAnagraficaSoci">Anagrafiche Soci</option>
+						<option value="DownloadExcelLibroSoci">Libro Soci</option>
+
 					</select>
 					<img onclick="DownloadExcel()" class="miniButtonXl" src='assets/img/Icone/logoexcel2019.svg'>
 				</div>
@@ -355,6 +357,24 @@
 
 	}
 
+
+	function DownloadExcelLibroSoci() {
+
+		template =		"LibroSoci";
+		filetitle = 	"LibroSoci";
+		title=			"Libro Soci";
+		from = 			" tab_anagraficasoci LEFT JOIN tab_tipisoci ON tipo_soc = ID_tsc ";
+		where =			" 1=1 ";
+		orderBY = 		" cognome_soc ";
+		nomiCampiA = 	[ "idle", "descrizione_tsc", "cognome_soc", "nome_soc", "dataiscrizione_soc", "datadisiscrizione_soc", "motivocessazione_soc", "datanascita_soc", "comunenascita_soc", "provnascita_soc", "paesenascita_soc", "cf_soc", "indirizzo_soc", "comune_soc", "CAP_soc", "prov_soc"];
+		dataNonDataA = 	["idle", 0,0,0,1,1,0,1,0,0,0,0,0,0,0,0];
+		columnColoring =	"";
+		postToDownload(template, filetitle, title, from, where, orderBY, nomiCampiA, dataNonDataA, columnColoring);
+
+
+		//window.location.href='20DownloadAnSoci.php';
+
+	}
 
 
 	$("#mf_soc_new").keypress(function(e){

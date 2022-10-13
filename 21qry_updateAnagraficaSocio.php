@@ -119,9 +119,9 @@
 		if ($datadisiscrizione_soc !="") {$datadisiscrizione_soc = date('Y-m-d', strtotime(str_replace('/','-', $datadisiscrizione_soc)));}
 		else {$datadisiscrizione_soc = NULL;}
 
-		$datapagamentoquota_soc = $_POST['datapagamentoquota_soc'];
-		if ($datapagamentoquota_soc !="") { $datapagamentoquota_soc = date('Y-m-d', strtotime(str_replace('/','-', $datapagamentoquota_soc)));}
-		else {$datapagamentoquota_soc = NULL;}
+		$datarichiestaiscrizione_soc = $_POST['datarichiestaiscrizione_soc'];
+		if ($datarichiestaiscrizione_soc !="") { $datarichiestaiscrizione_soc = date('Y-m-d', strtotime(str_replace('/','-', $datarichiestaiscrizione_soc)));}
+		else {$datarichiestaiscrizione_soc = NULL;}
 
 		$datarestituzionequota_soc = $_POST['datarestituzionequota_soc'];
 		if ($datarestituzionequota_soc !="") {$datarestituzionequota_soc = date('Y-m-d', strtotime(str_replace('/','-', $datarestituzionequota_soc)));}
@@ -130,6 +130,9 @@
 		$quotapagata_soc = intval($_POST['quotapagata_soc']);
 
 		$ckrinunciaquota_soc = $_POST['ckrinunciaquota_soc'];
+
+		$motivocessazione_soc = $_POST['motivocessazione_soc'];
+
 
 		$sql = "UPDATE tab_anagraficasoci SET 
 
@@ -155,15 +158,16 @@
 
 		dataiscrizione_soc = ?,
 		datadisiscrizione_soc = ?,
-		datapagamentoquota_soc = ?,
+		datarichiestaiscrizione_soc = ?,
 		datarestituzionequota_soc = ?,
 		quotapagata_soc = ?, 
-		ckrinunciaquota_soc = ?
+		ckrinunciaquota_soc = ?,
+		motivocessazione_soc = ?
 		
 		WHERE ID_soc  = ? ;";
 
 		$stmt = mysqli_prepare($mysqli, $sql);
-		mysqli_stmt_bind_param($stmt, "isssssissssssssssssssssiii", $tipo_soc, $mf_soc, $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datapagamentoquota_soc, $datarestituzionequota_soc, $quotapagata_soc, $ckrinunciaquota_soc, $ID_soc);
+		mysqli_stmt_bind_param($stmt, "isssssissssssssssssssssiisi", $tipo_soc, $mf_soc, $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ckrinunciaquota_soc, $motivocessazione_soc, $ID_soc);
 		mysqli_stmt_execute($stmt);
 
 
@@ -172,7 +176,7 @@
 	
 	$return['msg'] = "Dati del socio ". $nome_soc . " " . $cognome_soc ." aggiornati";
 	$return['test'] = $sql;		
-	$testA = [$nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datapagamentoquota_soc, $datarestituzionequota_soc, $quotapagata_soc, $ID_soc];
+	$testA = [$nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $motivocessazione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ID_soc];
 	$return['testA'] = $testA;	
 	echo json_encode($return);
 ?>

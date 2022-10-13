@@ -207,18 +207,18 @@
 
                 <div  class="row mt5">
                     <div class="col-md-6 col-sm-6 col-xs-6">
-                        Iscrizione
+                        Richiesta Iscrizione
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6">
-                        Pagamento
+                        Iscrizione
                     </div>
                 </div>
                 <div  class="row mt5">
                     <div class="col-md-6 col-sm-6 col-xs-6">
-                        <input style="text-align: center;" class="tablecell7 dpd" type="text"  id="dataiscrizione_soc_det" name="dataiscrizione_soc_det" value = "<? echo(timestamp_to_ggmmaaaa($dataiscrizione_soc_det)) ?>" >
+                        <input style="text-align: center;" class="tablecell7 dpd" type="text"  id="datarichiestaiscrizione_soc_det" name="datarichiestaiscrizione_soc_det" value = "<? echo(timestamp_to_ggmmaaaa($datarichiestaiscrizione_soc_det)) ?>" >
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6">
-                        <input style="text-align: center;" class="tablecell7 dpd" type="text"  id="datapagamentoquota_soc_det" name="datapagamentoquota_soc_det" value = "<? echo(timestamp_to_ggmmaaaa($datapagamentoquota_soc_det)) ?>" >
+                        <input style="text-align: center;" class="tablecell7 dpd" type="text"  id="dataiscrizione_soc_det" name="dataiscrizione_soc_det" value = "<? echo(timestamp_to_ggmmaaaa($dataiscrizione_soc_det)) ?>" >
                     </div>
                 </div>
                 <div  class="row mt5">
@@ -239,6 +239,12 @@
                 </div>
                 <div  class="row mt5">
                     <input style="width:10%;" class="tablecell" type="checkbox"  id="ckrinunciaquota_soc_det" name="ckrinunciaquota_soc_det" value="RinunciaQuota" <? if ($ckrinunciaquota_soc_det == 1) { echo ('checked');} ?>> Rinuncia Rest. Quota
+                </div>
+                <div  class="row mt5">
+                    Motivo cessazione
+                </div>
+                <div  class="row mt5">
+                    <input class="tablecell7" type="text"  id="motivocessazione_soc_det" name="motivocessazione_soc_det" value = "<?=$motivocessazione_soc_det?>" >
                 </div>
                 <div>
             <button title="Pdf scheda socio per registro soci" onclick="downloadSchedaSocio(<?=$ID_soc?>)"><img class="iconaStd" src='assets/img/Icone/pdf.svg'></button>

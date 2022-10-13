@@ -7,11 +7,11 @@
 
 	if ($padremadre_soc == "maestro") {
 		//se maestro devo guardare a ID_mae_soc
-		$sql = "SELECT ID_soc, ID_mae_soc, tipo_soc, dataiscrizione_soc, datapagamentoquota_soc, quotapagata_soc, datadisiscrizione_soc FROM tab_anagraficasoci WHERE ID_mae_soc = ?";
+		$sql = "SELECT ID_soc, ID_mae_soc, tipo_soc, dataiscrizione_soc, datarichiestaiscrizione_soc, quotapagata_soc, datadisiscrizione_soc, motivocessazione_soc FROM tab_anagraficasoci WHERE ID_mae_soc = ?";
 		$stmt = mysqli_prepare($mysqli, $sql);
 		mysqli_stmt_bind_param($stmt, "i", $ID_fam_mae_soc);
 		mysqli_stmt_execute($stmt);
-		mysqli_stmt_bind_result($stmt, $ID_soc, $ID_mae, $tipo_soc, $dataiscrizione_soc, $datapagamentoquota_soc, $quotapagata_soc, $datadisiscrizione_soc);
+		mysqli_stmt_bind_result($stmt, $ID_soc, $ID_mae, $tipo_soc, $dataiscrizione_soc, $datarichiestaiscrizione_soc, $quotapagata_soc, $datadisiscrizione_soc, $motivocessazione_soc);
 		
 		$return['dataiscrizione_soc'] = NULL;
 		$return['ID_soc'] = 0;
@@ -19,11 +19,11 @@
 
 	} else {
 		//se padre/madre devo guardare a ID_fam_soc + padremadre_soc
-		$sql = "SELECT ID_soc, ID_fam_soc, tipo_soc, dataiscrizione_soc, datapagamentoquota_soc, quotapagata_soc, datadisiscrizione_soc FROM tab_anagraficasoci WHERE ID_fam_soc = ? AND padremadre_soc = ?";
+		$sql = "SELECT ID_soc, ID_fam_soc, tipo_soc, dataiscrizione_soc, datarichiestaiscrizione_soc, quotapagata_soc, datadisiscrizione_soc, motivocessazione_soc FROM tab_anagraficasoci WHERE ID_fam_soc = ? AND padremadre_soc = ?";
 		$stmt = mysqli_prepare($mysqli, $sql);
 		mysqli_stmt_bind_param($stmt, "is", $ID_fam_mae_soc, $padremadre_soc);
 		mysqli_stmt_execute($stmt);
-		mysqli_stmt_bind_result($stmt, $ID_soc, $ID_fam_soc, $tipo_soc, $dataiscrizione_soc, $datapagamentoquota_soc, $quotapagata_soc, $datadisiscrizione_soc);
+		mysqli_stmt_bind_result($stmt, $ID_soc, $ID_fam_soc, $tipo_soc, $dataiscrizione_soc, $datarichiestaiscrizione_soc, $quotapagata_soc, $datadisiscrizione_soc, $motivocessazione_soc);
 		
 		$return['dataiscrizione_soc'] = NULL;
 		$return['ID_soc'] = 0;

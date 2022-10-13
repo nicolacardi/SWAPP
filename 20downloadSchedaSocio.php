@@ -41,13 +41,13 @@ $pdf->SetFont($fontdefault,'',10);
 
 
 //estraggo i dati da mostrare nella parte anagrafica
-$sql2 = "SELECT ID_soc, ID_fam_soc, ID_mae_soc, padremadre_soc, tipo_soc, dataiscrizione_soc, datapagamentoquota_soc, quotapagata_soc, datadisiscrizione_soc, datarestituzionequota_soc, ckrinunciaquota_soc, mf_soc, nome_soc, cognome_soc, datanascita_soc, comunenascita_soc, provnascita_soc, paesenascita_soc, cittadinanza_soc, cf_soc, indirizzo_soc, comune_soc, prov_soc, paese_soc, CAP_soc, telefono_soc, altrotel_soc, email_soc, note_soc, img_soc, descrizione_tsc ".
+$sql2 = "SELECT ID_soc, ID_fam_soc, ID_mae_soc, padremadre_soc, tipo_soc, dataiscrizione_soc, datarichiestaiscrizione_soc, quotapagata_soc, datadisiscrizione_soc, datarestituzionequota_soc, ckrinunciaquota_soc,  motivocessazione_soc, mf_soc, nome_soc, cognome_soc, datanascita_soc, comunenascita_soc, provnascita_soc, paesenascita_soc, cittadinanza_soc, cf_soc, indirizzo_soc, comune_soc, prov_soc, paese_soc, CAP_soc, telefono_soc, altrotel_soc, email_soc, note_soc, img_soc, descrizione_tsc ".
 "FROM tab_anagraficasoci JOIN tab_tipisoci ON tipo_soc = ID_tsc ".
 "WHERE ID_soc = ?;";
 $stmt2 = mysqli_prepare($mysqli, $sql2);
 mysqli_stmt_bind_param($stmt2, "i", $ID_soc);
 mysqli_stmt_execute($stmt2);
-mysqli_stmt_bind_result($stmt2, $ID_soc, $ID_fam_soc, $ID_mae_soc, $padremadre_soc, $tipo_soc, $dataiscrizione_soc, $datapagamentoquota_soc, $quotapagata_soc,  $datadisiscrizione_soc, $datarestituzionequota_soc, $ckrinunciaquota_soc, $mf_soc, $nome_soc, $cognome_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $cittadinanza_soc, $cf_soc, $indirizzo_soc, $comune_soc, $prov_soc, $paese_soc, $CAP_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $descrizione_tsc);
+mysqli_stmt_bind_result($stmt2, $ID_soc, $ID_fam_soc, $ID_mae_soc, $padremadre_soc, $tipo_soc, $dataiscrizione_soc, $datarichiestaiscrizione_soc, $quotapagata_soc,  $datadisiscrizione_soc, $datarestituzionequota_soc, $ckrinunciaquota_soc, $motivocessazione_soc, $mf_soc, $nome_soc, $cognome_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $cittadinanza_soc, $cf_soc, $indirizzo_soc, $comune_soc, $prov_soc, $paese_soc, $CAP_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $descrizione_tsc);
 $i=0;
 while (mysqli_stmt_fetch($stmt2)) {
 $i++;
@@ -150,14 +150,14 @@ if($quotapagata_soc == 0) { $quotapagata_soc = "";}
 $pdf->Cell(150,$h1,$quotapagata_soc,1,1,'L');
 
 $pdf->SetFont($fontdefault,'',10);
-$pdf->Cell(40,$h1,"Data Iscrizione",1,0,'L');
+$pdf->Cell(40,$h1,"Data Richiesta Iscrizione",1,0,'L');
 $pdf->SetFont($fontdefault,'',12);
-$pdf->Cell(55,$h1,timestamp_to_ggmmaaaa($dataiscrizione_soc),1,0,'L');
+$pdf->Cell(55,$h1,timestamp_to_ggmmaaaa($datarichiestaiscrizione_soc),1,0,'L');
 
 $pdf->SetFont($fontdefault,'',10);
-$pdf->Cell(40,$h1,"Data Pagamento Quota",1,0,'L');
+$pdf->Cell(40,$h1,"Data Iscrizione",1,0,'L');
 $pdf->SetFont($fontdefault,'',12);
-$pdf->Cell(55,$h1,timestamp_to_ggmmaaaa($datapagamentoquota_soc),1,1,'L');
+$pdf->Cell(55,$h1,timestamp_to_ggmmaaaa($dataiscrizione_soc),1,1,'L');
 
 $pdf->SetFont($fontdefault,'',10);
 $pdf->Cell(40,$h1,"Data Disiscrizione",1,0,'L');
@@ -168,6 +168,12 @@ $pdf->SetFont($fontdefault,'',10);
 $pdf->Cell(40,$h1,"Data Restituzione Quota",1,0,'L');
 $pdf->SetFont($fontdefault,'',12);
 $pdf->Cell(55,$h1,timestamp_to_ggmmaaaa($datarestituzionequota_soc),1,1,'L');
+
+
+$pdf->SetFont($fontdefault,'',10);
+$pdf->Cell(40,$h1,"Motivo Cessazione",1,0,'L');
+$pdf->SetFont($fontdefault,'',12);
+$pdf->Cell(150,$h1,timestamp_to_ggmmaaaa($motivocessazione_soc),1,1,'L');
 
 $pdf->SetFont($fontdefault,'',10);
 $pdf->Cell(95,$h1,"",1,0,'L');
