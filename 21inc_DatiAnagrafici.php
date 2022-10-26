@@ -37,6 +37,7 @@
         <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-md-offset-0" style="z-index:100">
             <div class="RiquadroInfoLong">
                 <h4>Foto & Note</h4>
+
                 <div style="text-align: center; margin-top: 29px; ">
                     <button type="Button" class="btnBlu hideonlessthan1280 mb5" data-toggle="modal" id="launchModalCrop" data-target="#modalFormCroppie" <?if ($disabilita) {echo ("disabled");}?> >Cerca Foto</button>
                 </div>
@@ -62,10 +63,13 @@
                 <div  class="row mt5">
                     <textarea style="height: 72px;" class="tablecell7" type="text"  id="note_soc_det" name="note_soc_det" <?if ($disabilita) {echo ("disabled");}?>><?=$note_soc_det?></textarea>
                 </div>
-                <div class="row" style="margin-top: 13px;">
+                <div class="row" style="margin-top: 2px;">
                     <?if ($ID_fam_soc!='') {echo ("Il/la socio/a è un genitore<br>i dati anagrafici vanno modificati<br>nella scheda degli alunni figli.");}?>
                     <?if ($ID_mae_soc!='') {echo ("Il/la socio/a è un maestro<br>i dati anagrafici vanno modificati<br>nella scheda relativa.");}?>
 
+                </div>
+                <div>
+                    <button title="Pdf scheda socio per registro soci" onclick="downloadSchedaSocio(<?=$ID_soc?>)"><img class="iconaStd" src='assets/img/Icone/pdf.svg'></button>
                 </div>
                 
 
@@ -246,9 +250,7 @@
                 <div  class="row mt5">
                     <input class="tablecell7" type="text"  id="motivocessazione_soc_det" name="motivocessazione_soc_det" value = "<?=$motivocessazione_soc_det?>" >
                 </div>
-                <div>
-            <button title="Pdf scheda socio per registro soci" onclick="downloadSchedaSocio(<?=$ID_soc?>)"><img class="iconaStd" src='assets/img/Icone/pdf.svg'></button>
-        </div>
+
             </div>
         </div>
         <div class="col-md-12" style="text-align: center; font-size: 14px; ">

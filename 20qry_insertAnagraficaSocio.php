@@ -16,7 +16,6 @@
 	$prov_soc_new = $_POST['prov_soc_new'];
 	$paese_soc_new = $_POST['paese_soc_new'];
 	$CAP_soc_new = $_POST['CAP_soc_new'];
-	if ($CAP_soc_new == "") {$CAP_soc_new = 0 ;}
 	$telefono_soc_new = $_POST['telefono_soc_new'];
 	$email_soc_new = $_POST['email_soc_new'];
 	$note_soc_new = $_POST['note_soc_new'];

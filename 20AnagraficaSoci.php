@@ -365,9 +365,9 @@
 		title=			"Libro Soci";
 		from = 			" tab_anagraficasoci LEFT JOIN tab_tipisoci ON tipo_soc = ID_tsc ";
 		where =			" 1=1 ";
-		orderBY = 		" cognome_soc ";
-		nomiCampiA = 	[ "idle", "descrizione_tsc", "cognome_soc", "nome_soc", "dataiscrizione_soc", "datadisiscrizione_soc", "motivocessazione_soc", "datanascita_soc", "comunenascita_soc", "provnascita_soc", "paesenascita_soc", "cf_soc", "indirizzo_soc", "comune_soc", "CAP_soc", "prov_soc"];
-		dataNonDataA = 	["idle", 0,0,0,1,1,0,1,0,0,0,0,0,0,0,0];
+		orderBY = 		" dataiscrizione_soc, cognome_soc ";
+		nomiCampiA = 	[ "idle", "descrizione_tsc", "cognome_soc", "nome_soc", "dataiscrizione_soc", "datadisiscrizione_soc", "motivocessazione_soc", "datanascita_soc", "comunenascita_soc", "provnascita_soc", "paesenascita_soc", "cf_soc", "indirizzo_soc", "comune_soc", "CAP_soc", "prov_soc", "paese_soc"];
+		dataNonDataA = 	["idle", 0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0];
 		columnColoring =	"";
 		postToDownload(template, filetitle, title, from, where, orderBY, nomiCampiA, dataNonDataA, columnColoring);
 

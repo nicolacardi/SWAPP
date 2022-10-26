@@ -58,11 +58,13 @@
 			if ($dataNonDataA[$x] == 0  || $dataNonDataA == NULL || $dataNonDataA == '' || $dataNonDataA == undefined) {
 				$spreadsheet->getActiveSheet()->SetCellValue($colonna[$x].$j, $campo[$x] );
 			} else {
-				$date2=date_create($campo[$x]);
-				$diff=date_diff($date1,$date2);
-				$days=$diff->format("%a");
-				$days+=2;
-				$spreadsheet->getActiveSheet()->setCellValue($colonna[$x].$j,$days); 
+				if ($campo[$x]!= NULL) {
+					$date2=date_create($campo[$x]);
+					$diff=date_diff($date1,$date2);
+					$days=$diff->format("%a");
+					$days+=2;
+					$spreadsheet->getActiveSheet()->setCellValue($colonna[$x].$j,$days); 
+				}
 			}
 
 			//se nel valore campo indicato come responsabile per la colorazione c'è 1..coloro la riga intera con il colore indicato in columnColoring[$x]

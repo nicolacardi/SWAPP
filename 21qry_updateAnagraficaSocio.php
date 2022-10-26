@@ -68,7 +68,7 @@
 				WHERE ID_soc  = ? ;";
 		
 				$stmt1 = mysqli_prepare($mysqli, $sql1);
-				mysqli_stmt_bind_param($stmt1, "ssssissssssssssssi", $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $ID_soc);
+				mysqli_stmt_bind_param($stmt1, "sssssssssssssssssi", $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $ID_soc);
 				mysqli_stmt_execute($stmt1);
 
 
@@ -93,7 +93,7 @@
 		$cognome_soc = addslashes($_POST['cognome_soc']);
 		$indirizzo_soc = addslashes($_POST['indirizzo_soc']);
 		$comune_soc = addslashes(ucwords(strtolower($_POST['comune_soc'])));
-		$CAP_soc = intval($_POST['CAP_soc']);
+		$CAP_soc = addslashes($_POST['CAP_soc']);
 		$prov_soc = strtoupper($_POST['prov_soc']);
 		$paese_soc = addslashes(ucwords(strtolower($_POST['paese_soc'])));
 		$cf_soc = strtoupper($_POST['cf_soc']);
@@ -167,7 +167,7 @@
 		WHERE ID_soc  = ? ;";
 
 		$stmt = mysqli_prepare($mysqli, $sql);
-		mysqli_stmt_bind_param($stmt, "isssssissssssssssssssssiisi", $tipo_soc, $mf_soc, $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ckrinunciaquota_soc, $motivocessazione_soc, $ID_soc);
+		mysqli_stmt_bind_param($stmt, "issssssssssssssssssssssiisi", $tipo_soc, $mf_soc, $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ckrinunciaquota_soc, $motivocessazione_soc, $ID_soc);
 		mysqli_stmt_execute($stmt);
 
 

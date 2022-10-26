@@ -8,7 +8,7 @@
 	
 	$from = " tab_anagraficasoci LEFT JOIN tab_tipisoci ON tipo_soc = ID_tsc ";
 	$where = " 1=1 ";
-	$orderBY = "cognome_soc ";
+	$orderBY = "dataiscrizione_soc, cognome_soc ";
 	$dataNonDataA = array("idle", 0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0);
 
 
