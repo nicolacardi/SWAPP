@@ -78,35 +78,32 @@
 		if (($codmat_ora !='nom')) {
 			//se la classe è cambiata si fa una riga nuova
 
-					//quanto segue serve a gestire la presenza di PIU' lezioni nella stessa ora.
-					//in questo caso A PARITA' DI ORA bisogna aggiungere righe per ogni lezione contemporanea
-					if ($classe_ora != $classe_ora_prec || $data_ora != $data_ora_prec) { //se cambia la classe aumento la riga e fin qui va bene
-						$riga= $riga + 1 + $righedaaggiungereaquestogiorno; //ma perchè aggiungere righe ulteriori?
-						$spreadsheet->getActiveSheet()->SetCellValue("A".$riga, $data_ora);
-						$spreadsheet->getActiveSheet()->SetCellValue("B".$riga, $classe_ora);
-						$righedaaggiungereaquestogiorno = 0;
-					}
-					if ($ora_ora == $ora_ora_prec) { //nel caso ora non cambi aumenta righedaaggiungereaquestora aumenta
-						//e poi prendo il minore tra righedaaggiungereaquestora e righedaaggiungereaquestogiorno
-						$righedaaggiungereaquestora++;
-						if ($righedaaggiungereaquestogiorno<$righedaaggiungereaquestora) {$righedaaggiungereaquestogiorno = $righedaaggiungereaquestora;};
-						$cella = $colonna[$ora_ora+2].($riga+$righedaaggiungereaquestora);
-					} else {
-						$righedaaggiungereaquestora = 0;
-						$cella = $colonna[$ora_ora+2].($riga);
-					}
+			//quanto segue serve a gestire la presenza di PIU' lezioni nella stessa ora.
+			//in questo caso A PARITA' DI ORA bisogna aggiungere righe per ogni lezione contemporanea
+			if ($classe_ora != $classe_ora_prec || $data_ora != $data_ora_prec) { //se cambia la classe aumento la riga e fin qui va bene
+				$riga= $riga + 1 + $righedaaggiungereaquestogiorno; //ma perchè aggiungere righe ulteriori?
+				$spreadsheet->getActiveSheet()->SetCellValue("A".$riga, $data_ora);
+				$spreadsheet->getActiveSheet()->SetCellValue("B".$riga, $classe_ora);
+				$righedaaggiungereaquestogiorno = 0;
+			}
+			if ($ora_ora == $ora_ora_prec) { //nel caso ora non cambi aumenta righedaaggiungereaquestora aumenta
+				//e poi prendo il minore tra righedaaggiungereaquestora e righedaaggiungereaquestogiorno
+				$righedaaggiungereaquestora++;
+				if ($righedaaggiungereaquestogiorno<$righedaaggiungereaquestora) {$righedaaggiungereaquestogiorno = $righedaaggiungereaquestora;};
+				$cella = $colonna[$ora_ora+2].($riga+$righedaaggiungereaquestora);
+			} else {
+				$righedaaggiungereaquestora = 0;
+				$cella = $colonna[$ora_ora+2].($riga);
+			}
 
+			//qualora non fosse stato necessario gestire le ore con più lezioni di materie diverse sarebbe bastato quanto segue:
 			// if ($classe_ora != $classe_ora_prec  || $data_ora != $data_ora_prec) {
 			// 	$riga++;
 			// 	$spreadsheet->getActiveSheet()->SetCellValue("A".$riga, $data_ora);
 			// 	$spreadsheet->getActiveSheet()->SetCellValue("B".$riga, $classe_ora);
 			// }
-			// 	//$cella = $colonna[$ora_ora+2].($riga);
-			// $cella = $colonna[intval($ora_ora)+2].($riga);
+			// $cella = $colonna[$ora_ora+2].($riga);
 			
-
-
-
 
 			//Ecco il contenuto di ciò che si va a scrivere
 			if ($assente_ora == 1) {

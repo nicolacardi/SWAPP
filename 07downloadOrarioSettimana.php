@@ -3,11 +3,24 @@
 	use PhpOffice\PhpSpreadsheet\IOFactory;
 	include_once("database/databaseii.php");
 	
+	$objPHPExcel = \PhpOffice\PhpSpreadsheet\IOFactory::load("TemplateOrarioSettimana.xlsx");
 
 	$file_name = date('Ymd_h.i.s').'_OrarioSettimana_dal_'.$datefrom.'_al_'.$dateto.'.xlsx';
 	$ore_orario = intval($_SESSION['ore_orario']);
 	$datefrom = $_GET['datefrom'];
 	$dateto = $_GET['dateto'];
+
+
+	$datagg[2] = date('Y-m-d',strtotime("+1 day", strtotime($datefrom)));
+	$datagg[3] = date('Y-m-d',strtotime("+2 day", strtotime($datefrom)));
+	$datagg[4] = date('Y-m-d',strtotime("+3 day", strtotime($datefrom)));
+	$datagg[5] = date('Y-m-d',strtotime("+4 day", strtotime($datefrom)));
+
+	//La seguente matrice restituisce la colonna in cui scrivere nei fogli dei maestri, in base alla data
+	$colonnaData = array($datefrom=>"E", $datagg[2]=>"F", $datagg[3]=>"G",  $datagg[4]=>"H", $datagg[5]=>"I");
+
+
+	$colonna = ["idle", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB"];
 
 
 	$sql = "SELECT ID_ore, orainizio_ore, orafine_ore, desc_ore FROM tab_ore ORDER BY N_ore";
@@ -25,7 +38,7 @@
 	}
 
 
-	//scrivo un foglio per ogni classe
+//#region ----- scrivo un foglio per ogni classe -----
 	$sql = "SELECT ID_ora, data_ora, ora_ora, codmat_ora, classe_ora, sezione_ora, ID_mae_ora, firma_mae_ora, assente_ora, supplente_ora, datafirma_ora, argomento_ora, compitiassegnati_ora, ".
 	" CONCAT (nome_mae , ' ', cognome_mae) as nomecognome_mae, descmateria_mtt, ID_mtt ".
 	" FROM (tab_orario LEFT JOIN tab_anagraficamaestri ON ID_mae_ora = ID_mae) ".
@@ -35,8 +48,6 @@
 	mysqli_stmt_bind_param($stmt, "ss", $datefrom, $dateto);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_bind_result($stmt, $ID_ora, $data_ora, $ora_ora, $codmat_ora, $classe_ora, $sezione_ora, $ID_mae_ora, $firma_mae_ora, $assente_ora, $supplente_ora, $datafirma_ora, $argomento_ora, $compitiassegnati_ora, $nomecognome_mae, $descmateria_mtt, $ID_mtt); 
-	$colonna = ["idle", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB"];
-	$objPHPExcel = \PhpOffice\PhpSpreadsheet\IOFactory::load("TemplateOrarioSettimana.xlsx");
 	$classe_ora_prec = "X";
 	$data_ora_prec = "1999-01-01";
 	while (mysqli_stmt_fetch($stmt)) {
@@ -60,9 +71,9 @@
 			$ora_ora_prec = $ora_ora;
 		}
 	}
+//#endregion
 
-
-
+//#region ----- scrivo un foglio per ciascun insegnante -----
 	$sql = "SELECT ID_ora, data_ora, ora_ora, codmat_ora, classe_ora, sezione_ora, ID_mae_ora, firma_mae_ora, assente_ora, supplente_ora, datafirma_ora, argomento_ora, compitiassegnati_ora, ".
 	" CONCAT (nome_mae , ' ', cognome_mae) as nomecognome_mae, descmateria_mtt, ID_mtt ".
 	" FROM (tab_orario LEFT JOIN tab_anagraficamaestri ON ID_mae_ora = ID_mae) ".
@@ -75,7 +86,7 @@
 	$nomecognome_mae = preg_replace('/[^A-Za-z0-9\-]/', '', $nomecognome_mae); 
 	$nomecognome_mae_prec = "X";
 	$data_ora = "1999-01-01";
-	$newsheet = 14; //IMPORTANTE! QUESTO E' IL NUMERO DEL FOGLIO XX (BASE 1) CHE DEVE ESSERE POSIZIONATO NEL TEMPLATE COME ULTIMO FOGLIO
+	$newsheet = 19; //IMPORTANTE! QUESTO E' IL NUMERO DEL FOGLIO XX (BASE 1) CHE DEVE ESSERE POSIZIONATO NEL TEMPLATE COME ULTIMO FOGLIO
 	$j=5;
 	//$objPHPExcel->createSheet($newsheet);
 	while (mysqli_stmt_fetch($stmt)) {
@@ -92,15 +103,18 @@
 				}
 				$newsheet++;
 			}
-			if ($data_ora != $data_ora_prec) { $colonna_indice++;}
-			if ($data_ora != $data_ora_prec) { $objPHPExcel->getActiveSheet()->SetCellValue($colonna[$colonna_indice]."4", $data_ora);}
-			$objPHPExcel->getActiveSheet()->SetCellValue($colonna[$colonna_indice].(2*$ora_ora+4), $classe_ora);
-			$objPHPExcel->getActiveSheet()->SetCellValue($colonna[$colonna_indice].(2*$ora_ora+4-1), $descmateria_mtt);
+			//if ($data_ora != $data_ora_prec) { $colonna_indice++;}
+
+			if ($data_ora != $data_ora_prec) { $objPHPExcel->getActiveSheet()->SetCellValue($colonnaData[$data_ora]."4", $data_ora);}
+			$objPHPExcel->getActiveSheet()->SetCellValue($colonnaData[$data_ora].(2*$ora_ora+4), $classe_ora);
+			$objPHPExcel->getActiveSheet()->SetCellValue($colonnaData[$data_ora].(2*$ora_ora+4-1), $descmateria_mtt);
 			$nomecognome_mae_prec = $nomecognome_mae;
 			$data_ora_prec = $data_ora;
 		}
 	}
+//#endregion
 
+//#region ----- scrivo un foglio per le classi dalla I all'VIII -----
 	$sql = "SELECT ID_ora, epoca_ora, data_ora, ora_ora, codmat_ora, classe_ora, sezione_ora, ID_mae_ora, firma_mae_ora, assente_ora, supplente_ora, datafirma_ora, argomento_ora, compitiassegnati_ora, ".
 	" CONCAT (nome_mae , ' ', cognome_mae) as nomecognome_mae, descmateria_mtt, ID_mtt ".
 	" FROM ((tab_orario LEFT JOIN tab_anagraficamaestri ON ID_mae_ora = ID_mae) ".
@@ -115,31 +129,43 @@
 	//$classe_ora_prec = "X";
 	//$data_ora_prec = "1999-01-01";
 	$objPHPExcel-> setActiveSheetIndexByName("I-VIII");
-	$riga = 5;
+	$data_ora_prec = "00";
+	$riga = 3;
+
+	for ($x = 1; $x <= $ore_orario; $x++) {
+		$objPHPExcel->getActiveSheet()->SetCellValue($colonna[$x+5].(4), $orariA[$x]);
+	}
+
+
 	while (mysqli_stmt_fetch($stmt)) {
+		if ($data_ora!=$data_ora_prec) {$riga= $riga +2;}
 		if ($ora_ora != $ora_ora_prec) { //scrivo solo la prima ora_ora che trovo, per ignorare i tutoraggi o le classi divise in due
 			
 			//la colonna dove scrivo dipende dall'ora-> $colonna[$ora_ora+5]
 			//la riga va da 5 a xx e cambia ogni tot record
-			for ($x = 1; $x <= $ore_orario; $x++) {
-				$objPHPExcel->getActiveSheet()->SetCellValue($colonna[$x+5].(4), $orariA[$x]);
-			}
+			// for ($x = 1; $x <= $ore_orario; $x++) {
+			// 	$objPHPExcel->getActiveSheet()->SetCellValue($colonna[$x+5].(4), $orariA[$x]);
+			// }
+
 			if (fmod($riga-5, 10)==0) { $objPHPExcel->getActiveSheet()->SetCellValue("D".$riga, $classe_ora."-".$sezione_ora); } //ogni 10 righe devo scrivere la classe in cella "D".$riga
 			//if ($ora_ora == 1 || $ora_ora ==2) { $descmateria_mtt = "EPOCA";}
+
 			if ($epoca_ora == 1) {
 				$objPHPExcel->getActiveSheet()->SetCellValue($colonna[$ora_ora + 5].$riga, "EPOCA");
 			} else {
 				$objPHPExcel->getActiveSheet()->SetCellValue($colonna[$ora_ora + 5].$riga, $descmateria_mtt);
 			}
 			$objPHPExcel->getActiveSheet()->SetCellValue($colonna[$ora_ora + 5].($riga+1), $nomecognome_mae);
-			if ($ora_ora==$ore_orario) {$riga= $riga +2;}
+			
+			//if ($ora_ora==$ore_orario) {$riga= $riga +2;}
 			//$classe_ora_prec = $classe_ora;
-			//$data_ora_prec = $data_ora;
+			
 		}
+		
 		$ora_ora_prec = $ora_ora;
+		$data_ora_prec = $data_ora;
 	}
-
-
+//#endregion
 	
 
 
