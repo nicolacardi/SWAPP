@@ -1,4 +1,9 @@
-<?	require_once('vendor/autoload.php');
+<?	
+
+	//**************************NON DOVREBBE ESSERE PIU' UTILIZZATA*************************** */
+	//**************************SOSTITUITA DA 99downloadExcel.php*************************** */
+
+	require_once('vendor/autoload.php');
 	use PhpOffice\PhpSpreadsheet\Spreadsheet;
 	use PhpOffice\PhpSpreadsheet\IOFactory;
 	include_once("database/databaseii.php");

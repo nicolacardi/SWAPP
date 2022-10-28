@@ -169,9 +169,6 @@
 	
 	function showModalFirma (ID_ora, firmaid) {
 
-
-
-
 		
 		IP_client = $('#IP_Client').val(); //questo è l'indirizzo del computer in uso
 		IP_authorized = $('#IP_Authorized').val(); //questo è l'indirizzo consentito - oppure '' se tutti sono consentiti

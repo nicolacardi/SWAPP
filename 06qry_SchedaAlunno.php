@@ -764,7 +764,7 @@ $ID_alu = $_POST['ID_alu'];?>
 				console.log (data);
 			},
 			error: function(){
-				alert("Errore: contattare l'amministratore fornendo il codice di errore '06qry_updateAnagraficaSocio'");      
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '21qry_updateAnagraficaSocio'");      
 			}
 		});
 

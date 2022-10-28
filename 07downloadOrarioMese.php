@@ -70,33 +70,53 @@
         ),
 	);
 
+	$xx = 1;
 	while (mysqli_stmt_fetch($stmt)) {
 		//dovrei estrarre quante ore ci sono con la stessa data, ora, classe, per capire se ci sono seconde materie o tutor
-		
+		$xx++;
 		//se non c'è materia indicata si salta la scrittura della cella
 		if (($codmat_ora !='nom')) {
 			//se la classe è cambiata si fa una riga nuova
-			if ($classe_ora != $classe_ora_prec) {
-				$riga= $riga + 1 + $righedaaggiungereaquestogiorno;
-				$spreadsheet->getActiveSheet()->SetCellValue("A".$riga, $data_ora);
-				$spreadsheet->getActiveSheet()->SetCellValue("B".$riga, $classe_ora);
-				$righedaaggiungereaquestogiorno = 0;
-			}
-			if ($ora_ora == $ora_ora_prec) {
-				$righedaaggiungereaquestora++;
-				if ($righedaaggiungereaquestogiorno<$righedaaggiungereaquestora) {$righedaaggiungereaquestogiorno = $righedaaggiungereaquestora;};
-				$cella = $colonna[$ora_ora+2].($riga+$righedaaggiungereaquestora);
-			} else {
-				$righedaaggiungereaquestora = 0;
-				$cella = $colonna[$ora_ora+2].($riga);
-			}
+
+					//quanto segue serve a gestire la presenza di PIU' lezioni nella stessa ora.
+					//in questo caso A PARITA' DI ORA bisogna aggiungere righe per ogni lezione contemporanea
+					if ($classe_ora != $classe_ora_prec || $data_ora != $data_ora_prec) { //se cambia la classe aumento la riga e fin qui va bene
+						$riga= $riga + 1 + $righedaaggiungereaquestogiorno; //ma perchè aggiungere righe ulteriori?
+						$spreadsheet->getActiveSheet()->SetCellValue("A".$riga, $data_ora);
+						$spreadsheet->getActiveSheet()->SetCellValue("B".$riga, $classe_ora);
+						$righedaaggiungereaquestogiorno = 0;
+					}
+					if ($ora_ora == $ora_ora_prec) { //nel caso ora non cambi aumenta righedaaggiungereaquestora aumenta
+						//e poi prendo il minore tra righedaaggiungereaquestora e righedaaggiungereaquestogiorno
+						$righedaaggiungereaquestora++;
+						if ($righedaaggiungereaquestogiorno<$righedaaggiungereaquestora) {$righedaaggiungereaquestogiorno = $righedaaggiungereaquestora;};
+						$cella = $colonna[$ora_ora+2].($riga+$righedaaggiungereaquestora);
+					} else {
+						$righedaaggiungereaquestora = 0;
+						$cella = $colonna[$ora_ora+2].($riga);
+					}
+
+			// if ($classe_ora != $classe_ora_prec  || $data_ora != $data_ora_prec) {
+			// 	$riga++;
+			// 	$spreadsheet->getActiveSheet()->SetCellValue("A".$riga, $data_ora);
+			// 	$spreadsheet->getActiveSheet()->SetCellValue("B".$riga, $classe_ora);
+			// }
+			// 	//$cella = $colonna[$ora_ora+2].($riga);
+			// $cella = $colonna[intval($ora_ora)+2].($riga);
+			
+
+
 
 
 			//Ecco il contenuto di ciò che si va a scrivere
 			if ($assente_ora == 1) {
 				$spreadsheet->getActiveSheet()->SetCellValue($cella, $descmateria_mtt."\n".$nomecognome_mae."\nSOSTITUITO/A DA:\n".$nomecognome_suppl);
+				//$spreadsheet->getActiveSheet()->SetCellValue($cella, "TMP".$ora_ora.$data_ora.$colonna[intval($ora_ora)+2]);
+
 			} else {
 				$spreadsheet->getActiveSheet()->SetCellValue($cella, $descmateria_mtt."\n".$nomecognome_mae."\n ");
+				//$spreadsheet->getActiveSheet()->SetCellValue($cella,  "TMP".$ora_ora.$data_ora.$colonna[intval($ora_ora)+2]);
+
 			}
 			$spreadsheet->getActiveSheet()->getStyle($cella)->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
 			$spreadsheet->getActiveSheet()->getStyle($cella)->applyFromArray($styleArray);
@@ -121,8 +141,12 @@
 			}
 			$classe_ora_prec = $classe_ora;
 			$ora_ora_prec = $ora_ora;
+			$data_ora_prec = $data_ora;
 		}
 	}
+
+	//$spreadsheet->getActiveSheet()->SetCellValue("A1", $xx);
+
 	$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 	header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 	header('Content-Disposition: attachment;filename="'.$file_name.'.xlsx"');

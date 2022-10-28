@@ -358,7 +358,19 @@
 	}
 
 	function DownloadExcelAnagraficaMaestri() {
-		window.location.href='03downloadAnMaestri.php';
+		template =		"AnagraficaMaestri";
+		filetitle = 	"AnagraficaMaestri";
+		title=			"Anagrafica Maestri";
+		from = 			" tab_anagraficamaestri ";
+		where =			" in_organico_mae = 1 AND tipo_per = 0 ";
+		orderBY = 		" cognome_mae ";
+		nomiCampiA = 	[ "idle", "nome_mae", "cognome_mae", "indirizzo_mae", "citta_mae", "CAP_mae", "prov_mae", "paese_mae", "cf_mae", "datanascita_mae", "comunenascita_mae", "provnascita_mae", "paesenascita_mae", "telefono_mae", "email_mae", "note_mae"];
+
+		dataNonDataA = 	["idle", 0,0,0,0,0,0,0,0,1,0,0,0,0,0,0];
+		columnColoring =	"";
+		postToDownload(template, filetitle, title, from, where, orderBY, nomiCampiA, dataNonDataA, columnColoring);
+
+		//window.location.href='03downloadAnMaestri.php';
 	}
 
 	function DownloadExcelReportMaterie() {

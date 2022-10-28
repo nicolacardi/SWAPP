@@ -2,7 +2,7 @@
 	$ID_ora = $_POST['ID_ora'];
 	$ID_mae_ora = $_POST['ID_mae_ora'];
 	$firma_mae_ora = $_POST['firma_mae_ora'];
-	$compitiassegnati_ora = addslashes($_POST['compitiassegnati_ora']);
+	$compitiassegnati_ora = str_replace("'", "`", $_POST['compitiassegnati_ora']);
 	$argomento_ora = str_replace("'", "`", $_POST['argomento_ora']);
 	$assente_ora = intval($_POST['assente_ora']);
 	$supplente_ora = intval($_POST['supplente_ora']);

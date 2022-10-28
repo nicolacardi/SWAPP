@@ -506,7 +506,7 @@
 
 
 
-		postData = { ID_mae: ID_mae, socio_mae: socio_mae, nome_mae: nome_mae, cognome_mae: cognome_mae, indirizzo_mae: indirizzo_mae, citta_mae: citta_mae, CAP_mae: CAP_mae, prov_mae: prov_mae, paese_mae: paese_mae, mf_mae: mf_mae, cf_mae: cf_mae, datanascita_mae: datanascita_mae, comunenascita_mae: comunenascita_mae, provnascita_mae: provnascita_mae, paesenascita_mae: paesenascita_mae, cittadinanza_mae: cittadinanza_mae, telefono_mae: telefono_mae, altrotelefono_mae: altrotelefono_mae, titolo_mae: titolo_mae, note_mae: note_mae, email_mae: email_mae, img_mae: img_mae, vede_mae: vede_mae, in_organico_mae: in_organico_mae, tipo_per: tipo_per, login_usr: login_usr, ID_usr_mae: ID_usr_mae, matricola_mae: matricola_mae, matrinps_mae: matrinps_mae, matrinail_mae: matrinail_mae, certpencg_mae: certpencg_mae, dataass_mae: dataass_mae, datalic_mae: datalic_mae, tipocontr_mae: tipocontr_mae, livello_mae: livello_mae, orecontr_mae: orecontr_mae, ud_mae: ud_mae, parttimeperc_mae: parttimeperc_mae, iban_mae: iban_mae, noterapporto_mae: noterapporto_mae, ral_mae: ral_mae};
+		postData = { ID_mae: ID_mae, socio_mae: socio_mae, nome_mae: nome_mae, cognome_mae: cognome_mae, indirizzo_mae: indirizzo_mae, citta_mae: citta_mae, CAP_mae: CAP_mae, prov_mae: prov_mae, paese_mae: paese_mae, mf_mae: mf_mae, cf_mae: cf_mae, datanascita_mae: datanascita_mae, comunenascita_mae: comunenascita_mae, provnascita_mae: provnascita_mae, paesenascita_mae: paesenascita_mae, cittadinanza_mae: cittadinanza_mae, telefono_mae: telefono_mae, altrotelefono_mae: altrotelefono_mae, titolo_mae: titolo_mae, note_mae: note_mae, email_mae: email_mae, img_mae: img_mae, vede_mae: vede_mae, in_organico_mae: in_organico_mae, tipo_per: tipo_per, login_usr: login_usr, ID_usr_mae: ID_usr_mae, matricola_mae: matricola_mae, matrinps_mae: matrinps_mae, matrinail_mae: matrinail_mae, certpencg_mae: certpencg_mae, dataass_mae: dataass_mae, datalic_mae: datalic_mae, tipocontr_mae: tipocontr_mae, livello_mae: livello_mae, orecontr_mae: orecontr_mae, ud_mae: ud_mae, parttimeperc_mae: parttimeperc_mae, iban_mae: iban_mae, noterapporto_mae: noterapporto_mae, ral_mae: ral_mae, padremadre: "maestro"};
 		console.log ("08qry_SchedaMaestro.php - aggiornaAnagrafica - postData a 08qry_updateAnagraficaMaestro.php") ;
 		console.log (postData) ;
 		$.ajax({
@@ -525,6 +525,21 @@
 				alert("Errore: contattare l'amministratore fornendo il codice di errore '08qry_SchedaMaestro ##fname##'");      
 			}
 		});
+
+		$.ajax({
+			type: 'POST',
+			url: "21qry_updateAnagraficaSocio.php",
+			data: postData,
+			dataType: 'json',
+			success: function(data){
+				console.log (data);
+			},
+			error: function(){
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '21qry_updateAnagraficaSocio'");      
+			}
+		});
+
+
 	}
 
 	function MostraModalAggiungiRecordcma (){
