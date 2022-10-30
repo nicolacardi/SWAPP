@@ -2,7 +2,6 @@
 include_once("../database/databaseBii.php");
 
 $annoiscrizioni = 					$_SESSION['anno_iscrizioni'];
-$ISC_include_SDD = 					$_SESSION['ISC_include_SDD'];
 $ISC_mostra_sociovolontario=		$_SESSION['ISC_mostra_sociovolontario'];
 $ISC_mostra_allegatoA=				$_SESSION['ISC_mostra_allegatoA'];
 $ISC_mostra_sceltareligione=		$_SESSION['ISC_mostra_sceltareligione'];
@@ -18,8 +17,11 @@ $ISC_mostra_tipopag =	 			$_SESSION['ISC_mostra_tipopag'];
 $ISC_mostra_soci =					$_SESSION['ISC_mostra_soci'];
 $ISC_mostra_quotaiscrizione =		$_SESSION['ISC_mostra_quotaiscrizione'];
 $ISC_mostracinquepermille =			$_SESSION['ISC_mostracinquepermille'];
-$ISC_mostra_premesso_che_lo_stato =	$_SESSION['ISC_mostra_premesso_che_lo_stato'];
-
+$ISC_include_SDD = 					$_SESSION['ISC_include_SDD'];
+$ISC_include_delegaritiro =			$_SESSION['ISC_include_delegaritiro'];
+$ISC_include_modulomensa =			$_SESSION['ISC_include_modulomensa'];
+$ISC_include_modulodoposcuola =		$_SESSION['ISC_include_modulodoposcuola'];
+$ISC_include_modulouscitaautonoma =	$_SESSION['ISC_include_modulouscitaautonoma'];
 
 //ISC_mostra_uscitaautonoma viene settato più avanti quando si conosce anche il valore di classe_cla
 
@@ -88,6 +90,12 @@ foreach ($ID_famA as $ID_fam) {
 	// $pdf->Cell(0,10,"ISC_mostra_mensa:".$ISC_mostra_mensa, 0,1, 'C');
 	// $pdf->Cell(0,10,"ISC_mostra_firmaunica:".$ISC_mostra_firmaunica, 0,1, 'C');
 	// $pdf->Cell(0,10,"ISC_mostra_intestazionefatt:".$ISC_mostra_intestazionefatt, 0,1, 'C');
+
+	// $pdf->Cell(0,10,"ISC_include_SDD:".$ISC_include_SDD, 0,1, 'C');
+	// $pdf->Cell(0,10,"ISC_include_delegaritiro:".$ISC_include_delegaritiro, 0,1, 'C');
+	// $pdf->Cell(0,10,"ISC_include_modulomensa:".$ISC_include_modulomensa, 0,1, 'C');
+	// $pdf->Cell(0,10,"ISC_include_modulodoposcuola:".$ISC_include_modulodoposcuola, 0,1, 'C');
+	// $pdf->Cell(0,10,"ISC_include_modulouscitaautonoma:".$ISC_include_modulouscitaautonoma, 0,1, 'C');
 
 
 	$pdf->Cell(0,8,"DOMANDA DI ISCRIZIONE", 0,1, 'C');
@@ -391,9 +399,10 @@ $h1 = 6;
 	//Array vari
 	$Nfiglio = array("1"=>"Prim", "2"=>"Second", "3"=>"Terz", "4"=>"Quart", "5"=>"Quint");
 	$MF = array("M"=>"o figlio", "F"=>"a figlia");
+	$LUILEI = array("M"=>"LUI", "F"=>"LEI");
 	$tipiquota = array("0"=>"Completa", "1"=>"Ridotta", "2"=>"Minima"); //usato solo da "CI"
 	$modalitapag = array("0"=>$modalitaPagSDD, "1"=>$modalitaPagBonifico, "2"=>"in contanti.", "3"=>"con modalità da concordare con l'amministrazione");  //usato solo da "CI"
-	$classi = array("ASILO"=>"MATERNA", "I"=>"PRIMA ELEMENTARE", "II"=>"SECONDA ELEMENTARE", "III"=>"TERZA ELEMENTARE", "IV"=>"QUARTA ELEMENTARE", "V"=>"QUINTA ELEMENTARE", "VI"=>"PRIMA MEDIA (VI)", "VII"=>"SECONDA MEDIA (VII)", "VIII"=>"TERZA MEDIA (VIII)", "IX"=>"I Sup.", "X"=>"II Sup.", "XI"=>"III Sup.", "XII"=>"IV Sup.", "XIII"=>"V Sup.", "NIDO"=>"ASILO NIDO");			
+	$classi2 = array("ASILO"=>"MATERNA", "I"=>"PRIMA ELEMENTARE", "II"=>"SECONDA ELEMENTARE", "III"=>"TERZA ELEMENTARE", "IV"=>"QUARTA ELEMENTARE", "V"=>"QUINTA ELEMENTARE", "VI"=>"PRIMA MEDIA (VI)", "VII"=>"SECONDA MEDIA (VII)", "VIII"=>"TERZA MEDIA (VIII)", "IX"=>"I Sup.", "X"=>"II Sup.", "XI"=>"III Sup.", "XII"=>"IV Sup.", "XIII"=>"V Sup.", "NIDO"=>"ASILO NIDO");			
 
 	//preparo l'elenco di nomi e cognomi dei figli, onde costruire la variabile $nomi
 	$sql = "SELECT nome_alu, cognome_alu, classe_cla FROM (tab_anagraficaalunni JOIN tab_classialunni ON ID_alu = ID_alu_cla) JOIN tab_famiglie ON ID_fam_alu = ID_fam WHERE ID_fam_alu= ? AND noniscritto_alu = 0 ORDER BY datanascita_alu ASC";
@@ -437,315 +446,315 @@ $h1 = 6;
 
 //PAGINE CONTRATTO ARCA ********************************************************************************************
 
-if ($codscuola =='AR') {
-	$pdf->AddPage();
+	if ($codscuola =='AR') {
+		$pdf->AddPage();
 
 
-	//I sottoscritti...
-	$pdf->SetFont('TitilliumWeb-SemiBold','',16);
-	$pdf->Cell(0,10,$titolocontratto, 0,1, 'C');
-	$pdf->SetFont($fontdefault,'',11);
+		//I sottoscritti...
+		$pdf->SetFont('TitilliumWeb-SemiBold','',16);
+		$pdf->Cell(0,10,$titolocontratto, 0,1, 'C');
+		$pdf->SetFont($fontdefault,'',11);
 
-	$pdf->Ln(2);
-	$testo="Con la presente scrittura privata, tra le parti:";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
+		$pdf->Ln(2);
+		$testo="Con la presente scrittura privata, tra le parti:";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
 
-	$pdf->Ln(2);
-	$testo="- <b>Societa' Cooperativa Sociale ARCA Educazione</b>, con sede in Padova, via T. Aspetti 248, di seguito 'ARCA Educazione' e";
-	$testo = utf8_decode($testo);
-	$pdf->WriteHTML($testo);
+		$pdf->Ln(2);
+		$testo="- <b>Societa' Cooperativa Sociale ARCA Educazione</b>, con sede in Padova, via T. Aspetti 248, di seguito 'ARCA Educazione' e";
+		$testo = utf8_decode($testo);
+		$pdf->WriteHTML($testo);
 
-	$pdf->Ln(8);
-	$testo="- Il Sig. <b>".strtoupper($cognomepadre_fam). " ".strtoupper($nomepadre_fam)."</b>, codice fiscale ". $cfpadre_fam ." nato il ". $datanascitapadre_fam." a ".$comunenascitapadre_fam." (".$provnascitapadre_fam."), residente a ". $comunepadre_fam." (".$provpadre_fam.")- ".$indirizzopadre_fam."<br>e la Sig.ra <b>".strtoupper($cognomemadre_fam). " ".strtoupper($nomemadre_fam). "</b>, codice fiscale ". $cfmadre_fam." nata il ". $datanascitamadre_fam." a ".$comunenascitamadre_fam." (".$provnascitamadre_fam."), residente a ". $comunemadre_fam." (".$provmadre_fam.") - ".$indirizzomadre_fam.", <br>genitori/esercenti la responsabilita' genitoriale di:".$nomi.".";  //utilizzo di $nomi
+		$pdf->Ln(8);
+		$testo="- Il Sig. <b>".strtoupper($cognomepadre_fam). " ".strtoupper($nomepadre_fam)."</b>, codice fiscale ". $cfpadre_fam ." nato il ". $datanascitapadre_fam." a ".$comunenascitapadre_fam." (".$provnascitapadre_fam."), residente a ". $comunepadre_fam." (".$provpadre_fam.")- ".$indirizzopadre_fam."<br>e la Sig.ra <b>".strtoupper($cognomemadre_fam). " ".strtoupper($nomemadre_fam). "</b>, codice fiscale ". $cfmadre_fam." nata il ". $datanascitamadre_fam." a ".$comunenascitamadre_fam." (".$provnascitamadre_fam."), residente a ". $comunemadre_fam." (".$provmadre_fam.") - ".$indirizzomadre_fam.", <br>genitori/esercenti la responsabilita' genitoriale di:".$nomi.".";  //utilizzo di $nomi
 
-	if ($blank) {
-		$testo="- Il Sig. __________________________, codice fiscale ____________________ nato il ___________ a __________________________ (___), residente a ________________________________ (___) Via/piazza_____________________________________________________________________<br> - e la Sig.ra ______________________, codice fiscale ____________________ nata il ___________ a __________________________ (___), residente a ________________________________ (___) Via/piazza_____________________________________________________________________ <br><b>genitori/esercenti la responsabilità genitoriale di<b>: ___________________________________________<br>";  //utilizzo di $nomi
-	}
-	$testo = utf8_decode($testo);
-	$pdf->WriteHTML($testo);
+		if ($blank) {
+			$testo="- Il Sig. __________________________, codice fiscale ____________________ nato il ___________ a __________________________ (___), residente a ________________________________ (___) Via/piazza_____________________________________________________________________<br> - e la Sig.ra ______________________, codice fiscale ____________________ nata il ___________ a __________________________ (___), residente a ________________________________ (___) Via/piazza_____________________________________________________________________ <br><b>genitori/esercenti la responsabilità genitoriale di<b>: ___________________________________________<br>";  //utilizzo di $nomi
+		}
+		$testo = utf8_decode($testo);
+		$pdf->WriteHTML($testo);
 
-	//$pdf->WriteHTML($testo);
+		//$pdf->WriteHTML($testo);
 
-	//PREMESSO CHE...
-	$pdf->Ln(4);
-	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
-	$pdf->Cell(0,8,"PREMESSO CHE", 0,1, 'C');
-	$pdf->SetFont($fontdefault,'',11);
+		//PREMESSO CHE...
+		$pdf->Ln(4);
+		$pdf->SetFont('TitilliumWeb-SemiBold','',12);
+		$pdf->Cell(0,8,"PREMESSO CHE", 0,1, 'C');
+		$pdf->SetFont($fontdefault,'',11);
 
-	$pdf->Ln(4);
-	$testo="-	La Cooperativa ARCA Educazione, ispirandosi agli insegnamenti ed ai principi del pensiero di Rudolf Steiner e della pedagogia Steiner-Waldorf, ha come oggetto la promozione, l'organizzazione e la gestione di servizi socio-sanitari ed educativi ai sensi dell'art. 1, lett. a) della Legge n. 381 del 1991 (estratto dall'art. 4 dello Statuto della Cooperativa Sociale ARCA Educazione);";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-
-	$pdf->Ln(4);
-	$testo="-	ARCA Educazione gestisce un programma di supporto alla didattica per ragazzi delle Scuole Superiori in istruzione parentale;";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
+		$pdf->Ln(4);
+		$testo="-	La Cooperativa ARCA Educazione, ispirandosi agli insegnamenti ed ai principi del pensiero di Rudolf Steiner e della pedagogia Steiner-Waldorf, ha come oggetto la promozione, l'organizzazione e la gestione di servizi socio-sanitari ed educativi ai sensi dell'art. 1, lett. a) della Legge n. 381 del 1991 (estratto dall'art. 4 dello Statuto della Cooperativa Sociale ARCA Educazione);";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
 
 
+		$pdf->Ln(4);
+		$testo="-	ARCA Educazione gestisce un programma di supporto alla didattica per ragazzi delle Scuole Superiori in istruzione parentale;";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
 
 
-	$pdf->Ln(4);
-	$testo="-	ARCA Educazione si finanzia in massima parte con contributi e donazioni delle famiglie; la puntualita' e regolarita' nei pagamenti sono necessari per la copertura delle spese del personale e per il buon funzionamento del progetto;";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
 
-	$pdf->Ln(4);
-	$testo="-	nell'economia di ARCA Educazione la solidarietà della comunità dei genitori rappresenta un presupposto irrinunciabile;";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
 
-	if ($ISC_mostra_allegatoA ==1) {
+		$pdf->Ln(4);
+		$testo="-	ARCA Educazione si finanzia in massima parte con contributi e donazioni delle famiglie; la puntualita' e regolarita' nei pagamenti sono necessari per la copertura delle spese del personale e per il buon funzionamento del progetto;";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		$pdf->Ln(4);
+		$testo="-	nell'economia di ARCA Educazione la solidarietà della comunità dei genitori rappresenta un presupposto irrinunciabile;";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		if ($ISC_mostra_allegatoA ==1) {
+			
+			$pdf->Ln(4);
+
+			$testo="-	si è presa visione di e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSDext." (disponibili in segreteria o scaricabili dal sito www.arcascuola.it);<br>";
+			$testo = utf8_decode($testo);
+			$pdf->WriteHTML($testo);
+		}
+
+		if ($ISC_mostra_regolinterno ==1) {
+			$pdf->Ln(4);
+			$testo="-	si è presa visione di e si condivide il Regolamento Interno (<a href='downloadAllegato.php?nomeallegato=B_".$codscuola."'>Allegato B</a>);<br>";
+			$testo = utf8_decode($testo);
+			$pdf->WriteHTML($testo);
+		}
+		if ($ISC_mostra_regolpediatrico ==1) {
+			$pdf->Ln(4);
+			$testo="-	si è presa visione di e si condividono le norme igienico sanitarie (<a href='downloadAllegato.php?nomeallegato=C_AR'>Allegato C</a>);<br>";
+			$testo = utf8_decode($testo);
+			$pdf->WriteHTML($testo);
+		}
+		$pdf->Ln(4);
+		$testo="-	l'ammissione al progetto è subordinato al parere del Collegio Docenti e del Consiglio di Amministrazione;";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		$pdf->Ln(4);
+		$testo="-	si dichiara di aver presentato domanda di iscrizione per l'anno scolastico ".$annoscolastico." obbligandosi, in caso di accettazione della medesima domanda da parte di ARCA Educazione, a sottoscrivere il presente contratto;
+		";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		//TUTTO CIO'PREMESSO...
+		$pdf->SetFont('TitilliumWeb-SemiBold','',12);
+		$pdf->Cell(0,8,"TUTTO CIO' PREMESSO SI CONVIENE E SI STIPULA QUANTO SEGUE", 0,1, 'C');
+		$pdf->SetFont($fontdefault,'',11);
+
+		$pdf->Ln(4);
+		$testo="art.1)	Le premesse e gli allegati richiamati sono parte integrante e sostanziale del presente atto;";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		$pdf->Ln(4);
+		$testo="art.2)	ARCA Educazione si obbliga nei confronti dell'altra parte contraente a fornire le prestazioni formative previste dal Programma di supporto alla didattica;";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		$pdf->Ln(4);
+		$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 245/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		//-------
+
+		$pdf->AddPage();
+
+		$testo= "art.4)	I genitori/tutori/esercenti la responsabilità genitoriale si obbligano in solido a corrispondere ad ARCA Educazione per l'anno scolastico ".$annoscolastico.", una quota annua a titolo di  CONTRIBUTO MINIMO così definito (vedi <a href='downloadAllegato.php?nomeallegato=D_".$codscuola."'>Allegato D</a>):
+		";
+		$testo = utf8_decode($testo);
+		$pdf->WriteHTML($testo);
+
+
+		$pdf->Ln(10);
+		$pdf->SetFont($fontdefault,'',11);
+		$n = 0;
+		$totquotapromessa = 0;
+
+		//TABELLINA********
+		$pdf->Cell(75,5,"NOME e COGNOME","LTR",0,'C');
+		$pdf->Cell(40,5,"# figlio","LTR",0,'C');
+		$pdf->Cell(45,5,"Iscrizione alla classe","LTR",0,'C');
+		$pdf->Cell(30,5,"Quota annua","LTR",1,'C');
+		$pdf->Cell(75,5,"","LBR",0,'L');
+		$pdf->Cell(40,5,"","LBR",0,'L');
+		$pdf->Cell(45,5,"","LBR",0,'L');
+		$pdf->Cell(30,5,"(euro)","LBR",1,'C');
+		while (mysqli_stmt_fetch($stmt)) {
+			$totquotapromessa = $totquotapromessa + intval($quotapromessa_alu);
+			$n++;
+			$pdf->Cell(75,8,$nome_alu." ".$cognome_alu,1,0,'L');
+			$pdf->Cell(40,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
+			$pdf->Cell(45,8,$classi2[$classe_cla],1,0,'L');
+			$pdf->Cell(30,8,$quotapromessa_alu.",00",1,1,'C');
+		}
+		if ($blank) { //caso modulo BLANK
+			for ($i = 1; $i <= 4; $i++) 
+				{
+					$n++;
+					$pdf->Cell(75,8,"",1,0,'L');
+					$pdf->Cell(40,8,"",1,0,'L');
+					$pdf->Cell(45,8,"",1,0,'L');
+					$pdf->Cell(30,8,"",1,1,'C');
+				}
+		}
+		$pdf->SetFont('TitilliumWeb-SemiBold','',12);
+		$pdf->Cell(160,10,"Totale contributo annuo",1,0,'L');
+		if ($totquotapromessa !=0) {
+			$pdf->Cell(30,10,$totquotapromessa.",00",1,1,'C');
+		} else {
+			$pdf->Cell(30,10,"",1,1,'C');
+		}
+
+
+		/*if ($quotaconcordata_alu == 1) {
+			$testo12= "(la quota espressa è soggetta ad approvazione da parte del Cons. di Amministrazione e potrà quindi subire variazioni, da concordare con la famiglia)";
+			$testo12 = utf8_decode($testo12);
+			$pdf->SetFont($fontdefault,'',9);
+			$pdf->Cell(0,5,$testo12,0,1,"L");	
+		}*/
+
+		$testo12= "il versamento di tale quota annua avverrà in soluzione:";
+		$testo12 = utf8_decode($testo12);
+		$pdf->SetFont($fontdefault,'',11);
+		$pdf->Cell(0,10,$testo12,0,1,"L");
+
+		$unicasoluzione = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 05/09/".$anno1;
+		if ($ratepromesse_fam == 1) {
+			$unicasoluzione = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 05/09/".$anno1;
+		}
+		$pdf->Cell(0,8,$unicasoluzione,0,1,'L');
+
+
+		if ($_SESSION['ISC_mostra_2rate'] == 1) {
+
+			$duerate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      due rate (entro il ".$scadrata1duerate.$anno1." e entro il".$scadrata2duerate.$anno2.")");
+
+				if ($ratepromesse_fam == 2) {
+					$duerate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      due rate (entro il ".$scadrata1duerate.$anno1." e entro il".$scadrata2duerate.$anno2.")");
+				}
+			$pdf->Cell(0,8,$duerate,0,1,'L');
+		}
+
+		if ($_SESSION['ISC_mostra_3rate'] == 1) {
+
+			$trerate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      tre rate (entro il ".$scadrata1trerate.$anno1.", entro il".$scadrata2trerate.$anno2." e entro il".$scadrata3trerate.$anno2.")");
+
+			if ($ratepromesse_fam == 3) {
+				$trerate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      tre rate (entro il ".$scadrata1trerate.$anno1.", entro il".$scadrata2trerate.$anno2." e entro il".$scadrata3trerate.$anno2.")");
+			}
+			$pdf->Cell(0,8,$trerate,0,1,'L');
+		}
+		$diecirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
+		if ($ratepromesse_fam == 10) {
+			$diecirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
+		}
+		$pdf->Cell(0,8,$diecirate,0,1,'L');
+
+		//$dodicirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("     DILAZIONATA entro il giorno 5 di ciascun mese in 12 mensilità (da settembre a agosto)");
+		if ($ratepromesse_fam == 12) {
+			$dodicirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("     DILAZIONATA entro il giorno 5 di ciascun mese in 12 mensilità (da settembre a agosto)");
+			$pdf->Cell(0,8,$dodicirate,0,1,'L');
+		}
+
+
+		$pdf->Ln(4);
+		$testo="art.5)	I genitori/tutori/esercenti la responsabilità genitoriale si impegnano a versare a consuntivo entro il 15/06/".$anno2." l'eventuale conguaglio per le spese didattiche anticipate dalla Società Cooperativa.";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		$pdf->Ln(4);
+		if($quotacontraggiuntivo_fam!=0) {$frasequotacontraggiuntivo_fam = $quotacontraggiuntivo_fam;} else {$frasequotacontraggiuntivo_fam = ".....................";}
+		if($ratecontraggiuntivo_fam!=0) {$fraseratecontraggiuntivo_fam = $ratecontraggiuntivo_fam;} else {$fraseratecontraggiuntivo_fam = ".....";};
+		$testo ="I sottoscritti intendono inoltre versare un CONTRIBUTO AGGIUNTIVO di euro  ".$frasequotacontraggiuntivo_fam." versato in ".$fraseratecontraggiuntivo_fam." rate.";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+		$pdf->Ln(4);
+
+		if ($ISC_mostra_intestazionefatt ==1) {
+
+			switch ($intestazionefatt_fam) {
+				case "altro":
+					$testointestazione ="a : ....................................................................................";
+				break;
+				case "padre":
+					$testointestazione ="al padre.";
+				break;
+				case "madre":
+					$testointestazione ="alla madre.";
+				break;
+				case null:
+					$testointestazione ="a : ....................................................................................";
+				}
+			$testo= "I sottoscritti chiedono che le fatture vengano intestate <b>".$testointestazione."<b>";
+			$pdf->SetFont($fontdefault,'',11);
+			$testo = utf8_decode($testo);
+			$pdf->WriteHTML($testo);
+		}
+		$pdf->Ln(8);
+		$testo = "I contributi vanno versati entro il 5 di ogni mese sul conto";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo, 0, 'C');
+
+		$testo = "Banca di Credito Cooperativo di Roma - IBAN: IT76 F083 2712 1000 0000 0800 907 
+		Il contributo annuo è dovuto anche in caso di prolungata assenza o ritiro anticipato del discente.";
+
+		$testo = utf8_decode($testo);
+		$pdf->SetFont('TitilliumWeb-SemiBold','',12);
+		$pdf->MultiCell(0,5,$testo, 0, 'C');
+		$pdf->SetFont($fontdefault,'',11);
+
+		$pdf->Ln(4);
+		$testo= "Art.6) E' riconosciuto ad ARCA Educazione il diritto di richiedere il rispetto dei tempi dei versamenti. Si precisa che il contributo non potrà essere mensilmente suddiviso tra entrambi i genitori, ma dovrà essere necessariamente versato interamente da uno dei due.";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		$pdf->Ln(4);
+		$testo="Art.7) Nel caso di astensione prolungata dal programma per cause non imputabili ad ARCA Educazione (malattia, impegni sportivi, studio all'estero, etc.) è fatto obbligo ai genitori di continuare a versare le quote dovute secondo quanto stabilito.";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		$pdf->Ln(4);
+		$testo="In caso di risoluzione del contratto e di ritiro del discente per cause non imputabili alla Soc. Cooperativa, prima dell'inizio dell'anno scolastico, si riconosce ad ARCA Educazione la facoltà di avvalersi del diritto di non restituire nessun importo già versato alla Soc. Cooperativa, e i Genitori/Tutori/esercenti la responsabilità genitoriale si obbligano a versare ad ARCA Educazione le quote relative a tre mensilità.";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		$pdf->Ln(4);
+		$testo="In caso di ritiro durante l'anno scolastico è prevista una riduzione della quota annuale (CONTRIBUTO MINIMO) del 50% qualora questo avvenga prima del 31 dicembre, mentre la quota annuale è interamente dovuta in caso di ritiro successivo.";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
 		
 		$pdf->Ln(4);
-
-		$testo="-	si è presa visione di e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSDext." (disponibili in segreteria o scaricabili dal sito www.arcascuola.it);<br>";
+		$testo="Art.8) In applicazione di quanto previsto dall'art. 1456 c.c., in caso di violazione da parte dei Genitori/Tutori/esercenti la responsabilità genitoriale degli impegni contenuti nel presente contratto, ARCA Educazione potrà risolvere di diritto il presente contratto comunicando ai Genitori/Tutori/esercenti la responsabilità genitoriale l'intenzione di avvalersi della presente clausola risolutiva.";
 		$testo = utf8_decode($testo);
-		$pdf->WriteHTML($testo);
-	}
+		$pdf->MultiCell(0,5,$testo);
 
-	if ($ISC_mostra_regolinterno ==1) {
 		$pdf->Ln(4);
-		$testo="-	si è presa visione di e si condivide il Regolamento Interno (<a href='downloadAllegato.php?nomeallegato=B_".$codscuola."'>Allegato B</a>);<br>";
+		$testo="Art.9) Per quanto non previsto nel presente contratto, le cui clausole si intendono tutte essenziali ed inderogabili, si rinvia alle norme di legge in materia.";
 		$testo = utf8_decode($testo);
-		$pdf->WriteHTML($testo);
-	}
-	if ($ISC_mostra_regolpediatrico ==1) {
+		$pdf->MultiCell(0,5,$testo);
+
 		$pdf->Ln(4);
-		$testo="-	si è presa visione di e si condividono le norme igienico sanitarie (<a href='downloadAllegato.php?nomeallegato=C_AR'>Allegato C</a>);<br>";
+		$testo="Art.10) Ogni controversia inerente l'applicazione e /o l'interpretazione del presente contratto che non richieda l'intervento obbligatorio del Pubblico Ministero sarà prima sottoposta al Collegio dei Probiviri di ARCA EDUCAZIONE Cooperativa Sociale e, qualora non risolta, sarà fatta oggetto di un tentativo preliminare di mediazione presso l'organismo della Camera di Commercio di Padova. Foro competente è il foro di Padova.";
 		$testo = utf8_decode($testo);
-		$pdf->WriteHTML($testo);
+		$pdf->MultiCell(0,5,$testo);
+		
+
+		//FIRMA PADRE FIRMA MADRE DATA E LUOGO AFFIANCATI
+		$pdf->Ln(8);
+		include("firmepadremadreluogo.php");
+
+		$pdf->Ln(10);
+		$pdf->Cell(60,5,"Per la Soc. Coop Sociale Arca Educazione",0,1,'C');
+		$pdf->Cell(60,5,"(Il rappresentante legale)",0,1,'C');
+		$pdf->Ln(4);
+		$pdf->Cell(60,5,"","B",1);
+
+
+		include("inc_pattocorresponsabilitaModuloIscrizione.php");
 	}
-	$pdf->Ln(4);
-	$testo="-	l'ammissione al progetto è subordinato al parere del Collegio Docenti e del Consiglio di Amministrazione;";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	$pdf->Ln(4);
-	$testo="-	si dichiara di aver presentato domanda di iscrizione per l'anno scolastico ".$annoscolastico." obbligandosi, in caso di accettazione della medesima domanda da parte di ARCA Educazione, a sottoscrivere il presente contratto;
-	";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	//TUTTO CIO'PREMESSO...
-	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
-	$pdf->Cell(0,8,"TUTTO CIO' PREMESSO SI CONVIENE E SI STIPULA QUANTO SEGUE", 0,1, 'C');
-	$pdf->SetFont($fontdefault,'',11);
-
-	$pdf->Ln(4);
-	$testo="art.1)	Le premesse e gli allegati richiamati sono parte integrante e sostanziale del presente atto;";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	$pdf->Ln(4);
-	$testo="art.2)	ARCA Educazione si obbliga nei confronti dell'altra parte contraente a fornire le prestazioni formative previste dal Programma di supporto alla didattica;";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	$pdf->Ln(4);
-	$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 245/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	//-------
-
-	$pdf->AddPage();
-
-	$testo= "art.4)	I genitori/tutori/esercenti la responsabilità genitoriale si obbligano in solido a corrispondere ad ARCA Educazione per l'anno scolastico ".$annoscolastico.", una quota annua a titolo di  CONTRIBUTO MINIMO così definito (vedi <a href='downloadAllegato.php?nomeallegato=D_".$codscuola."'>Allegato D</a>):
-	";
-	$testo = utf8_decode($testo);
-	$pdf->WriteHTML($testo);
-
-
-	$pdf->Ln(10);
-	$pdf->SetFont($fontdefault,'',11);
-	$n = 0;
-	$totquotapromessa = 0;
-
-	//TABELLINA********
-	$pdf->Cell(75,5,"NOME e COGNOME","LTR",0,'C');
-	$pdf->Cell(40,5,"# figlio","LTR",0,'C');
-	$pdf->Cell(45,5,"Iscrizione alla classe","LTR",0,'C');
-	$pdf->Cell(30,5,"Quota annua","LTR",1,'C');
-	$pdf->Cell(75,5,"","LBR",0,'L');
-	$pdf->Cell(40,5,"","LBR",0,'L');
-	$pdf->Cell(45,5,"","LBR",0,'L');
-	$pdf->Cell(30,5,"(euro)","LBR",1,'C');
-	while (mysqli_stmt_fetch($stmt)) {
-		$totquotapromessa = $totquotapromessa + intval($quotapromessa_alu);
-		$n++;
-		$pdf->Cell(75,8,$nome_alu." ".$cognome_alu,1,0,'L');
-		$pdf->Cell(40,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
-		$pdf->Cell(45,8,$classi[$classe_cla],1,0,'L');
-		$pdf->Cell(30,8,$quotapromessa_alu.",00",1,1,'C');
-	}
-	if ($blank) { //caso modulo BLANK
-		for ($i = 1; $i <= 4; $i++) 
-			{
-				$n++;
-				$pdf->Cell(75,8,"",1,0,'L');
-				$pdf->Cell(40,8,"",1,0,'L');
-				$pdf->Cell(45,8,"",1,0,'L');
-				$pdf->Cell(30,8,"",1,1,'C');
-			}
-	}
-	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
-	$pdf->Cell(160,10,"Totale contributo annuo",1,0,'L');
-	if ($totquotapromessa !=0) {
-		$pdf->Cell(30,10,$totquotapromessa.",00",1,1,'C');
-	} else {
-		$pdf->Cell(30,10,"",1,1,'C');
-	}
-
-
-	/*if ($quotaconcordata_alu == 1) {
-		$testo12= "(la quota espressa è soggetta ad approvazione da parte del Cons. di Amministrazione e potrà quindi subire variazioni, da concordare con la famiglia)";
-		$testo12 = utf8_decode($testo12);
-		$pdf->SetFont($fontdefault,'',9);
-		$pdf->Cell(0,5,$testo12,0,1,"L");	
-	}*/
-
-	$testo12= "il versamento di tale quota annua avverrà in soluzione:";
-	$testo12 = utf8_decode($testo12);
-	$pdf->SetFont($fontdefault,'',11);
-	$pdf->Cell(0,10,$testo12,0,1,"L");
-
-	$unicasoluzione = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 05/09/".$anno1;
-	if ($ratepromesse_fam == 1) {
-		$unicasoluzione = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 05/09/".$anno1;
-	}
-	$pdf->Cell(0,8,$unicasoluzione,0,1,'L');
-
-
-	if ($_SESSION['ISC_mostra_2rate'] == 1) {
-
-		$duerate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      due rate (entro il ".$scadrata1duerate.$anno1." e entro il".$scadrata2duerate.$anno2.")");
-
-			if ($ratepromesse_fam == 2) {
-				$duerate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      due rate (entro il ".$scadrata1duerate.$anno1." e entro il".$scadrata2duerate.$anno2.")");
-			}
-		$pdf->Cell(0,8,$duerate,0,1,'L');
-	}
-
-	if ($_SESSION['ISC_mostra_3rate'] == 1) {
-
-		$trerate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      tre rate (entro il ".$scadrata1trerate.$anno1.", entro il".$scadrata2trerate.$anno2." e entro il".$scadrata3trerate.$anno2.")");
-
-		if ($ratepromesse_fam == 3) {
-			$trerate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      tre rate (entro il ".$scadrata1trerate.$anno1.", entro il".$scadrata2trerate.$anno2." e entro il".$scadrata3trerate.$anno2.")");
-		}
-		$pdf->Cell(0,8,$trerate,0,1,'L');
-	}
-	$diecirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
-	if ($ratepromesse_fam == 10) {
-		$diecirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
-	}
-	$pdf->Cell(0,8,$diecirate,0,1,'L');
-
-	//$dodicirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("     DILAZIONATA entro il giorno 5 di ciascun mese in 12 mensilità (da settembre a agosto)");
-	if ($ratepromesse_fam == 12) {
-		$dodicirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("     DILAZIONATA entro il giorno 5 di ciascun mese in 12 mensilità (da settembre a agosto)");
-		$pdf->Cell(0,8,$dodicirate,0,1,'L');
-	}
-
-
-	$pdf->Ln(4);
-	$testo="art.5)	I genitori/tutori/esercenti la responsabilità genitoriale si impegnano a versare a consuntivo entro il 15/06/".$anno2." l'eventuale conguaglio per le spese didattiche anticipate dalla Società Cooperativa.";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	$pdf->Ln(4);
-	if($quotacontraggiuntivo_fam!=0) {$frasequotacontraggiuntivo_fam = $quotacontraggiuntivo_fam;} else {$frasequotacontraggiuntivo_fam = ".....................";}
-	if($ratecontraggiuntivo_fam!=0) {$fraseratecontraggiuntivo_fam = $ratecontraggiuntivo_fam;} else {$fraseratecontraggiuntivo_fam = ".....";};
-	$testo ="I sottoscritti intendono inoltre versare un CONTRIBUTO AGGIUNTIVO di euro  ".$frasequotacontraggiuntivo_fam." versato in ".$fraseratecontraggiuntivo_fam." rate.";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-	$pdf->Ln(4);
-
-	if ($ISC_mostra_intestazionefatt ==1) {
-
-		switch ($intestazionefatt_fam) {
-			case "altro":
-				$testointestazione ="a : ....................................................................................";
-			break;
-			case "padre":
-				$testointestazione ="al padre.";
-			break;
-			case "madre":
-				$testointestazione ="alla madre.";
-			break;
-			case null:
-				$testointestazione ="a : ....................................................................................";
-			}
-		$testo= "I sottoscritti chiedono che le fatture vengano intestate <b>".$testointestazione."<b>";
-		$pdf->SetFont($fontdefault,'',11);
-		$testo = utf8_decode($testo);
-		$pdf->WriteHTML($testo);
-	}
-	$pdf->Ln(8);
-	$testo = "I contributi vanno versati entro il 5 di ogni mese sul conto";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo, 0, 'C');
-
-	$testo = "Banca di Credito Cooperativo di Roma - IBAN: IT76 F083 2712 1000 0000 0800 907 
-	Il contributo annuo è dovuto anche in caso di prolungata assenza o ritiro anticipato del discente.";
-
-	$testo = utf8_decode($testo);
-	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
-	$pdf->MultiCell(0,5,$testo, 0, 'C');
-	$pdf->SetFont($fontdefault,'',11);
-
-	$pdf->Ln(4);
-	$testo= "Art.6) E' riconosciuto ad ARCA Educazione il diritto di richiedere il rispetto dei tempi dei versamenti. Si precisa che il contributo non potrà essere mensilmente suddiviso tra entrambi i genitori, ma dovrà essere necessariamente versato interamente da uno dei due.";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	$pdf->Ln(4);
-	$testo="Art.7) Nel caso di astensione prolungata dal programma per cause non imputabili ad ARCA Educazione (malattia, impegni sportivi, studio all'estero, etc.) è fatto obbligo ai genitori di continuare a versare le quote dovute secondo quanto stabilito.";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	$pdf->Ln(4);
-	$testo="In caso di risoluzione del contratto e di ritiro del discente per cause non imputabili alla Soc. Cooperativa, prima dell'inizio dell'anno scolastico, si riconosce ad ARCA Educazione la facoltà di avvalersi del diritto di non restituire nessun importo già versato alla Soc. Cooperativa, e i Genitori/Tutori/esercenti la responsabilità genitoriale si obbligano a versare ad ARCA Educazione le quote relative a tre mensilità.";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	$pdf->Ln(4);
-	$testo="In caso di ritiro durante l'anno scolastico è prevista una riduzione della quota annuale (CONTRIBUTO MINIMO) del 50% qualora questo avvenga prima del 31 dicembre, mentre la quota annuale è interamente dovuta in caso di ritiro successivo.";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-	
-	$pdf->Ln(4);
-	$testo="Art.8) In applicazione di quanto previsto dall'art. 1456 c.c., in caso di violazione da parte dei Genitori/Tutori/esercenti la responsabilità genitoriale degli impegni contenuti nel presente contratto, ARCA Educazione potrà risolvere di diritto il presente contratto comunicando ai Genitori/Tutori/esercenti la responsabilità genitoriale l'intenzione di avvalersi della presente clausola risolutiva.";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	$pdf->Ln(4);
-	$testo="Art.9) Per quanto non previsto nel presente contratto, le cui clausole si intendono tutte essenziali ed inderogabili, si rinvia alle norme di legge in materia.";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-
-	$pdf->Ln(4);
-	$testo="Art.10) Ogni controversia inerente l'applicazione e /o l'interpretazione del presente contratto che non richieda l'intervento obbligatorio del Pubblico Ministero sarà prima sottoposta al Collegio dei Probiviri di ARCA EDUCAZIONE Cooperativa Sociale e, qualora non risolta, sarà fatta oggetto di un tentativo preliminare di mediazione presso l'organismo della Camera di Commercio di Padova. Foro competente è il foro di Padova.";
-	$testo = utf8_decode($testo);
-	$pdf->MultiCell(0,5,$testo);
-	
-
-	//FIRMA PADRE FIRMA MADRE DATA E LUOGO AFFIANCATI
-	$pdf->Ln(8);
-	include("firmepadremadreluogo.php");
-
-	$pdf->Ln(10);
-	$pdf->Cell(60,5,"Per la Soc. Coop Sociale Arca Educazione",0,1,'C');
-	$pdf->Cell(60,5,"(Il rappresentante legale)",0,1,'C');
-	$pdf->Ln(4);
-	$pdf->Cell(60,5,"","B",1);
-
-
-	include("inc_pattocorresponsabilitaModuloIscrizione.php");
-}
 
 
 //PAGINE CONTRATTO PADOVA ********************************************************************************************
@@ -878,7 +887,7 @@ if ($codscuola =='AR') {
 			$n++;
 			$pdf->Cell(75,8,$nome_alu." ".$cognome_alu,1,0,'L');
 			$pdf->Cell(40,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
-			$pdf->Cell(45,8,$classi[$classe_cla],1,0,'L');
+			$pdf->Cell(45,8,$classi2[$classe_cla],1,0,'L');
 			$pdf->Cell(30,8,$quotapromessa_alu.",00",1,1,'C');
 		}
 		if ($blank) { //caso modulo BLANK
@@ -1072,7 +1081,7 @@ if ($codscuola =='AR') {
 			$n++;
 			$pdf->Cell(50,8,$nome_alu." ".$cognome_alu,1,0,'L');
 			$pdf->Cell(25,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'C');
-			$pdf->Cell(50,8,$classi[$classe_cla],1,0,'C');
+			$pdf->Cell(50,8,$classi2[$classe_cla],1,0,'C');
 			$pdf->Cell(30,8,$tipiquota[$tipoquota_alu],1,0,'C');
 			$pdf->Cell(35,8,$quotapromessa_alu.",00",1,1,'C');
 
@@ -1253,7 +1262,7 @@ if ($codscuola =='AR') {
 			$n++;
 			$pdf->Cell(55,8,$nome_alu." ".$cognome_alu,1,0,'L');
 			$pdf->Cell(30,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
-			$pdf->Cell(70,8,$classi[$classe_cla],1,0,'L');
+			$pdf->Cell(70,8,$classi2[$classe_cla],1,0,'L');
 			//$pdf->Cell(30,8,$tipiquota[$tipoquota_alu],1,0,'C');
 			$pdf->Cell(35,8,$quotapromessa_alu.",00",1,1,'C');
 		}
@@ -1453,7 +1462,7 @@ if ($codscuola =='AR') {
 			$n++;
 			$pdf->Cell(75,8,$nome_alu." ".$cognome_alu,1,0,'L');
 			$pdf->Cell(40,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
-			$pdf->Cell(45,8,$classi[$classe_cla],1,0,'L');
+			$pdf->Cell(45,8,$classi2[$classe_cla],1,0,'L');
 			$pdf->Cell(30,8,$quotapromessa_alu.",00",1,1,'C');
 		}
 		if ($blank) { //caso modulo BLANK
@@ -2425,6 +2434,35 @@ if ($codscuola =='AR') {
 		$pdf->Image('../assets/img/Icone/frecciafirmablack.png', 10, $pdf->GetY()-18, 20);
 	}
 
+//Modulo MENSA
+
+	if ($ISC_include_modulomensa == 1) {
+		include("inc_moduloMensa.php");
+	}
+
+//Modulo DOPOSCUOLA
+
+	if ($ISC_include_modulodoposcuola == 1) {
+		include("inc_moduloDoposcuola.php");
+	}
+
+//Modulo AUTORIZZAZIONE USCITA
+
+
+	if ($ISC_include_modulouscitaautonoma == 1) {
+
+		$sql = "SELECT ID_alu, mf_alu, nome_alu, cognome_alu, datanascita_alu, comunenascita_alu, provnascita_alu, paesenascita_alu, cittadinanza_alu, cf_alu, indirizzo_alu, citta_alu, CAP_alu, prov_alu, paese_alu, disabilita_alu, DSA_alu, ckprivacy1_alu, ckprivacy2_alu, ckprivacy3_alu, ckautfoto_alu, ckautmateriale_alu, ckautuscite_alu, ckautuscitaautonoma_alu, ckdoposcuola_alu, ckreligione_alu, altreligione_alu, ckmensa_alu, cktrasportopubblico_alu, scuolaprovenienza_alu, indirizzoscproven_alu, classe_cla FROM (tab_famiglie JOIN tab_anagraficaalunni ON ID_fam_alu = ID_fam) JOIN tab_classialunni ON ID_alu = ID_alu_cla WHERE ID_fam= ? AND noniscritto_alu = 0 ORDER BY datanascita_alu ASC";
+		$stmt = mysqli_prepare($mysqli, $sql);
+		mysqli_stmt_bind_param($stmt, "i", $ID_fam);
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_bind_result($stmt, $ID_alu, $mf_alu, $nome_alu, $cognome_alu, $datanascita_alu, $comunenascita_alu, $provnascita_alu, $paesenascita_alu, $cittadinanza_alu, $cf_alu, $indirizzo_alu, $citta_alu, $CAP_alu, $prov_alu, $paese_alu, $disabilita_alu, $DSA_alu, $ckprivacy1_alu, $ckprivacy2_alu, $ckprivacy3_alu, $ckautfoto_alu, $ckautmateriale_alu, $ckautuscite_alu, $ckautuscitaautonoma_alu, $ckdoposcuola_alu, $ckreligione_alu, $altreligione_alu, $ckmensa_alu, $cktrasportopubblico_alu, $scuolaprovenienza_alu, $indirizzoscproven_alu, $classe_cla );
+		
+		while (mysqli_stmt_fetch($stmt)) {
+
+
+				include("inc_moduloUscitaautonoma.php");
+		}
+	}
 }
 $pdf->Output();
 ?>

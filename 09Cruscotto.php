@@ -130,7 +130,6 @@
 	$(document).ready(function(){
 		requery();
 
-
 		let role_usr = $("#role_usr_hidden").val();
 		let ID_usr = $("#usr").val();
 		postData = {ID_usr: ID_usr};
@@ -147,7 +146,7 @@
 				//console.log(data);
 				nonmostrarepiu_usr = data.nonmostrarepiu_usr;
 				//in questa pagina mostro le news ai non maestri (role_usr != 2 && != 3)
-				if (nonmostrarepiu_usr == 0 && role_usr != 2 && role_usr != 3) {
+				if (nonmostrarepiu_usr == 0 && (role_usr <= 1  || role_usr == 4)) {
 					$('#modalNews').modal({show: 'true'});
 				}
 			},
@@ -155,9 +154,6 @@
 				alert("Errore: contattare l'amministratore fornendo il codice di errore '11Ilmioregistro ##fname##'");      
 			}
 		});
-
-
-
 	});
 
 
@@ -190,7 +186,7 @@
 	function requery(){
 
 
-		console.log("09Cruscotto.php: entro in requery");
+		//console.log("09Cruscotto.php: entro in requery");
 		var viewportWidth = $(window).width();
 		if (viewportWidth < 1280) { hide = '; display:none;'; } else { hide = ""; }
 		
@@ -251,9 +247,9 @@
 				//console.log("09Cruscotto.php: role_usr"+ role_usr);
 				for (i = 0; i < (numeroClassi+1); i++) {
 					// console.log("09Cruscotto.php: nomeClasse + nomeSezione ("+i+")");
-						console.log(nomeClasse[i]+nomeSezione[i]);
+					// console.log(nomeClasse[i]+nomeSezione[i]);
 					// console.log("09Cruscotto.php: numeroAlunni("+i+")");
-					 console.log(numeroAlunni[i]);
+					// console.log(numeroAlunni[i]);
 					// console.log("09Cruscotto.php: numeroAlunniPrima("+i+")");
 					// console.log(numeroAlunniPrima[i]);
 					// console.log("-------------------------------------------");
