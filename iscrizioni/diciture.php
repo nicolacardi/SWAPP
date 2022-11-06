@@ -76,7 +76,7 @@ switch ($codscuola) {
         $indirizzocompletoscuola= "Via Retrone, 20 - 35135 - Padova - tel.049/61.95.10 - fax 049/88.94.39 - segreteria@waldorfpadova.it";
         $datiscuola = "C.F. 92106210286 - P.IVA 03577600285 - c.c.i.a.a. n. 416913 iscrizione albo nazionale società cooperative n° A23118";
         $cfscuola = "92106210286";
-        $ragionesocialescuola = "Società Cooperativa Sociale Steiner Waldorf Padova";
+        $ragionesocialescuola = "Soc. Coop. Steiner Waldorf Padova";
         $titolaretrattamentoTitolo = "il presidente pro-tempore della Società Cooperativa Sociale Steiner Waldorf Padova";
         $titolaretrattamento = "Enrica Salvatori";
         $linkPTOF = "http://www.waldorfpadova.it/cms/wp-content/uploads/2020/01/PTOF-SCUOLA-WALDORF-SOPHIA-ANNI-2019-2022.pdf";

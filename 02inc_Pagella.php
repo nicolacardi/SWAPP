@@ -297,7 +297,7 @@ if ($aselme_cla=="EL")  {
 </div>
 
 <!--***************************************FORM MODALE INSERIMENTO OBIETTIVI **************************************************-->
-<div class="modal" id="modalAddVotiObiettivi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal" id="modalAddVotiObiettivi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog" style="font-size:14px; width: 40%">
 			<div class="modal-content">
 				<div class="modal-body white">           

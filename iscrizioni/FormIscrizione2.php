@@ -35,6 +35,9 @@
     <link rel="stylesheet" href="../assets/bootstrap-select/bootstrap-select.css">
 	<script src="../assets/bootstrap-select/bootstrap-select.js"></script>
 
+	<script src="../assets/functions/functionsJS.js"></script>
+
+	
 	<? $_SESSION['page'] = "Scheda Iscrizione - Madre";?>
 
 </head>
@@ -52,14 +55,12 @@
 
 	$annoiscrizioni = $_SESSION['anno_iscrizioni'];
 
-	$sql = "SELECT `cognome_fam`, ".
-	//"sociopadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam ".
-	"sociopadre_fam, sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ckautorizzazionemadre_fam, ckcarpoolingmadre_fam ".
+	$sql = "SELECT cognome_fam, ruolopadre_fam, ruolomadre_fam, sociopadre_fam, sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ibanmadre_fam, ckautorizzazionemadre_fam, ckcarpoolingmadre_fam ".
 	"FROM `tab_famiglie` WHERE `ID_fam`= ?";
 			$stmt = mysqli_prepare($mysqli, $sql);
 			mysqli_stmt_bind_param($stmt, "i", $_SESSION['ID_fam']);
 			mysqli_stmt_execute($stmt);
-			mysqli_stmt_bind_result($stmt, $cognome_fam, $sociopadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ckautorizzazionemadre_fam, $ckcarpoolingmadre_fam);
+			mysqli_stmt_bind_result($stmt, $cognome_fam, $ruolopadre_fam, $ruolomadre_fam, $sociopadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ibanmadre_fam, $ckautorizzazionemadre_fam, $ckcarpoolingmadre_fam);
 			while (mysqli_stmt_fetch($stmt)) {
 			}?>
 			
@@ -128,7 +129,7 @@
 					Nome
 				</div>
 				<div class="row">
-					<input class="tablecell5" type="text"  id="nomemadre_fam" name="nomemadre_fam" maxlength="50" value = "<?=$nomemadre_fam?>">
+					<input class="tablecell5 resetme" type="text"  id="nomemadre_fam" name="nomemadre_fam" maxlength="50" value = "<?=$nomemadre_fam?>">
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-6 " style="text-align: center; font-size: 14px;">
@@ -136,8 +137,18 @@
 					Cognome
 				</div>
 				<div class="row">
-					<input class="tablecell5" type="text"  id="cognomemadre_fam" name="cognomemadre_fam" maxlength="50" value = "<?=$cognomemadre_fam?>">
+					<input class="tablecell5 resetme" type="text"  id="cognomemadre_fam" name="cognomemadre_fam" maxlength="50" value = "<?=$cognomemadre_fam?>">
 				</div>
+			</div>
+			<div class="col-md-4 col-sm-12 col-md-offset-4 mt10" style="text-align: center; font-size: 14px;">
+				<select name="ruolomadre_fam"  style="margin-left: 0px"  id="ruolomadre_fam" onchange="ruolomadrechange()">
+					<option value="madre" <?if ($ruolomadre_fam =='madre'){echo ('selected');}?>>madre</option>
+					<?if($ruolopadre_fam != "deceduto") {?>
+						<option value="deceduto" <?if ($ruolomadre_fam =='deceduto'){echo ('selected');}?>>genitore deceduto</option>
+					<?}?>
+					<option value="tutore" <?if ($ruolomadre_fam =='tutore'){echo ('selected');}?>>tutore</option>
+					<option value="affidatario" <?if ($ruolomadre_fam =='affidatario'){echo ('selected');}?>>affidatario</option>
+				</select>
 			</div>
 			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; border-top: 1px solid grey; margin-top: 10px;  ">
 				NATA
@@ -148,7 +159,7 @@
 						Comune
 					</div>
 					<div class="row">
-						<input class="tablecell5 search-comune" type="text"  id="comunenascitamadre_fam" name="comunenascitamadre_fam" maxlength="50" value = "<?=$comunenascitamadre_fam?>">
+						<input class="tablecell5 search-comune resetme" type="text"  id="comunenascitamadre_fam" name="comunenascitamadre_fam" maxlength="50" value = "<?=$comunenascitamadre_fam?>">
 					</div>
 					<div class="col-md-12 DropDownContainer">
 						<div class="showcomuneB" name="showComuneNascita_fam" id="showComuneNascita_fam" ></div>
@@ -159,7 +170,7 @@
 						Prov
 					</div>
 					<div class="row">
-						<input title="Se non nota indicare -" class="tablecell5" type="text"  id="provnascitamadre_fam" name="provnascitamadre_fam" maxlength="4" value = "<?=$provnascitamadre_fam?>">
+						<input title="Se non nota indicare -" class="tablecell5 resetme" type="text"  id="provnascitamadre_fam" name="provnascitamadre_fam" maxlength="4" value = "<?=$provnascitamadre_fam?>">
 					</div>
 				</div>
 				<div class="col-md-8 col-sm-8" style="text-align: center; font-size: 14px;">
@@ -194,7 +205,7 @@
 						Codice Fiscale
 					</div>
 					<div class="row">
-						<input class="tablecell5" type="text"  id="cfmadre_fam" name="cfmadre_fam" maxlength = "16" onchange="makeuppercase(cfmadre_fam)" value = "<?=$cfmadre_fam?>" >
+						<input class="tablecell5 resetme" type="text"  id="cfmadre_fam" name="cfmadre_fam" maxlength = "16" onchange="makeuppercase(cfmadre_fam)" value = "<?=$cfmadre_fam?>" >
 					</div>
 				</div>
 			</div>
@@ -212,7 +223,7 @@
 						Indirizzo (Via e n. civico)
 					</div>
 					<div class="row">
-						<input class="tablecell5" type="text"  id="indirizzomadre_fam" name="indirizzomadre_fam" maxlength="50" value = "<?=$indirizzomadre_fam?>">
+						<input class="tablecell5 resetme" type="text"  id="indirizzomadre_fam" name="indirizzomadre_fam" maxlength="50" value = "<?=$indirizzomadre_fam?>">
 					</div>
 				</div>
 				<div class="col-md-9 col-sm-9" style="text-align: center; font-size: 14px;">
@@ -220,7 +231,7 @@
 						Comune
 					</div>
 					<div class="row">
-						<input class="tablecell5 search-comune" type="text"  id="comunemadre_fam" name="comunemadre_fam" maxlength="50" value = "<?=$comunemadre_fam?>">
+						<input class="tablecell5 search-comune resetme" type="text"  id="comunemadre_fam" name="comunemadre_fam" maxlength="50" value = "<?=$comunemadre_fam?>">
 					</div>
 					<div class="col-md-12 DropDownContainer">
 						<div class="showcomuneB" name="showComune_fam" id="showComune_fam" ></div>
@@ -231,7 +242,7 @@
 						Prov
 					</div>
 					<div class="row">
-						<input title="Se non nota indicare -" class="tablecell5" type="text"  id="provmadre_fam" name="provmadre_fam" maxlength="4" value = "<?=$provmadre_fam?>">
+						<input title="Se non nota indicare -" class="tablecell5 resetme" type="text"  id="provmadre_fam" name="provmadre_fam" maxlength="4" value = "<?=$provmadre_fam?>">
 					</div>
 				</div>
 				<div class="col-md-8 col-sm-8" style="text-align: center; font-size: 14px;">
@@ -257,7 +268,7 @@
 						CAP
 					</div>
 					<div class="row">
-						<input class="tablecell5" type="text"  id="CAPmadre_fam" name="CAPmadre_fam" maxlength="5" value = "<?=$CAPmadre_fam?>">
+						<input class="tablecell5 resetme" type="text"  id="CAPmadre_fam" name="CAPmadre_fam" maxlength="5" value = "<?=$CAPmadre_fam?>">
 					</div>
 				</div>
 			</div>
@@ -266,7 +277,7 @@
 					Telefono
 				</div>
 				<div class="row">
-					<input class="tablecell5" type="text"  id="telefonomadre_fam" name="telefonomadre_fam" maxlength="20" value = "<?=$telefonomadre_fam?>">
+					<input class="tablecell5 resetme" type="text"  id="telefonomadre_fam" name="telefonomadre_fam" maxlength="20" value = "<?=$telefonomadre_fam?>">
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-6 " style="text-align: center; font-size: 14px;">
@@ -274,7 +285,7 @@
 					Altro telefono
 				</div>
 				<div class="row">
-					<input class="tablecell5" type="text"  id="altrotelmadre_fam" name="altrotelmadre_fam" maxlength="20" value = "<?=$altrotelmadre_fam?>">
+					<input class="tablecell5 resetme" type="text"  id="altrotelmadre_fam" name="altrotelmadre_fam" maxlength="20" value = "<?=$altrotelmadre_fam?>">
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-6 col-md-offset-4" style="text-align: center; font-size: 14px;">
@@ -282,7 +293,7 @@
 					indirizzo e-mail
 				</div>
 				<div class="row">
-					<input class="tablecell5" type="text"  id="emailmadre_fam" name="emailmadre_fam" maxlength= "80" value = "<?=$emailmadre_fam?>">
+					<input class="tablecell5 resetme" type="text"  id="emailmadre_fam" name="emailmadre_fam" maxlength= "80" value = "<?=$emailmadre_fam?>">
 				</div>
 			</div>
 			<div class="col-md-1 col-sm-6" style="text-align: center; font-size: 14px;">
@@ -307,15 +318,24 @@
 					professione *
 				</div>
 				<div class="row">
-					<input class="tablecell5" type="text"  id="profmadre_fam" name="profmadre_fam" maxlength="50" value = "<?=$profmadre_fam?>">
+					<input class="tablecell5 resetme" type="text"  id="profmadre_fam" name="profmadre_fam" maxlength="50" value = "<?=$profmadre_fam?>">
 				</div>
 			</div>
+
+			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px;">
+				<div class="row">
+					IBAN (per SDD, 27 caratteri)
+				</div>
+				<div class="row">
+					<input class="tablecell5 resetme" type="text"  id="ibanmadre_fam" name="ibanmadre_fam" maxlength="50" value = "<?=$ibanmadre_fam?>">
+				</div>
+			</div>
+
 			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px;">
 				<div class="row">
 					(* dati facoltativi)
 				</div>
 			</div>
-
 <!-- CAR POOLING ************************************************************************ -->
 				<?if ($ISC_mostra_carpooling == 1) {?>
 					<div class="col-md-4 col-sm-12 col-md-offset-4 center fs14 mt10" style="border-top: 1px solid grey; border-bottom: 1px solid grey; padding: 5px 2px 10px 2px;">
@@ -578,6 +598,11 @@
 
 	function SaveAndGoNext (){
 			//Salva e procedi a Form2
+
+			$('#nomemadre_fam').val(firstUpperOnly($('#nomemadre_fam').val()));
+			$('#cognomemadre_fam').val(firstUpperOnly($('#cognomemadre_fam').val()));
+			$('#indirizzomadre_fam').val(firstUpperOnly($('#indirizzomadre_fam').val()));
+
 			let postData = $("#formiscrizione").serializeArray();
 			
 			let ckaccettazione = $("#ckautorizzazionemadre_fam").is(":checked");
@@ -598,7 +623,7 @@
 
 			postData.push( {name: "padremadre", value: "madre"});
 			console.log (postData);
-			
+
 			$.ajax({
 				url : "qry_updatePadreMadre.php", //qui andrà indicato il file che fa l'update della password nel database
 				type: "POST",
@@ -728,5 +753,41 @@
 		$('#titolo01Msg_OK').html('PROGETTO CAR-POOLING');
 		$('#msg01Msg_OK').html("Nell'ottica di un maggior rispetto per l'ambiente<br>e contribuire a diminuire il numero di veicoli circolanti<br>la scuola desidera incentivare l'aggregazione spontanea tra le famiglie.<br><br>A questo scopo produrrà una mappa con dei segnaposto,<br>uno per ciascun indirizzo che sarà stato autorizzato alla pubblicazione.<br>NB:Sarà incluso anche il contatto telefonico/e-mail.<br>La mappa sarà condivisa con tutti e soli i genitori che avranno dato autorizzazione.<br><br>Ogni famiglia potrà così individuare altre famiglie della comunità scolastica<br>che abitano nella propria zona ed in autonomia contattarle<br>per condividere un passaggio per i propri figli.<br><br>L'autorizzazione è revocabile in qualunque momento.<br>Il car pooling nascerà dalla spontanea aggregazione<br>delle famiglie e non è un servizio offerto dalla scuola.");
 		$('#modal01Msg_OK').modal('show');
+	}
+
+	function checkiban() {
+
+		ibanlength = $('#ibanpadre_fam').val().length;
+
+		if ($('#ibanpadre_fam').val() != "" && ibanlength!= 27) {
+			$('#ibanpadre_fam').css("border", "1px solid red");	
+		} else {
+			$('#ibanpadre_fam').css("border", "1px solid grey");
+		}
+	}
+
+	function ruolomadrechange() {
+		ruolomadre = $('#ruolomadre_fam').val();
+
+        if(ruolomadre == 'deceduto') { //1 = deceduto
+			$('#titolo02Msg_OKCancel').html('IMPOSTAZIONE DELLA MADRE COME DECEDUTA');
+			$('#msg02Msg_OKCancel').html("L'impostazione del genitore come deceduto<br>cancella tutti i dati anagrafici presenti<br>Sei sicuro di voler procedere?");
+			$("#btn_OK02Msg_OKCancel").html("Procedi");
+			$("#btn_OK02Msg_OKCancel").attr("onclick","procediMadreDeceduta();");
+			$("#btn_cancel02Msg_OKCancel").attr("onclick","annullaMadreDeceduta();");
+			$('#modal02Msg_OKCancel').modal('show');
+        }
+    };
+
+	function procediMadreDeceduta() {
+		$('.resetme').val("-");
+		$('#datanascitamadre_fam').val('01/01/1970');
+		$('#paesenascitamadre_fam').val('ITALIA');
+		$('#paesemadre_fam').val('ITALIA');
+		$('#titolomadre_fam').val('');
+	}
+
+	function annullaMadreDeceduta() {
+		$('#ruolomadre_fam').val(0);
 	}
 </script>

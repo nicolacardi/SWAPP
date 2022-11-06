@@ -40,6 +40,7 @@
     setSessionPar('ISC_mostra_quotaiscrizione');
     setSessionPar('ISC_mostracinquepermille');
     setSessionPar('ISC_mostra_premesso_che_lo_stato');  //attenzione non è lo stesso della scelta della religione: si può p.e. voler evitare di dare la scelta ma inserire la dicitura sullo stato
+    setSessionPar('ISC_include_pattocorresponsabilita');     
     setSessionPar('ISC_include_delegaritiro'); 
     setSessionPar('ISC_include_modulomensa'); 
     setSessionPar('ISC_include_modulodoposcuola'); 

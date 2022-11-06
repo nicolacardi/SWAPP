@@ -28,6 +28,19 @@
                 <input style="width:20%;" class="tablecell" type="checkbox"  id="sociomadre_det" name="sociomadre_det" value="socio" <? if ($sociomadre_fam_det == 1) { echo ('checked');} ?> onclick="showModalAffiliazione(<?=$ID_fam_alu?>, 'madre', '<?=$nomemadre_fam_det?>', '<?=$cognomemadre_fam_det?>')">
             </div>
         </div>
+        <div class="col-md-2 col-sm-2 itemSchedaAnagrafica">
+            <div class="row">
+                Ruolo
+            </div>
+            <select name="ruolomadre_fam"  style="margin-left: 0px"  id="ruolomadre_fam" onchange="ruolomadrechange()">
+                <option value="madre" <?if ($ruolomadre_fam =='madre'){echo ('selected');}?>>madre</option>
+                <?if($ruolopadre_fam != "deceduto") {?>
+                    <option value="deceduto" <?if ($ruolomadre_fam =='deceduto'){echo ('selected');}?>>genitore deceduto</option>
+                <?}?>
+                <option value="tutore" <?if ($ruolomadre_fam =='tutore'){echo ('selected');}?>>tutore</option>
+                <option value="affidatario" <?if ($ruolomadre_fam =='affidatario'){echo ('selected');}?>>affidatario</option>
+            </select>
+        </div>   
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">

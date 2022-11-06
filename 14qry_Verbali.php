@@ -67,6 +67,9 @@ function generateRandomString($testlength) {
 			<td>
 				<input class="tablecell3 disab val<?=$num_ver;?> w100" type="text" name="classe_ver" value = "<? if ($tipo_ver !=3) {echo ($classe_ver);} else { echo('-');} ?>" disabled>
 			</td>
+			<td>
+				<img title="Allegati" class="iconaStdH" src='assets/img/Icone/attachments.svg' onclick="showLinks('tab_verbali', <?=$num_ver;?>);">
+			</td>
 		</tr>
 	<?}?>
 	<tr>
@@ -75,11 +78,105 @@ function generateRandomString($testlength) {
 		</td>
 	</tr>
 
+
+
 <script>
 	
 	function requeryDettaglio(ID_ver){
 		//popola il modal form con i dati di ID_ver selezionato e lo mostra
 		$('#modalAddVerbale').modal({show: 'true'});
 	}
+
+	function showLinks (tab_lnk, IDext_lnk) {
+
+		//carica i link
+		postData = { tab_lnk: tab_lnk, IDext_lnk : IDext_lnk};
+		//console.log ("14qry_Verbali.php - showLinks - postData a 14qry_getComboMaestri.php");
+		//console.log (postData);
+		$.ajax({
+			async: false,
+			type: 'POST',
+			url: "14qry_getLinks.php",
+			data: postData,
+			dataType: 'html',
+			success: function(html){
+				//console.log (html);
+				//li mette nell'html di remove-contentLinksVerbale
+
+				$("#remove-contentLinksVerbale").html(html);
+				$("#btn_OKModalLinksVerbale").attr("onclick","salvaLinks('tab_verbali',"+IDext_lnk+");");
+
+				
+			},
+			error: function(){
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '14qry_Verbali  ##showLinks##'");     
+			}
+		});
+		$('#modalLinksVerbale').modal({show: 'true'});
+	}
 	
+
+	function eliminaLink(tab_lnk, IDext_lnk, ID_lnk) {
+        postData = {ID_lnk: ID_lnk};
+		// console.log ("14qry_Verbali.php - eliminaLink - postData a 14qry_deleteLink.php");
+		// console.log (postData);
+		$.ajax({
+			url : "14qry_deleteLink.php",
+			type: "POST",
+			data : postData,
+			dataType: "json",
+			success:function(){
+
+				//console.log ("14qry_Verbali.php - eliminaLink - ritorno da 14qry_deleteLink.php");
+				
+				showLinks(tab_lnk, IDext_lnk);
+			}
+		});
+	}
+
+	function salvaLinks(tab_lnk, IDext_lnk) {
+		
+		titolo_lnk = $('#titolo_lnk_new').val();
+		link_lnk = $('#link_lnk_new').val();
+
+		postData = {titolo_lnk: titolo_lnk, link_lnk: link_lnk, tab_lnk: tab_lnk, IDext_lnk: IDext_lnk};
+		console.log ("14qry_Verbali.php - salvaLinks - postData a 14qry_insertLink.php");
+		console.log (postData);
+		$.ajax({
+			url : "14qry_insertLink.php",
+			type: "POST",
+			data : postData,
+			dataType: "json",
+			success:function(){
+				showLinks(tab_lnk, IDext_lnk);
+
+				//dopo aver fatto la insert mi occupo delle n update
+			}
+		});
+
+		linkN_hidden = $('#linkN_hidden').val();
+		
+		for (let i = 1; i <= linkN_hidden; i++) {
+			ID_lnk = $('#ID_lnk'+i).val();
+			titolo_lnk = $('#titolo_lnk'+i).val();
+			link_lnk = $('#link_lnk'+i).val();
+			postData = {ID_lnk: ID_lnk, titolo_lnk: titolo_lnk, link_lnk: link_lnk};
+
+			console.log ("14qry_Verbali.php - salvaLinks - postData a 14qry_updateLink.php");
+			console.log (postData);
+			$.ajax({
+				url : "14qry_updateLink.php",
+				type: "POST",
+				data : postData,
+				dataType: "json",
+				success:function(){
+					
+				}
+			});
+
+		}
+		showLinks(tab_lnk, IDext_lnk);
+		
+	}
+
 </script>

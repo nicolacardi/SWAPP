@@ -13,9 +13,10 @@ require_once ('../fpdf181/Rotate.php');			//Estende MLT
 require_once ('../fpdf181/SetClassi.php');		//Estende Rotate: in SetClassi ci sono diverse classi Generiche ad esempio c'è WRITEHtml
 require_once ('../fpdf181/pdf_write_tag.php');	//Estende SetClassi
 
+require_once ('../fpdf181/pdf_multicellbltarray.php');	//Estende SetClassi
 
 //class PDF extends PDF_SetClassiGeneriche 
-class PDF extends PDF_WriteTag //NON FUNZIONAVA SE c'è WriteHMTL nel documento
+class PDF extends PDF_multicellbltarray //NON FUNZIONAVA SE c'è WriteHMTL nel documento
 
 {
 	

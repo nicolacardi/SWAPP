@@ -64,12 +64,12 @@
 
         if ($classe_cla == "I" || $classe_cla =="II" || $classe_cla =="III" || $classe_cla == "IV") {
             $testo = $pdf->Image($imgsquare,$pdf->GetX()+40, $pdf->GetY()+2,5)."      LUNEDI";
-            $pdf->Cell(40,$h1,"",0,1,'L');
+            $pdf->Cell(40,$h1,"",0,0,'L');
             $pdf->Cell(50,$h1,$testo,0,1,'L');
         }
         if ($classe_cla == "I" || $classe_cla =="II") {
             $testo = $pdf->Image($imgsquare,$pdf->GetX()+40, $pdf->GetY()+2,5)."      MARTEDI";
-            $pdf->Cell(40,$h1,"",0,1,'L');
+            $pdf->Cell(40,$h1,"",0,0,'L');
             $pdf->Cell(50,$h1,$testo,0,1,'L');
         }
 

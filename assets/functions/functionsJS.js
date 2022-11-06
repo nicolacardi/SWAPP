@@ -77,3 +77,17 @@ function postToDownload( template, filetitle, title, from, where, orderBY, nomiC
     $(form).remove();
     
 }
+
+function firstUpperOnly(str) {
+
+    let strLower = str.toLowerCase()
+    const arr = strLower.split(" ");
+
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    }
+
+    const strFinal = arr.join(" ");
+
+    return strFinal;
+}

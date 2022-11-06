@@ -17,11 +17,16 @@ $ISC_mostra_tipopag =	 			$_SESSION['ISC_mostra_tipopag'];
 $ISC_mostra_soci =					$_SESSION['ISC_mostra_soci'];
 $ISC_mostra_quotaiscrizione =		$_SESSION['ISC_mostra_quotaiscrizione'];
 $ISC_mostracinquepermille =			$_SESSION['ISC_mostracinquepermille'];
+$ISC_mostra_uscitaautonoma = 		$_SESSION['ISC_mostra_uscitaautonoma'];
+$ISC_mostra_doposcuola = 			$_SESSION['ISC_mostra_doposcuola'];
+
+$ISC_include_pattocorresponsabilita=$_SESSION['ISC_include_pattocorresponsabilita'];
 $ISC_include_SDD = 					$_SESSION['ISC_include_SDD'];
 $ISC_include_delegaritiro =			$_SESSION['ISC_include_delegaritiro'];
 $ISC_include_modulomensa =			$_SESSION['ISC_include_modulomensa'];
 $ISC_include_modulodoposcuola =		$_SESSION['ISC_include_modulodoposcuola'];
 $ISC_include_modulouscitaautonoma =	$_SESSION['ISC_include_modulouscitaautonoma'];
+$ISC_include_pattocorresponsabilita=$_SESSION['ISC_include_pattocorresponsabilita'];
 
 //ISC_mostra_uscitaautonoma viene settato più avanti quando si conosce anche il valore di classe_cla
 
@@ -56,12 +61,12 @@ if ($ID_fam == 0) {
 
 foreach ($ID_famA as $ID_fam) {
 
-	$sql = "SELECT cognome_fam, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ckcarpoolingpadre_fam, ckcarpoolingmadre_fam, ckmadreesclusadanucleo_fam, ckpadreesclusodanucleo_fam 
+	$sql = "SELECT cognome_fam, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ckcarpoolingpadre_fam, ckcarpoolingmadre_fam, ckmadreesclusadanucleo_fam, ckpadreesclusodanucleo_fam, ibanpadre_fam, ibanmadre_fam
 	FROM tab_famiglie WHERE ID_fam= ?";
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "i", $ID_fam);
 	mysqli_stmt_execute($stmt);
-	mysqli_stmt_bind_result($stmt, $cognome_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ckcarpoolingpadre_fam, $ckcarpoolingmadre_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam);
+	mysqli_stmt_bind_result($stmt, $cognome_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ckcarpoolingpadre_fam, $ckcarpoolingmadre_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam, $ibanpadre_fam, $ibanmadre_fam);
 	$n = 0;
 	$blank = false;
 	while (mysqli_stmt_fetch($stmt)) {
@@ -111,8 +116,8 @@ foreach ($ID_famA as $ID_fam) {
 $h1 = 6;
 
 //DATI PADRE**********************************************************************************************************
-	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
-	$pdf->Cell(70,$h1,"DATI ANAGRAFICI DEL PADRE",1,0,'L');
+	$pdf->SetFont('TitilliumWeb-SemiBold','',10);
+	$pdf->Cell(70,$h1,"DATI ANAGRAFICI DEL PADRE/TUTORE",1,0,'L');
 	$pdf->SetFont($fontdefault,'',10);
 
 
@@ -224,8 +229,8 @@ $h1 = 6;
 
 	$pdf->SetY(165);
 //DATI MADRE**********************************************************************************************************
-	$pdf->SetFont('TitilliumWeb-SemiBold','',12);
-	$pdf->Cell(70,$h1,"DATI ANAGRAFICI DELLA MADRE",1,0,'L');
+	$pdf->SetFont('TitilliumWeb-SemiBold','',10);
+	$pdf->Cell(70,$h1,"DATI ANAGRAFICI DELLA MADRE/TUTRICE",1,0,'L');
 
 	$pdf->SetFont($fontdefault,'',10);
 	if ($sociomadre_fam == 1) {
@@ -348,17 +353,11 @@ $h1 = 6;
 
 
 
-		if ($classiV[$classe_cla] == "<5") {
-			$ISC_mostra_uscitaautonoma = 0; }
-		else {
-			$ISC_mostra_uscitaautonoma = $_SESSION['ISC_mostra_uscitaautonoma'];
-		}
+		if ($classiV[$classe_cla] == "<5") {$ISC_mostra_uscitaautonoma = 0; }
 
-		if ($classiI_IV[$classe_cla] == "0") {
-			$ISC_mostra_doposcuola = 0; }
-		else {
-			$ISC_mostra_doposcuola = $_SESSION['ISC_mostra_doposcuola'];
-		}
+
+		if ($classiI_IV[$classe_cla] == "0") {$ISC_mostra_doposcuola = 0; }
+
 
 
 		//$nn parte da 0
@@ -444,7 +443,7 @@ $h1 = 6;
 	mysqli_stmt_bind_result($stmt, $ID_alu, $mf_alu, $nome_alu, $cognome_alu, $classe_cla, $quotapromessa_alu, $quotaconcordata_alu, $tipoquota_alu, $ratepromesse_fam, $quotacontraggiuntivo_fam, $ratecontraggiuntivo_fam, $pulizie_fam, $richcolloquio_fam, $intestazionefatt_fam, $modalitapag_fam);
 	//fine preparazione stmt
 
-//PAGINE CONTRATTO ARCA ********************************************************************************************
+//PAGINE CONTRATTO ARCA **********************************************************************************************
 
 	if ($codscuola =='AR') {
 		$pdf->AddPage();
@@ -747,13 +746,9 @@ $h1 = 6;
 		include("firmepadremadreluogo.php");
 
 		$pdf->Ln(10);
-		$pdf->Cell(60,5,"Per la Soc. Coop Sociale Arca Educazione",0,1,'C');
-		$pdf->Cell(60,5,"(Il rappresentante legale)",0,1,'C');
-		$pdf->Ln(4);
-		$pdf->Cell(60,5,"","B",1);
 
+		include("firmarappresentantelegale.php");
 
-		include("inc_pattocorresponsabilitaModuloIscrizione.php");
 	}
 
 
@@ -1038,10 +1033,9 @@ $h1 = 6;
 		include("firmepadremadreluogo.php");
 
 		$pdf->Ln(10);
-		$pdf->Cell(60,5,"Per la Soc. Coop Steiner Waldorf Padova",0,1,'C');
-		$pdf->Cell(60,5,"(Il rappresentante legale)",0,1,'C');
-		$pdf->Ln(4);
-		$pdf->Cell(60,5,"","B",1);
+
+		include("firmarappresentantelegale.php");
+
 	}
 
 
@@ -1618,10 +1612,7 @@ $h1 = 6;
 		include("firmepadremadreluogo.php");
 
 		$pdf->Ln(10);
-		$pdf->Cell(60,5,"Per la ".$ragionesocialescuola,0,1,'C');
-		$pdf->Cell(60,5,"(Il rappresentante legale)",0,1,'C');
-		$pdf->Ln(4);
-		$pdf->Cell(60,5,"","B",1);
+		include("firmarappresentantelegale.php");
 
 	}
 
@@ -1802,6 +1793,12 @@ $h1 = 6;
 		include("firmepadremadreluogo.php");
 	}
 
+//PAGINA PATTO DI CORRESPONSABILITA' *********************************************************************************
+
+	if ($ISC_include_pattocorresponsabilita == 1) {
+		include("inc_pattocorresponsabilitaModuloIscrizione.php");
+	}
+
 //PAGINA DICHIARAZIONI ***********************************************************************************************
 
 	$pdf->AddPage();
@@ -1812,7 +1809,7 @@ $h1 = 6;
 	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Ln(1);
 	if ($ISC_mostra_sceltareligione == 0 && $ISC_mostra_premesso_che_lo_stato != 0) {
-		$testo="Premesso che lo Stato assicura l'insegnamento della religione cattolica nelle scuole di ogni ordine e grado in conformità all'accordo che apporta modifiche al Concordato Lateranense (art. 9.2), il presente modulo costituisce richiesta dell'autorità scolastica in ordine all'esercizio del diritto di scegliere se avvalersi o non avvalersi dell'insegnamento della religione cattolica. I sottoscritti prendono atto che il ".$POF_PTOF_PSDext.", accettato all'atto della presente iscrizione, attualmente non prevede l'insegnamento specifico della religione intesa come materia curriculare che viene perciò sostituita da attività didattiche formative.";
+		$testo="Premesso che lo Stato assicura l'insegnamento della religione cattolica nelle scuole di ogni ordine e grado in conformità all'accordo che apporta modifiche al Concordato Lateranense (art. 9.2), il presente modulo costituisce richiesta dell'autorità scolastica in ordine all'esercizio del diritto di scegliere se avvalersi o non avvalersi dell'insegnamento della religione cattolica. I sottoscritti prendono atto che il ".$POF_PTOF_PSDext.", accettato all'atto della presente iscrizione, attualmente non prevede l'insegnamento specifico della religione intesa come materia curriculare che viene perciò sostituita da attività didattiche e formativ (CC.MM. 129 del 1986).";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,4.3,$testo);
 		$pdf->Ln(2);
@@ -1917,7 +1914,7 @@ $h1 = 6;
 	$pdf->Ln(8);
 	include("firmepadremadreluogo.php");
 
-//PARTE FIRMA UNICO GENITORE ****************************************************************************************
+//PARTE FIRMA UNICO GENITORE *****************************************************************************************
 	if ($ISC_mostra_firmaunica ==1) {
 
 
@@ -2206,7 +2203,7 @@ $h1 = 6;
 			$pdf->Cell(95,7,"Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
 			$pdf->Cell(95,7,"Non Autorizzo".$pdf->Image($imgsquarecrossed,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
 		}
-		$testo9= "le uscite sul territorio cittadino all'interno dell'orario scolastico. Tali uscite saranno man mano presentate ai genitori nell'ambito delle riunioni periodiche. Gli alunni saranno accompagnati dai docenti. Sarà cura dei docenti dare avviso dell'uscita mediante brevi comunicazioni sul diario alcuni giorni prima delle visite previste. Con la presente si esonera anche l'Amministrazione da qualsiasi responsabilità derivante da comportamenti dell'alunno/a difformi dalle disposizioni impartite dai docenti.";
+		$testo9= "le uscite sul territorio circostante all'interno dell'orario scolastico. Tali uscite saranno man mano presentate ai genitori nell'ambito delle riunioni periodiche. Gli alunni saranno accompagnati dai docenti. Sarà cura dei docenti dare avviso dell'uscita mediante brevi comunicazioni sul diario alcuni giorni prima delle visite previste. Con la presente si esonera anche l'Amministrazione da qualsiasi responsabilità derivante da comportamenti dell'alunno/a difformi dalle disposizioni impartite dai docenti.";
 		$pdf->Ln(8);
 		$pdf->SetFont($fontdefault,'',9);
 		$testo9 = utf8_decode($testo9);
@@ -2220,237 +2217,87 @@ $h1 = 6;
 		
 	}
 
+	if ($blank) {
+		$pdf->AddPage();
+	
+		$pdf->SetFont('TitilliumWeb-SemiBold','',16);
+		$pdf->Cell(0,10,utf8_decode("LIBERATORIA"), 0,1, 'C');
+		$pdf->SetFont($fontdefault,'',12);
+		// solo se $autorizztutteuguali = 0 allora devo produrre un modulo per figlio specificando quale
+			$pdf->Cell(0,10,"...............................................", 0,1, 'C');
+		$pdf->Ln(2);
+		$pdf->SetFont('TitilliumWeb-SemiBold','',14);
+		$pdf->Cell(0,8,utf8_decode("A.	UTILIZZO DI RIPRESE VIDEO E IMMAGINI FOTOGRAFICHE"), 0,1, 'C', True);
+		$testo5= "Informativa per la pubblicazione dei dati
+		Ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, unitamente all'art. 13 del D. Lgs. n. 196/2003 e degli artt. 13-14 Regolamento UE n. 676/2016, si informa che i dati personali conferiti con la liberatoria allegata saranno trattati con modalità cartacee e telematiche nel rispetto della vigente normativa e dei principi di correttezza, liceità, trasparenza e riservatezza; in tale ottica i dati forniti, ivi inclusi ritratti contenuti nelle fotografie, potranno essere utilizzati per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte.
+		La richiesta ha ad oggetto un dato biometrico normativamente definito dall'art. 4, punto 14 del Regolamento UE n. 676/2016. 
+		A scopo di completezza si specifica che, in materia di privacy, rappresenta giurisprudenza consolidata il ritenere che una grave ed oggettiva imperfezione fisica o una deformazione del volto, possano essere considerate elementi sufficienti a legittimare il diniego del consenso all'inserimento della foto.
+		Con riferimento alle foto e/o alle riprese audio/video scattate e/o riprese dalla ".$ragionesocialescuola." con la presente:";
+		$pdf->Ln(3);
+		$pdf->SetFont($fontdefault,'',9);
+		$testo5 = utf8_decode($testo5);
+		$pdf->MultiCell(0,5,$testo5);
+		$pdf->SetFont($fontdefault,'',10);
+
+		$pdf->Cell(95,7,"Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+		$pdf->Cell(95,7,"Non Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+
+		$testo6= "la stessa a titolo gratuito, anche ai sensi degli artt. 10 e 320 cod. civ. e degli artt. 96 e 97 legge 22.4.1941, n. 633, Legge sul diritto d'autore, l'acquisizione di immagini e riprese video per la pubblicazione su sito internet, su carta stampata e/o su qualsiasi altro mezzo di diffusione, nonché conservate negli archivi informatici, con finalità a carattere  meramente collegato alle attività svolte.";
+		$pdf->Ln(8);
+		$pdf->SetFont($fontdefault,'',9);
+		$testo6 = utf8_decode($testo6);
+		$pdf->MultiCell(0,5,$testo6);
+		
+		// MATERIALE PRODOTO
+		$pdf->Ln(2);
+		$pdf->SetFont('TitilliumWeb-SemiBold','',14);
+		$titoloUtilizzo = "B.	UTILIZZO DEL MATERIALE PRODOTTO DAGLI ALUNNI";
+		$pdf->Cell(0,8,utf8_decode($titoloUtilizzo), 0,1, 'C', True);
+		$testo7= "Considerato che nello svolgimento delle attività per documentare i percorsi ed i progressi svolti ci si può trovare nella condizione di utilizzare elaborati di vario tipo (relazioni, disegni, temi, fotografie, filmati, registrazioni, ...) ";
+		$pdf->Ln(3);
+		$pdf->SetFont($fontdefault,'',9);
+		$testo7 = utf8_decode($testo7);
+		$pdf->MultiCell(0,5,$testo7);
+		$pdf->SetFont($fontdefault,'',10);
+		$pdf->Cell(95,7,"Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+		$pdf->Cell(95,7,"Non Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+		$testo8= "l'Istituto a servirsi di tale documentazione a testimonianza e a corredo di quanto si realizza, nel rispetto della normativa sulla privacy.
+		La presente liberatoria/autorizzazione potrà essere revocata in ogni tempo con comunicazione scritta da inviare via posta comune o e-mail.";
+		$pdf->Ln(8);
+		$pdf->SetFont($fontdefault,'',9);
+		$testo8 = utf8_decode($testo8);
+		$pdf->MultiCell(0,5,$testo8);
+		
+		// USCITE BREVI
+		$pdf->Ln(2);
+		$pdf->SetFont('TitilliumWeb-SemiBold','',14);
+		$pdf->Cell(0,8,utf8_decode("C.	USCITE BREVI"), 0,1, 'C', True);
+		$pdf->SetFont($fontdefault,'',10);
+
+		$pdf->Cell(95,7,"Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+65, $pdf->GetY()+1,5),0,0,"C");
+		$pdf->Cell(95,7,"Non Autorizzo".$pdf->Image($imgsquare,$pdf->GetX()+64, $pdf->GetY()+1,5),0,0,"C"); 
+
+		$testo9= "le uscite sul territorio circostante all'interno dell'orario scolastico. Tali uscite saranno man mano presentate ai genitori nell'ambito delle riunioni periodiche. Gli alunni saranno accompagnati dai docenti. Sarà cura dei docenti dare avviso dell'uscita mediante brevi comunicazioni sul diario alcuni giorni prima delle visite previste. Con la presente si esonera anche l'Amministrazione da qualsiasi responsabilità derivante da comportamenti dell'alunno/a difformi dalle disposizioni impartite dai docenti.";
+		$pdf->Ln(8);
+		$pdf->SetFont($fontdefault,'',9);
+		$testo9 = utf8_decode($testo9);
+		$pdf->MultiCell(0,5,$testo9);
+
+		$pdf->SetXY(10,230);
+		//FIRMA PADRE FIRMA MADRE E DATA E LUOGO AFFIANCATI
+		$pdf->Ln(8);
+		include("firmepadremadreluogo.php");
+	}
 
 
 //PAGINA MODULO ADESIONE SOCIO ***************************************************************************************
 	include_once("AllegatoF_ModuloAdesioneSocio.php");
 
 
-//Modulo SDD EX RID **************************************************************************************************
-	if 	($ISC_include_SDD ==1) {
-		$pdf->AddPage();
-	
 
-
-		switch ($intestazionefatt_fam) {
-			case "altro":
-				$nome = "";
-				$cognome = "";
-				$indirizzo = "";
-				$comune = "";
-				$prov = "";
-				$CAP = "";
-				$CF = "                ";
-			break;
-			case "padre":
-				$nome = $nomepadre_fam;
-				$cognome = $cognomepadre_fam;
-				$indirizzo = $indirizzopadre_fam;
-				$comune = $comunepadre_fam;
-				$prov = $provpadre_fam;
-				$CAP = $CAPpadre_fam;
-				$CF = $cfpadre_fam;
-			break;
-			case "madre":
-				$nome = $nomemadre_fam;
-				$cognome = $cognomemadre_fam;
-				$indirizzo = $indirizzomadre_fam;
-				$comune = $comunemadre_fam;
-				$prov = $provmadre_fam;
-				$CAP = $CAPmadre_fam;
-				$CF = $cfmadre_fam;
-			break;
-			case null:
-				$nome = "";
-				$cognome = "";
-				$indirizzo = "";
-				$comune = "";
-				$prov = "";
-				$CAP = "";
-				$CF = "                ";
-				
-			}
-
-
-
-
-		$pdf->SetFont('TitilliumWeb-SemiBold','',11);
-		$pdf->MultiCell(0,5,utf8_decode("Mandato per addebito diretto SEPA - SDD Core (Area Unica dei Pagamenti in Euro) n° |__|__|__ /20__"), 0, "C");
-		$pdf->Ln(2);
-		$testo="Con la sottoscrizione del presente mandato, si autorizza la ".$ragionesocialescuola." a richiedere alla banca del debitore l'addebito sul suo conto e l'autorizzazione alla banca del debitore di procedere a tale addebito conformemente alle disposizioni impartite dalla ".$ragionesocialescuola." relativamente alle
-		rette scolastiche della ".$nomescuola." per i seguenti alunni: ";
-
-
-		$pdf->SetFont($fontdefault,'',9);
-		$pdf->MultiCell(0,5,utf8_decode($testo), 1, "J");
-
-		$pdf->Ln(2);
-		$pdf->SetFont('TitilliumWeb-SemiBold','',11);
-
-		$pdf->Cell(0,5,$nomi, 0,1, 'C');
-
-
-		$pdf->Ln(2);
-
-		$pdf->Cell(0,5,"FATTURA INTESTATA ". $testointestazione, 1,1, 'L');
-		$pdf->SetFont($fontdefault,'',9);
-
-		$hriga = 6;
-		$w1 = 30;
-		$w2 = 65;
-		$w3 = 25;
-		$w4 = 90;
-		$w5 = 10;
-		$w6 = 20;
-		$w7 = 4.7;
-		$w8 = 155;
-		$w9 = 15;
-		$w10 = 20;
-		$wgap = 1;
-
-	//DEBITORE
-		$pdf->SetXY(10,75);
-		$pdf->Cell(0,50,"", 1,1, 'L');
-		$pdf->SetXY(10,75);
-		$pdf->Cell(0,5,"DATI RELATIVI AL DEBITORE (intestatario del Conto Corrente di addebito)", 0,1, 'L');
-		$pdf->SetXY(10,80);
-		$pdf->Cell($w1,$hriga,"Cognome ",0,0,'R');
-		$pdf->Cell($w2,$hriga,$cognome,1,0,'L');
-		$pdf->Cell($w3,$hriga,"Nome ",0,0,'R');
-		$pdf->Cell($w2,$hriga,$nome,1,1,'L');
-
-		$pdf->Ln(2);
-		$pdf->Cell($w1,$hriga,"Indirizzo e N.",0,0,'R');
-		$pdf->Cell($w4,$hriga,$indirizzo,1,1,'L');
-
-
-		$pdf->Ln(2);
-		$pdf->Cell($w1,$hriga,"Comune ",0,0,'R');
-		$pdf->Cell($w4,$hriga,$comune,1,0,'L');
-		$pdf->Cell($w10,$hriga,"Prov ",0,0,'R');
-		$pdf->Cell($w5,$hriga,$prov,1,0,'L');
-		$pdf->Cell($w9,$hriga,"CAP ",0,0,'R');
-		$pdf->Cell($w6,$hriga,$CAP,1,1,'L');
-
-		$pdf->Ln(2);
-		$pdf->Cell($w1,$hriga,"Cod. Fiscale ",0,0,'R');
-		$pdf->SetFont($fontdefault,'',12);
-		for ($x = 1; $x <= 16; $x++) {
-			$pdf->Cell($w7,$hriga,substr($CF, $x-1, 1),1,0,'L');
-			$pdf->Cell($wgap,$hriga,"",0,0,'L');
-		}
-		$pdf->SetFont($fontdefault,'',9);
-
-
-		$pdf->Ln(12);
-		$pdf->Cell($w1,$hriga,"Cod. IBAN ",0,0,'R');
-		for ($x = 1; $x <= 27; $x++) {
-			$pdf->Cell($w7,$hriga,"",1,0,'L');
-			$pdf->Cell($wgap,$hriga,"",0,0,'L');
-		}
-
-	// CREDITORE
-		$pdf->SetXY(10,125);
-		$pdf->Cell(0,30,"", 1,1, 'L');
-		$pdf->SetXY(10,125);
-		$pdf->Cell(0,5,"DATI RELATIVI AL CREDITORE", 0,1, 'L');
-		$pdf->SetXY(10,130);
-
-		$pdf->Cell($w1,$hriga,"Rag. Sociale ",0,0,'R');
-		$pdf->Cell($w8,$hriga,utf8_decode($ragionesocialescuola),1,1,'L');
-
-		$pdf->Ln(2);
-		$pdf->Cell($w1,$hriga,"Cod. Identificativo ",0,0,'R');	
-		$pdf->Cell($w8,$hriga,$codIdentificativo,1,1,'L');
-
-		$pdf->Ln(2);
-		$pdf->Cell($w1,$hriga,"Sede Legale ",0,0,'R');	
-		$pdf->Cell($w8,$hriga,utf8_decode($indirizzoscuola),1,0,'L');
-
-	//SOTTOSCRITTORE
-		$pdf->SetXY(10,155);
-		$pdf->Cell(0,38,"", 1,1, 'L');
-		$pdf->SetXY(10,155);
-		$pdf->Cell(0,5,"DATI RELATIVI AL SOTTOSCRITTORE (nel caso in cui Sottoscrittore e Debitore NON coincidano)", 0,1, 'L');
-		$pdf->SetXY(10,160);
-		$pdf->Cell($w1,$hriga,"Cognome ",0,0,'R');
-		$pdf->Cell($w2,$hriga,"",1,0,'L');
-		$pdf->Cell($w3,$hriga,"Nome ",0,0,'R');
-		$pdf->Cell($w2,$hriga,"",1,1,'L');
-
-		$pdf->Ln(2);
-		$pdf->Cell($w1,$hriga,"Indirizzo e N. ",0,0,'R');
-		$pdf->Cell($w4,$hriga,"",1,1,'L');
-
-		$pdf->Ln(2);
-		$pdf->Cell($w1,$hriga,"Comune ",0,0,'R');
-		$pdf->Cell($w4,$hriga,"",1,0,'L');
-		$pdf->Cell($w10,$hriga,"Prov ",0,0,'R');
-		$pdf->Cell($w5,$hriga,"",1,0,'L');
-		$pdf->Cell($w9,$hriga,"CAP ",0,0,'R');
-		$pdf->Cell($w6,$hriga,"",1,1,'L');
-
-		$pdf->Ln(2);
-		$pdf->Cell($w1,$hriga,"Cod. Fiscale ",0,0,'R');
-		for ($x = 1; $x <= 16; $x++) {
-			$pdf->Cell($w7,$hriga,"",1,0,'L');
-			$pdf->Cell($wgap,$hriga,"",0,0,'L');
-		}
-
-	//TIPO DI PAGAMENTO
-		$pdf->SetXY(10,193);
-		$pdf->Cell(0,13,"", 1,1, 'L');
-
-		$pdf->SetXY(10,195);
-		$pdf->Cell($w1,$hriga,"Tipo di Pagamento ",0,0,'R');
-		$pdf->Cell(65,7,"ricorrente".$pdf->Image($imgsquarecrossed,$pdf->GetX()+45, $pdf->GetY()+1,5),1,0,"C");
-		// $pdf->Cell(25,7,"",0,0,"C");
-		// $pdf->Cell(65,7,"singolo addebito".$pdf->Image($imgsquare,$pdf->GetX()+45, $pdf->GetY()+1,5),1,0,"C");
-
-	//INVIARE MODULO
-
-		// $pdf->SetFont('TitilliumWeb-SemiBold','',11);
-		// $pdf->SetXY(10,210);
-		// $testo= "Inviare il modulo compilato e firmato a : ".$emailamministrazionescuola."consegnando poi l'originale alla segreteria della scuola ";
-		// $pdf->MultiCell(0,5,utf8_decode($testo),0,'L');
-
-			
-	//FIRMA
-		$pdf->Ln(40);
-		$pdf->SetFont($fontdefault,'',10);
-		$pdf->Cell(60,5,"Firma",0,0,'C');
-		$pdf->Cell(5,5,"",0,0,'C');
-		$pdf->Cell(60,5,"",0,0,'C');
-		$pdf->Cell(5,5,"",0,0,'C');
-		$pdf->Cell(60,5,"Data e luogo",0,1,'C');
-
-		$pdf->Ln(4);
-		$pdf->SetFont($fontdefault,'',8);
-		$pdf->Cell(60,5,"","B",0,'C');
-		$pdf->Cell(5,5,"","",0,'C');
-		$pdf->Cell(60,5,"",0,0,'C');
-		$pdf->Cell(5,5,"","",0,'C');
-		$pdf->Cell(60,5,"","B",0,'C');
-		$pdf->Image('../assets/img/Icone/frecciafirmablack.png', 10, $pdf->GetY()-18, 20);
-	}
-
-//Modulo MENSA
+//Modulo MENSA *******************************************************************************************************
 
 	if ($ISC_include_modulomensa == 1) {
-		include("inc_moduloMensa.php");
-	}
-
-//Modulo DOPOSCUOLA
-
-	if ($ISC_include_modulodoposcuola == 1) {
-		include("inc_moduloDoposcuola.php");
-	}
-
-//Modulo AUTORIZZAZIONE USCITA
-
-
-	if ($ISC_include_modulouscitaautonoma == 1) {
-
 		$sql = "SELECT ID_alu, mf_alu, nome_alu, cognome_alu, datanascita_alu, comunenascita_alu, provnascita_alu, paesenascita_alu, cittadinanza_alu, cf_alu, indirizzo_alu, citta_alu, CAP_alu, prov_alu, paese_alu, disabilita_alu, DSA_alu, ckprivacy1_alu, ckprivacy2_alu, ckprivacy3_alu, ckautfoto_alu, ckautmateriale_alu, ckautuscite_alu, ckautuscitaautonoma_alu, ckdoposcuola_alu, ckreligione_alu, altreligione_alu, ckmensa_alu, cktrasportopubblico_alu, scuolaprovenienza_alu, indirizzoscproven_alu, classe_cla FROM (tab_famiglie JOIN tab_anagraficaalunni ON ID_fam_alu = ID_fam) JOIN tab_classialunni ON ID_alu = ID_alu_cla WHERE ID_fam= ? AND noniscritto_alu = 0 ORDER BY datanascita_alu ASC";
 		$stmt = mysqli_prepare($mysqli, $sql);
 		mysqli_stmt_bind_param($stmt, "i", $ID_fam);
@@ -2458,11 +2305,47 @@ $h1 = 6;
 		mysqli_stmt_bind_result($stmt, $ID_alu, $mf_alu, $nome_alu, $cognome_alu, $datanascita_alu, $comunenascita_alu, $provnascita_alu, $paesenascita_alu, $cittadinanza_alu, $cf_alu, $indirizzo_alu, $citta_alu, $CAP_alu, $prov_alu, $paese_alu, $disabilita_alu, $DSA_alu, $ckprivacy1_alu, $ckprivacy2_alu, $ckprivacy3_alu, $ckautfoto_alu, $ckautmateriale_alu, $ckautuscite_alu, $ckautuscitaautonoma_alu, $ckdoposcuola_alu, $ckreligione_alu, $altreligione_alu, $ckmensa_alu, $cktrasportopubblico_alu, $scuolaprovenienza_alu, $indirizzoscproven_alu, $classe_cla );
 		
 		while (mysqli_stmt_fetch($stmt)) {
+			include("inc_moduloMensa.php");
+		}
+	}
 
+//Modulo DOPOSCUOLA **************************************************************************************************
+	if ($ISC_include_modulodoposcuola == 1 ) {
+		$sql = "SELECT ID_alu, mf_alu, nome_alu, cognome_alu, datanascita_alu, comunenascita_alu, provnascita_alu, paesenascita_alu, cittadinanza_alu, cf_alu, indirizzo_alu, citta_alu, CAP_alu, prov_alu, paese_alu, disabilita_alu, DSA_alu, ckprivacy1_alu, ckprivacy2_alu, ckprivacy3_alu, ckautfoto_alu, ckautmateriale_alu, ckautuscite_alu, ckautuscitaautonoma_alu, ckdoposcuola_alu, ckreligione_alu, altreligione_alu, ckmensa_alu, cktrasportopubblico_alu, scuolaprovenienza_alu, indirizzoscproven_alu, classe_cla FROM (tab_famiglie JOIN tab_anagraficaalunni ON ID_fam_alu = ID_fam) JOIN tab_classialunni ON ID_alu = ID_alu_cla WHERE ID_fam= ? AND noniscritto_alu = 0 ORDER BY datanascita_alu ASC";
+		$stmt = mysqli_prepare($mysqli, $sql);
+		mysqli_stmt_bind_param($stmt, "i", $ID_fam);
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_bind_result($stmt, $ID_alu, $mf_alu, $nome_alu, $cognome_alu, $datanascita_alu, $comunenascita_alu, $provnascita_alu, $paesenascita_alu, $cittadinanza_alu, $cf_alu, $indirizzo_alu, $citta_alu, $CAP_alu, $prov_alu, $paese_alu, $disabilita_alu, $DSA_alu, $ckprivacy1_alu, $ckprivacy2_alu, $ckprivacy3_alu, $ckautfoto_alu, $ckautmateriale_alu, $ckautuscite_alu, $ckautuscitaautonoma_alu, $ckdoposcuola_alu, $ckreligione_alu, $altreligione_alu, $ckmensa_alu, $cktrasportopubblico_alu, $scuolaprovenienza_alu, $indirizzoscproven_alu, $classe_cla );
+		
+		while (mysqli_stmt_fetch($stmt)) {
+			//Il doposcuola è stato chiesto da Verona, dove esiste solo per le classi I, II, III e IV
+			if ($classe_cla == "I" || $classe_cla == "II" || $classe_cla =="III" || $classe_cla == "IV"){
+				include("inc_moduloDoposcuola.php");
+			}
+		}
+	}
 
+//Modulo AUTORIZZAZIONE USCITA ***************************************************************************************
+
+	if ($ISC_include_modulouscitaautonoma == 1) {
+		$sql = "SELECT ID_alu, mf_alu, nome_alu, cognome_alu, datanascita_alu, comunenascita_alu, provnascita_alu, paesenascita_alu, cittadinanza_alu, cf_alu, indirizzo_alu, citta_alu, CAP_alu, prov_alu, paese_alu, disabilita_alu, DSA_alu, ckprivacy1_alu, ckprivacy2_alu, ckprivacy3_alu, ckautfoto_alu, ckautmateriale_alu, ckautuscite_alu, ckautuscitaautonoma_alu, ckdoposcuola_alu, ckreligione_alu, altreligione_alu, ckmensa_alu, cktrasportopubblico_alu, scuolaprovenienza_alu, indirizzoscproven_alu, classe_cla FROM (tab_famiglie JOIN tab_anagraficaalunni ON ID_fam_alu = ID_fam) JOIN tab_classialunni ON ID_alu = ID_alu_cla WHERE ID_fam= ? AND noniscritto_alu = 0 ORDER BY datanascita_alu ASC";
+		$stmt = mysqli_prepare($mysqli, $sql);
+		mysqli_stmt_bind_param($stmt, "i", $ID_fam);
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_bind_result($stmt, $ID_alu, $mf_alu, $nome_alu, $cognome_alu, $datanascita_alu, $comunenascita_alu, $provnascita_alu, $paesenascita_alu, $cittadinanza_alu, $cf_alu, $indirizzo_alu, $citta_alu, $CAP_alu, $prov_alu, $paese_alu, $disabilita_alu, $DSA_alu, $ckprivacy1_alu, $ckprivacy2_alu, $ckprivacy3_alu, $ckautfoto_alu, $ckautmateriale_alu, $ckautuscite_alu, $ckautuscitaautonoma_alu, $ckdoposcuola_alu, $ckreligione_alu, $altreligione_alu, $ckmensa_alu, $cktrasportopubblico_alu, $scuolaprovenienza_alu, $indirizzoscproven_alu, $classe_cla );
+		
+		while (mysqli_stmt_fetch($stmt)) {
 				include("inc_moduloUscitaautonoma.php");
 		}
 	}
+
+//Modulo SDD EX RID **************************************************************************************************
+	
+	if 	($ISC_include_SDD ==1) {
+		include("inc_SDD.php");
+	}
+
+
 }
 $pdf->Output();
 ?>

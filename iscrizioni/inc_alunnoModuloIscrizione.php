@@ -4,9 +4,9 @@
     $pdf->Cell(0,8,"CHIEDONO L'ISCRIZIONE PER L'ANNO SCOLASTICO ".$annoscolastico, 0,1, 'C');
     $pdf->SetFont($fontdefault,'',14);
 
-    if ($mf_alu == "M") { $frase = "del proprio figlio"; $desinenza = "o"; $articolo="il";}
-    if ($mf_alu == "F")  {$frase ="della propria figlia"; $desinenza = "a"; $articolo="la";}
-    if ($mf_alu != "F" && $mf_alu != "M")  {$frase ="del/la proprio/a figlio/a"; $desinenza = "o/a"; $articolo="il/la";}
+    if ($mf_alu == "M") { $frase = "dell'alunno"; $desinenza = "o"; $articolo="il";}
+    if ($mf_alu == "F")  {$frase ="dell'alunna"; $desinenza = "a"; $articolo="la";}
+    if ($mf_alu != "F" && $mf_alu != "M")  {$frase ="del/la alunno/a"; $desinenza = "o/a"; $articolo="il/la";}
 
     $pdf->Cell(0,6,$frase, 0,1, 'C');
 

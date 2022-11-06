@@ -1,6 +1,9 @@
 <?
-		$pdf->AddPage();
-    
+
+
+
+   	if ($codscuola =='AR') {
+        $pdf->AddPage();
         $pdf->SetFont('TitilliumWeb-SemiBold','',16);
         $pdf->Cell(0,8,"PATTO EDUCATIVO DI CORRESPONSABILITA' ".$annoscolastico, 0,1, 'C');
         $pdf->SetFont($fontdefault,'',14);
@@ -120,5 +123,299 @@
         $pdf->Image('../assets/img/Icone/frecciafirmablack.png', $pdf->GetX()-135, $pdf->GetY()-18, 20);
         $pdf->Image('../assets/img/Icone/frecciafirmablack.png', $pdf->GetX()-60, $pdf->GetY()-18, 20);
         
+    }
 
+    if ($codscuola =='VR') {
+        if (1==1) {
+        //if ($classe_cla == "I" || $classe_cla == "VI") {
+            $pdf->AddPage();
+
+            $fontsizedefault = 10;
+            $fontsizeminidefault = 8;
+            $pdf->SetFont('TitilliumWeb-SemiBold','',16);
+            $pdf->Cell(0,8,"PATTO EDUCATIVO DI CORRESPONSABILITA' ".$annoscolastico, 0,1, 'C');
+            $pdf->SetFont($fontdefault,'',$fontsizedefault);
+
+            $h = 5;
+            $h1 = 3.8;
+            $testo = "ALUNNO ".strtoupper($nome_alu)." ".strtoupper($cognome_alu)." iscritto al".$classi[$classe_cla];
+            $pdf->Cell(0,$h,$testo, 0,1, 'C');
+            $testo = "D.P.R. n. 249 del 24 giugno 1998 e D.P.R. n. 235 del 21 novembre 2007";
+            $pdf->Cell(0,$h,$testo, 0,1, 'C');
+
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $testo = "La realizzazione del progetto educativo della nostra scuola, così come la prevenzione dell'insorgere di situazioni di difficoltà, avviene attraverso il dialogo e la partecipazione responsabile di tutte le componenti della comunità scolastica ed è fondata sulla continua ricerca di una sana relazione, collaborazione e sostegno reciproco tra insegnanti e genitori.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $testo = "La normativa vigente richiamata sopra prevede che all'atto di iscrizione dell'alunno vengano esplicitati ed accolti gli impegni che a tal fine competono ad ogni soggetto attivo nel processo educativo, ivi compresi, nella Scuola Secondaria di 1° grado, gli alunni.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $testo = "In concordanza con i contenuti del Piano dell'Offerta Formativa (POF), del Progetto Educativo di Istituto (PEI) e del Regolamento,";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $testo = " - la scuola, tramite i suoi organi, si impegna a:";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $blt['bullet'] = chr(149);
+            $blt['margin'] = ' ';
+            $blt['indent'] = 4;
+            $blt['spacer'] = 0;
+            $blt['text'] = array();
+            $blt['text'][0] = utf8_decode("far conoscere le proprie proposte educative e didattiche;");
+            $blt['text'][1] = utf8_decode("garantire e favorire l'attuazione dell'Offerta Formativa e del Progetto di Istituto, ponendo alunni, genitori, insegnanti, personale non docente e tutti gli adulti attivi nella comunità scolastica nella condizione di esprimere al meglio il proprio ruolo e di poter offrire i propri talenti e le proprie professionalità al servizio dello sviluppo della scuola;");
+            $blt['text'][2] = utf8_decode("cogliere i bisogni formativi degli alunni e della comunità in cui opera la scuola, per cercare risposte adeguate;");
+            $blt['text'][3] = utf8_decode("garantire a ogni componente della vita scolastica la possibilità di esprimere, valorizzare e sviluppare le proprie potenzialità;");
+            $blt['text'][4] = utf8_decode("avere cura dei rapporti sociali tra tutti i soggetti della comunità scolastica, creando occasioni di incontro, dì dialogo e di collaborazione;");
+            $blt['text'][5] = utf8_decode("far rispettare le norme di sicurezza;");
+
+            $pdf->MultiCellBltArray(190,$h1,$blt);
+
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $testo = " - gli insegnanti si impegnano a:";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $blt['text'] = array();
+            $blt['text'][0] = utf8_decode("garantire competenza e professionalità nella realizzazione dell'Offerta Formativa attraverso l'impegno comune e condiviso;");
+            $blt['text'][1] = utf8_decode("rispettare l'orario scolastico e garantire la propria presenza all'interno delle classi/sezioni;");
+            $blt['text'][2] = utf8_decode("curare l'adeguatezza, la sicurezza e la salubrità degli ambienti scolastici in collaborazione con i genitori;");
+            $blt['text'][3] = utf8_decode("predisporre un clima educativo sereno e favorire positive relazioni interpersonali tra alunni ed adulti;");
+            $blt['text'][4] = utf8_decode("favorire l'integrazione e l'acquisizione, da parte degli alunni, di una progressiva autonomia e sicurezza nella gestione della propria vita e dei rapporti sociali, ponendo le basi volitive, emotive e cognitive necessarie per una partecipazione consapevole e costruttiva alla vita sociale e culturale;");
+            $blt['text'][5] = utf8_decode("cercare strategie utili a rimuovere eventuali situazioni di emarginazione, disagio, difficoltà, demotivazione o scarso impegno;");
+            $blt['text'][6] = utf8_decode("promuovere tramite la pedagogia Steiner-Waldorf la motivazione positiva all'apprendimento;");
+            $blt['text'][7] = utf8_decode("rendere consapevoli gli alunni delle proprie capacità, dei percorsi da sviluppare e degli obiettivi da raggiungere, destando in loro gradualmente la facoltà dell'autovalutazione;");
+            $blt['text'][8] = utf8_decode("verificare i percorsi formativi e didattici elaborati, e valutare i risultati raggiunti dagli alunni, tenendo conto delle capacità e dei processi di sviluppo assolutamente individuali di ogni alunno e valorizzandone le competenze in tutti gli ambiti di apprendimento;");
+            $blt['text'][9] = utf8_decode("somministrare, qualora si renda necessario, provvedimenti disciplinari commisurati alla gravità del fatto avvenuto, sempre con finalità educative,tendendo al rafforzamento del senso di responsabilità e al ripristino di rapporti corretti all'interno della comunità scolastica;");
+            $blt['text'][10] = utf8_decode("rendere partecipi i genitori del percorso didattico e formativo della classe, attraverso regolari riunioni;");
+            $blt['text'][11] = utf8_decode("tenere informate le famiglie, tramite colloqui individuali, in relazione agli apprendimenti e ai comportamenti dei loro figli;");
+
+            $pdf->MultiCellBltArray(190,$h1,$blt);
+
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $testo = " - gli alunni si impegnano a::";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $blt['text'] = array();
+            $blt['text'][0] = utf8_decode("rispettare le regole convenute dalla comunità scolastica (vedi Regolamento) per lo studio ed il comportamento;");
+            $blt['text'][1] = utf8_decode("partecipare alle attività scolastiche in modo attivo e responsabile;");
+            $blt['text'][2] = utf8_decode("rispettare tutti gli adulti che si occupano della loro educazione;");
+            $blt['text'][3] = utf8_decode("rispettare, accettare ed aiutare i compagni e tutti gli alunni della scuola, anche i più piccoli;");
+            $blt['text'][4] = utf8_decode("imparare ad ascoltare per poter accogliere quanto viene impartito durante le lezioni e per poter mettere in pratica i suggerimenti degli insegnanti;");
+            $blt['text'][5] = utf8_decode("avere cura dei propri materiali didattici e strumenti di lavoro;");
+            $blt['text'][6] = utf8_decode("svolgere i compiti assegnati a casa;");
+            $blt['text'][7] = utf8_decode("avere attenzione e cura nell'uso degli spazi, delle strutture, degli arredi e dei cortili esterni e del giardino;");
+            $blt['text'][8] = utf8_decode("informare le famiglie sui vari aspetti della vita scolastica e recapitare le comunicazioni;");
+
+            $pdf->MultiCellBltArray(190,$h1,$blt);
+
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $testo = " - i genitori si impegnano a:";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $blt['text'] = array();
+            $blt['text'][0] = utf8_decode("riconoscere il valore educativo della scuola e conoscerne il Piano dell'Offerta Formativa e il Progetto Educativo di Istituto;");
+            $blt['text'][1] = utf8_decode("collaborare con gli insegnanti per favorire lo sviluppo formativo dei propri figli, condividendo atteggiamenti educativi in armonia con quelli della scuola;");
+            $blt['text'][2] = utf8_decode("partecipare attivamente al percorso scolastico dei propri figli attraverso la presenza alle riunioni di classe e ai colloqui individuali con gli insegnanti;");
+            $blt['text'][3] = utf8_decode("conoscere e rispettare le regole della scuola (vedi Regolamento);");
+            $blt['text'][4] = utf8_decode("far frequentare con regolarità i propri figli;");
+            $blt['text'][5] = utf8_decode("giustificare le assenze;");
+            $blt['text'][6] = utf8_decode("controllare quotidianamente il diario e il libretto personale dell'alunno, ove adottati, e firmare le comunicazioni;");
+            $blt['text'][7] = utf8_decode("curare l'adeguatezza, la sicurezza e la salubrità degli ambienti scolastici in collaborazione con gli insegnanti;");
+            $blt['text'][8] = utf8_decode("risarcire o riparare eventuali danni provocati dagli alunni;");
+            $blt['text'][9] = utf8_decode("collaborare alle iniziative della scuola per la loro realizzazione sul piano operativo;");
+
+            $pdf->MultiCellBltArray(190,$h1,$blt);
+
+            
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $testo = " - il personale non docente si impegna a:";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $blt['text'] = array();
+            $blt['text'][0] = utf8_decode("essere puntuale e svolgere con precisione le mansioni assegnate;");
+            $blt['text'][1] = utf8_decode("conoscere l'Offerta Formativa della scuola e collaborare a realizzarla, per quanto di competenza;");
+            $blt['text'][2] = utf8_decode("conoscere, rispettare e far rispettare le regole della scuola (vedi Regolamento);");
+            $blt['text'][3] = utf8_decode("favorire un clima di collaborazione e rispetto tra tutti i soggetti della comunità scolastica (loro stessi, insegnanti, genitori, alunni);");
+            $blt['text'][4] = utf8_decode("segnalare al Collegio Insegnanti e/o al Consiglio Direttivo eventuali problemi rilevati nell'ambito delle proprie funzioni.");
+
+            $pdf->MultiCellBltArray(190,$h1,$blt);
+
+            //SECONDA PAGINA
+            $pdf->AddPage();
+
+
+
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+
+            $testo = "SPUNTI E RIFLESSIONI SUL PATTO DI CORRESPONSABILITÀ EDUCATIVA";
+            $pdf->Cell(0,8,utf8_decode($testo), 0,1, 'C');
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $testo = "La normativa (DPR 24 giugno 1998, n. 249, modificato dal DPR n. 235 del 21 novembre 2007-art. 5-bis) prevede che “Contestualmente all'iscrizione alla singola istituzione scolastica, è richiesta la sottoscrizione da parte dei genitori e degli studenti di un Patto educativo di Corresponsabilità, finalizzato a definire in maniera dettagliata e condivisa diritti e doveri nel rapporto tra istituzione scolastica autonoma, studenti e famiglie”.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $testo = "Per le scuole Steiner-Waldorf il patto di corresponsabilità educativa ha anche la valenza, insieme al PTOF, al Progetto Educativo e al regolamento d'Istituto, di evidenziare l'identità della scuola oltre agli aspetti di diritti e doveri dei genitori/allievi/insegnanti.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $testo = "Fra le indicazioni per far fronte all'emergenza sanitaria da SARS-CoV-2 il Piano Scuola prevede l'aggiornamento del “Patto Educativo di Corresponsabilità”, documento di natura contrattuale finalizzato all'assunzione dell'impegno da parte delle famiglie a rispettare le “precondizioni” per la presenza a scuola degli allievi.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $testo = "Anche nel caso del Patto di corresponsabilità educativa, come per tutte le indicazioni riguardo la riapertura delle attività didattiche, la normativa parla sempre di “attività scolastiche, educative e formative in tutte le Istituzioni del Sistema nazionale di Istruzione”. Di tale sistema siamo parte integrante anche noi come scuola Waldorf di Verona.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $testo = "A fronte di una essenzialità del Patto sia dal punto di vista giuridico, sia dal punto di vista sociale, lo vogliamo accompagnare con un documento (Vademecum - protocollo organizzativo) che riprenda la varie voci dei documenti di indirizzo del Ministero all'Istruzione e delle Regioni ma con contenuti coerenti con la pedagogia Steiner- Waldorf. Questo documento può essere esplicitamente richiamato nel patto di corresponsabilità laddove si parla di informazione ai genitori e rispetto delle indicazioni ricevute.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $testo = "L'ente gestore STEINER-WALDORF VERONA COOPERATIVA SOCIALE ONLUS della Scuola Primaria paritaria, Secondaria di primo grado non paritaria e del servizio all'infanzia STEINER WALDORF VERONA nella persona del suo Legale Rappresentante sig.ra DANZI ROSELLA";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $pdf->Cell(0,8,"STIPULA", 0,1, 'C');
+
+            $testo = "il presente Patto di Corresponsabilità circa le misure organizzative, igienico-sanitarie e ai comportamenti individuali volti al contenimento della diffusione del contagio da COVID-19 - A.S. 2023-2024";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $testo = "Nella ripartenza delle attività educative (scolastiche) in relazione al contenimento del rischio derivante dalla presenza del Sars-Cov-2, è elemento essenziale l'individuazione e l'applicazione di soluzioni che mettendo al centro il bambino/l'allievo ne perseguano il sano sviluppo e garantiscano alle famiglie la continuità del progetto educativo al quale hanno aderito. In tal senso il patto concerne alla dimensione educativa e alla necessaria connessione tra protocolli di sicurezza e qualità delle esperienze dei bambini.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $testo = "L'alleanza fra gestore, insegnanti e genitori, per la corresponsabilità educativa, sociale ed economica che condividono, gioca un ruolo fondamentale al fine di permettere il normale svolgimento delle attività, incentivare percorsi di salutogenesi all'interno della comunità e garantire il rispetto delle previste condizioni di sicurezza nella reciproca consapevolezza che anche a fronte di tutte le misure adottate, il rischio di contagio non può essere azzerato per la peculiarità delle attività svolte.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $testo = " - Il gestore si impegna a:";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $blt['text'] = array();
+            $blt['text'][0] = utf8_decode("Realizzare tutti gli interventi di carattere organizzativo, nei limiti delle proprie competenze e con le risorse a disposizione, nel rispetto della normativa vigente e delle linee guida emanate dal Ministero della Salute e dalle altre autorità competenti, finalizzate alla mitigazione del rischio di diffusione del SARS-CoV-2;");
+            $blt['text'][1] = utf8_decode("avvalersi di personale adeguatamente formato su tutti gli aspetti riferibili alle vigenti normative e sulle procedure igienico sanitarie di contrasto alla diffusione del contagio;");
+            $blt['text'][2] = utf8_decode("fornire alle famiglie puntuale informazione, sulle misure organizzative dell'attività e di quanto attivato per contenere la diffusione del contagio e permettere l'ottimale svolgimento delle attività;");
+            $blt['text'][3] = utf8_decode("comunicare tempestivamente eventuali nuove disposizioni;");
+            $blt['text'][4] = utf8_decode("coinvolgere le famiglie in un percorso educativo che vede la salute del bambino e del ragazzo in primo piano, sia in senso fisico, sia in senso psichico e volto allo sviluppo di processi di salutogenesi.");
+
+            $pdf->MultiCellBltArray(190,$h1,$blt);
+
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $testo = " - I sottoscritti genitori si impegnano a:";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+
+            $blt['text'] = array();
+            $blt['text'][0] = utf8_decode("rispettare le indicazioni ricevute dall'ente gestore relativamente alle misure organizzative;");
+            $blt['text'][1] = utf8_decode("trattenere il/la proprio/a figlio/a al domicilio se presenta temperatura corporea superiore ai 37,5 °C e/o altri sintomi riconducibili a sintomatologia sospetta di Covid 19;");
+            $blt['text'][2] = utf8_decode("quando contattato, recarsi immediatamente a scuola e riprendere il/la proprio/a figlio/a in caso di manifestazione improvvisa di sintomatologia riferibile a COVID-19;");
+            $blt['text'][3] = utf8_decode("sostenere processi di salutogenesi ovvero attuare azioni che portano forze di salute al bambino quali:");
+            $pdf->MultiCellBltArray(190,$h1,$blt);
+
+            $testo = "- alimentazione corretta, sana ed equilibrata;";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+            $testo = "- rispetto dei ritmi di sonno-veglia in base all'età del bambino/ragazzo;";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+            $testo = "- alimentazione corretta, sana ed equilibrata;";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+            $testo = "- organizzazione ritmica della giornata che veda un giusto tempo dedicato alle attività all'aperto, agli impegni scolastici ed extra scolastici, ecc.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+            $testo = "- uso sensato della tecnologia, adeguato alla crescita e allo sviluppo delle facoltà fondamentali del bambino.";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+
+
+            // $testo = "La realizzazione del progetto educativo della nostra scuola, così come la prevenzione dell'insorgere di situazioni di difficoltà, avviene attraverso il dialogo e la partecipazione responsabile di tutte le componenti della comunità scolastica ed è fondata sulla continua ricerca di una sana relazione, collaborazione e sostegno reciproco tra insegnanti e genitori.";
+            // $pdf->MultiCell(0,$h1,utf8_decode($testo))
+
+            $testo = "";
+            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            include("firmepadremadreluogo.php");
+
+            $pdf->Ln(5);
+
+            include("firmarappresentantelegale.php");
+
+
+            //SAREBBE MOLTO PIU' FACILE con WriteTag MA NON SI RIESCE A GOVERNARE LO SPAZIO SALTATO NELL'A CAPO RIGA: NE SALTA TROPPO!
+            //MI SEMBRA SALTI "mezza altezza di riga"
+            //E NON SI CAPISCE COME RIDURLO
+            // $pdf->AddPage();
+
+            // // Stylesheet
+            // // $pdf->SetStyle("TAG","FONTTYPE","N/B/I/U o combinazioni","fontsize 10/12/28", "color 0,0,255", "indent", "bullet");
+            // $pdf->SetStyleWriteTag("h1",    "TitilliumWeb-SemiBold",    "N",    $fontsizeminidefault,   0, 0);
+            // $pdf->SetStyleWriteTag("n",     $fontdefault,               "N",    $fontsizeminidefault,   0, 0);
+            // $pdf->SetStyleWriteTag("bu",     "TitilliumWeb-SemiBold",   "U",    $fontsizeminidefault,   0);
+            // $pdf->SetStyleWriteTag("b",     "TitilliumWeb-SemiBold",    "N",    $fontsizeminidefault,   0);
+            // $pdf->SetStyleWriteTag("a",     $fontdefault,               "BU",   $fontsizeminidefault,   "0,0,255");
+            // $pdf->SetStyleWriteTag("bul",   $fontdefault,               "N",    $fontsizeminidefault,   0, 3, chr(149));
+
+            // $txt="
+            // <n>La realizzazione del progetto educativo della nostra scuola, così come la prevenzione dell'insorgere di situazioni di difficoltà, avviene attraverso il dialogo e la partecipazione responsabile di tutte le componenti della comunità scolastica ed è fondata sulla continua ricerca di una sana relazione, collaborazione e sostegno reciproco tra insegnanti e genitori.</br>
+            // La normativa vigente richiamata sopra prevede che all'atto di iscrizione dell'alunno vengano esplicitati ed accolti gli impegni che a tal fine competono ad ogni soggetto attivo nel processo educativo, ivi compresi, nella Scuola Secondaria di 1° grado, gli alunni.</br>
+            // In concordanza con i contenuti del Piano dell'Offerta Formativa (POF), del Progetto Educativo di Istituto (PEI) e del Regolamento,</n>
+            // <b>la scuola, tramite i suoi organi, si impegna a:</b></br>
+            // <bul>far conoscere le proprie proposte educative e didattiche;</bul>
+            // <bul>garantire e favorire l'attuazione dell'Offerta Formativa e del Progetto di Istituto, ponendo alunni, genitori, insegnanti, personale non docente e tutti gli adulti attivi nella comunità scolastica nella condizione di esprimere al meglio il proprio ruolo e di poter offrire i propri talenti e le proprie professionalità al servizio dello sviluppo della scuola;</bul>
+            // <bul>cogliere i bisogni formativi degli alunni e della comunità in cui opera la scuola, per cercare risposte adeguate;</bul>
+            // <bul>garantire a ogni componente della vita scolastica la possibilità di esprimere, valorizzare e sviluppare le proprie potenzialità;</bul>
+            // <bul>avere cura dei rapporti sociali tra tutti i soggetti della comunità scolastica, creando occasioni di incontro, dì dialogo e di collaborazione;</bul>
+            // <bul>far rispettare le norme di sicurezza;</bul>
+            // <b>gli insegnanti si impegnano a:</b></br>
+            // <bul>garantire competenza e professionalità nella realizzazione dell'Offerta Formativa attraverso l'impegno comune e condiviso;</bul>
+            // <bul>rispettare l'orario scolastico e garantire la propria presenza all'interno delle classi/sezioni;</bul>
+            // <bul>curare l'adeguatezza, la sicurezza e la salubrità degli ambienti scolastici in collaborazione con i genitori;</bul>
+            // <bul>predisporre un clima educativo sereno e favorire positive relazioni interpersonali tra alunni ed adulti;</bul>
+            // <bul>favorire l'integrazione e l'acquisizione, da parte degli alunni, di una progressiva autonomia e sicurezza nella gestione della propria vita e dei rapporti sociali, ponendo le basi volitive, emotive e cognitive necessarie per una partecipazione consapevole e costruttiva alla vita sociale e culturale;</bul>
+            // <bul>cercare strategie utili a rimuovere eventuali situazioni di emarginazione, disagio, difficoltà, demotivazione o scarso impegno;</bul>
+            // <bul>promuovere tramite la pedagogia Steiner-Waldorf la motivazione positiva all'apprendimento;</bul>
+            // <bul>rendere consapevoli gli alunni delle proprie capacità, dei percorsi da sviluppare e degli obiettivi da raggiungere, destando in loro gradualmente la facoltà dell'autovalutazione;</bul>
+            // <bul>verificare i percorsi formativi e didattici elaborati, e valutare i risultati raggiunti dagli alunni, tenendo conto delle capacità e dei processi di sviluppo assolutamente individuali di ogni alunno e valorizzandone le competenze in tutti gli ambiti di apprendimento;</bul>
+            // <bul>somministrare, qualora si renda necessario, provvedimenti disciplinari commisurati alla gravità del fatto avvenuto, sempre con finalità educative, tendendo al rafforzamento del senso di responsabilità e al ripristino di rapporti corretti all'interno della comunità scolastica;</bul>
+            // <bul>rendere partecipi i genitori del percorso didattico e formativo della classe, attraverso regolari riunioni;</bul>
+            // <bul>tenere informate le famiglie, tramite colloqui individuali, in relazione agli apprendimenti e ai comportamenti dei loro figli;</bul>
+            // <b>gli alunni si impegnano a:</b></br>
+            // <bul>rispettare le regole convenute dalla comunità scolastica (vedi Regolamento) per lo studio ed il comportamento;</bul>
+            // <bul>partecipare alle attività scolastiche in modo attivo e responsabile;</bul>
+            // <bul>rispettare tutti gli adulti che si occupano della loro educazione;</bul>
+            // <bul>rispettare, accettare ed aiutare i compagni e tutti gli alunni della scuola, anche i più piccoli;</bul>
+            // <bul>imparare ad ascoltare per poter accogliere quanto viene impartito durante le lezioni e per poter mettere in pratica i suggerimenti degli insegnanti;</bul>
+            // <bul>avere cura dei propri materiali didattici e strumenti di lavoro;</bul>
+            // <bul>svolgere i compiti assegnati a casa;</bul>
+            // <bul>evitare di creare occasione di disturbo, durante le attività sia didattiche sia ricreative;</bul>
+            // <bul>avere attenzione e cura nell'uso degli spazi, delle strutture, degli arredi e dei cortili esterni e del giardino;</bul>
+            // <bul>informare le famiglie sui vari aspetti della vita scolastica e recapitare le comunicazioni;</bul>
+            // <b>i genitori si impegnano a:</b></br>
+            // <bul>riconoscere il valore educativo della scuola e conoscerne il Piano dell'Offerta Formativa e il Progetto Educativo di Istituto;</bul>
+            // <bul>collaborare con gli insegnanti per favorire lo sviluppo formativo dei propri figli, condividendo atteggiamenti educativi in armonia con quelli della scuola;</bul>
+            // <bul>partecipare attivamente al percorso scolastico dei propri figli attraverso la presenza alle riunioni di classe e ai colloqui individuali con gli insegnanti;</bul>
+            // <bul>conoscere e rispettare le regole della scuola (vedi Regolamento);</bul>
+            // <bul>far frequentare con regolarità i propri figli;</bul>
+            // <bul>giustificare le assenze;</bul>
+            // <bul>controllare quotidianamente il diario e il libretto personale dell'alunno, ove adottati, e firmare le comunicazioni;</bul>
+            // <bul>curare l'adeguatezza, la sicurezza e la salubrità degli ambienti scolastici in collaborazione con gli insegnanti;</bul>
+            // <bul>risarcire o riparare eventuali danni provocati dagli alunni;</bul>
+            // <bul>collaborare alle iniziative della scuola per la loro realizzazione sul piano operativo;</bul>
+            // <b>il personale non docente si impegna a:</b></br>
+            // <bul>essere puntuale e svolgere con precisione le mansioni assegnate;</bul>
+            // <bul>conoscere l'Offerta Formativa della scuola e collaborare a realizzarla, per quanto di competenza;</bul>
+            // <bul>conoscere, rispettare e far rispettare le regole della scuola (vedi Regolamento);</bul>
+            // <bul>favorire un clima di collaborazione e rispetto tra tutti i soggetti della comunità scolastica (loro stessi, insegnanti, genitori, alunni);</bul>
+
+            // ";
+
+            // $pdf->WriteTag(0,$h1,utf8_decode($txt),"","J",0,0);
+        }
+    }
 ?>

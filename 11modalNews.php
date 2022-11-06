@@ -24,6 +24,9 @@
                         -E' possibile inserire soci che non siano nè genitori nè insegnanti
                         <br>
                         ATTENZIONE: SI TRATTA DI UNA SEZIONE SPERIMENTALE, IN FASE DI TEST
+                        <br>
+                        -E' ora possibile indicare se un genitore è deceduto, <br>
+                        o se al suo posto c'è un tutor o affidatario
                     </div> <!-- END REMOVE CONTENT -->
                     <span style="font-size: 11px;"><input type="checkbox" id="cknonmostrarepiu_usr" name="cknonmostrarepiu_usr">&nbsp;nascondi questo popup fino alle prossime novità</span>
                     <div class="modal-footer" >

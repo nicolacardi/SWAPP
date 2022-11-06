@@ -5,6 +5,8 @@
 	include_once("diciture.php");
 	include_once("dicitureInformativaPrivacy.php");
 	include_once ("../modal01Msg_OK.html");
+	include_once ('../modal02Msg_OKCancel.html');
+
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +32,8 @@
 	<script src="../assets/datetimepicker/bootstrap-datetimepicker.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../assets/bootstrap-select/bootstrap-select.css">
 	<script src="../assets/bootstrap-select/bootstrap-select.js"></script>
+	<script src="../assets/functions/functionsJS.js"></script>
+
 
 	<? $_SESSION['page'] = "Scheda Iscrizione - Padre";?>
 </head>
@@ -63,11 +67,11 @@ $_SESSION['anno2'] = $anno2;
 	$countries = array("Italia", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antigua e Barbuda", "Antille Olandesi", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belgio", "Belize", "Benin", "Bermuda", "Bhutan", "Bielorussia", "Bolivia", "Bosnia Herzegowina", "Botswana", "Bouvet Island", "Brasile", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambogia", "Camerun", "Canada", "Capo Verde", "Cayman", "Chad", "Cile", "Cina", "Città del Vaticano", "Colombia", "Comoros", "Congo", "Congo, Rep. Democratica del", "Corea, Repubblica popolare democratica di", "Corea, Repubblica della", "Costa Rica", "Costa d'Avorio", "Croazia", "Cuba", "Cipro", "Danimarca", "Djibouti", "Dominica", "East Timor", "Ecuador", "Egitto", "El Salvador", "Eritrea", "Estonia", "Etiopia", "Fiji", "Filippines", "Finlandia", "Francia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germania", "Ghana", "Giappone",  "Gibilterra", "Giordania", "Grecia", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guiana Francese", "Guinea", "Guinea-Bissau", "Guinea Equatoriale", "Guyana", "Haiti", "Honduras", "Islanda", "India", "Indonesia", "Iran (Repubblica Islamica dell')", "Iraq", "Irlanda", "Isole Christmas", "Isole Cocos (Keeling)", "Isole Cook", "Isole Falkland (Malvinas)", "Isole Faroe", "Isole Heard and Mc Donald", "Isole Marshall", "Isole Solomon", "Isole Svalbard e Jan Mayen", "Isole Turks and Caicos", "Isole Vergini (British)", "Isole Vergini (U.S.)", "Isole Wallis e Futuna","Israele", "Jamaica", "Kazakhstan", "Kenia", "Kiribati", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lesotho", "Libano", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lituania", "Lussemburgo",  "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malesia", "Maldive", "Mali", "Malta", "Marocco", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Messico", "Micronesia, Federazione della", "Moldova, Repubblica della", "Monaco", "Mongolia", "Montserrat", "Mozambico", "Myanmar", "Namibia", "Nauru", "Nepal",  "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norvegia",  "Nuova Caledonia", "Nuova Zelanda", "Olanda", "Oman", "Pakistan", "Palau", "Panama", "Papua Nuova Guinea", "Paraguay", "Peru", "Pitcairn", "Polonia", "Polinesia Francese", "Portogallo", "Puerto Rico", "Qatar", "Repubblica Ceca", "Repubblica Centroafricana", "Republica Dominicana", "Reunion", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Repubblica della)", "Slovenia", "Somalia",  "South Georgia and the South Sandwich Islands", "Spagna", "Sri Lanka", "Stati Uniti d'America", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname",  "Sudafrica", "Svezia", "Svizzera","Swaziland",  "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, Repubblica della", "Thailandia", "Togo", "Tokelau", "Tonga", "Trinidad e Tobago", "Tunisia", "Turchia", "Turkmenistan",  "Tuvalu", "Ucraina", "Uganda",  "Ungheria", "United Arab Emirates", "UK",  "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
 	$countriesN = count($countries);
 
-	$sql = "SELECT `cognome_fam`, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, ckautorizzazionepadre_fam, ckcarpoolingpadre_fam, nonmostrarepiu_fam FROM `tab_famiglie` WHERE `ID_fam`= ?";
+	$sql = "SELECT cognome_fam, ruolopadre_fam, ruolomadre_fam, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, ibanpadre_fam, ckautorizzazionepadre_fam, ckcarpoolingpadre_fam, nonmostrarepiu_fam FROM `tab_famiglie` WHERE `ID_fam`= ?";
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "i", $_SESSION['ID_fam']);
 	mysqli_stmt_execute($stmt);
-	mysqli_stmt_bind_result($stmt, $cognome_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $ckautorizzazionepadre_fam, $ckcarpoolingpadre_fam, $nonmostrarepiu_fam); 
+	mysqli_stmt_bind_result($stmt, $cognome_fam, $ruolopadre_fam, $ruolomadre_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $ibanpadre_fam, $ckautorizzazionepadre_fam, $ckcarpoolingpadre_fam, $nonmostrarepiu_fam); 
 	while (mysqli_stmt_fetch($stmt)) {
 	}?>
 	
@@ -134,7 +138,7 @@ $_SESSION['anno2'] = $anno2;
 					Nome
 				</div>
 				<div class="row">
-					<input class="tablecell5" type="text"  id="nomepadre_fam" name="nomepadre_fam" maxlength="50" value = "<?=$nomepadre_fam?>">
+					<input class="tablecell5 resetme" type="text"  id="nomepadre_fam" name="nomepadre_fam" maxlength="50" value = "<?=$nomepadre_fam?>">
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-6 " style="text-align: center; font-size: 14px;">
@@ -142,8 +146,18 @@ $_SESSION['anno2'] = $anno2;
 					Cognome
 				</div>
 				<div class="row">
-					<input class="tablecell5" type="text"  id="cognomepadre_fam" name="cognomepadre_fam" maxlength="50" value = "<?=$cognomepadre_fam?>">
+					<input class="tablecell5 resetme" type="text"  id="cognomepadre_fam" name="cognomepadre_fam" maxlength="50" value = "<?=$cognomepadre_fam?>">
 				</div>
+			</div>
+			<div class="col-md-4 col-sm-12 col-md-offset-4 mt10" style="text-align: center; font-size: 14px;">
+				<select name="ruolopadre_fam"  style="margin-left: 0px"  id="ruolopadre_fam" onchange="ruolopadrechange()">
+					<option value="padre" <?if ($ruolopadre_fam =='padre'){echo ('selected');}?>>padre</option>
+					<?if($ruolomadre_fam != "deceduto") {?>
+						<option value="deceduto" <?if ($ruolopadre_fam =='deceduto'){echo ('selected');}?>>genitore deceduto</option>
+					<?}?>
+					<option value="tutore" <?if ($ruolopadre_fam =='tutore'){echo ('selected');}?>>tutore</option>
+					<option value="affidatario" <?if ($ruolopadre_fam =='affidatario'){echo ('selected');}?>>affidatario</option>
+				</select>
 			</div>
 			<div>
 				<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; border-top: 1px solid grey; margin-top: 10px;  ">
@@ -155,7 +169,7 @@ $_SESSION['anno2'] = $anno2;
 							Comune
 						</div>
 						<div class="row">
-							<input class="tablecell5 search-comune" type="text"  id="comunenascitapadre_fam" name="comunenascitapadre_fam" maxlength="50" value = "<?=$comunenascitapadre_fam?>">
+							<input class="tablecell5 search-comune resetme" type="text"  id="comunenascitapadre_fam" name="comunenascitapadre_fam" maxlength="50" value = "<?=$comunenascitapadre_fam?>">
 						</div>
 						<div class="col-md-12 DropDownContainer">
 							<div class="showcomuneB" name="showComuneNascita_fam" id="showComuneNascita_fam"  ></div>
@@ -166,7 +180,7 @@ $_SESSION['anno2'] = $anno2;
 							Prov
 						</div>
 						<div class="row">
-							<input title="Se non nota indicare -" class="tablecell5" type="text"  id="provnascitapadre_fam" name="provnascitapadre_fam" maxlength="4" value = "<?=$provnascitapadre_fam?>">
+							<input title="Se non nota indicare -" class="tablecell5 resetme" type="text"  id="provnascitapadre_fam" name="provnascitapadre_fam" maxlength="4" value = "<?=$provnascitapadre_fam?>">
 						</div>
 					</div>
 					<div class="col-md-8 col-sm-8" style="text-align: center; font-size: 14px;">
@@ -201,7 +215,7 @@ $_SESSION['anno2'] = $anno2;
 							Codice Fiscale
 						</div>
 						<div class="row">
-							<input class="tablecell5" type="text"  onchange="makeuppercase(cfpadre_fam)" id="cfpadre_fam" name="cfpadre_fam" maxlength = "16" value = "<?=$cfpadre_fam?>" >
+							<input class="tablecell5 resetme" type="text"  onchange="makeuppercase(cfpadre_fam)" id="cfpadre_fam" name="cfpadre_fam" maxlength = "16" value = "<?=$cfpadre_fam?>" >
 						</div>
 					</div>
 				</div>
@@ -214,7 +228,7 @@ $_SESSION['anno2'] = $anno2;
 							Indirizzo (Via e n. civico)
 						</div>
 						<div class="row">
-							<input class="tablecell5" type="text"  id="indirizzopadre_fam" name="indirizzopadre_fam" maxlength="50" value = "<?=$indirizzopadre_fam?>">
+							<input class="tablecell5 resetme" type="text"  id="indirizzopadre_fam" name="indirizzopadre_fam" maxlength="50" value = "<?=$indirizzopadre_fam?>">
 						</div>
 					</div>
 					<div class="col-md-9 col-sm-9" style="text-align: center; font-size: 14px;">
@@ -222,7 +236,7 @@ $_SESSION['anno2'] = $anno2;
 							Comune
 						</div>
 						<div class="row">
-							<input class="tablecell5 search-comune" type="text"  id="comunepadre_fam" name="comunepadre_fam" maxlength="50" value = "<?=$comunepadre_fam?>">
+							<input class="tablecell5 search-comune resetme" type="text"  id="comunepadre_fam" name="comunepadre_fam" maxlength="50" value = "<?=$comunepadre_fam?>">
 						</div>
 						<div class="col-md-12 DropDownContainer">
 							<div class="showcomuneB" name="showComune_fam" id="showComune_fam" ></div>
@@ -233,7 +247,7 @@ $_SESSION['anno2'] = $anno2;
 							Prov
 						</div>
 						<div class="row">
-							<input title="Se non nota indicare -" class="tablecell5" type="text"  id="provpadre_fam" name="provpadre_fam" maxlength="4" value = "<?=$provpadre_fam?>">
+							<input title="Se non nota indicare -" class="tablecell5 resetme" type="text"  id="provpadre_fam" name="provpadre_fam" maxlength="4" value = "<?=$provpadre_fam?>">
 						</div>
 					</div>
 					<div class="col-md-8 col-sm-8" style="text-align: center; font-size: 14px;">
@@ -259,7 +273,7 @@ $_SESSION['anno2'] = $anno2;
 							CAP
 						</div>
 						<div class="row">
-							<input class="tablecell5" type="text"  id="CAPpadre_fam" name="CAPpadre_fam" maxlength="5" value = "<?=$CAPpadre_fam?>">
+							<input class="tablecell5 resetme" type="text"  id="CAPpadre_fam" name="CAPpadre_fam" maxlength="5" value = "<?=$CAPpadre_fam?>">
 						</div>
 					</div>
 				</div>
@@ -268,7 +282,7 @@ $_SESSION['anno2'] = $anno2;
 						Telefono
 					</div>
 					<div class="row">
-						<input class="tablecell5" type="text"  id="telefonopadre_fam" name="telefonopadre_fam" maxlength="20" value = "<?=$telefonopadre_fam?>">
+						<input class="tablecell5 resetme" type="text"  id="telefonopadre_fam" name="telefonopadre_fam" maxlength="20" value = "<?=$telefonopadre_fam?>">
 					</div>
 				</div>
 				<div class="col-md-2 col-sm-6 " style="text-align: center; font-size: 14px;">
@@ -276,7 +290,7 @@ $_SESSION['anno2'] = $anno2;
 						Altro telefono
 					</div>
 					<div class="row">
-						<input class="tablecell5" type="text"  id="altrotelpadre_fam" name="altrotelpadre_fam" maxlength="20" value = "<?=$altrotelpadre_fam?>">
+						<input class="tablecell5 resetme" type="text"  id="altrotelpadre_fam" name="altrotelpadre_fam" maxlength="20" value = "<?=$altrotelpadre_fam?>">
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-md-offset-4" style="text-align: center; font-size: 14px;">
@@ -284,7 +298,7 @@ $_SESSION['anno2'] = $anno2;
 						indirizzo e-mail
 					</div>
 					<div class="row">
-						<input class="tablecell5" type="text"  id="emailpadre_fam" name="emailpadre_fam" maxlength= "80" value = "<?=$emailpadre_fam?>">
+						<input class="tablecell5 resetme" type="text"  id="emailpadre_fam" name="emailpadre_fam" maxlength= "80" value = "<?=$emailpadre_fam?>">
 					</div>
 				</div>
 				<div class="col-md-1 col-sm-6" style="text-align: center; font-size: 14px;">
@@ -309,9 +323,19 @@ $_SESSION['anno2'] = $anno2;
 						professione *
 					</div>
 					<div class="row">
-						<input class="tablecell5" type="text"  id="profpadre_fam" name="profpadre_fam" maxlength="50" value = "<?=$profpadre_fam?>">
+						<input class="tablecell5 resetme" type="text"  id="profpadre_fam" name="profpadre_fam" maxlength="50" value = "<?=$profpadre_fam?>">
 					</div>
 				</div>
+
+				<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px;">
+					<div class="row">
+						IBAN (per SDD, 27 caratteri)
+					</div>
+					<div class="row">
+						<input class="tablecell5 resetme" type="text"  id="ibanpadre_fam" name="ibanpadre_fam" maxlength="50" onchange="checkiban()" value = "<?=$ibanpadre_fam?>">
+					</div>
+				</div>
+
 				<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px;">
 					<div class="row">
 						(* dati facoltativi)
@@ -471,6 +495,7 @@ $_SESSION['anno2'] = $anno2;
 
 
 	function CheckBeforeForm2(){
+		console.log("FormIscrizione1.php - ChekBeforeForm2");
 		//verifica che i dati obbligatori ci siano tutti
 		let campo = ["comunenascitapadre_fam", "provnascitapadre_fam", "paesenascitapadre_fam", "cfpadre_fam", "indirizzopadre_fam", "comunepadre_fam", "provpadre_fam", "paesepadre_fam", "CAPpadre_fam", "telefonopadre_fam", "emailpadre_fam", "ckautorizzazionepadre_fam"];
 		let campodesc = ["Comune di Nascita", "Provincia di Nascita", "Paese di Nascita", "Codice Fiscale", "Via e N. Civico", "Comune di Residenza", "Provincia di Residenza", "Paese di Residenza", "CAP di residenza", "Telefono", "Indirizzo e-mail", "Autorizzazione Privacy"];
@@ -526,18 +551,29 @@ $_SESSION['anno2'] = $anno2;
 		} else {
 			$('#cfpadre_fam').css("border", "1px solid grey");
 		}
+		//console.log ("FormIscrizione1.php - ChekBeforeForm2, missingfields", missingfields);
 		
 		if ((missingfields == 0) || (($('#nomepadre_fam').val()=="-") && ($('#cognomepadre_fam').val()=="-"))) {
-			SalvaEProcedi();
+
+		//if (missingfields == 0) {
+
+			SaveAndGoNext();
 		} else {
 			$('#modalAvvisoCampi').modal('show');
 		}
+
+
 		
 	}
 
-	function SalvaEProcedi (){
-			//console.log("FormIscrizione1.php - SalvaEProcedi");
+	function SaveAndGoNext (){
+			//console.log("FormIscrizione1.php - SaveAndGoNext");
 			//Salva e procedi a Form2
+		
+			$('#nomepadre_fam').val(firstUpperOnly($('#nomepadre_fam').val()));
+			$('#cognomepadre_fam').val(firstUpperOnly($('#cognomepadre_fam').val()));
+			$('#indirizzopadre_fam').val(firstUpperOnly($('#indirizzopadre_fam').val()));
+			
 			let postData = $("#formiscrizione").serializeArray();
 			
 			let ckaccettazione = $("#ckautorizzazionepadre_fam").is(":checked");
@@ -560,7 +596,6 @@ $_SESSION['anno2'] = $anno2;
 
 			console.log("FormIscrizione1.php - SalvaEProcedi - postData a qry_updatePadreMadre.php");
 			console.log (postData);
-
 			$.ajax({
 				url : "qry_updatePadreMadre.php",
 				type: "POST",
@@ -571,7 +606,6 @@ $_SESSION['anno2'] = $anno2;
 					console.log (data.test);
 					console.log (data.test2);
 					console.log (data.sql);
-
 					updateStatusFamiglia(20, "FormIscrizione2.php");
 				}
 			});
@@ -691,6 +725,42 @@ $_SESSION['anno2'] = $anno2;
 		$('#titolo01Msg_OK').html('PROGETTO CAR-POOLING');
 		$('#msg01Msg_OK').html("Nell'ottica di un maggior rispetto per l'ambiente<br>e contribuire a diminuire il numero di veicoli circolanti<br>la scuola desidera incentivare l'aggregazione spontanea tra le famiglie.<br><br>A questo scopo produrrà una mappa con dei segnaposto,<br>uno per ciascun indirizzo che sarà stato autorizzato alla pubblicazione.<br>NB:Sarà incluso anche il contatto telefonico/e-mail.<br>La mappa sarà condivisa con tutti e soli i genitori che avranno dato autorizzazione.<br><br>Ogni famiglia potrà così individuare altre famiglie della comunità scolastica<br>che abitano nella propria zona ed in autonomia contattarle<br>per condividere un passaggio per i propri figli.<br><br>L'autorizzazione è revocabile in qualunque momento.<br>Il car pooling nascerà dalla spontanea aggregazione<br>delle famiglie e non è un servizio offerto dalla scuola.");
 		$('#modal01Msg_OK').modal('show');
+	}
+
+	function checkiban() {
+
+		ibanlength = $('#ibanpadre_fam').val().length;
+
+		if ($('#ibanpadre_fam').val() != "" && ibanlength!= 27) {
+			$('#ibanpadre_fam').css("border", "1px solid red");	
+		} else {
+			$('#ibanpadre_fam').css("border", "1px solid grey");
+		}
+	}
+
+	function ruolopadrechange() {
+		ruolopadre = $('#ruolopadre_fam').val();
+
+        if(ruolopadre == 'deceduto') { //1 = deceduto
+			$('#titolo02Msg_OKCancel').html('IMPOSTAZIONE DEL PADRE COME DECEDUTO');
+			$('#msg02Msg_OKCancel').html("L'impostazione del genitore come deceduto<br>cancella tutti i dati anagrafici presenti<br>Sei sicuro di voler procedere?");
+			$("#btn_OK02Msg_OKCancel").html("Procedi");
+			$("#btn_OK02Msg_OKCancel").attr("onclick","procediPadreDeceduto();");
+			$("#btn_cancel02Msg_OKCancel").attr("onclick","annullaPadreDeceduto();");
+			$('#modal02Msg_OKCancel').modal('show');
+        }
+    };
+
+	function procediPadreDeceduto() {
+		$('.resetme').val("-");
+		$('#datanascitapadre_fam').val('01/01/1970');
+		$('#paesenascitapadre_fam').val('ITALIA');
+		$('#paesepadre_fam').val('ITALIA');
+		$('#titolopadre_fam').val('');
+	}
+
+	function annullaPadreDeceduto() {
+		$('#ruolopadre_fam').val(0);
 	}
 
 </script>

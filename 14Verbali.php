@@ -94,6 +94,9 @@
 								<td style="width: 120px;">
 									<input class="tablelabel0 w100" type="text" value = "Classe" disabled>
 								</td>
+								<td style="width: 80px;">
+									<input class="tablelabel0 w100" type="text" value = "Links" disabled>
+								</td>
 							</tr>
 						</thead>
 						<tbody id="maintable">
@@ -243,6 +246,39 @@
 			</div>
 		</div>
 	</div>
+
+
+<!--***************************************FORM MODALE LINK DEL VERBALE **************************************************-->
+		<div class="modal" id="modalLinksVerbale" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="font-size:14px; width: 40%">
+			<div class="modal-content">
+				<div class="modal-body white">           
+					<form id="form_LinksVerbale" method="post">
+						<span class="titoloModal">Gestione Links Verbale</span>
+                        
+						<div id="remove-contentLinksVerbale" style="text-align: center; margin-top: 20px; "> <!-- START REMOVE CONTENT -->
+							
+
+						</div>
+						<div class="alert alert-success" id="alertLinksVerbale" style="display:none; margin-top:10px;">
+							<h4 id="alertmsgLlinksVerbale" style="text-align:center;"> 
+							  Iscrizione completata con successo!
+							</h4>
+						</div>
+						<div class="modal-footer" >
+
+							<button type="button" id="btn_CancelModalLinksVerbale" class="btnBlu" style="width:40%;" data-dismiss="modal">Chiudi</button>
+						<button type="button" id="btn_OKModalLinksVerbale" class="btnBlu" style="width:40%;" onclick="salvaLinks();">Salva</button>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--***************************************FINE FORM MODALE LINK DEL VERBALE **************************************************-->
+
+
 
 </body>
 </html>

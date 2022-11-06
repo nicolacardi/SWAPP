@@ -1,8 +1,10 @@
 <!-- ********************************************** TAB DATI PADRE **********************************************-->
 <div class="tab-pane active" id="DatiPadre">
     <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1 mt10" >
-        <div class="col-md-4 col-sm-4 itemSchedaAnagrafica">
+
+         <div class="col-md-4 col-sm-4 itemSchedaAnagrafica">
         </div>
+
         <div class="col-md-2 col-sm-2 itemSchedaAnagrafica">
             <div class="row">
                 Nome
@@ -28,6 +30,19 @@
                 <input style="width:20%;" class="tablecell" type="checkbox"  id="sociopadre_det" name="sociopadre_det" value="socio" <? if ($sociopadre_fam_det == 1) { echo ('checked');} ?> onclick="showModalAffiliazione(<?=$ID_fam_alu?>, 'padre', '<?=$nomepadre_fam_det?>', '<?=$cognomepadre_fam_det?>')">
             </div>
         </div>
+        <div class="col-md-2 col-sm-2 itemSchedaAnagrafica">
+            <div class="row">
+                Ruolo
+            </div>
+            <select name="ruolopadre_fam"  style="margin-left: 0px"  id="ruolopadre_fam" onchange="ruolopadrechange()">
+                <option value="padre" <?if ($ruolopadre_fam =='padre'){echo ('selected');}?>>padre</option>
+                <?if($ruolomadre_fam != "deceduto") {?>
+                    <option value="deceduto" <?if ($ruolopadre_fam =='deceduto'){echo ('selected');}?>>genitore deceduto</option>
+                <?}?>
+                <option value="tutore" <?if ($ruolopadre_fam =='tutore'){echo ('selected');}?>>tutore</option>
+                <option value="affidatario" <?if ($ruolopadre_fam =='affidatario'){echo ('selected');}?>>affidatario</option>
+            </select>
+        </div>    
     </div>
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
         <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-md-offset-0" style="z-index:100">

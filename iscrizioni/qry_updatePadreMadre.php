@@ -25,7 +25,10 @@
 		"titolopadre_fam",
 		"profpadre_fam",
 		"ckautorizzazionepadre_fam",
-		"ckcarpoolingpadre_fam");
+		"ckcarpoolingpadre_fam",
+		"ibanpadre_fam",
+		"ruolopadre_fam"
+		);
 	} else {
 		$nomecampoA = array(
 		"sociomadre_fam", 
@@ -47,7 +50,11 @@
 		"titolomadre_fam",
 		"profmadre_fam",
 		"ckautorizzazionemadre_fam",
-		"ckcarpoolingmadre_fam");
+		"ckcarpoolingmadre_fam",
+		"ibanmadre_fam",
+		"ruolomadre_fam"
+
+		);
 	}
 	
 	$campiN = count($nomecampoA);
@@ -64,7 +71,7 @@
 	
 	$sql = "UPDATE tab_famiglie SET ". $setstring. " WHERE ID_fam = ". $_SESSION['ID_fam'];
 	 $stmt = mysqli_prepare($mysqli, $sql);
-	 mysqli_stmt_bind_param ( $stmt, "isssssssssssssssssii", $valcampo[0], $valcampo[1], $valcampo[2], $valcampo[3], $valcampo[4], $valcampo[5], $valcampo[6], $valcampo[7], $valcampo[8], $valcampo[9], $valcampo[10], $valcampo[11], $valcampo[12], $valcampo[13], $valcampo[14], $valcampo[15], $valcampo[16], $valcampo[17], $valcampo[18], $valcampo[19]);
+	 mysqli_stmt_bind_param ( $stmt, "isssssssssssssssssiiss", $valcampo[0], $valcampo[1], $valcampo[2], $valcampo[3], $valcampo[4], $valcampo[5], $valcampo[6], $valcampo[7], $valcampo[8], $valcampo[9], $valcampo[10], $valcampo[11], $valcampo[12], $valcampo[13], $valcampo[14], $valcampo[15], $valcampo[16], $valcampo[17], $valcampo[18], $valcampo[19], $valcampo[20], $valcampo[21]);
 	 mysqli_stmt_execute($stmt);
 
 	$return['test'] =  $nomecampoA;

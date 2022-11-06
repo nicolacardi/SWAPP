@@ -182,6 +182,9 @@
 	$rapprmadre_fam = $_POST['rapprmadre_fam'];
 	$rapprpadre_fam = $_POST['rapprpadre_fam'];
 
+	$ruolopadre_fam = $_POST['ruolopadre_fam'];
+	$ruolomadre_fam = $_POST['ruolomadre_fam'];
+
 	//ora aggiorno i campi di tab_famiglie
 	$sql2 = "SELECT ID_fam_alu FROM tab_anagraficaalunni WHERE ID_alu = ? ;";
 	$stmt2 = mysqli_prepare($mysqli, $sql2);
@@ -237,7 +240,9 @@
 	"ibanmadre_fam = ? ,".
 	"ibanpadre_fam = ? ,".
 	"rapprmadre_fam = ? ,".
-	"rapprpadre_fam = ? ".
+	"rapprpadre_fam = ? ,".
+	"ruolopadre_fam = ? ,".
+	"ruolomadre_fam = ? ".
 
 	"WHERE ID_fam  = ? ;";
 	
@@ -281,7 +286,7 @@
 	// "WHERE ID_fam  = ".$ID_fam_alu." ;";
 	
 	$stmt3 = mysqli_prepare($mysqli, $sql3);
-	mysqli_stmt_bind_param($stmt3, "sssssissssssisssssssssssssssssssssssssssssssiii", $nomemadre_fam,	$cognomemadre_fam,	$telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $sociomadre_fam, $nomepadre_fam, $cognomepadre_fam, $cognomepadre_fam,$telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $sociopadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $provpadre_fam, $paesepadre_fam, $CAPpadre_fam, $titolopadre_fam, $profpadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $provmadre_fam, $paesemadre_fam, $CAPmadre_fam, $titolomadre_fam, $profmadre_fam, $imgmadre_fam, $imgpadre_fam, $notemadre_fam, $notepadre_fam, $intestazionefatt_fam, $ibanmadre_fam, $ibanpadre_fam, $rapprmadre_fam, $rapprpadre_fam, $ID_fam_alu);
+	mysqli_stmt_bind_param($stmt3, "sssssissssssisssssssssssssssssssssssssssssssiissi", $nomemadre_fam,	$cognomemadre_fam,	$telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $sociomadre_fam, $nomepadre_fam, $cognomepadre_fam, $cognomepadre_fam,$telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $sociopadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $provpadre_fam, $paesepadre_fam, $CAPpadre_fam, $titolopadre_fam, $profpadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $provmadre_fam, $paesemadre_fam, $CAPmadre_fam, $titolomadre_fam, $profmadre_fam, $imgmadre_fam, $imgpadre_fam, $notemadre_fam, $notepadre_fam, $intestazionefatt_fam, $ibanmadre_fam, $ibanpadre_fam, $rapprmadre_fam, $rapprpadre_fam, $ruolopadre_fam, $ruolomadre_fam, $ID_fam_alu);
 	//mysqli_stmt_bind_param($stmt3, "i", $ID_fam_alu);
 	mysqli_stmt_execute($stmt3);
 	$return['msg'] = "Dati dell'alunno/a ". $nome_alu . " " . $cognome_alu ." aggiornati";
