@@ -45,6 +45,7 @@
 				<div>
 					<select class="selectXl" id="selectDownloadExcel">
 						<option value="DownloadExcelAnagraficaMaestri">Anagrafiche Maestri</option>
+						<option value="DownloadExcelAnagraficaPersonale">Anagrafiche Personale</option>
 						<option value="DownloadExcelReportMaterie">Report Materie</option>
 					</select>
 					<img onclick="DownloadExcel()" class="miniButtonXl" src='assets/img/Icone/logoexcel2019.svg'>
@@ -372,6 +373,24 @@
 
 		//window.location.href='03downloadAnMaestri.php';
 	}
+
+	function DownloadExcelAnagraficaPersonale() {
+		template =		"AnagraficaMaestri";
+		filetitle = 	"AnagraficaPersonale";
+		title=			"Anagrafica Personale";
+		from = 			" tab_anagraficamaestri ";
+		where =			" in_organico_mae = 1 ";
+		orderBY = 		" cognome_mae ";
+		nomiCampiA = 	[ "idle", "nome_mae", "cognome_mae", "indirizzo_mae", "citta_mae", "CAP_mae", "prov_mae", "paese_mae", "cf_mae", "datanascita_mae", "comunenascita_mae", "provnascita_mae", "paesenascita_mae", "telefono_mae", "email_mae", "note_mae"];
+
+		dataNonDataA = 	["idle", 0,0,0,0,0,0,0,0,1,0,0,0,0,0,0];
+		columnColoring =	"";
+		postToDownload(template, filetitle, title, from, where, orderBY, nomiCampiA, dataNonDataA, columnColoring);
+
+		//window.location.href='03downloadAnMaestri.php';
+	}
+
+
 
 	function DownloadExcelReportMaterie() {
 		window.location.href='03downloadReportMaterie.php';

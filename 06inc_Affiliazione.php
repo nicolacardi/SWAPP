@@ -99,15 +99,22 @@
 
 <script>
 
-	function showModalAffiliazione(ID_fam, padremadre, nome, cognome) {
-
+	function showModalAffiliazione(ID_fam, padremadre) {
+		console.log (padremadre, $('#nomepadre_fam_det').val());
 		$('#padremadre_hidden').val(padremadre);
 		$('#ID_fam_hidden').val(ID_fam);
 
-		$('#nomesocio').val(nome);
-		$('#cognomesocio').val(cognome);
+		if (padremadre == 'padre') {
+			$('#nomesocio').val( $('#nomepadre_fam_det').val() );
+			$('#cognomesocio').val(  $('#cognomepadre_fam_det').val() );
+		}
 
-		postData = { ID_fam_mae_soc : ID_fam, nome: nome, cognome: cognome, padremadre_soc: padremadre};
+		if (padremadre == 'madre') {
+			$('#nomesocio').val( $('#nomemadre_fam_det').val() );
+			$('#cognomesocio').val(  $('#cognomemadre_fam_det').val() );
+		}
+
+		postData = { ID_fam_mae_soc : ID_fam, padremadre_soc: padremadre};
 		console.log ("06inc_Affiliazione.php - showModalAffiliazione - postData a 06qry_getSocio.php ");
 		console.log (postData);
 		$("#pagtoshow_hidden").val("Dati"+padremadre.charAt(0).toUpperCase() + padremadre.slice(1));

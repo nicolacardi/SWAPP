@@ -262,14 +262,18 @@
 
 
 
-	function showModalAffiliazione(ID_mae, nome, cognome) {
+	function showModalAffiliazione(ID_mae) {
 
 
 		$("#ID_mae_det_hidden").val(ID_mae); 
-		$('#nomesocio').val(nome);
-		$('#cognomesocio').val(cognome);
+		// $('#nomesocio').val(nome);
+		// $('#cognomesocio').val(cognome);
 
-		postData = { ID_fam_mae_soc : ID_mae, nome: nome, cognome: cognome, padremadre_soc: "maestro"};
+			$('#nomesocio').val( $('#nome_mae_det').val() );
+			$('#cognomesocio').val(  $('#cognome_mae_det').val() );
+
+
+		postData = { ID_fam_mae_soc : ID_mae, padremadre_soc: "maestro"};
 		//console.log ("08SchedaMaestro.php - showModalAffiliazione - postData a 06qry_getSocio.php ");
 		//console.log (postData);
 		$("#pagtoshow_hidden").val("DatiAnagrafici");

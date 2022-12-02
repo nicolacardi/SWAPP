@@ -25,7 +25,7 @@
             (in libro soci)
             </div>
             <div class="row">
-                <input style="width:20%;" class="tablecell" type="checkbox"  id="sociomadre_det" name="sociomadre_det" value="socio" <? if ($sociomadre_fam_det == 1) { echo ('checked');} ?> onclick="showModalAffiliazione(<?=$ID_fam_alu?>, 'madre', '<?=$nomemadre_fam_det?>', '<?=$cognomemadre_fam_det?>')">
+                <input style="width:20%;" class="tablecell" type="checkbox"  id="sociomadre_det" name="sociomadre_det" value="socio" <? if ($sociomadre_fam_det == 1) { echo ('checked');} ?> onclick="showModalAffiliazione(<?=$ID_fam_alu?>, 'madre')">
             </div>
         </div>
         <div class="col-md-2 col-sm-2 itemSchedaAnagrafica">

@@ -31,7 +31,7 @@
             (in libro soci)
             </div>
             <div class="row">
-                <input style="width:20%;" class="tablecell" type="checkbox"  id="socio_mae_det" name="socio_mae_det" value="socio" <? if ($socio_mae_det == 1) { echo ('checked');} ?> onclick="showModalAffiliazione(<?=$ID_mae?>, '<?=$nome_mae_det?>', '<?=$cognome_mae_det?>')">
+                <input style="width:20%;" class="tablecell" type="checkbox"  id="socio_mae_det" name="socio_mae_det" value="socio" <? if ($socio_mae_det == 1) { echo ('checked');} ?> onclick="showModalAffiliazione(<?=$ID_mae?>)">
             </div>
         </div>
     </div>
