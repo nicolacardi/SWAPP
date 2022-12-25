@@ -3,6 +3,7 @@
     $nPagina = intval($pdf->PageNo());
     if($nPagina % 2 == 0){
         $pdf->Ln(20); 
+        $pdf->SetFont($fontdefault,'',12);
         $pdf->Cell(0,5,"PAGINA VUOTA", 0,1, 'C');
         $pdf->AddPage();
     }

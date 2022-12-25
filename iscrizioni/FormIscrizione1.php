@@ -119,6 +119,7 @@ $_SESSION['anno2'] = $anno2;
 				<div class="col-md-12" style="text-align: center; font-size: 16px; margin-left: 40px;">
 					<input id="ID_fam_hidden" 				name="ID_fam_hidden" 				value="<?=$_SESSION['ID_fam'];?>" 						hidden>
 					<input id="ISC_mostra_carpooling" 											value="<?=$_SESSION['ISC_mostra_carpooling'];?>" 		hidden>
+
 					<input id="nonmostrarepiu_fam_hidden" 	name="nonmostrarepiu_fam_hidden" 	value="<?=$nonmostrarepiu_fam;?>" 						hidden>
 					<?$ISC_mostra_carpooling=$_SESSION['ISC_mostra_carpooling'];?>
 				</div>
@@ -542,6 +543,15 @@ $_SESSION['anno2'] = $anno2;
 			$('#datanascitapadre_fam').css("border", "1px solid grey");
 		}
 		
+		ibanlength = $('#ibanpadre_fam').val().length;
+
+		if ($('#ibanpadre_fam').val() != "" && ibanlength!= 27) {
+			$('#ibanpadre_fam').css("border", "1px solid red");	
+			missingfields++;	
+		} else {
+			$('#ibanpadre_fam').css("border", "1px solid grey");
+		}
+
 		cflength = $('#cfpadre_fam').val().length;
 		
 		if (cflength!= 16) {

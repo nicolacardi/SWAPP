@@ -110,7 +110,8 @@
 <!--SECONDA PARTE-->
 			<div class="row" style="text-align: justify; margin-left: 2px; margin-right: 2px; font-size: 14px; line-height: 2">
 				<div class="col-md-6 col-md-offset-3">
-					I genitori dichiarano che il nucleo familiare è così composto (indicare tutti i componenti)
+					I genitori dichiarano che il nucleo familiare è così composto (indicare tutti i componenti)<br>
+					Spuntare la casella di controllo qualora il genitore non sia presente.
 				</div>
 			</div>
 			<div class="row" style="text-align: center; font-size: 12px; margin-top: 20px; margin-left: 1px; margin-right: 5px;  ">

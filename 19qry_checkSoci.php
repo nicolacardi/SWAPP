@@ -1,5 +1,9 @@
 <?
-    include_once("database/databaseii.php"); //è nel database B che vado a guardare!
+	//La routine verifica se è stato modificato il socio padre o il socio madre da arte dell'utente.
+	//infatti confronta il dbA con il dbB sulla famiglia che è stata passata.
+	 include_once("database/databaseii.php"); //è nel database B che vado a guardare!!!!
+
+
 	$ID_fam = $_POST['ID_fam_alu'];
 
 	$sql = "SELECT ID_fam, sociomadre_fam, sociopadre_fam, nomemadre_fam, cognomemadre_fam, nomepadre_fam, cognomepadre_fam FROM ".$_SESSION['databaseB'].".tab_famiglie WHERE ID_fam = ?";

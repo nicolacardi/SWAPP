@@ -5,6 +5,8 @@ $annoiscrizioni = 					$_SESSION['anno_iscrizioni'];
 $ISC_mostra_sociovolontario=		$_SESSION['ISC_mostra_sociovolontario'];
 $ISC_mostra_allegatoA=				$_SESSION['ISC_mostra_allegatoA'];
 $ISC_mostra_sceltareligione=		$_SESSION['ISC_mostra_sceltareligione'];
+$ISC_mostra_premesso_che_lo_stato=	$_SESSION['ISC_mostra_premesso_che_lo_stato'];
+
 $ISC_mostra_regolpediatrico=		$_SESSION['ISC_mostra_regolpediatrico'];
 $ISC_mostra_regolinterno=			$_SESSION['ISC_mostra_regolinterno'];
 $ISC_mostra_dietespeciali=			$_SESSION['ISC_mostra_dietespeciali'];
@@ -26,7 +28,7 @@ $ISC_include_delegaritiro =			$_SESSION['ISC_include_delegaritiro'];
 $ISC_include_modulomensa =			$_SESSION['ISC_include_modulomensa'];
 $ISC_include_modulodoposcuola =		$_SESSION['ISC_include_modulodoposcuola'];
 $ISC_include_modulouscitaautonoma =	$_SESSION['ISC_include_modulouscitaautonoma'];
-$ISC_include_pattocorresponsabilita=$_SESSION['ISC_include_pattocorresponsabilita'];
+$ISC_schedealunnisupaginadispari =	$_SESSION['ISC_schedealunnisupaginadispari'];
 
 //ISC_mostra_uscitaautonoma viene settato più avanti quando si conosce anche il valore di classe_cla
 
@@ -361,9 +363,21 @@ $h1 = 6;
 
 
 		//$nn parte da 0
-		//se $nn è pari oppure se ci sono altre cose da mostrare allora devo aggiungere una pagina
+		//se $nn è pari oppure SE CI SONO ALTRE COSE DA MOSTRARE (caso Trento o Verona) allora devo aggiungere una pagina
 		if (!($nn & 1 == 1)  || $ISC_mostra_sceltareligione == 1 || $ISC_mostra_trasportopubblico == 1 || $ISC_mostra_mensa == 1 || $ISC_mostra_uscitaautonoma == 1 || $ISC_mostra_doposcuola) {  
 			$pdf->AddPage();
+
+			if ($ISC_schedealunnisupaginadispari == 1) {
+				$nPagina = intval($pdf->PageNo());
+				if($nPagina % 2 == 0){
+					$pdf->Ln(20); 
+					$pdf->SetFont($fontdefault,'',12);
+					$pdf->Cell(0,5,"PAGINA VUOTA", 0,1, 'C');
+					$pdf->AddPage();
+				}
+			}
+
+
 			//aggiungo subito le firme in basso, 
 			$pdf->SetXY(10,255);
 			include("firmepadremadreluogo.php");
@@ -1470,9 +1484,7 @@ $h1 = 6;
 				}
 		}
 		$pdf->SetFont('TitilliumWeb-SemiBold','',12);
-		$pdf->Cell(45,10,"Totale contributo annuo ","LTB",0,'L');
-		$pdf->Cell(30,10,"PROVVISORIO","TB",0,'C', True);
-		$pdf->Cell(85,10," ad esclusione della quota di iscrizione","RTB",0,'L');
+		$pdf->Cell(160,10,"Totale contributo annuo ad esclusione della quota di iscrizione","LTB",0,'L');
 		if ($totquotapromessa !=0) {
 			$pdf->Cell(30,10,$totquotapromessa.",00",1,1,'C');
 		} else {
@@ -1808,8 +1820,11 @@ $h1 = 6;
 	$pdf->Cell(0,10,"DICHIARAZIONI", 0,1, 'C');
 	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Ln(1);
+
+
+
 	if ($ISC_mostra_sceltareligione == 0 && $ISC_mostra_premesso_che_lo_stato != 0) {
-		$testo="Premesso che lo Stato assicura l'insegnamento della religione cattolica nelle scuole di ogni ordine e grado in conformità all'accordo che apporta modifiche al Concordato Lateranense (art. 9.2), il presente modulo costituisce richiesta dell'autorità scolastica in ordine all'esercizio del diritto di scegliere se avvalersi o non avvalersi dell'insegnamento della religione cattolica. I sottoscritti prendono atto che il ".$POF_PTOF_PSDext.", accettato all'atto della presente iscrizione, attualmente non prevede l'insegnamento specifico della religione intesa come materia curriculare che viene perciò sostituita da attività didattiche e formativ (CC.MM. 129 del 1986).";
+		$testo="Premesso che lo Stato assicura l'insegnamento della religione cattolica nelle scuole di ogni ordine e grado in conformità all'accordo che apporta modifiche al Concordato Lateranense (art. 9.2), il presente modulo costituisce richiesta dell'autorità scolastica in ordine all'esercizio del diritto di scegliere se avvalersi o non avvalersi dell'insegnamento della religione cattolica. I sottoscritti prendono atto che il ".$POF_PTOF_PSDext.", accettato all'atto della presente iscrizione, attualmente non prevede l'insegnamento specifico della religione intesa come materia curriculare che viene perciò sostituita da attività didattiche e formative (CC.MM. 129 del 1986).";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,4.3,$testo);
 		$pdf->Ln(2);

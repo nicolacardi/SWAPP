@@ -126,8 +126,8 @@
     }
 
     if ($codscuola =='VR') {
-        if (1==1) {
-        //if ($classe_cla == "I" || $classe_cla == "VI") {
+        //if (1==1) {
+        if ($classe_cla == "I" || $classe_cla == "VI") {
             $pdf->AddPage();
 
             $fontsizedefault = 10;
@@ -137,13 +137,13 @@
             $pdf->SetFont($fontdefault,'',$fontsizedefault);
 
             $h = 5;
-            $h1 = 3.8;
-            $testo = "ALUNNO ".strtoupper($nome_alu)." ".strtoupper($cognome_alu)." iscritto al".$classi[$classe_cla];
-            $pdf->Cell(0,$h,$testo, 0,1, 'C');
+            $h1 = 5;
+            //$testo = "ALUNNO ".strtoupper($nome_alu)." ".strtoupper($cognome_alu)." iscritto al".$classi[$classe_cla];
+            //$pdf->Cell(0,$h,$testo, 0,1, 'C');
             $testo = "D.P.R. n. 249 del 24 giugno 1998 e D.P.R. n. 235 del 21 novembre 2007";
             $pdf->Cell(0,$h,$testo, 0,1, 'C');
 
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+            $pdf->SetFont($fontdefault,'',$fontsizedefault);
 
             $testo = "La realizzazione del progetto educativo della nostra scuola, così come la prevenzione dell'insorgere di situazioni di difficoltà, avviene attraverso il dialogo e la partecipazione responsabile di tutte le componenti della comunità scolastica ed è fondata sulla continua ricerca di una sana relazione, collaborazione e sostegno reciproco tra insegnanti e genitori.";
             $pdf->MultiCell(0,$h1,utf8_decode($testo));
@@ -154,11 +154,11 @@
             $testo = "In concordanza con i contenuti del Piano dell'Offerta Formativa (POF), del Progetto Educativo di Istituto (PEI) e del Regolamento,";
             $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
             $testo = " - la scuola, tramite i suoi organi, si impegna a:";
             $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+            $pdf->SetFont($fontdefault,'',$fontsizedefault);
 
             $blt['bullet'] = chr(149);
             $blt['margin'] = ' ';
@@ -174,11 +174,11 @@
 
             $pdf->MultiCellBltArray(190,$h1,$blt);
 
-            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
             $testo = " - gli insegnanti si impegnano a:";
             $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+            $pdf->SetFont($fontdefault,'',$fontsizedefault);
 
             $blt['text'] = array();
             $blt['text'][0] = utf8_decode("garantire competenza e professionalità nella realizzazione dell'Offerta Formativa attraverso l'impegno comune e condiviso;");
@@ -196,11 +196,11 @@
 
             $pdf->MultiCellBltArray(190,$h1,$blt);
 
-            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
-            $testo = " - gli alunni si impegnano a::";
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
+            $testo = " - gli alunni si impegnano a:";
             $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+            $pdf->SetFont($fontdefault,'',$fontsizedefault);
 
             $blt['text'] = array();
             $blt['text'][0] = utf8_decode("rispettare le regole convenute dalla comunità scolastica (vedi Regolamento) per lo studio ed il comportamento;");
@@ -215,11 +215,11 @@
 
             $pdf->MultiCellBltArray(190,$h1,$blt);
 
-            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
             $testo = " - i genitori si impegnano a:";
             $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+            $pdf->SetFont($fontdefault,'',$fontsizedefault);
 
             $blt['text'] = array();
             $blt['text'][0] = utf8_decode("riconoscere il valore educativo della scuola e conoscerne il Piano dell'Offerta Formativa e il Progetto Educativo di Istituto;");
@@ -236,11 +236,11 @@
             $pdf->MultiCellBltArray(190,$h1,$blt);
 
             
-            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
             $testo = " - il personale non docente si impegna a:";
             $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+            $pdf->SetFont($fontdefault,'',$fontsizedefault);
 
             $blt['text'] = array();
             $blt['text'][0] = utf8_decode("essere puntuale e svolgere con precisione le mansioni assegnate;");
@@ -251,94 +251,96 @@
 
             $pdf->MultiCellBltArray(190,$h1,$blt);
 
-            //SECONDA PAGINA
-            $pdf->AddPage();
+                        //SECONDA PAGINA
+                        // $pdf->AddPage();
 
 
 
-            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+                        // $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
 
-            $testo = "SPUNTI E RIFLESSIONI SUL PATTO DI CORRESPONSABILITÀ EDUCATIVA";
-            $pdf->Cell(0,8,utf8_decode($testo), 0,1, 'C');
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+                        // $testo = "SPUNTI E RIFLESSIONI SUL PATTO DI CORRESPONSABILITÀ EDUCATIVA";
+                        // $pdf->Cell(0,8,utf8_decode($testo), 0,1, 'C');
+                        // $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
 
-            $testo = "La normativa (DPR 24 giugno 1998, n. 249, modificato dal DPR n. 235 del 21 novembre 2007-art. 5-bis) prevede che “Contestualmente all'iscrizione alla singola istituzione scolastica, è richiesta la sottoscrizione da parte dei genitori e degli studenti di un Patto educativo di Corresponsabilità, finalizzato a definire in maniera dettagliata e condivisa diritti e doveri nel rapporto tra istituzione scolastica autonoma, studenti e famiglie”.";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "La normativa (DPR 24 giugno 1998, n. 249, modificato dal DPR n. 235 del 21 novembre 2007-art. 5-bis) prevede che “Contestualmente all'iscrizione alla singola istituzione scolastica, è richiesta la sottoscrizione da parte dei genitori e degli studenti di un Patto educativo di Corresponsabilità, finalizzato a definire in maniera dettagliata e condivisa diritti e doveri nel rapporto tra istituzione scolastica autonoma, studenti e famiglie”.";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $testo = "Per le scuole Steiner-Waldorf il patto di corresponsabilità educativa ha anche la valenza, insieme al PTOF, al Progetto Educativo e al regolamento d'Istituto, di evidenziare l'identità della scuola oltre agli aspetti di diritti e doveri dei genitori/allievi/insegnanti.";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "Per le scuole Steiner-Waldorf il patto di corresponsabilità educativa ha anche la valenza, insieme al PTOF, al Progetto Educativo e al regolamento d'Istituto, di evidenziare l'identità della scuola oltre agli aspetti di diritti e doveri dei genitori/allievi/insegnanti.";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $testo = "Fra le indicazioni per far fronte all'emergenza sanitaria da SARS-CoV-2 il Piano Scuola prevede l'aggiornamento del “Patto Educativo di Corresponsabilità”, documento di natura contrattuale finalizzato all'assunzione dell'impegno da parte delle famiglie a rispettare le “precondizioni” per la presenza a scuola degli allievi.";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "Fra le indicazioni per far fronte all'emergenza sanitaria da SARS-CoV-2 il Piano Scuola prevede l'aggiornamento del “Patto Educativo di Corresponsabilità”, documento di natura contrattuale finalizzato all'assunzione dell'impegno da parte delle famiglie a rispettare le “precondizioni” per la presenza a scuola degli allievi.";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $testo = "Anche nel caso del Patto di corresponsabilità educativa, come per tutte le indicazioni riguardo la riapertura delle attività didattiche, la normativa parla sempre di “attività scolastiche, educative e formative in tutte le Istituzioni del Sistema nazionale di Istruzione”. Di tale sistema siamo parte integrante anche noi come scuola Waldorf di Verona.";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "Anche nel caso del Patto di corresponsabilità educativa, come per tutte le indicazioni riguardo la riapertura delle attività didattiche, la normativa parla sempre di “attività scolastiche, educative e formative in tutte le Istituzioni del Sistema nazionale di Istruzione”. Di tale sistema siamo parte integrante anche noi come scuola Waldorf di Verona.";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $testo = "A fronte di una essenzialità del Patto sia dal punto di vista giuridico, sia dal punto di vista sociale, lo vogliamo accompagnare con un documento (Vademecum - protocollo organizzativo) che riprenda la varie voci dei documenti di indirizzo del Ministero all'Istruzione e delle Regioni ma con contenuti coerenti con la pedagogia Steiner- Waldorf. Questo documento può essere esplicitamente richiamato nel patto di corresponsabilità laddove si parla di informazione ai genitori e rispetto delle indicazioni ricevute.";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "A fronte di una essenzialità del Patto sia dal punto di vista giuridico, sia dal punto di vista sociale, lo vogliamo accompagnare con un documento (Vademecum - protocollo organizzativo) che riprenda la varie voci dei documenti di indirizzo del Ministero all'Istruzione e delle Regioni ma con contenuti coerenti con la pedagogia Steiner- Waldorf. Questo documento può essere esplicitamente richiamato nel patto di corresponsabilità laddove si parla di informazione ai genitori e rispetto delle indicazioni ricevute.";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $testo = "L'ente gestore STEINER-WALDORF VERONA COOPERATIVA SOCIALE ONLUS della Scuola Primaria paritaria, Secondaria di primo grado non paritaria e del servizio all'infanzia STEINER WALDORF VERONA nella persona del suo Legale Rappresentante sig.ra DANZI ROSELLA";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "L'ente gestore STEINER-WALDORF VERONA COOPERATIVA SOCIALE ONLUS della Scuola Primaria paritaria, Secondaria di primo grado non paritaria e del servizio all'infanzia STEINER WALDORF VERONA nella persona del suo Legale Rappresentante sig.ra DANZI ROSELLA";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
-            $pdf->Cell(0,8,"STIPULA", 0,1, 'C');
+                        // $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+                        // $pdf->Cell(0,8,"STIPULA", 0,1, 'C');
 
-            $testo = "il presente Patto di Corresponsabilità circa le misure organizzative, igienico-sanitarie e ai comportamenti individuali volti al contenimento della diffusione del contagio da COVID-19 - A.S. 2023-2024";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+                        // $testo = "il presente Patto di Corresponsabilità circa le misure organizzative, igienico-sanitarie e ai comportamenti individuali volti al contenimento della diffusione del contagio da COVID-19 - A.S. 2023-2024";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
 
-            $testo = "Nella ripartenza delle attività educative (scolastiche) in relazione al contenimento del rischio derivante dalla presenza del Sars-Cov-2, è elemento essenziale l'individuazione e l'applicazione di soluzioni che mettendo al centro il bambino/l'allievo ne perseguano il sano sviluppo e garantiscano alle famiglie la continuità del progetto educativo al quale hanno aderito. In tal senso il patto concerne alla dimensione educativa e alla necessaria connessione tra protocolli di sicurezza e qualità delle esperienze dei bambini.";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "Nella ripartenza delle attività educative (scolastiche) in relazione al contenimento del rischio derivante dalla presenza del Sars-Cov-2, è elemento essenziale l'individuazione e l'applicazione di soluzioni che mettendo al centro il bambino/l'allievo ne perseguano il sano sviluppo e garantiscano alle famiglie la continuità del progetto educativo al quale hanno aderito. In tal senso il patto concerne alla dimensione educativa e alla necessaria connessione tra protocolli di sicurezza e qualità delle esperienze dei bambini.";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $testo = "L'alleanza fra gestore, insegnanti e genitori, per la corresponsabilità educativa, sociale ed economica che condividono, gioca un ruolo fondamentale al fine di permettere il normale svolgimento delle attività, incentivare percorsi di salutogenesi all'interno della comunità e garantire il rispetto delle previste condizioni di sicurezza nella reciproca consapevolezza che anche a fronte di tutte le misure adottate, il rischio di contagio non può essere azzerato per la peculiarità delle attività svolte.";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "L'alleanza fra gestore, insegnanti e genitori, per la corresponsabilità educativa, sociale ed economica che condividono, gioca un ruolo fondamentale al fine di permettere il normale svolgimento delle attività, incentivare percorsi di salutogenesi all'interno della comunità e garantire il rispetto delle previste condizioni di sicurezza nella reciproca consapevolezza che anche a fronte di tutte le misure adottate, il rischio di contagio non può essere azzerato per la peculiarità delle attività svolte.";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
-            $testo = " - Il gestore si impegna a:";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+                        // $testo = " - Il gestore si impegna a:";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+                        // $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
 
-            $blt['text'] = array();
-            $blt['text'][0] = utf8_decode("Realizzare tutti gli interventi di carattere organizzativo, nei limiti delle proprie competenze e con le risorse a disposizione, nel rispetto della normativa vigente e delle linee guida emanate dal Ministero della Salute e dalle altre autorità competenti, finalizzate alla mitigazione del rischio di diffusione del SARS-CoV-2;");
-            $blt['text'][1] = utf8_decode("avvalersi di personale adeguatamente formato su tutti gli aspetti riferibili alle vigenti normative e sulle procedure igienico sanitarie di contrasto alla diffusione del contagio;");
-            $blt['text'][2] = utf8_decode("fornire alle famiglie puntuale informazione, sulle misure organizzative dell'attività e di quanto attivato per contenere la diffusione del contagio e permettere l'ottimale svolgimento delle attività;");
-            $blt['text'][3] = utf8_decode("comunicare tempestivamente eventuali nuove disposizioni;");
-            $blt['text'][4] = utf8_decode("coinvolgere le famiglie in un percorso educativo che vede la salute del bambino e del ragazzo in primo piano, sia in senso fisico, sia in senso psichico e volto allo sviluppo di processi di salutogenesi.");
+                        // $blt['text'] = array();
+                        // $blt['text'][0] = utf8_decode("Realizzare tutti gli interventi di carattere organizzativo, nei limiti delle proprie competenze e con le risorse a disposizione, nel rispetto della normativa vigente e delle linee guida emanate dal Ministero della Salute e dalle altre autorità competenti, finalizzate alla mitigazione del rischio di diffusione del SARS-CoV-2;");
+                        // $blt['text'][1] = utf8_decode("avvalersi di personale adeguatamente formato su tutti gli aspetti riferibili alle vigenti normative e sulle procedure igienico sanitarie di contrasto alla diffusione del contagio;");
+                        // $blt['text'][2] = utf8_decode("fornire alle famiglie puntuale informazione, sulle misure organizzative dell'attività e di quanto attivato per contenere la diffusione del contagio e permettere l'ottimale svolgimento delle attività;");
+                        // $blt['text'][3] = utf8_decode("comunicare tempestivamente eventuali nuove disposizioni;");
+                        // $blt['text'][4] = utf8_decode("coinvolgere le famiglie in un percorso educativo che vede la salute del bambino e del ragazzo in primo piano, sia in senso fisico, sia in senso psichico e volto allo sviluppo di processi di salutogenesi.");
 
-            $pdf->MultiCellBltArray(190,$h1,$blt);
+                        // $pdf->MultiCellBltArray(190,$h1,$blt);
 
-            $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
-            $testo = " - I sottoscritti genitori si impegnano a:";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizeminidefault);
+                        // $testo = " - I sottoscritti genitori si impegnano a:";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
-            $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
+                        // $pdf->SetFont($fontdefault,'',$fontsizeminidefault);
 
-            $blt['text'] = array();
-            $blt['text'][0] = utf8_decode("rispettare le indicazioni ricevute dall'ente gestore relativamente alle misure organizzative;");
-            $blt['text'][1] = utf8_decode("trattenere il/la proprio/a figlio/a al domicilio se presenta temperatura corporea superiore ai 37,5 °C e/o altri sintomi riconducibili a sintomatologia sospetta di Covid 19;");
-            $blt['text'][2] = utf8_decode("quando contattato, recarsi immediatamente a scuola e riprendere il/la proprio/a figlio/a in caso di manifestazione improvvisa di sintomatologia riferibile a COVID-19;");
-            $blt['text'][3] = utf8_decode("sostenere processi di salutogenesi ovvero attuare azioni che portano forze di salute al bambino quali:");
-            $pdf->MultiCellBltArray(190,$h1,$blt);
+                        // $blt['text'] = array();
+                        // $blt['text'][0] = utf8_decode("rispettare le indicazioni ricevute dall'ente gestore relativamente alle misure organizzative;");
+                        // $blt['text'][1] = utf8_decode("trattenere il/la proprio/a figlio/a al domicilio se presenta temperatura corporea superiore ai 37,5 °C e/o altri sintomi riconducibili a sintomatologia sospetta di Covid 19;");
+                        // $blt['text'][2] = utf8_decode("quando contattato, recarsi immediatamente a scuola e riprendere il/la proprio/a figlio/a in caso di manifestazione improvvisa di sintomatologia riferibile a COVID-19;");
+                        // $blt['text'][3] = utf8_decode("sostenere processi di salutogenesi ovvero attuare azioni che portano forze di salute al bambino quali:");
+                        // $pdf->MultiCellBltArray(190,$h1,$blt);
 
-            $testo = "- alimentazione corretta, sana ed equilibrata;";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
-            $testo = "- rispetto dei ritmi di sonno-veglia in base all'età del bambino/ragazzo;";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
-            $testo = "- alimentazione corretta, sana ed equilibrata;";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
-            $testo = "- organizzazione ritmica della giornata che veda un giusto tempo dedicato alle attività all'aperto, agli impegni scolastici ed extra scolastici, ecc.";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
-            $testo = "- uso sensato della tecnologia, adeguato alla crescita e allo sviluppo delle facoltà fondamentali del bambino.";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "- alimentazione corretta, sana ed equilibrata;";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "- rispetto dei ritmi di sonno-veglia in base all'età del bambino/ragazzo;";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "- alimentazione corretta, sana ed equilibrata;";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "- organizzazione ritmica della giornata che veda un giusto tempo dedicato alle attività all'aperto, agli impegni scolastici ed extra scolastici, ecc.";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
+                        // $testo = "- uso sensato della tecnologia, adeguato alla crescita e allo sviluppo delle facoltà fondamentali del bambino.";
+                        // $pdf->MultiCell(0,$h1,utf8_decode($testo));
 
 
 
             // $testo = "La realizzazione del progetto educativo della nostra scuola, così come la prevenzione dell'insorgere di situazioni di difficoltà, avviene attraverso il dialogo e la partecipazione responsabile di tutte le componenti della comunità scolastica ed è fondata sulla continua ricerca di una sana relazione, collaborazione e sostegno reciproco tra insegnanti e genitori.";
             // $pdf->MultiCell(0,$h1,utf8_decode($testo))
 
-            $testo = "";
-            $pdf->MultiCell(0,$h1,utf8_decode($testo));
+            // $testo = "";
+            // $pdf->MultiCell(0,$h1,utf8_decode($testo));
+
+            $pdf->Ln(25);
 
             include("firmepadremadreluogo.php");
 

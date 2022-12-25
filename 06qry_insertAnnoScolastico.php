@@ -74,11 +74,13 @@
 			}
 			//ora posso paragonare ord_cls e ord_clsprec per capire se ci sono stati macro errori
 			//la differenza tra i due deve essere 1 (oppure 0 se bocciato)
-			if ($ord_cls-$ord_clsprec > 1) { //la differenza tra classe selezionata e classe dell'anno precedente è >1 non va bene, non si può saltare una classe
-				$return['msg'] = "Verificare l'iscrizione in quanto l'anno precedente (".$annoscolastico_ascprec.") l'alunno si trovava in classe ".$classe_claprec ;
-				goto finelabel;
-			}
-			if ($ord_cls-$ord_clsprec < 0) { //la differenza tra classe selezionata e classe dell'anno precedente è >1 non va bene, non si può tornare indietro di classe
+
+			//la prossima condizione la togliamo in quanto dall'asilo si può per esempio passare alla seconda! (anno del Re, iscrizione temporanea in seconda classe)
+			// if ($ord_cls-$ord_clsprec > 1) { //la differenza tra classe selezionata e classe dell'anno precedente è >1 non va bene, non si può saltare una classe
+			// 	$return['msg'] = "Verificare l'iscrizione in quanto l'anno precedente (".$annoscolastico_ascprec.") l'alunno si trovava in classe ".$classe_claprec ;
+			// 	goto finelabel;
+			// }
+			if ($ord_cls-$ord_clsprec < 0) { //la differenza tra classe selezionata e classe dell'anno precedente è <0 non va bene, non si può tornare indietro di classe
 				$return['msg'] = "Verificare l'iscrizione in quanto l'anno precedente (".$annoscolastico_ascprec.") l'alunno si trovava in classe ".$classe_claprec ;
 				goto finelabel;
 			}

@@ -977,10 +977,10 @@
 		//ed il modale relativo in un file da includere che chiameremo 06Inc_Affiliazione
 
 		postData = { ID_fam_alu : ID_fam_alu};
-		// console.log (postData);
+		console.log (postData);
 		$.ajax({
 			type: 'POST',
-			url: "19qry_CheckSoci.php",
+			url: "19qry_checkSoci.php",
 			data: postData,
 			dataType: 'json',
 			success: function(data){

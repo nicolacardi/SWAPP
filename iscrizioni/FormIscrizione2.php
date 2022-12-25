@@ -528,8 +528,17 @@
 			$('#datanascitamadre_fam').css("border", "1px solid grey");
 		}
 		
+		ibanlength = $('#ibanmadre_fam').val().length;
+
+		if ($('#ibanmadre_fam').val() != "" && ibanlength!= 27) {
+			$('#ibanmadre_fam').css("border", "1px solid red");	
+			missingfields++;	
+		} else {
+			$('#ibanmadre_fam').css("border", "1px solid grey");
+		}
+
 		cflength = $('#cfmadre_fam').val().length;
-				
+		
 		if (cflength!= 16) {
 			$('#cfmadre_fam').css("border", "1px solid red");
 			campomissing[missingfields]="Codice Fiscale";

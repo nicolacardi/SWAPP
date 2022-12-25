@@ -45,6 +45,7 @@
     setSessionPar('ISC_include_modulomensa'); 
     setSessionPar('ISC_include_modulodoposcuola'); 
     setSessionPar('ISC_include_modulouscitaautonoma');     
+    setSessionPar('ISC_schedealunnisupaginadispari');     
 
 
 
