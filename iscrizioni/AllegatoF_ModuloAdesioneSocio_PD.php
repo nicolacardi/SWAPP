@@ -69,8 +69,7 @@ $pdf->AddPage();
     $pdf->Cell(0,10,utf8_decode("DICHIARA:"), 0,1, 'C');
     $pdf->SetFont($fontdefault,'',10);
 
-    $testo="
-    - di non svolgere alcuna attività in contrasto con gli scopi sociali della Cooperativa
+    $testo="    - di non svolgere alcuna attività in contrasto con gli scopi sociali della Cooperativa
     - di essere a conoscenza ed approvare lo Statuto della Cooperativa
     - di accettare le deliberazioni legalmente adottate dagli organismi sociali
     - di accettare le clausole arbitrali come previsto dallo Statuto

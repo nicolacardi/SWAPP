@@ -973,7 +973,7 @@
 		//Prima di mostrarre il modale di recupero dei dati verifichiamo che il socio non sia cambiato, ossia che il padre (o la madre) fosse socio ed ora in importazione non sia stato tolto
 		//o viceversa che non sia stato inserito e prima non c'era. In tutti e due i casi è necessario decidere come comportarsi.
 		//questo si fa utilizzando le stesse routine già inserite sia in 06SchedaAlunno che in 08Schedamaestro
-		//infatti a questo punto sarà bene spostare queste routine (showModalAffiliazione, hideAffiliazione, eliminaAffiliazione, aggiornaAffiliazione, inserisciAffiliazione)
+		//infatti a questo punto sarà bene spostare queste routine (showModalAffiliazionePadreMadre, hideAffiliazione, eliminaAffiliazione, aggiornaAffiliazione, inserisciAffiliazione)
 		//ed il modale relativo in un file da includere che chiameremo 06Inc_Affiliazione
 
 		postData = { ID_fam_alu : ID_fam_alu};
@@ -997,7 +997,7 @@
 
 					$('#subtitleDuringImport').html(subtitleDuringImport1+subtitleDuringImport2+subtitleDuringImport3);
 					
-					showModalAffiliazione(ID_fam_alu, 'madre', data.nomemadre_fam, data.cognomemadre_fam);
+					showModalAffiliazionePadreMadre(ID_fam_alu, 'madre', data.nomemadre_fam, data.cognomemadre_fam);
 					return;
 				}
 				if (data.socioPadreChanged) {
@@ -1014,7 +1014,7 @@
 					$('#subtitleDuringImport').html(subtitleDuringImport1+subtitleDuringImport2+subtitleDuringImport3);
 					
 
-					showModalAffiliazione(ID_fam_alu, 'padre', data.nomepadre_fam, data.cognomepadre_fam);
+					showModalAffiliazionePadreMadre(ID_fam_alu, 'padre', data.nomepadre_fam, data.cognomepadre_fam);
 					return;
 				}
 				EstraiDatiEMostraModal(ID_fam_alu);

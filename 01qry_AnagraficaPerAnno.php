@@ -99,7 +99,7 @@
 			<?if(($campodata==9)&&($reprossimo ==1)) {?><img class="imgCrown" title="Anno del Re Prossimo" src='assets/img/Icone/crown2.svg'><?}?>
 		</td>
 		<td>
-			<input style="width: 20px;" class="tablecell6 val<?=$alunno->ID_alu?>" type="checkbox" name="<? echo(sprintf("%'.04d\n", $alunno->ID_asc)); ?><?=$alunno->annoscolastico_cla?>-ck-<? echo(sprintf("%'.04d\n", $alunno->ID_alu)); ?>-cls-<?=$alunno->ord_cls?><?=$alunno->sezione_cla?>" id="<?=$riga?>ck">
+			<input style="width: 20px;" class="tablecell6 val<?=$alunno->ID_alu?>" type="checkbox" name="<? echo(sprintf("%'.04d\n", $alunno->ID_asc)); ?><?=$alunno->annoscolastico_cla?>-ck-<? echo(sprintf("%'.04d\n", $alunno->ID_alu)); ?>-cls-<?echo(sprintf("%'.02d\n",$alunno->ord_cls));?><?=$alunno->sezione_cla?>" id="<?=$riga?>ck">
 		</td>
 	</tr>
 	<?}?>

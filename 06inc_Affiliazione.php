@@ -99,23 +99,18 @@
 
 <script>
 
-	function showModalAffiliazione(ID_fam, padremadre) {
-		console.log (padremadre, $('#nomepadre_fam_det').val());
+	function showModalAffiliazionePadreMadre(ID_fam, padremadre, nome, cognome) {
+		//console.log (padremadre, $('#nomepadre_fam_det').val());
 		$('#padremadre_hidden').val(padremadre);
 		$('#ID_fam_hidden').val(ID_fam);
 
-		if (padremadre == 'padre') {
-			$('#nomesocio').val( $('#nomepadre_fam_det').val() );
-			$('#cognomesocio').val(  $('#cognomepadre_fam_det').val() );
-		}
+		$('#nomesocio').val( nome );
+		$('#cognomesocio').val(  cognome );
 
-		if (padremadre == 'madre') {
-			$('#nomesocio').val( $('#nomemadre_fam_det').val() );
-			$('#cognomesocio').val(  $('#cognomemadre_fam_det').val() );
-		}
+
 
 		postData = { ID_fam_mae_soc : ID_fam, padremadre_soc: padremadre};
-		console.log ("06inc_Affiliazione.php - showModalAffiliazione - postData a 06qry_getSocio.php ");
+		console.log ("06inc_Affiliazione.php - showModalAffiliazionePadreMadre - postData a 06qry_getSocio.php ");
 		console.log (postData);
 		$("#pagtoshow_hidden").val("Dati"+padremadre.charAt(0).toUpperCase() + padremadre.slice(1));
 
@@ -125,7 +120,7 @@
 			data: postData,
 			dataType: 'json',
 			success: function(data){
-				console.log ("06SchedaAlunno.php - showModalAffiliazione - ritorno da 06qry_getSocio.php ");
+				console.log ("06SchedaAlunno.php - showModalAffiliazionePadreMadre - ritorno da 06qry_getSocio.php ");
 				console.log (data);
 				
 
@@ -188,7 +183,7 @@
 
 			},
 			error: function(){
-				alert("Errore: contattare l'amministratore fornendo il codice di errore 'showModalAffiliazione'");      
+				alert("Errore: contattare l'amministratore fornendo il codice di errore 'showModalAffiliazionePadreMadre'");      
 			}
 		});
 

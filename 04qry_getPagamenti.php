@@ -343,8 +343,8 @@
 
         postData = { ID_ret_pag: ID_ret_pag, ID_alu_pag: ID_alu_pag, data_pag: data_pag, importo_pag: importo_pag, causale_pag: causale_pag, tipo_pag: tipo_pag, soggetto_pag : soggetto_pag, annoscolastico_pag: annoscolastico};
         
-        // console.log ("04qry_getPagamenti.php - salvaNuovoPagamento - postData a 04qry_insertNuovoPagamento.php")
-        // console.log (postData);
+        console.log ("04qry_getPagamenti.php - salvaNuovoPagamento - postData a 04qry_insertNuovoPagamento.php")
+        console.log (postData);
 
         $.ajax({
             type: 'POST',
@@ -357,7 +357,7 @@
                 // console.log ("04qry_getPagamenti.php - salvaNuovoPagamento - ritorno da 04qry_insertNuovoPagamento.php")
                 // console.log (data.test);
                 //ora aggiorna i totali
-                updateTotPagamenti (ID_ret_pag, causale_pag, ID_alu_pag, annoscolastico);
+                //updateTotPagamenti (ID_ret_pag, causale_pag, ID_alu_pag, annoscolastico);//ora lo fa dentro la 04qry_insertNuovoPagamento
                 $('#alertModalPagamenti').removeClass('alert-danger');
                 $('#alertModalPagamenti').addClass('alert-success');
                 $('#alertmsgModalPagamenti').html('Inserimento pagamento completato');
@@ -382,7 +382,7 @@
 
         annoscolastico = $("#selectannoscolastico").val();
         $("#alertModalPagamenti").hide();
-        postData = { ID_pag: ID_pag};
+        postData = { ID_pag: ID_pag, ID_ret_pag, causale_pag};
         // console.log ("04qry_getPagamenti.php - eliminaIDpagamento postData a 04qry_deletePagamento.php")
         // console.log (postData);
         $.ajax({
@@ -395,7 +395,7 @@
                 // console.log ("04qry_getPagamenti.php - eliminaIDpagamento ritorno da 04qry_deletePagamento.php")
                 // console.log (data.test);
                 //ora aggiorna i totali
-                updateTotPagamenti (ID_ret_pag, causale_pag, ID_alu, annoscolastico);
+                //updateTotPagamenti (ID_ret_pag, causale_pag, ID_alu, annoscolastico); //ora lo fa dentro la04qry_deletePagamento
                 //$("#riga_"+ID_pag).remove();
                 $('#alertModalPagamenti').removeClass('alert-danger');
                 $('#alertModalPagamenti').addClass('alert-success');
@@ -411,6 +411,9 @@
         });
     }
 
+    //quella che segue è stata integrata nelle due 04qry_deletePagamento e 04qry_updateTotPagamenti
+    //in quanto accadeva che non ci fosse allineamento: meglio ripetere la funzione in entrambe
+    //in questo modo la 04qry_updateTotPagamenti diventa INUTILE
     function updateTotPagamenti(ID_ret_pag, causale_pag, ID_alu, annoscolastico) {
         postData = { ID_ret_pag: ID_ret_pag, causale_pag: causale_pag, ID_alu: ID_alu, annoscolastico: annoscolastico};
         console.log ("04qry_getPagamenti.php - updateTotPagamenti postData a 04qry_updateTotPagamenti.php")

@@ -262,7 +262,7 @@
 
 
 
-	function showModalAffiliazione(ID_mae) {
+	function showModalAffiliazioneMaestro(ID_mae) {
 
 
 		$("#ID_mae_det_hidden").val(ID_mae); 
@@ -274,7 +274,7 @@
 
 
 		postData = { ID_fam_mae_soc : ID_mae, padremadre_soc: "maestro"};
-		//console.log ("08SchedaMaestro.php - showModalAffiliazione - postData a 06qry_getSocio.php ");
+		//console.log ("08SchedaMaestro.php - showModalAffiliazioneMaestro - postData a 06qry_getSocio.php ");
 		//console.log (postData);
 		$("#pagtoshow_hidden").val("DatiAnagrafici");
 
@@ -284,7 +284,7 @@
 			data: postData,
 			dataType: 'json',
 			success: function(data){
-				console.log ("08SchedaMaestro.php - showModalAffiliazione - ritorno da 06qry_getSocio.php ");
+				console.log ("08SchedaMaestro.php - showModalAffiliazioneMaestro - ritorno da 06qry_getSocio.php ");
 				console.log (data);
 				
 
@@ -347,7 +347,7 @@
 
 			},
 			error: function(){
-				alert("Errore: contattare l'amministratore fornendo il codice di errore 'showModalAffiliazione'");      
+				alert("Errore: contattare l'amministratore fornendo il codice di errore 'showModalAffiliazioneMaestro'");      
 			}
 		});
 

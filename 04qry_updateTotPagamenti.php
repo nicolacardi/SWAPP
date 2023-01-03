@@ -1,12 +1,15 @@
-<?include_once("database/databaseii.php");
+<?
+
+//questa dovrebbe diventare INUTILE: non dovrebbe più chiamarla nessuno
+include_once("database/databaseii.php");
 
 $ID_ret_pag = $_POST['ID_ret_pag'];
 $causale_pag = $_POST['causale_pag'];
 $ID_alu = $_POST ['ID_alu'];
 $annoscolastico = $_POST ['annoscolastico'];
 
-//ora SE causale_pag = 1 (si tratta delle rette di un mese) calcolo il nuovo totale e faccio l'update in tabella tab_mensilirette
 if ($causale_pag == 1) {
+    //ora SE causale_pag = 1 (si tratta delle rette di un mese) calcolo il nuovo totale e faccio l'update in tabella tab_mensilirette
     $sql2 = "SELECT SUM(importo_pag) as totalePag FROM tab_pagamenti WHERE ID_ret_pag = ? ";
     $stmt2 = mysqli_prepare($mysqli, $sql2);
     mysqli_stmt_bind_param($stmt2, "i", $ID_ret_pag);

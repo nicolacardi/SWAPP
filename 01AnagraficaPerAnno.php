@@ -448,6 +448,10 @@
 					url: "01qry_getMaxClassi.php",
 					dataType: 'json',
 					success: function(data){
+
+						// console.log ("01AnagraficaPerAnno - promuoviTutti - ritorno da 01qry_getMaxClassi");
+						// console.log (data.maxOrd_cls);
+
 						maxOrdcls = parseInt(data.maxOrd_cls);
 
 						//almeno uno è selezionato, procedo dunque a promuovere quelli selezionati
@@ -456,8 +460,9 @@
 							if ($('#'+i+"ck").prop('checked')) {			
 								totProcessati++;			
 								nomeinput = $('#'+i+"ck").attr('name');
-								// console.log ("01AnagraficaPerAnno - promuoviTutti - trovo selezionato l'alunno con id nel campo ck:");
-								// console.log ("i="+i+":"+nomeinput);
+
+								//console.log ("01AnagraficaPerAnno - promuoviTutti - trovo selezionato l'alunno con id nel campo ck:");
+								//console.log ("nomeinput"+nomeinput);
 								//a questo punto posso effettuare la promozione per ciascuno
 								//nomeinput contiene  00zzyyyy-yy-ck-00nn-cls-zS
 								//dove 00zz rappresenta il valore di ID_asc (ID nella tabella anniscolastici) dell'anno scolastico del record, padded ( serve per trovare l'a.s. successivo nella pagina php 01qry_Promuovi.php richiamata))
@@ -469,11 +474,19 @@
 								//si estrae e passa ord_cls a 01qry_Promuovi.php ed è facile inserire la classe "+1" (salvo che non sia una VIII)...per il bambino corrente
 								//gli unici per i quali non posso sono i bambini dell'asilo in quanto potrebbero essere in asilo anche l'anno successivo (infatti scrivevo da 2 a 8, esclusi 1=ASILO e 9=VIII)
 								//devo decidere se quelli flaggati sono quelli da promuovere o quelli da NON promuovere.
+
 								ID_asc = parseInt(nomeinput.substr(0, 4), 10); 				//è l'id dell'anno scolastico e serve per estrarre l'anno successivo
+								//console.log ("ID_asc"+ID_asc);
 								annoscolastico = nomeinput.substr(5, 7); 					//serve solo per mostrarlo in console.log
+								//console.log ("annoscolastico"+annoscolastico);
 								ID_alu = parseInt(nomeinput.substr(16,4), 10); 				//è l'ID_alu ...parseInt dovrebbe togliere gli zeri...
-								ord_clsold = parseInt(nomeinput.substr(26, 1),10);			//ord_cls estratto dalla stringa
-								sezione_cla = nomeinput.substr(27, 1);						//sezione classe
+								//console.log ("ID_alu"+ID_alu);
+								ord_clsold = parseInt(nomeinput.substr(26, 2),10);			//ord_cls estratto dalla stringa...parseInt dovrebbe togliere gli zeri
+								//console.log ("ord_clsold"+ord_clsold);
+								sezione_cla = nomeinput.substr(29, 1);						//sezione classe: PERCHE'IN POSIZIONE 29? non dovrebbe ssere 28???
+								//console.log ("sezione"+sezione_cla);						
+
+
 								//console.log ("01AnagraficaPerAnno.php - promuoviTutti - estrazione dei parametri da passare a 01qry_Promuovi.php");
 								//console.log("i="+i+": ID anno scolastico = "+ID_asc);
 								//console.log ("i="+i+": anno scolastico = "+annoscolastico);
@@ -524,6 +537,9 @@
 										data: postData,
 										dataType: 'json',
 										success: function(data){
+
+
+
 											//con i dati di ritorno vado a sua volta a chiamare la qry_insertAnnoScolastico che dovrebbe in teoria procedere alla iscrizione all'anno successivo senza blocchi.
 											//l'unico caso in cui non procederà sarà l'iscrizione di un alunno delle elementari o delle medie al medesimo anno (caso in cui uno abbia risposto di mantenere nella stessa classe ma selezionando bambini non dell'asilo: la routine qry_insertAnnoScolastico infatti non inserisce nuovamente bambini alle EL o ME allo stesso anno salvo che si indichi che è bocciato)
 											ID_alu_cla_new = data.ID_alu;
@@ -536,7 +552,7 @@
 											B= (" per l'a.s. "+annoscolastico_asc_new);
 											C= (" alla classe "+classe_cla_new);
 											D= (" sezione "+sezione_cla_new);
-											//console.log (A+B+C+D);
+											console.log (A+B+C+D);
 											//ATTENZIONE!!! ERA 01qry_insertAnnoScolastico.php *******
 											//Ho voluto tenere SOLO la 06qry_InsertAnnoScolastico.php per ridurre
 											//il numero di file e non avere due ROUTINE IDENTICHE
