@@ -45,7 +45,7 @@ $pdf->MultiCell(0,5,$testo);
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
 $pdf->Cell(0,10,utf8_decode("4) COMPORTAMENTO IN CASO DI SINTOMI"), 0,1, 'J');
 $testo= "I genitori non devono portare il bambino a scuola quando presenta sintomi di malattia acuta in atto: febbre, vomito, diarrea, manifestazioni cutanee contagiose, congiuntiviti, bambino stranamente stanco o con irritabilità non giustificata, pianto persistente, tosse continua, dolore addominale persistente.
-Qualora insorga una malattia acuta o si verifichi un trauma durante l'attività educativo/scolastica il responsabile avvisa il genitore o l'adulto di riferimento delegato, affinché provveda obbligatoriamente al rientro in famiglia o al trasporto presso strutture sanitarie. Nell’attesa sarà tenuto separato, in luogo confortevole e non a diretto contatto con i compagni.
+Qualora insorga una malattia acuta o si verifichi un trauma durante l'attività educativo/scolastica il responsabile avvisa il genitore o l'adulto di riferimento delegato, affinché provveda obbligatoriamente al rientro in famiglia o al trasporto presso strutture sanitarie. Nell'attesa sarà tenuto separato, in luogo confortevole e non a diretto contatto con i compagni.
 In situazioni gravi la Scuola provvederà ad attivare il Servizio di Emergenza 118.
 I genitori sono tenuti a consultare il pediatra curante per verificare se la patologia da cui è affetto il bambino è compatibile con la frequenza del servizio.
 ";

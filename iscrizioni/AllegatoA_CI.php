@@ -94,7 +94,7 @@ Sul piano <bu>culturale/spirituale</bu><n> le attività che hanno a che fare con
 Sul piano <bu>giuridico</bu><n>, necessario all'interno dell'organismo sociale per mediare tra l'aspetto economico e quello culturale\spirituale, il principio fondamentale è <b>l'uguaglianza</b><n>.
 </n>
 <n>
-Tale visione sociale si sviluppa ben al di là di una sua applicazione in ambito pedagogico, ma chiaramente anche all'interno di una comunità scolastica Steiner individua con chiarezza questi tre piani e le loro caratteristiche.
+Tale visione sociale si sviluppa ben al di là di una sua applicazione in ambito pedagogico, e chiaramente all'interno di una comunità scolastica Steiner si individuano con chiarezza questi tre piani e le loro caratteristiche.
 </n>
 <n>
 Sul piano economico i <b>genitori</b><n> costituiscono il sostegno materiale, poiché partecipano concretamente al sostentamento economico e alla vita pratica della scuola. L'insieme dei genitori costituisce il corpo, su cui poggia l'intero ''edificio'' scolastico. Esso deve costituire una base sicura e tranquilla, in modo che amministratori ed insegnanti possano adempiere con serenità alle loro mansioni.
@@ -106,13 +106,13 @@ Sul piano culturale\spirituale operano gli <b>insegnanti in collaborazione con i
 Per quanto riguarda l'ambito giuridico, se ne occupa il <bu>Consiglio di Amministrazione</bu><n>, formato da <b>genitori, insegnanti e soci</b><n>, eletti dall'Assemblea: esso, oltre a gestire tutto ciò che concerne gli aspetti finanziari, è l'organo di riferimento per le incombenze giuridiche e amministrative della Scuola. Si occupa inoltre delle relazioni tra genitori e insegnanti e con gli organismi regionali e nazionali.
 </n>
 <n>
-Per una sana vita scolastica è vitale che le attività di questi tre organi siano in dialogo armonico ed equilibrio tra di loro e che ognuno di essi funzioni pienamente, animato dai principi (vedi sopra: fraternità, libertà, uguaglianza) che Steiner indica come fondamentali per i relativi piani di appartenenza.
+Per una sana vita scolastica è vitale che le attività di questi tre organi siano in dialogo armonico ed in equilibrio tra di loro e che ognuno di essi funzioni pienamente, animato dai principi (vedi sopra: fraternità, libertà, uguaglianza) che Steiner indica come fondamentali per i relativi piani di appartenenza.
 </n>
 <n>
-Nonostante l'estrema sintesi, appare chiaro come l'esperienza con questo tipo di pedagogia risulti significativa e arricchente anche per i genitori, i quali hanno la possibilità di partecipare in modo importante alla vita della scuola: tale partecipazione -dal punto di vista pedagogico- è una base importantissima per un'azione educativa solida e coerente che la comunità di adulti offre agli allievi di una scuola Waldorf.
+L'esperienza con questo tipo di pedagogia risulta significativa e arricchente anche per i genitori, i quali hanno la possibilità di partecipare in modo importante alla vita della scuola: tale partecipazione -dal punto di vista pedagogico- è una base importantissima per un'azione educativa solida e coerente che la comunità di adulti offre agli allievi di una scuola Waldorf.
 </n>
 <h1>
-FORMAZIONE DEGLI INSEGNANTI E IMPORTANZA DEL LAVORO COLLEGIO
+FORMAZIONE DEGLI INSEGNANTI E IMPORTANZA DEL LAVORO DEL COLLEGIO
 </h1>
 <n>
 Per essere abilitati all'insegnamento nelle scuole Steiner-Waldorf gli insegnanti devono aver completato un percorso formativo specifico, riconosciuto dalla Federazione delle Scuole Steiner-Waldorf. Esistono diversi corsi di formazione: alcuni, i più diffusi e frequentati, offrono una preparazione a tutto tondo sulla pedagogia e sul piano di studi, altri, più specifici, sono rivolti agli insegnamenti di specifiche materie (musica, lingue straniere, ginnastica Bothmer etc). Un riferimento importante per la formazione è l'Accademia Aldo Bargero di Oriago, da cui proviene il maggior numero di insegnanti delle scuole Steiner-Waldorf del Veneto (<a href='https://www.accademiaaldobargero.com/'>https://www.accademiaaldobargero.com/</a>).
@@ -124,7 +124,7 @@ Il corso propone un biennio a tempo pieno, oppure -in alternativa- un equivalent
 Durante il percorso formativo, gli insegnamenti impartiti partono da un approfondimento dalle basi antropologiche sulla quale si fonda la pedagogia. Per quanto riguarda la parte pedagogica, accanto all'approfondimento del piano di studi, una parte fondamentale del corso è costituita da una pratica diretta e costantemente approfondita delle diverse esperienze artistiche che vengono proposte agli allievi nelle scuole Waldorf. Altrettanto importante è l'apprendimento delle norme che regolano la vita della scuola, a partire da un approfondimento della triarticolazione sociale sopra menzionata: conoscenze necessarie per entrare a far parte in modo cosciente e attivo di un organismo sociale autoregolato quali sono le nostre scuole. 
 </n>
 <n>
-E' infatti una loro peculiarità che i processi decisionali siano di natura collegiale: il Collegio degli insegnanti si occupa non solo delle necessità di natura didattica e dell'orientamento pedagogico, ma anche di scelte pratiche importanti e delicate come come l’individuazione delle figure del corpo docenti. 
+E' infatti una loro peculiarità che i processi decisionali siano di natura collegiale: il Collegio degli insegnanti si occupa non solo delle necessità di natura didattica e dell'orientamento pedagogico, ma anche di scelte pratiche importanti e delicate come l'individuazione delle figure del corpo docenti. 
 </n>
 <n>
 Il Collegio -come già evidenziato- è il centro culturale/spirituale della scuola. Si incontra ogni settimana ed è formato da tutti gli insegnanti in carica.";

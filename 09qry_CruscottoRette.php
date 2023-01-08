@@ -15,7 +15,27 @@
 	$TOTyrPagato_ret = 0;
 	$TOTyrPagato_retFin = 0;
 	for ($x = 1; $x <= 12; $x++) {
+
+		// $sql1 = "SELECT
+ 
+		// SUM(JOIN2.concordato_ret) AS 'TOTConcordato_ret', 
+		// SUM(JOIN2.default_ret) AS 'TOTDefault_ret',  
+		// SUM(JOIN2.SommaPagato) AS 'TOTPagato_ret'
+		// FROM
+		// (SELECT DISTINCT annoscolastico_ret, mese_ret, ID_ret, concordato_ret, default_ret, pagamenti.pagato AS SommaPagato FROM tab_mensilirette 
+    	// 	LEFT JOIN (SELECT ID_ret_pag, SUM(importo_pag) AS pagato FROM `tab_pagamenti` GROUP BY ID_ret_pag ) AS pagamenti
+		// 	ON pagamenti.ID_ret_pag = ID_ret 
+		// 	LEFT JOIN tab_classialunni ON ID_alu_ret = ID_alu_cla
+		// 	WHERE annoscolastico_ret = ? AND mese_ret = ? ".$wherelistaattesa." )
+    	// AS JOIN2
+
+		//  ";
+
+	
+
+		
 		$sql1 = "SELECT SUM(default_ret) AS 'TOTDefault_ret', SUM(concordato_ret) AS 'TOTConcordato_ret', SUM(pagato_ret) AS 'TOTPagato_ret' FROM tab_mensilirette LEFT JOIN tab_classialunni ON ID_alu_ret = ID_alu_cla AND annoscolastico_ret = annoscolastico_cla WHERE annoscolastico_ret = ? AND mese_ret = ? ".$wherelistaattesa;
+		
 		//QUERY PARAMETRICA DA FARE - DIFFICILE
 		$stmt1 = mysqli_prepare($mysqli, $sql1);
 		mysqli_stmt_bind_param($stmt1, "si", $annoscolastico_cla, $x);

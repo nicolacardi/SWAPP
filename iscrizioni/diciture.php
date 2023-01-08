@@ -146,10 +146,10 @@ switch ($codscuola) {
         $linkPTOF = "https://www.aurorascuola.it/aurora/wp-content/uploads/2020/11/PTOF-2019-22-Versione-n.-2-Settembre-2020.pdf";
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
         $quotaiscrizione = "100 per ciascun/a alunno/a iscritto/a";
-        $scadrientromodulo = "18/01/";
-        $scadrientromodulolett = "18 gennaio ";
-        $scadiscrizione = "28/01/";
-        $scadiscrizionelett = "28 gennaio ";
+        $scadrientromodulo = "20/01/";
+        $scadrientromodulolett = "20 gennaio ";
+        $scadiscrizione = "27/01/";
+        $scadiscrizionelett = "27 gennaio ";
         $scadfrase1 = "sottoscriverli entro il ".$scadrientromodulolett;
         $scadfrase2 = "<br>e consegnarli in segreteria o inviarli via mail<br>dovutamente sottoscritti entro il ";
         $scadrataunicaDDMM = "05/09/";
@@ -206,7 +206,7 @@ switch ($codscuola) {
         $cfscuola = "04028200238";
         $titolaretrattamentoTitolo = "il presidente pro-tempore della Steiner Waldorf Verona Cooperativa Sociale Onlus";
         $titolaretrattamento = "Rosella Danzi";
-        $linkPTOF = "http://www.scuolawaldorfverona.it/media/pei-e-ptof-scuola-waldorf-vero-728.pdf";        
+        $linkPTOF = "http://www.scuolawaldorfverona.it/media/pei-e-ptof-scuola-waldorf-vero-3ef.pdf";  
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
         $quotaiscrizione = "330 per ciascun/a alunno/a iscritto/a";
         $scadrientromodulo = "28/01/";

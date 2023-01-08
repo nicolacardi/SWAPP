@@ -290,7 +290,7 @@
 							<input type="radio" class="pulizie_fam" name="pulizie_fam" value="0" <?if ($pulizie_fam == 0) {echo "checked";}?>>&nbsp;- a svolgere le pulizie
 						</div>
 						<div class="col-md-12 col-sm-12">
-							<input type="radio" class="pulizie_fam" name="pulizie_fam" value="1" <?if ($pulizie_fam == 1) {echo "checked";}?>>&nbsp;- a versare la quota per le pulizie (180 euro per un figlio, 210 per 2 o più figli)
+							<input type="radio" class="pulizie_fam" name="pulizie_fam" value="1" <?if ($pulizie_fam == 1) {echo "checked";}?>>&nbsp;- a versare la quota per le pulizie (200 euro per un figlio, 230 per 2 o più figli)
 						</div>
 						
 					</div>
@@ -657,10 +657,10 @@
 		tipoquota = $( "#selecttipoquota"+n+" option:selected" ).val();
 		//questa funzione vale solo per Cittadella, non verrà nemmeno usata per le altre scuole
 		//se dovesse esserlo allora va ripensata per pescare in una tabella di quote apposita
-		quoteAS = [4790, 4315, 3835, 3765]; 	//retta completa, ridotta, minima, minima con più figli
-		quoteEL = [5320, 4790, 4255, 4185];
-		quoteME = [5680, 5110, 4540, 4470];
-		quoteSU = [5680, 5110, 4540, 4470];
+		quoteAS = [5030, 4530, 4030, 3950]; 	//retta completa, ridotta, minima, minima con più figli
+		quoteEL = [5585, 5030, 4470, 4395];
+		quoteME = [5965, 5365, 4770, 4695];
+		quoteSU = [5680, 5110, 4540, 4470];  ///Superiori? a cittadella???
 		//dell'array giusto devo selezionare il "tipoquotesimo", 0 se uno ha selezionato 0, 1 se uno ha selezionato 1, 2 se uno ha selezionato 2 nella combobox
 		//il caso 3 è riservato a quando viene selezionato il 2 E i fratelli sono più di 1
 		quotaDaAggiornare = $('#quotapromessa_alu'+n);

@@ -106,13 +106,13 @@ Sul piano culturale\spirituale i rappresentanti sono gli <b>insegnanti e il medi
 Per quanto riguarda l'ambito giuridico, in ogni scuola esiste un <bu>Consiglio di Amministrazione</bu><n>, formato da <b>genitori, insegnanti e soci</b><n>, eletti dall'Assemblea: esso, oltre a gestire tutto ciò che concerne gli aspetti finanziari, è l'organo di riferimento per le incombenze giuridiche e amministrative della Scuola.
 </n>
 <n>
-Per una sana vita scolastica è vitale che le attività di questi tre organi siano in dialogo armonico ed equilibrio tra di loro e che ognuno di essi funzioni pienamente, animato dai principi (vedi sopra: fraternità, libertà, uguaglianza) che Steiner indica come fondamentali per i relativi piani di appartenenza.
+Per una sana vita scolastica è vitale che le attività di questi tre organi siano in dialogo armonico ed in equilibrio tra di loro e che ognuno di essi funzioni pienamente, animato dai principi (vedi sopra: fraternità, libertà, uguaglianza) che Steiner indica come fondamentali per i relativi piani di appartenenza.
 </n>
 <n>
-Nonostante l'estrema sintesi, appare chiaro come l'esperienza con questo tipo di pedagogia risulti significativa e arricchente anche per i genitori, i quali hanno la possibilità di partecipare in modo importante alla vita della scuola: tale partecipazione -dal punto di vista pedagogico- è una base importantissima per un'azione educativa solida e coerente che la comunità di adulti offre agli allievi di una scuola Waldorf.
+L'esperienza con questo tipo di pedagogia risulta significativa e arricchente anche per i genitori, i quali hanno la possibilità di partecipare in modo importante alla vita della scuola: tale partecipazione -dal punto di vista pedagogico- è una base importantissima per un'azione educativa solida e coerente che la comunità di adulti offre agli allievi di una scuola Waldorf.
 </n>
 <h1>
-FORMAZIONE DEGLI INSEGNANTI E IMPORTANZA DEL LAVORO COLLEGIO
+FORMAZIONE DEGLI INSEGNANTI E IMPORTANZA DEL LAVORO DEL COLLEGIO
 </h1>
 <n>
 Per essere abilitati all'insegnamento nelle scuole Steiner-Waldorf gli insegnanti devono aver completato un percorso formativo specifico, riconosciuto dalla Federazione delle Scuole Steiner-Waldorf. Esistono diversi corsi di formazione: alcuni, i più diffusi e frequentati, offrono una preparazione a tutto tondo sulla pedagogia e sul piano di studi, altri, più specifici, sono rivolti agli insegnamenti di specifiche materie (musica, lingue straniere, ginnastica Bothmer etc). Un esempio (del primo tipo) è quello tenuto presso l'Accademia Aldo Bargero di Oriago, che attualmente fornisce il maggior numero di insegnanti alle scuole Steiner-Waldorf del Veneto (<a href='https://www.accademiaaldobargero.com/'>https://www.accademiaaldobargero.com/</a>).
