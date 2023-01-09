@@ -8,6 +8,17 @@ $pdf->Cell(0,8,utf8_decode("ALLEGATO D"), 0,1, 'C');
 $pdf->SetFont('TitilliumWeb-SemiBold','',13);
 $pdf->Cell(0,10,utf8_decode("CONTRIBUTI SCOLASTICI ANNO SCOLASTICO ".$_SESSION['annopreiscrizione_fam']), 0,1, 'C');
 
+
+// Stylesheet
+// $pdf->SetStyle("TAG","FONTTYPE","N/B/I/U o combinazioni","fontsize 10/12/28", "color 0,0,255", "indent", "bullet");
+$pdf->SetStyleWriteTag("h1",    "TitilliumWeb-SemiBold",    "N",    $fontsizedefault,   0, 0);
+$pdf->SetStyleWriteTag("n",     $fontdefault,               "N",    $fontsizedefault,   0, 0);
+$pdf->SetStyleWriteTag("bu",     "TitilliumWeb-SemiBold",   "U",    $fontsizedefault,   0);
+$pdf->SetStyleWriteTag("b",     "TitilliumWeb-SemiBold",    "N",    $fontsizedefault,   0);
+$pdf->SetStyleWriteTag("a",     $fontdefault,               "BU",   $fontsizedefault,   "0,0,255");
+$pdf->SetStyleWriteTag("bul",   $fontdefault,               "N",    $fontsizedefault,   0, 3, chr(149));
+
+
 $fontsizedefault = 8;
 $interlinea = 4;
 
@@ -32,10 +43,16 @@ $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
-$testo= "Il C.d.A. sulla base dei dati di bilancio preventivo dell'anno scolastico ".$_SESSION['annopreiscrizione_fam']." propone alle famiglie di scegliere consapevolmente la retta, in base alle proprie possibilita'. La retta minima copre solo in parte i costi di gestione della scuola. Chi puo' ha la facolta' di contribuire maggiormente al funzionamento della scuola, sottoscrivendo la retta ridotta o completa.";
+
+
+$testo= "<n>Il C.d.A. sulla base dei dati di bilancio preventivo dell'anno scolastico ".$_SESSION['annopreiscrizione_fam']." propone alle famiglie di scegliere <b>consapevolmente</b> la retta, in base alle proprie possibilita'. La retta minima copre solo in parte i costi di gestione della scuola. Chi puo' ha la facolta' di contribuire maggiormente al funzionamento della scuola, sottoscrivendo la retta ridotta o completa.</n>";
+
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
-$testo = utf8_decode($testo);
-$pdf->MultiCell(0,$interlinea,$testo);
+$pdf->WriteTag(0,4,utf8_decode($testo),"","J",0,0);
+
+// $pdf->SetFont($fontdefault,'',$fontsizedefault);
+// $testo = utf8_decode($testo);
+// $pdf->MultiCell(0,$interlinea,$testo);
 
 $pdf->SetFont($fontdefault,'',8);
 $lcella = 40;
@@ -104,12 +121,20 @@ $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
+// $testo= "<n>La quota di iscrizione annua viene richiesta dalla scuola per essere poi versata in parte alla Federazione Italiana delle scuole Steiner Waldorf e in parte all'Associazione Veneto Steiner Waldorf.
+// Per l'anno ".$_SESSION['annopreiscrizione_fam']." la quota da versare prevista e' di Euro 100,00 per ogni alunno iscritto. In caso di ritiro, tale somma verra' comunque trattenuta a copertura delle spese di segreteria.</br>
+// <b>Accantonamento fondo progetti</b>: e' richiesto un contributo di Euro 100,00 per famiglia da destinare al Progetto Scuola Nuova. Considerata l'attuale situazione, è lasciata alla facoltà della famiglia, la possibilità di versare o meno il contributo.</n>";
+// $pdf->SetFont($fontdefault,'',$fontsizedefault);
+// $pdf->WriteTag(0,3.7,utf8_decode($testo),"","J",0,1);
+// $pdf->Ln(2);
+
 $testo= "La quota di iscrizione annua viene richiesta dalla scuola per essere poi versata in parte alla Federazione Italiana delle scuole Steiner Waldorf e in parte all'Associazione Veneto Steiner Waldorf.
 Per l'anno ".$_SESSION['annopreiscrizione_fam']." la quota da versare prevista e' di Euro 100,00 per ogni alunno iscritto. In caso di ritiro, tale somma verra' comunque trattenuta a copertura delle spese di segreteria.
-Accantonamento fondo progetti: e' richiesto un contributo di Euro 100,00 per famiglia da destinare al Progetto Scuola Nuova. Considerata l'attuale situazione, è lasciata alla facoltà della famiglia, la possibilità di versare o meno il contributo.";
+ACCANTONAMENTO FONDO PROGETTI - e' richiesto un contributo di Euro 100,00 per famiglia da destinare al Progetto Scuola Nuova. Considerata l'attuale situazione, è lasciata alla facoltà della famiglia, la possibilità di versare o meno il contributo.";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
+
 
 $testo= "PULIZIE";
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);

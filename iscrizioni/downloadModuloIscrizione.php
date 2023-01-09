@@ -1693,13 +1693,6 @@ $h1 = 6;
 
 		$testo= "1. Il contributo di gestione (retta annuale) rappresenta un impegno responsabile verso le necessità della scuola. Il suo ammontare annuale definito per alunno, viene determinato in fase di bilancio preventivo e successivamente confermato entro l'inizio effettivo dell'anno scolastico dal consiglio di amministrazione responsabile della gestione economica. La famiglia è invitata a scegliere consapevolmente la retta che può sostenere, tra la retta COMPLETA, RIDOTTA, MINIMA o MINIMA CON PIU' FIGLI.";
 
-
-
-		//$pdf->WriteTag(0,4,utf8_decode($testo),"","J",0,0);
-
-
-
-
 		$pdf->SetFont($fontdefault,'',$fontsizedefault);
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,$interlinea,$testo);

@@ -7,7 +7,7 @@ $ISC_mostra_dietespeciali=		    $_SESSION['ISC_mostra_dietespeciali'];
 
 include_once("iscrizioni/diciture.php");
 $pdf->AddPage();
-$pdf->Image('../assets/img/Icone/recycle-sign.png',165,120,10);
+$pdf->Image('../assets/img/Icone/recycle-sign.png',165,125,10);
 $pdf->SetFont('TitilliumWeb-SemiBold','',16);
 $pdf->Cell(0,10,utf8_decode("INFORMATIVA ed ALLEGATI"), 0,1, 'C');
 $pdf->SetFont($fontdefault,'',12);
@@ -39,14 +39,16 @@ if ($ISC_mostra_regolpediatrico ==1) {
 
 $pdf->Ln(10);
 $pdf->Write(10,'> ALLEGATO D: CONTRIBUTI SCOLASTICI E REGOLAMENTO ECONOMICO',$link5);
-$pdf->SetTextColor(0,0,0);
-$pdf->SetFont($fontdefault,'',10);
+
 
 
 if ($ISC_mostra_dietespeciali ==1) {
     $pdf->Ln(10);
     $pdf->Write(10,'> ALLEGATO E: MODULO RICHIESTA DIETE SPECIALI',$link6);
 }
+
+$pdf->SetTextColor(0,0,0);
+$pdf->SetFont($fontdefault,'',10);
 
 $pdf->Ln(30);
 
