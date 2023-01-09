@@ -32,7 +32,7 @@ $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
-$testo= "Il C.d.A. sulla base dei dati di bilancio preventivo dell'anno scolastico ".$_SESSION['annopreiscrizione_fam']." propone alle famiglie di scegliere consapevolmente la retta, in base alle proprie possibilita'. La retta base copre solo in parte i costi di gestione della scuola. Chi puo' ha la facolta' di contribuire maggiormente al funzionamento della scuola, sottoscrivendo la retta ridotta o completa.";
+$testo= "Il C.d.A. sulla base dei dati di bilancio preventivo dell'anno scolastico ".$_SESSION['annopreiscrizione_fam']." propone alle famiglie di scegliere consapevolmente la retta, in base alle proprie possibilita'. La retta minima copre solo in parte i costi di gestione della scuola. Chi puo' ha la facolta' di contribuire maggiormente al funzionamento della scuola, sottoscrivendo la retta ridotta o completa.";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
@@ -77,7 +77,7 @@ $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
-$testo= "Le famiglie o le imprese che volessero contribuire a sostenere il progetto della Scuola Aurora, avendone la possibilita', oltre l'importo del contributo di gestione Minimo, possono prendere accordi con la segreteria o con il consiglio di amministrazione per definire le modalita' di donazione (deducibile ai fini fiscali).";
+$testo= "Le famiglie o le imprese che volessero contribuire a sostenere il progetto della Scuola Aurora, avendone la possibilita', oltre l'importo del contributo di gestione minimo, possono prendere accordi con la segreteria o con il consiglio di amministrazione per definire le modalita' di donazione (deducibile ai fini fiscali).";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
@@ -111,28 +111,28 @@ $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
-$testo= "PULIZIE:";
+$testo= "PULIZIE";
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
-$testo= "Le pulizie della scuola, intese come il prendersi cura degli spazi in cui vivono i bambini e i ragazzi per una considerevole parte della loro giornata, sono un'opportunita' che il genitore ha di vivere ancor piu' da vicino la condivisione con la scuola. Sono organizzati normalmente dei turni per suddividere all'interno della classe questo compito. Se la famiglia, per diversi motivi non riesce a partecipare, può decidere di affidarle ad altre persone del ''gruppo pulizie'' pagando il servizio (Euro 200,00 un figlio, Euro 230,00 più figli)";
+$testo= "Le pulizie della scuola, intese come il prendersi cura degli spazi in cui vivono i bambini e i ragazzi per una considerevole parte della loro giornata, sono un'opportunita' che il genitore ha di vivere ancor piu' da vicino la condivisione con la scuola. Sono organizzati normalmente dei turni per suddividere all'interno della classe questo compito. Se la famiglia, per diversi motivi non riesce a partecipare, può decidere di affidarle ad altre persone del ''gruppo pulizie'' pagando il servizio (Euro 200,00 un figlio, Euro 230,00 più figli).";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
-$testo= "INTERVENTI DEDICATI:";
+$testo= "INTERVENTI DEDICATI";
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
-$testo= "Gli insegnanti o le famiglie possono richiedere la consulenza dell'equipe medico-pedagogico della scuola. Le eventuali proposte di sostegno didattico, di interventi terapeutici e/o i programmi pedagogici individualizzati, transitori o continuativi, verranno attuati solo dopo l'avallo della famiglia, tramite sottoscrizione dell'apposito documento che riporti il piano di intervento proposto e gli impegni economici ad esso correlati.";
+$testo= "Gli insegnanti o le famiglie possono richiedere la consulenza dell'equipe medico-pedagogica della scuola. Le eventuali proposte di sostegno didattico, di interventi terapeutici e/o i programmi pedagogici individualizzati, transitori o continuativi, verranno attuati solo dopo l'avallo della famiglia, tramite sottoscrizione dell'apposito documento che riporti il piano di intervento proposto e gli impegni economici ad esso correlati.";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 $pdf->Ln(2);
 
-$testo= "SERVIZI COMPRESI NEL CONTRIBUTO DI GESTIONE:";
+$testo= "SERVIZI COMPRESI NEL CONTRIBUTO DI GESTIONE";
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
@@ -190,7 +190,7 @@ $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 $pdf->Ln($dopoparagrafo);
 
-$testo= "4. Chi interrompe la frequenza durante l'anno scolastico è tenuto a versare il contributo economico fino alla fine dell'anno in corso compreso di eventuale integrazione";
+$testo= "4. Chi interrompe la frequenza durante l'anno scolastico è tenuto a versare il contributo economico fino alla fine dell'anno in corso compreso di eventuale integrazione.";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
@@ -224,7 +224,7 @@ $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 $pdf->Ln($dopoparagrafo);
 
-$testo= "9. Entro il 30/09 dovranno essere versati: la quota associativa (euro 10 a socio) l'eventuale quota per le pulizie";
+$testo= "9. Entro il 30/09 dovrà essere versata la quota associativa (euro 10 a socio)";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);

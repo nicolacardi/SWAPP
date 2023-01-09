@@ -148,56 +148,58 @@
 
         // Title
         $txt="
-        <n>
-        Promuovere la corresponsabilità educativa significa riconoscere che l'educazione dei giovani compete tanto all'istituzione, cui essi sono affidati, quanto agli stessi genitori, in un concorso di reciproca responsabilità, al cui raggiungimento contribuiscono un dialogo costante e una profonda condivisione dei valori di riferimento a cui è ispirato il Piano Triennale dell'offerta formativa (PTOF). Affinché si formi una comunità educante, luogo di cooperazione tra docenti, genitori e studenti, volta a promuovere lo sviluppo armonico delle facoltà del giovane, viene chiesto alle famiglie di prendere visione del PTOF, che sarà pubblicato nel sito web dell'ente gestore, e di stipulare il seguente patto di corresponsabilità, con il quale:
-        </n>
-        <h1>
-        IL COLLEGIO DOCENTI SI IMPEGNA A
-        </h1>
+        <n>La Soc. Coop. Steiner Waldorf Padova ritiene fondamentale che i genitori degli alunni iscritti siano a conoscenza sia dei principi alla base del percorso pedagogico proposto sia dei principi che regolano il corretto funzionamento dell'organismo sociale in cui si trovano come soci della Cooperativa.</n>
+        <n>A tal fine, premesso che:</n>
+        <bul>''La Cooperativa Sociale non ha scopo di lucro. Essa persegue l'interesse generale della comunità alla promozione umana e all'integrazione sociale dei cittadini...(omissis) (art 3 statuto)''</bul>
+        <bul>''La direzione pedagogica è affidata dal Consiglio di Amministrazione al Collegio degli Insegnanti, i quali adottano l'indirizzo pedagogico steineriano, con assoluta libertà ed indipendenza delle scelte di carattere pedagogico'' (art 25 statuto).</bul>
+        <n>Si richiede la comprensione e la condivisione da parte dei genitori degli alunni iscritti, di alcuni aspetti fondamentali:</n>
+        <bul>del piano di studi e dell'approccio educativo/pedagogico proposto, ispirato al pensiero di Rudolf Steiner.</bul>
+        <bul>delle scelte e valutazioni pedagogiche attuate dal Collegio degli Insegnanti in accordo col Medico scolastico.</bul>
+        <bul>dell'importanza di una continuità didattico-pedagogica dalla I all'VIII classe, necessaria per uno sviluppo armonico dell'alunno.</bul>
+        <bul>dell'importanza di avvicinarsi alla conoscenza e alla comprensione dei principi che sono alla base del pensiero di R. Steiner relativamente all'essere umano nella sua triplice attività di Pensare Sentire e Volere come fondamento della struttura della Scuola Waldorf, in modo tale che all'interno della Scuola intesa come organismo, ciascuno possa trovare il proprio ruolo nella chiarezza e nel rispetto dei compiti che Steiner assegna al Collegio degli Insegnanti, al Consiglio di Amministrazione e ai Genitori, per una sana e corretta partecipazione alla vita della comunità scolastica.</bul>
+        <bul>dell'importanza di partecipare, soprattutto nei primi anni, alle conferenze che la Scuola ogni anno propone al fine di comprendere i principi che regolano il percorso pedagogico.</bul>
+        <n>Promuovere la corresponsabilità educativa significa riconoscere che l'educazione compete tanto all'istituzione, cui essi sono affidati, quanto agli stessi genitori, in un concorso di reciproca responsabilità, alla cui realizzazione contribuiscono un dialogo costante e una profonda condivisione dei valori di riferimento a cui è ispirato il Piano Triennale dell'offerta formativa (PTOF). Affinché si formi una comunità educante, luogo di cooperazione tra docenti, genitori e studenti, volta a promuovere lo sviluppo armonico delle facoltà del giovane, viene chiesto alle famiglie di prendere visione del PTOF, che sarà pubblicato nel sito web dell'ente gestore, e di stipulare il seguente patto di corresponsabilità, con il quale:</n>
+        
+        <h1>IL COLLEGIO DOCENTI SI IMPEGNA A</h1>
+        <bul>dell'importanza di partecipare, soprattutto nei primi anni, alle conferenze che la Scuola ogni anno propone al fine di comprendere i principi che regolano il percorso pedagogico.</bul>
         <bul>Organizzare e gestire le attività in un clima di dialogo e collaborazione che consenta di poter lavorare al meglio alla realizzazione degli obiettivi educativi e culturali del PTOF;</bul>
         <bul>Favorire attività di coinvolgimento nell'azione educativa delle istituzioni politiche, sociali e culturali del territorio;</bul>
-        <bul>Essere disponibile al dialogo con studenti e genitori, favorendo le soluzioni più opportune;</bul>
-        <bul>Offrire una formazione culturale qualificata, critica, e aperta alle problematiche del presente;</bul>
-        <bul>Valorizzare l'individualità degli studenti promuovendone la crescita personale e culturale, con particolare attenzione sia alle situazioni di difficoltà sia alla presenza di particolari eccellenze;</bul>
-        <bul>Favorire l'integrazione, l'accoglienza e il rispetto, adoperandosi per la formazione di esseri umani consapevoli;</bul>
-        <bul>Favorire la cooperazione con gli studenti e le famiglie offrendo adeguate occasioni di comunicazione sull'andamento didattico-disciplinare;</bul>
-        <bul>Operare una valutazione trasparente e tempestiva, in esplicito riferimento a criteri condivisi in sede di Dipartimento disciplinare e pubblicati nel PTOF.</bul>
+        <bul>Essere disponibile al dialogo con alunni e genitori, favorendo le soluzioni più opportune;</bul>
+        <bul>Valorizzare l'individualità degli alunni promuovendone la crescita personale e culturale, ponendo attenzione sia alle situazioni di difficoltà che alla presenza di particolari talenti;</bul>
+        <bul>Favorire l'integrazione, l'accoglienza e il rispetto, adoperandosi per la formazione di individui consapevoli;</bul>
+        <bul>Favorire l’incontro con gli alunni e le famiglie offrendo adeguate occasioni di comunicazione sull'andamento didattico-disciplinare;</bul>
+        <bul>Operare una valutazione trasparente e tempestiva, sulla base dei criteri condivisi in sede di Collegio e pubblicati nel PTOF.</bul>
 
-        <h1>
-        GLI STUDENTI SI IMPEGNANO A
-        </h1>
-        <bul>Assolvere con impegno i propri compiti, partecipando in modo attivo e assiduo alle lezioni, osservando la puntualità e collaborando con compagni e docenti;</bul>
-        <bul>Rispettare e valorizzare la propria e l'altrui personalità, per crescere come esseri umani liberi, attivi e responsabili;</bul>
-        <bul>Maturare la riflessione sul proprio metodo di studio e sul valore della partecipazione attiva;</bul>
-        <bul>Affrontare qualsiasi prova con lealtà;</bul>
-        <bul>Osservare il Regolamento Scolastico, in particolare per quanto riguarda l'uso dei telefoni cellulari e di altre apparecchiature elettroniche, rispettando le norme della convivenza civile e avendo cura dei materiali didattici e degli ambienti;</bul>
-        <bul>Evitare qualsiasi forma di condivisione di commenti irrispettosi, immagini o riprese audio/video che riguardino i compagni e/o attività formative in genere, senza espressa autorizzazione.</bul>
+        <h1>GLI ALUNNI SI IMPEGNANO A</h1>
 
-        <h1>
-        I GENITORI SI IMPEGNANO A
-        </h1>
-        <bul>Partecipare in clima di collaborazione costruttiva al Progetto educativo e didattico, nel rispetto delle scelte dei docenti;</bul>
-        <bul>Mirare alla coerenza dello stile educativo famigliare con il progetto educativo dell'Istituto;</bul>
-        <bul>Promuovere interventi finalizzati al benessere psico-fisico degli alunni, garantendo che il progetto formativo abbia applicazione tanto nella vita scolastica quanto in quella famigliare;</bul>
-        <bul>Promuovere la cultura del dialogo ed educare alla cittadinanza attiva prevenendo e contrastando il bullismo e la violenza;</bul>
-        <bul>Promuovere stili di vita che prevengano le dipendenze e le patologie comportamentali ad esse correlate;</bul>
-        <bul>Facilitare atteggiamenti di apertura, comprensione e rispetto delle diversità;</bul>
+        <bul>Avere particolare cura degli spazi, degli ambienti e dei materiali scolastici, nel rispetto delle norme della convivenza civile;</bul>
+        <bul>Osservare il Regolamento Scolastico, in particolare per quanto riguarda l'uso dei telefoni cellulari e di altre apparecchiature elettroniche.</bul>
+        <bul>Evitare qualsiasi forma di condivisione di commenti irrispettosi, immagini o riprese audio/video che riguardino i compagni e/o attività formative in genere.</bul>
+
+        <h1>I GENITORI SI IMPEGNANO A</h1>
+        <bul>Partecipare in clima di collaborazione costruttiva al Progetto educativo e didattico, nel rispetto delle valutazioni pedagogiche attuate dal Collegio degli Insegnanti riguardanti sia l'idoneità alla scolarizzazione (valutazione della maturità scolare dell'alunno/a per l'ingresso alla prima classe) sia l'accoglienza di allievi provenienti da scuole esterne.</bul>
+        <bul>Seguire e condividere le indicazioni degli insegnanti e del medico scolastico, sempre volte a sostenere un sano ed equilibrato sviluppo dell'alunno. Nell'ambito di tali scelte, nel caso fosse ritenuto necessario, potrebbero essere proposti dei percorsi, individuali o in piccoli gruppi, di euritmia, massaggio ritmico, laboratori artistici. Tali attività sono parte integrante della pedagogia steineriana ed è quindi necessario che i genitori supportino e condividano il percorso pedagogico nella sua completezza, sapendo che, in caso contrario, tale percorso sarebbe mancante di un aspetto fondamentale.</bul>
+        <bul>Ricorrere, in caso di specifica richiesta da parte del Collegio, alla consulenza esterna in ambito pedagogico, per una valutazione psico-cognitiva dell'alunno (da effettuarsi presso enti preposti). La più stretta collaborazione tra Famiglia, Collegio degli Insegnanti e Medico Scolastico, sono presupposti fondamentali per poter lavorare al meglio ed eventualmente tutelare, anche con una certificazione, l'alunno, al momento dell'esame di licenza media.</bul>
+        <bul>Curare uno stile educativo familiare coerente con il progetto educativo della Scuola;</bul>
+        <bul>Promuovere interventi finalizzati al benessere psico-fisico degli alunni, garantendo che il progetto formativo abbia applicazione tanto nella vita scolastica quanto in quella familiare;</bul>
+
+        <bul>Sostenere la cultura del dialogo ed educare alla cittadinanza attiva prevenendo e contrastando il bullismo e la violenza;</bul>
+        <bul>Adottare stili di vita che prevengano le dipendenze e le patologie comportamentali ad esse correlate;</bul>
+        <bul>Facilitare atteggiamenti di apertura, comprensione e rispetto delle diversità, valorizzando la propria e l’altrui personalità per favorire la crescita di individui liberi, attivi e responsabili.</bul>
         <bul>Educare al rispetto dell'ambiente per una migliore qualità della vita;</bul>
-        <bul>Promuovere il corretto utilizzo delle nuove tecnologie nel rispetto delle tappe evolutive degli alunni/figli;</bul>
-        <bul>Controllare l'assiduità e la qualità della partecipazione scolastica, educando alla responsabilità e al rispetto di tutti;</bul>
-        <bul>Prendere conoscenza del PTOF, delle iniziative extracurricolari e dei progetti d'Istituto, favorendo la partecipazione degli studenti interessati, al fine di ampliare le possibilità della costruzione di sé.</bul>
+        <bul>Acquisire una sempre maggiore consapevolezza sul corretto utilizzo delle nuove tecnologie nel rispetto delle tappe evolutive degli alunni/figli;</bul>
+        <bul>Assicurare l'assiduità e la qualità della partecipazione scolastica, educando alla responsabilità e al rispetto di tutti, alla partecipazione attiva e assidua alle lezioni, alla puntualità e alla collaborazione con compagni e insegnanti;</bul>
+        <bul>Portare a coscienza i contenuti del PTOF, le iniziative extracurricolari e i progetti della Scuola;</bul>
+        <bul>Contribuire fattivamente e regolarmente alla vita pratica e alla cura dell’ambiente scolastico;</bul>
+        <bul>Sostenere attivamente e concretamente la buona economia della Scuola.</bul>
+
         <n>
-        Il presente patto di corresponsabilità, elaborato dal Collegio docenti, viene sottoscritto dal Coordinatore didattico e dal Presidente dell'ente gestore e ha validità per tutto il percorso, salvo successive modifiche da concordare tra le parti. Il mancato rispetto del patto comporta la facoltà da parte di entrambe le parti di interrompere il rapporto.
+        Nella Scuola Sophia Steiner Waldorf di Padova vengono accolte famiglie ed alunni che accettano consapevolmente di convivere rispettando le altrui scelte, siano esse di pensiero, religiose o terapeutiche. Chi chiede di entrare a farne parte è cosciente che questo comporta accogliere responsabilmente posizioni ed orientamenti di segno differenti dai propri, nella reciproca libertà, e si fa carico in ogni circostanza, delle conseguenze di questa presa di responsabilità.
+        Il presente patto di corresponsabilità, elaborato dal Collegio docenti, viene sottoscritto dal Coordinatore didattico e dal Presidente dell'ente gestore e ha validità per tutto il percorso, salvo successive modifiche da concordare tra le parti. 
+        Il mancato rispetto del patto comporta la facoltà da parte di entrambe le parti di interrompere il rapporto.
         </n>
-
-
-
-     
         ";
         $pdf->WriteTag(0,6,utf8_decode($txt),"","J",0,0);
-
-
-
 
         $pdf->Ln(8);
         $pdf->SetFont($fontdefault,'',10);

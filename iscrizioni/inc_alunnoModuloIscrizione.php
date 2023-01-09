@@ -1,12 +1,12 @@
 <?
     
     $pdf->SetFont('TitilliumWeb-SemiBold','',16);
-    $pdf->Cell(0,8,"CHIEDONO L'ISCRIZIONE PER L'ANNO SCOLASTICO ".$annoscolastico, 0,1, 'C');
+    $pdf->Cell(0,8,"CHIEDONO L'ADESIONE AI SERVIZI EDUCATIVI PER L'A.S. ".$annoscolastico, 0,1, 'C');
     $pdf->SetFont($fontdefault,'',14);
 
-    if ($mf_alu == "M") { $frase = "dell'alunno"; $desinenza = "o"; $articolo="il";}
-    if ($mf_alu == "F")  {$frase ="dell'alunna"; $desinenza = "a"; $articolo="la";}
-    if ($mf_alu != "F" && $mf_alu != "M")  {$frase ="del/la alunno/a"; $desinenza = "o/a"; $articolo="il/la";}
+    if ($mf_alu == "M") { $frase = "del figlio"; $desinenza = "o"; $articolo="il";}
+    if ($mf_alu == "F")  {$frase ="della figlia"; $desinenza = "a"; $articolo="la";}
+    if ($mf_alu != "F" && $mf_alu != "M")  {$frase ="del/la figlio/a"; $desinenza = "o/a"; $articolo="il/la";}
 
     $pdf->Cell(0,6,$frase, 0,1, 'C');
 
@@ -94,10 +94,10 @@
 // ...ALLA CLASSE ************************************************************************************
     $pdf->SetFont('TitilliumWeb-SemiBold','',14);
     if (!$blank) {
-        $pdf->Cell(0,7,"al".$classi[$classe_cla],0,1,'C');
+        $pdf->Cell(0,7,"per ".$classi[$classe_cla],0,1,'C');
     }
     else {
-        $pdf->Cell(0,7,"alla classe..................................................",0,1,'C');
+        $pdf->Cell(0,7,"per la classe..................................................",0,1,'C');
     }
 
     if ($disabilita_alu == 1) {

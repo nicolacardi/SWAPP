@@ -81,7 +81,7 @@ switch ($codscuola) {
         $titolaretrattamento = "Enrica Salvatori";
         $linkPTOF = "http://www.waldorfpadova.it/cms/wp-content/uploads/2020/01/PTOF-SCUOLA-WALDORF-SOPHIA-ANNI-2019-2022.pdf";
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
-        $quotaiscrizione = "85 per ciascun/a alunno/a iscritto/a";
+        $quotaiscrizione = "85 per ciascun/a figlio/a iscritto/a";
         $scadrientromodulo = "28/01/";
         $scadrientromodulolett = "28 gennaio ";
         $scadiscrizione = "28/01/";
@@ -116,7 +116,7 @@ switch ($codscuola) {
         $intestazione1 = "Società Cooperativa Sociale";
         $intestazione2 = "Steiner Waldorf Padova";
 
-        $titolocontratto = "CONTRATTO DI PRESTAZIONE SCOLASTICA";
+        $titolocontratto = "ACCORDO DI DIRITTO PRIVATO";
 
         $testoarticolomensa = "";
 

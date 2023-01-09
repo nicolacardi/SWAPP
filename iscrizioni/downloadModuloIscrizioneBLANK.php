@@ -822,7 +822,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->MultiCell(0,$interlinea,$testo);
 		$pdf->Ln($dopoparagrafo);
 
-		$testo= "4. Chi lascia la scuola durante l'anno scolastico è tenuto a versare il contributo economico fino alla fine dell'anno in corso compreso di eventuale integrazione";
+		$testo= "4. Chi lascia la scuola durante l'anno scolastico è tenuto a versare il contributo economico fino alla fine dell'anno in corso compreso di eventuale integrazione.";
 		$pdf->SetFont($fontdefault,'',$fontsizedefault);
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,$interlinea,$testo);
@@ -856,7 +856,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->MultiCell(0,$interlinea,$testo);
 		$pdf->Ln($dopoparagrafo);
 
-		$testo= "9. Entro il 30/09 dovranno essere versati: la quota associativa (euro 10 a socio) l'eventuale quota per le pulizie";
+		$testo= "9. Entro il 30/09 dovrà essere versata la quota associativa (euro 10 a socio)";
 		$pdf->SetFont($fontdefault,'',$fontsizedefault);
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,$interlinea,$testo);

@@ -105,9 +105,9 @@ foreach ($ID_famA as $ID_fam) {
 	// $pdf->Cell(0,10,"ISC_include_modulouscitaautonoma:".$ISC_include_modulouscitaautonoma, 0,1, 'C');
 
 
-	$pdf->Cell(0,8,"DOMANDA DI ISCRIZIONE", 0,1, 'C');
+	$pdf->Cell(0,8,"DOMANDA DI ADESIONE", 0,1, 'C');
 	$pdf->SetFont($fontdefault,'',14);
-	$pdf->Cell(0,7,"alla ".$nomecittascuola, 0,1, 'C');
+	$pdf->Cell(0,7,"ai servizi educativi della ".$ragionesocialescuola, 0,1, 'C');
 	$pdf->SetFont($fontdefault,'',14);
 	$pdf->Cell(0,7,"Anno Scolastico ".$annoscolastico, 0,1, 'C');
 	$pdf->SetFont($fontdefault,'',12);
@@ -778,7 +778,7 @@ $h1 = 6;
 		$pdf->SetFont($fontdefault,'',11);
 
 		$pdf->Ln(2);
-		$testo="Con la presente scrittura privata, tra le parti:";
+		$testo="Con il presente accordo tra le parti:";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -805,22 +805,24 @@ $h1 = 6;
 		$pdf->SetFont($fontdefault,'',11);
 
 		$pdf->Ln(4);
-		$testo="-	L'Ente Gestore gestisce una istituzione scolastica pubblica non statale paritaria per materna e primaria, non paritaria per secondaria di primo grado;";
+		$testo="-	L'Ente Gestore gestisce una istituzione scolastica non statale paritaria per materna e primaria, non paritaria per secondaria di primo grado;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="-	il suddetto Ente Gestore si finanzia in massima parte con contributi e donazioni delle famiglie; la puntualita' e regolarita' nei pagamenti sono necessari per la copertura delle spese del personale e per il buon funzionamento della Scuola;";
+		$testo="-	L'Ente Gestore si finanzia in massima parte con contributi e donazioni delle famiglie; la puntualita' e regolarita' nei pagamenti sono necessari per la copertura delle spese del personale e per il buon funzionamento dei servizi educativi;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="-	nell'economia dell'Ente Gestore la solidarietà della comunità scolastica rappresenta un presupposto irrinunciabile;";
+		$testo="-	nell'economia dell'Ente Gestore la solidarietà della comunità educativa rappresenta un presupposto irrinunciabile;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSD." e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.waldorfpadova.it);<br>";
+		$testo="-	si è presa visione e si condividono il ".$POF_PTOF_PSD." e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.waldorfpadova.it);<br>";
+
+		// $testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSD." e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.waldorfpadova.it);<br>";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 		if ($ISC_mostra_regolinterno ==1) {
@@ -836,12 +838,12 @@ $h1 = 6;
 			$pdf->WriteHTML($testo);
 		}
 		$pdf->Ln(4);
-		$testo="-	l'ammissione alla Scuola è subordinata al parere del Collegio degli Insegnanti e del Consiglio di Amministrazione;";
+		$testo="-	la presente domanda di ammissione ai servizi educativi sarà esaminata dal Collegio degli Insegnanti e del Consiglio di Amministrazione;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="-	si dichiara di aver presentato domanda di iscrizione per l'anno scolastico ".$annoscolastico." obbligandosi, in caso di accettazione della medesima domanda da parte dell'Ente Gestore, a sottoscrivere il presente contratto di prestazione scolastica;
+		$testo="-	si dichiara di aver presentato domanda di adesione ai servizi educativi della Cooperativa per l'anno scolastico ".$annoscolastico." obbligandosi, in caso di accettazione della medesima domanda da parte dell'Ente Gestore, a sottoscrivere il presente accordo;
 		";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
@@ -857,7 +859,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="art.2)	l'Ente Gestore suindicato si obbliga nei confronti dell'altra parte contraente a fornire le prestazioni scolastiche previste dal ".$POF_PTOF_PSD." della Scuola;";
+		$testo="art.2)	l'Ente Gestore suindicato si obbliga nei confronti dell'altra parte contraente a fornire i servizi educativi previsti dal ".$POF_PTOF_PSD." ;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -871,7 +873,7 @@ $h1 = 6;
 		$pdf->AddPage();
 	
 
-		$testo= "art.4)	I genitori/tutori/esercenti la responsabilità genitoriale si obbligano in solido a corrispondere all'Ente Gestore per l'anno scolastico ".$annoscolastico.", una quota annua a titolo di  CONTRIBUTO SCOLASTICO MINIMO così definito (vedi <a href='downloadAllegato.php?nomeallegato=D_".$codscuola."'>Allegato D</a>):
+		$testo= "art.4)	I genitori/tutori/esercenti la responsabilità genitoriale si obbligano in solido a corrispondere all'Ente Gestore per l'anno scolastico ".$annoscolastico.", una quota annua a titolo di  CONTRIBUTO MINIMO PER I SERVIZI EDUCATIVI così definito (vedi <a href='downloadAllegato.php?nomeallegato=D_".$codscuola."'>Allegato D</a>):
 		";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
@@ -885,7 +887,7 @@ $h1 = 6;
 		//TABELLINA********
 		$pdf->Cell(75,5,"NOME e COGNOME","LTR",0,'C');
 		$pdf->Cell(40,5,"# figlio","LTR",0,'C');
-		$pdf->Cell(45,5,"Iscrizione alla classe","LTR",0,'C');
+		$pdf->Cell(45,5,"Gruppo classe","LTR",0,'C');
 		$pdf->Cell(30,5,"Quota annua","LTR",1,'C');
 		$pdf->Cell(75,5,"","LBR",0,'L');
 		$pdf->Cell(40,5,"","LBR",0,'L');
@@ -925,7 +927,7 @@ $h1 = 6;
 			$pdf->Cell(0,5,$testo12,0,1,"L");	
 		}*/
 
-		$testo12= "il versamento di tale quota annua avverrà in soluzione:";
+		$testo12= "il versamento di tale contributo avverrà in soluzione:";
 		$testo12 = utf8_decode($testo12);
 		$pdf->SetFont($fontdefault,'',11);
 		$pdf->Cell(0,10,$testo12,0,1,"L");
@@ -951,12 +953,12 @@ $h1 = 6;
 
 		$pdf->Ln(5);
 		$pdf->SetFont($fontdefault,'',11);
-		$testo= "art.5)	I genitori/tutori/esercenti la responsabilità genitoriale che confermino l'iscrizione all'anno successivo si impegnano a versare la quota di iscrizione per l'anno successivo pari a euro ".$quotaiscrizione." entro il ".$scadiscrizionelett.$anno2."; la quota di iscrizione è di euro 160 per iscrizioni oltre tale data";
+		$testo= "art.5)	I genitori/tutori/esercenti la responsabilità genitoriale che richiedano l'adesione ai servizi educativi all'anno successivo si impegnano a versare una quota pari a euro ".$quotaiscrizione." entro il ".$scadiscrizionelett.$anno2."; la quota di adesione è di euro 160 per iscrizioni oltre tale data";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="art.6)	I genitori/tutori/esercenti la responsabilità genitoriale si impegnano a versare a consuntivo entro il 15/06/".$anno2." l'eventuale conguaglio per le spese didattiche anticipate dalla Scuola.";
+		$testo="art.6)	I genitori/tutori/esercenti la responsabilità genitoriale si impegnano a versare a consuntivo entro il 15/06/".$anno2." l'eventuale conguaglio per le spese didattiche anticipate dall'Ente Gestore.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -1002,22 +1004,22 @@ $h1 = 6;
 		$pdf->SetFont($fontdefault,'',11);
 
 		$pdf->Ln(4);
-		$testo= "Art.7) E' riconosciuto all'Ente Gestore il diritto di richiedere il rispetto dei tempi dei versamenti. Si precisa che il contributo non potrà essere mensilmente suddiviso tra entrambi i genitori, ma dovrà essere necessariamente versato interamente da uno dei due.";
+		$testo= "Art.7) E' riconosciuto all'Ente Gestore il diritto di richiedere il rispetto dei tempi dei versamenti. Si precisa che il pagamento del contributo non potrà essere suddiviso tra i genitori, ma dovrà essere necessariamente versato interamente da uno dei due.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="Art.8) Nel caso di astensione prolungata dalle lezioni per cause non imputabili alla scuola (malattia, impegni sportivi, studio all'estero, etc.) è fatto obbligo ai genitori di continuare a versare le quote dovute secondo quanto stabilito.";
+		$testo="Art.8) Nel caso di astensione prolungata dalle lezioni per cause non imputabili alla scuola (malattia, impegni sportivi, studio all'estero, etc.) è fatto obbligo ai genitori di continuare a versare il contributo dovute secondo quanto stabilito.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="Art.9) In caso di ritiro /disdetta dell'iscrizione oltre il 30 marzo ".$anno1.", l'Ente Gestore si avvale del diritto di trattenere interamente la quota di iscrizione.";
+		$testo="Art.9) In caso di ritiro /disdetta dell'adesione oltre il 30 marzo ".$anno1.", l'Ente Gestore si avvale del diritto di trattenere interamente la quota di adesione.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="In caso di risoluzione del contratto e di ritiro dell'alunno per cause non imputabili alla scuola, prima dell'inizio dell'anno scolastico, si riconosce all'Ente Gestore la facoltà di avvalersi del diritto di non restituire nessun importo già versato alla scuola, e i Genitori/Tutori/esercenti la responsabilità genitoriale si obbligano a versare all'Ente Gestore le quote relative a tre mensilità.";
+		$testo="In caso di risoluzione del presente accordo e di ritiro dell'alunno per cause non imputabili all'Ente Gestore, prima dell'inizio dell'anno scolastico, si riconosce all'Ente Gestore la facoltà di avvalersi del diritto di non restituire nessun importo già versato, e i Genitori/Tutori/esercenti la responsabilità genitoriale si obbligano a versare all'Ente Gestore le quote relative a tre mensilità del contributo minimo.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -1061,7 +1063,11 @@ $h1 = 6;
 		$pdf->SetFont('TitilliumWeb-SemiBold','',16);
 		$pdf->Cell(0,10,$titolocontratto, 0,1, 'C');
 		$pdf->SetFont($fontdefault,'',11);
-		$pdf->Ln(5);
+
+		$pdf->SetFont($fontdefault,'',14);
+		$pdf->Cell(0,7,"Anno Scolastico ".$annoscolastico, 0,1, 'C');
+		$pdf->SetFont($fontdefault,'',11);
+		$pdf->Ln(2);
 
 		$testo= "I suindicati genitori/tutori/esercenti la responsabilità genitoriale:";
 		$testo = utf8_decode($testo);
@@ -1144,7 +1150,7 @@ $h1 = 6;
 			if ($n == 1) { $orepulizie = 14 ;} else { $orepulizie = 16 ;}
 			$testo= "- scelgono di svolgere le pulizie per ".$orepulizie." ore durante l'anno";
 		} else {
-			if ($n == 1) { $quotapulizie = 180 ;} else { $quotapulizie = 210 ;}
+			if ($n == 1) { $quotapulizie = 200 ;} else { $quotapulizie = 230 ;}
 			$testo= "- scelgono di <u>non</u> svolgere le pulizie e quindi di versare la somma di euro ".$quotapulizie.".";
 		}
 		$pdf->SetFont($fontdefault,'',11);
@@ -1630,40 +1636,41 @@ $h1 = 6;
 
 //PAGINA PRINCIPI CHE REGOLANO/REGOLAMENTO ECONOMICO *****************************************************************
 	if ($codscuola =='PD') {
-		$pdf->AddPage();
+		//integrati in Patto corresponsabilità
+		// $pdf->AddPage();
 	
 
-		$pdf->SetFont('TitilliumWeb-SemiBold','',16);
-		$pdf->Cell(0,10,"PRINCIPI CHE REGOLANO IL PERCORSO PEDAGOGICO", 0,1, 'C');
-		$pdf->Ln(8);
+		// $pdf->SetFont('TitilliumWeb-SemiBold','',16);
+		// $pdf->Cell(0,10,"PRINCIPI CHE REGOLANO IL PERCORSO PEDAGOGICO", 0,1, 'C');
+		// $pdf->Ln(8);
 
-		$testo1 = "La ".$ragionesocialescuola." ritiene fondamentale che i genitori degli alunni iscritti siano a conoscenza sia dei principi alla base del percorso pedagogico proposto sia dei principi che regolano il corretto funzionamento dell'organismo sociale in cui si trovano come soci della Cooperativa.
+		// $testo1 = "La ".$ragionesocialescuola." ritiene fondamentale che i genitori degli alunni iscritti siano a conoscenza sia dei principi alla base del percorso pedagogico proposto sia dei principi che regolano il corretto funzionamento dell'organismo sociale in cui si trovano come soci della Cooperativa.
 
-		A tal fine, premesso che:
-		a)	''La Cooperativa Sociale non ha scopo di lucro. Essa persegue l'interesse generale della comunità alla promozione umana e all'integrazione sociale dei cittadini...(omissis) (art 3 statuto)''
-		b)	''La direzione pedagogica è affidata dal Consiglio di Amministrazione al Collegio degli Insegnanti, i quali adottano l'indirizzo pedagogico steineriano, con assoluta  libertà ed indipendenza delle scelte di carattere pedagogico'' (art 25 statuto).
-		Si richiede la comprensione e la condivisione da parte dei genitori degli alunni iscritti, di alcuni aspetti fondamentali:
-		a)	del piano di studi e dell'approccio educativo/pedagogico proposto, ispirato al pensiero di Rudolf Steiner
-		b)	delle scelte attuate dal Collegio degli Insegnanti in accordo col Medico scolastico, sempre volte a sostenere un sano ed equilibrato sviluppo dell'alunno. Nell'ambito di tali scelte, nel caso fosse ritenuto necessario, potrebbero essere proposti dei percorsi, individuali o in piccoli gruppi, di euritmia, massaggio ritmico, laboratori artistici. Tali attività sono parte integrante della pedagogia steineriana ed è quindi necessario che i genitori supportino e condividano il percorso pedagogico nella sua completezza, sapendo che, in caso contrario, tale percorso sarebbe mancante di un aspetto fondamentale.
-		c)	delle valutazioni pedagogiche attuate dal Collegio degli Insegnanti riguardanti sia  l'idoneità alla scolarizzazione (valutazione della maturità scolare dell'alunno/a per l'ingresso alla prima classe) sia l'accoglienza di allievi provenienti da scuole esterne.
-		d)	dell'importanza di una continuità didattico-pedagogica dalla I° all'VIII° classe, necessaria per uno sviluppo armonico dell'alunno.
-		e)	della possibilità, di ricorrere alla consulenza esterna in ambito pedagogico, per una valutazione psico-cognitiva dell'alunno (da effettuarsi c/o enti preposti). La più stretta collaborazione tra Famiglia, Collegio degli Insegnanti e Medico Scolastico, sono presupposti fondamentali per poter lavorare al meglio ed eventualmente tutelare, anche con una certificazione, l'alunno, al momento dell'esame di licenza media. 
-		f)	dell'importanza di avvicinarsi alla conoscenza e alla comprensione dei principi che sono alla base del pensiero di R.Steiner relativamente all'essere umano nella sua triplice attività di Pensare Sentire e Volere come fondamento della struttura della Scuola Waldorf, in modo tale che all'interno della Scuola intesa come organismo, ciascuno possa trovare il proprio ruolo nella chiarezza e nel rispetto dei compiti che Steiner assegna al Collegio degli Insegnanti, al Consiglio di Amministrazione e ai Genitori, per una sana e corretta partecipazione alla vita della comunità scolastica. (Vedi allegato A, da conservare)
-		g)	dell'importanza di partecipare, soprattutto nei primi anni, alle conferenze che la Scuola ogni anno propone al fine di comprendere i principi che regolano il percorso pedagogico.";
-		$testo2 = "Nella ".$nomescuola." vengono accolte famiglie ed alunni che accettano consapevolmente di convivere rispettando le altrui scelte, siano esse di pensiero, religiose o terapeutiche. Chi chiede di entrare a farne parte è cosciente che questo comporta accogliere responsabilmente posizioni ed orientamenti di segno differenti dai propri, nella reciproca libertà, e si fa carico in ogni circostanza, delle conseguenze di questa presa di responsabilità.";
+		// A tal fine, premesso che:
+		// a)	''La Cooperativa Sociale non ha scopo di lucro. Essa persegue l'interesse generale della comunità alla promozione umana e all'integrazione sociale dei cittadini...(omissis) (art 3 statuto)''
+		// b)	''La direzione pedagogica è affidata dal Consiglio di Amministrazione al Collegio degli Insegnanti, i quali adottano l'indirizzo pedagogico steineriano, con assoluta  libertà ed indipendenza delle scelte di carattere pedagogico'' (art 25 statuto).
+		// Si richiede la comprensione e la condivisione da parte dei genitori degli alunni iscritti, di alcuni aspetti fondamentali:
+		// a)	del piano di studi e dell'approccio educativo/pedagogico proposto, ispirato al pensiero di Rudolf Steiner
+		// b)	delle scelte attuate dal Collegio degli Insegnanti in accordo col Medico scolastico, sempre volte a sostenere un sano ed equilibrato sviluppo dell'alunno. Nell'ambito di tali scelte, nel caso fosse ritenuto necessario, potrebbero essere proposti dei percorsi, individuali o in piccoli gruppi, di euritmia, massaggio ritmico, laboratori artistici. Tali attività sono parte integrante della pedagogia steineriana ed è quindi necessario che i genitori supportino e condividano il percorso pedagogico nella sua completezza, sapendo che, in caso contrario, tale percorso sarebbe mancante di un aspetto fondamentale.
+		// c)	delle valutazioni pedagogiche attuate dal Collegio degli Insegnanti riguardanti sia  l'idoneità alla scolarizzazione (valutazione della maturità scolare dell'alunno/a per l'ingresso alla prima classe) sia l'accoglienza di allievi provenienti da scuole esterne.
+		// d)	dell'importanza di una continuità didattico-pedagogica dalla I° all'VIII° classe, necessaria per uno sviluppo armonico dell'alunno.
+		// e)	della possibilità, di ricorrere alla consulenza esterna in ambito pedagogico, per una valutazione psico-cognitiva dell'alunno (da effettuarsi c/o enti preposti). La più stretta collaborazione tra Famiglia, Collegio degli Insegnanti e Medico Scolastico, sono presupposti fondamentali per poter lavorare al meglio ed eventualmente tutelare, anche con una certificazione, l'alunno, al momento dell'esame di licenza media. 
+		// f)	dell'importanza di avvicinarsi alla conoscenza e alla comprensione dei principi che sono alla base del pensiero di R.Steiner relativamente all'essere umano nella sua triplice attività di Pensare Sentire e Volere come fondamento della struttura della Scuola Waldorf, in modo tale che all'interno della Scuola intesa come organismo, ciascuno possa trovare il proprio ruolo nella chiarezza e nel rispetto dei compiti che Steiner assegna al Collegio degli Insegnanti, al Consiglio di Amministrazione e ai Genitori, per una sana e corretta partecipazione alla vita della comunità scolastica. (Vedi allegato A, da conservare)
+		// g)	dell'importanza di partecipare, soprattutto nei primi anni, alle conferenze che la Scuola ogni anno propone al fine di comprendere i principi che regolano il percorso pedagogico.";
+		// $testo2 = "Nella ".$nomescuola." vengono accolte famiglie ed alunni che accettano consapevolmente di convivere rispettando le altrui scelte, siano esse di pensiero, religiose o terapeutiche. Chi chiede di entrare a farne parte è cosciente che questo comporta accogliere responsabilmente posizioni ed orientamenti di segno differenti dai propri, nella reciproca libertà, e si fa carico in ogni circostanza, delle conseguenze di questa presa di responsabilità.";
 
-		$pdf->SetFont($fontdefault,'',10);
-		$testo1 = utf8_decode($testo1);
-		$pdf->MultiCell(0,5,$testo1);
-		$pdf->Ln(3);
-		$pdf->SetFont('TitilliumWeb-SemiBold','',10);
-		$testo2 = utf8_decode($testo2);
-		$pdf->MultiCell(0,5,$testo2);
+		// $pdf->SetFont($fontdefault,'',10);
+		// $testo1 = utf8_decode($testo1);
+		// $pdf->MultiCell(0,5,$testo1);
+		// $pdf->Ln(3);
+		// $pdf->SetFont('TitilliumWeb-SemiBold','',10);
+		// $testo2 = utf8_decode($testo2);
+		// $pdf->MultiCell(0,5,$testo2);
 
-		$pdf->SetXY(10,230);
-		//FIRMA PADRE FIRMA MADRE DATA E LUOGO AFFIANCATI
-		$pdf->Ln(8);
-		include("firmepadremadreluogo.php");
+		// $pdf->SetXY(10,230);
+		// //FIRMA PADRE FIRMA MADRE DATA E LUOGO AFFIANCATI
+		// $pdf->Ln(8);
+		// include("firmepadremadreluogo.php");
 	}
 
 	if ($codscuola =='CI') {
@@ -1685,12 +1692,20 @@ $h1 = 6;
 		$pdf->Ln($dopoparagrafo);
 
 		$testo= "1. Il contributo di gestione (retta annuale) rappresenta un impegno responsabile verso le necessità della scuola. Il suo ammontare annuale definito per alunno, viene determinato in fase di bilancio preventivo e successivamente confermato entro l'inizio effettivo dell'anno scolastico dal consiglio di amministrazione responsabile della gestione economica. La famiglia è invitata a scegliere consapevolmente la retta che può sostenere, tra la retta COMPLETA, RIDOTTA, MINIMA o MINIMA CON PIU' FIGLI.";
+
+
+
+		//$pdf->WriteTag(0,4,utf8_decode($testo),"","J",0,0);
+
+
+
+
 		$pdf->SetFont($fontdefault,'',$fontsizedefault);
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,$interlinea,$testo);
 		$pdf->Ln($dopoparagrafo);
 
-		$testo= "2. Le famiglie che non sono in grado di far fronte alla copertura del contributo economico, potranno rivolgersi al ''Fondo di Solidarietà Famiglie'' richiedendo in segreteria al momento dell'iscrizione, l'apposito modulo. La richiesta verrà vagliata attraverso un colloquio con il gruppo di gestione al fine di raccogliere parametri oggettivi utile a stilare una graduatoria di priorità. Al termine del giro di colloqui, il gruppo di gestione, in funzione delle richieste pervenute e del budget disponibile, darà una risposta nei termini fissati. Per queste famiglie il Modulo ''Impegno Economico'' deve essere comunque presentato e l'iscrizione verrà convalidata solo dopo aver raggiunto l'accordo economico.";
+		$testo= "2. Le famiglie che non sono in grado di far fronte alla copertura del contributo economico, potranno rivolgersi al ''Fondo di Solidarietà Famiglie'' richiedendo in segreteria al momento dell'iscrizione, l'apposito modulo. La richiesta verrà vagliata attraverso un colloquio con il gruppo di gestione al fine di raccogliere parametri oggettivi utile a stilare una graduatoria di priorità. Al termine dei colloqui, il gruppo di gestione, in funzione delle richieste pervenute e del budget disponibile, darà una risposta nei termini fissati. Per queste famiglie il Modulo ''Impegno Economico'' deve essere comunque presentato e l'iscrizione verrà convalidata solo dopo aver raggiunto l'accordo economico.";
 		$pdf->SetFont($fontdefault,'',$fontsizedefault);
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,$interlinea,$testo);
@@ -1702,7 +1717,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,$interlinea,$testo);
 		$pdf->Ln($dopoparagrafo);
 
-		$testo= "4. Chi lascia la scuola durante l'anno scolastico è tenuto a versare il contributo economico fino alla fine dell'anno in corso compreso di eventuale integrazione";
+		$testo= "4. Chi interrompe la frequenza durante l'anno scolastico è tenuto a versare il contributo economico fino alla fine dell'anno in corso compreso di eventuale integrazione.";
 		$pdf->SetFont($fontdefault,'',$fontsizedefault);
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,$interlinea,$testo);
@@ -1724,7 +1739,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,$interlinea,$testo);
 		$pdf->Ln($dopoparagrafo);
 
-		$testo= "7. Al 31 Agosto ".$anno1." si riterranno valide le conferme annuali d'iscrizione alla classe successiva, solo se saranno stati eseguiti integralmente: il pagamento del contributo di gestione dovuto per l'anno in corso ".$anno_corrente.", il saldo delle spese del materiale, il saldo di eventuali contributi straordinari per il pareggio di bilancio.";
+		$testo= "7. Al 31 Agosto ".$anno1." si riterranno valide le conferme annuali d'iscrizione alla classe successiva, solo se saranno stati eseguiti integralmente: il pagamento del contributo di gestione dovuto per l'anno in corso ".(intval($_SESSION['anno1'])-1)."/".substr($_SESSION['anno1'],2).", il saldo delle spese del materiale, il saldo di eventuali contributi straordinari per il pareggio di bilancio.";
 		$pdf->SetFont($fontdefault,'',$fontsizedefault);
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,$interlinea,$testo);
@@ -1736,7 +1751,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,$interlinea,$testo);
 		$pdf->Ln($dopoparagrafo);
 
-		$testo= "9. Entro il 30/09 dovranno essere versati: la quota associativa (euro 10 a socio) l'eventuale quota per le pulizie";
+		$testo= "9. Entro il 30/09 dovrà essere versata la quota associativa (euro 10 a socio)";
 		$pdf->SetFont($fontdefault,'',$fontsizedefault);
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,$interlinea,$testo);
