@@ -1,14 +1,14 @@
 <?
     
-    $pdf->SetFont('TitilliumWeb-SemiBold','',16);
-    $pdf->Cell(0,8,"CHIEDONO L'ADESIONE AI SERVIZI EDUCATIVI PER L'A.S. ".$annoscolastico, 0,1, 'C');
-    $pdf->SetFont($fontdefault,'',14);
+    $pdf->SetFont('TitilliumWeb-SemiBold','',14);
+    $pdf->Cell(0,6,"CHIEDONO ".$titolorichiesta." PER L'A.S. ".$annoscolastico, 0,1, 'C');
+    $pdf->SetFont($fontdefault,'',12);
 
     if ($mf_alu == "M") { $frase = "del figlio"; $desinenza = "o"; $articolo="il";}
     if ($mf_alu == "F")  {$frase ="della figlia"; $desinenza = "a"; $articolo="la";}
     if ($mf_alu != "F" && $mf_alu != "M")  {$frase ="del/la figlio/a"; $desinenza = "o/a"; $articolo="il/la";}
 
-    $pdf->Cell(0,6,$frase, 0,1, 'C');
+    $pdf->Cell(0,5,$frase, 0,1, 'C');
 
     $w1 = 45;
     $w2 = 145;

@@ -60,7 +60,7 @@
         
         $pdf->SetFont($fontdefault,'',$fontsizedefault);
 
-        if ($mf_alu == "M"){$figliofiglia = " il proprio figlio "; $desinenza= "o";} else {$figliofiglia = " la propria figlia";$desinenza="a";}
+        if ($mf_alu == "M"){$figliofiglia = " il proprio figlio "; $desinenza= "o";} else {$figliofiglia = " la propria figlia ";$desinenza="a";}
 
         $testo = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+2,5)."      che". $figliofiglia."sarà ritirat".$desinenza. " al termine delle lezioni da uno dei due genitori" ;
 		$pdf->Cell(190,$h1,utf8_decode($testo),0,1,'L');

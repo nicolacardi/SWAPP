@@ -53,6 +53,10 @@ switch ($codscuola) {
         $intestazione2 = "ARCA Educazione";
 
         $titolocontratto = "CONTRATTO DI PRESTAZIONE DI SUPPORTO ALLA DIDATTICA";
+        $titoloiscrizione = "DOMANDA DI ADESIONE";
+        $sottotitoloiscrizione = "ai servizi educativi della ".$ragionesocialescuola;
+        $titolorichiesta= "L'ADESIONE AI SERVIZI EDUCATIVI";
+
 
         $testoarticolomensa = "";
 
@@ -117,6 +121,9 @@ switch ($codscuola) {
         $intestazione2 = "Steiner Waldorf Padova";
 
         $titolocontratto = "ACCORDO DI DIRITTO PRIVATO";
+        $titoloiscrizione = "DOMANDA DI ADESIONE";
+        $sottotitoloiscrizione = "ai servizi educativi della ".$ragionesocialescuola;
+        $titolorichiesta= "L'ADESIONE AI SERVIZI EDUCATIVI";
 
         $testoarticolomensa = "";
 
@@ -180,6 +187,10 @@ switch ($codscuola) {
         $intestazione2 = "";
 
         $titolocontratto = "IMPEGNO ECONOMICO";
+        $titoloiscrizione = "DOMANDA DI ADESIONE";
+        $sottotitoloiscrizione = "ai servizi educativi della ".$ragionesocialescuola;
+        $titolorichiesta= "L'ADESIONE AI SERVIZI EDUCATIVI";
+
 
         $testoarticolomensa = "";
 
@@ -201,10 +212,10 @@ switch ($codscuola) {
         $nomecittascuola = "Scuola Steiner Waldorf Verona";
         $indirizzoscuola = "Via Tione, 25 - 37069 Villafranca di Verona (VR) ";
         $indirizzocompletoscuola = "Via Tione, 25 - 37069 Villafranca di Verona (VR) ";
-        $ragionesocialescuola = "Steiner Waldorf Verona Cooperativa Sociale Onlus";
+        $ragionesocialescuola = "Steiner Waldorf Verona Cooperativa Sociale";
         $datiscuola = "C.F. e P.IVA: 04028200238 - N. REA VR 385885 - iscrizione albo nazionale società cooperative n° A212808";
         $cfscuola = "04028200238";
-        $titolaretrattamentoTitolo = "il presidente pro-tempore della Steiner Waldorf Verona Cooperativa Sociale Onlus";
+        $titolaretrattamentoTitolo = "il presidente pro-tempore della Steiner Waldorf Verona Cooperativa Sociale";
         $titolaretrattamento = "Rosella Danzi";
         $linkPTOF = "http://www.scuolawaldorfverona.it/media/pei-e-ptof-scuola-waldorf-vero-3ef.pdf";  
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
@@ -239,10 +250,14 @@ switch ($codscuola) {
         $codIdentificativo = "IT780010000004028200238";
 
         //per richiesta adesione socio
-        $intestazione1 = "Cooperativa Sociale ONLUS";
+        $intestazione1 = "Cooperativa Sociale";
         $intestazione2 = "Steiner Waldorf Verona";
 
         $titolocontratto = "CONTRATTO DI PRESTAZIONE SCOLASTICA";
+        $titoloiscrizione = "DOMANDA DI ADESIONE";
+        $sottotitoloiscrizione = "ai servizi educativi della ".$ragionesocialescuola;
+        $titolorichiesta= "L'ADESIONE AI SERVIZI EDUCATIVI";
+
 
         $testoarticolomensa = "";
 
@@ -307,6 +322,10 @@ switch ($codscuola) {
         $intestazione2 = "Pedagogia Steineriana Michael";
 
         $titolocontratto = "CONTRATTO DI PRESTAZIONE SCOLASTICA";
+        $titoloiscrizione = "DOMANDA DI ADESIONE";
+        $sottotitoloiscrizione = "ai servizi educativi della ".$ragionesocialescuola;
+        $titolorichiesta= "L'ADESIONE AI SERVIZI EDUCATIVI";
+
 
         $testoarticolomensa = "";
 
@@ -371,6 +390,9 @@ switch ($codscuola) {
         $intestazione2 = "Pedagogica Steineriana";
 
         $titolocontratto = "CONTRATTO DI PRESTAZIONE SCOLASTICA";
+        $titoloiscrizione = "DOMANDA DI ISCRIZIONE";
+        $sottotitoloiscrizione = "alla ".$nomecittascuola;
+        $titolorichiesta= "L'ISCRIZIONE";
 
         $testoarticolomensa = " come definito nell'articolo 72 legge provinciale n.5 del 7 agosto 2006 e specificato nell'articolo 4 del Decreto del Presidente della Provincia n.24 del 5 novembre 2007 ";
         

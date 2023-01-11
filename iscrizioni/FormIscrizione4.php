@@ -98,12 +98,12 @@
 
 			<?
 
-		$sql = "SELECT cognome_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, ckpresavisione1_fam,  ckpresavisione2_fam, ckpresavisione3_fam, ckpresavisione4_fam, ckpresavisione5_fam, ckpresavisione6_fam, ckpresavisione7_fam, ckmadreesclusadanucleo_fam, ckpadreesclusodanucleo_fam ".
+		$sql = "SELECT cognome_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, ruolomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, ruolopadre_fam, ckpresavisione1_fam,  ckpresavisione2_fam, ckpresavisione3_fam, ckpresavisione4_fam, ckpresavisione5_fam, ckpresavisione6_fam, ckpresavisione7_fam, ckmadreesclusadanucleo_fam, ckpadreesclusodanucleo_fam ".
 		"FROM tab_famiglie WHERE `ID_fam`= ?";
 		$stmt = mysqli_prepare($mysqli, $sql);
 		mysqli_stmt_bind_param($stmt, "i", $_SESSION['ID_fam']);
 		mysqli_stmt_execute($stmt);
-		mysqli_stmt_bind_result($stmt, $cognome_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $ckpresavisione1_fam,  $ckpresavisione2_fam, $ckpresavisione3_fam, $ckpresavisione4_fam, $ckpresavisione5_fam, $ckpresavisione6_fam, $ckpresavisione7_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam);
+		mysqli_stmt_bind_result($stmt, $cognome_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $ruolomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $ruolopadre_fam, $ckpresavisione1_fam,  $ckpresavisione2_fam, $ckpresavisione3_fam, $ckpresavisione4_fam, $ckpresavisione5_fam, $ckpresavisione6_fam, $ckpresavisione7_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam);
 		while (mysqli_stmt_fetch($stmt)) {
 		}?>
 		<form id="formiscrizione" style="margin-top: 100px; ">
@@ -156,7 +156,7 @@
 									<input class="tablecell6 disab <?if ($ckpadreesclusodanucleo_fam == 1) {echo ("linethrough");}?>" type="text" id="luogodatanascitapadre_fam" name="padre" value = "<? echo($comunenascitapadre_fam."-".$provnascitapadre_fam."-".(date('d/m/Y', strtotime(str_replace('-','/', $datanascitapadre_fam))))); ?>" readonly>
 								</td>
 								<td>
-									<input class="tablecell6 disab <?if ($ckpadreesclusodanucleo_fam == 1) {echo ("linethrough");}?>" type="text" id="lblpadre" name="padre" value = "padre" readonly>
+									<input class="tablecell6 disab <?if ($ckpadreesclusodanucleo_fam == 1) {echo ("linethrough");}?>" type="text" id="lblpadre" name="padre" value = "<?=$ruolopadre_fam?>" readonly>
 								</td>
 								<td>
 									<input class="tablelabel6 " type="checkbox" id="ckEscludiPadre" onclick="checkEscludiPadre()" title="Escludi/Includi dal nucleo familiare" <?if ($ckpadreesclusodanucleo_fam == 1) {echo ("checked");}?>>
@@ -176,7 +176,7 @@
 									<input class="tablecell6 disab <?if ($ckmadreesclusadanucleo_fam == 1) {echo ("linethrough");}?>" type="text" id="luogodatanascitamadre_fam" name="madre" value = "<?echo($comunenascitamadre_fam."-".$provnascitamadre_fam."-".(date('d/m/Y', strtotime(str_replace('-','/', $datanascitamadre_fam))))); ?>" readonly>
 								</td>
 								<td>
-									<input class="tablecell6 disab <?if ($ckmadreesclusadanucleo_fam == 1) {echo ("linethrough");}?>" type="text" id="lblmadre" name="madre" value = "madre" readonly>
+									<input class="tablecell6 disab <?if ($ckmadreesclusadanucleo_fam == 1) {echo ("linethrough");}?>" type="text" id="lblmadre" name="madre" value = "<?=$ruolomadre_fam?>" readonly>
 								</td>
 								<td>
 									<input class="tablelabel6 " type="checkbox" id="ckEscludiMadre" onclick="checkEscludiMadre()" title="Escludi/Includi dal nucleo familiare" <?if ($ckmadreesclusadanucleo_fam == 1) {echo ("checked");}?>>

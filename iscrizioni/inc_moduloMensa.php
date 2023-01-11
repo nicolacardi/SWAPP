@@ -89,7 +89,7 @@
 		$pdf->Cell(190,$h1,utf8_decode($testo),0,1,'L');
         $testo = "- eventuali iscrizioni in corso d'anno, modifiche o ritiri vanno comunicati in Segreteria;";
 		$pdf->Cell(190,$h1,utf8_decode($testo),0,1,'L');
-        $testo = "- il pagamento del servizio avverrà, da parte del genitore, mediante l’acquisto in segreteria di blocchetti da:";
+        $testo = "- il pagamento del servizio avverrà, da parte del genitore, mediante l'acquisto in segreteria di blocchetti da:";
 		$pdf->Cell(190,$h1,utf8_decode($testo),0,1,'L');
         $testo = "10 buoni pasto (costo euro 60,00);";
 		$pdf->Cell(190,$h1,utf8_decode($testo),0,1,'L');

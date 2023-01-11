@@ -63,12 +63,14 @@ if ($ID_fam == 0) {
 
 foreach ($ID_famA as $ID_fam) {
 
-	$sql = "SELECT cognome_fam, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ckcarpoolingpadre_fam, ckcarpoolingmadre_fam, ckmadreesclusadanucleo_fam, ckpadreesclusodanucleo_fam, ibanpadre_fam, ibanmadre_fam
+	$sql = "SELECT cognome_fam, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, ruolopadre_fam,
+	sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ruolomadre_fam,
+	ckcarpoolingpadre_fam, ckcarpoolingmadre_fam, ckmadreesclusadanucleo_fam, ckpadreesclusodanucleo_fam, ibanpadre_fam, ibanmadre_fam
 	FROM tab_famiglie WHERE ID_fam= ?";
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "i", $ID_fam);
 	mysqli_stmt_execute($stmt);
-	mysqli_stmt_bind_result($stmt, $cognome_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ckcarpoolingpadre_fam, $ckcarpoolingmadre_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam, $ibanpadre_fam, $ibanmadre_fam);
+	mysqli_stmt_bind_result($stmt, $cognome_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $ruolopadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ruolomadre_fam, $ckcarpoolingpadre_fam, $ckcarpoolingmadre_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam, $ibanpadre_fam, $ibanmadre_fam);
 	$n = 0;
 	$blank = false;
 	while (mysqli_stmt_fetch($stmt)) {
@@ -105,9 +107,9 @@ foreach ($ID_famA as $ID_fam) {
 	// $pdf->Cell(0,10,"ISC_include_modulouscitaautonoma:".$ISC_include_modulouscitaautonoma, 0,1, 'C');
 
 
-	$pdf->Cell(0,8,"DOMANDA DI ADESIONE", 0,1, 'C');
+	$pdf->Cell(0,8,$titoloiscrizione, 0,1, 'C');
 	$pdf->SetFont($fontdefault,'',14);
-	$pdf->Cell(0,7,"ai servizi educativi della ".$ragionesocialescuola, 0,1, 'C');
+	$pdf->Cell(0,7,$sottotitoloiscrizione, 0,1, 'C');
 	$pdf->SetFont($fontdefault,'',14);
 	$pdf->Cell(0,7,"Anno Scolastico ".$annoscolastico, 0,1, 'C');
 	$pdf->SetFont($fontdefault,'',12);
@@ -1691,7 +1693,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,$interlinea,$testo);
 		$pdf->Ln($dopoparagrafo);
 
-		$testo= "1. Il contributo di gestione (retta annuale) rappresenta un impegno responsabile verso le necessità della scuola. Il suo ammontare annuale definito per alunno, viene determinato in fase di bilancio preventivo e successivamente confermato entro l'inizio effettivo dell'anno scolastico dal consiglio di amministrazione responsabile della gestione economica. La famiglia è invitata a scegliere consapevolmente la retta che può sostenere, tra la retta COMPLETA, RIDOTTA, MINIMA o MINIMA CON PIU' FIGLI.";
+		$testo= "1. Il contributo di gestione (retta annuale) rappresenta un impegno responsabile verso le necessità della scuola. Il suo ammontare annuale definito per alunno, viene determinato in fase di bilancio preventivo e successivamente confermato entro l'inizio effettivo dell'anno scolastico dal consiglio di amministrazione responsabile della gestione economica. La famiglia è invitata a scegliere consapevolmente la retta che può sostenere, tra la retta COMPLETA, RIDOTTA, MINIMA o MINIMA CON PIU' FIGLI. Il sostegno, non solo economico, della scuola da parte dei genitori è dato dal versamento della retta ma anche e soprattutto dalla partecipazione attiva alle varie iniziative e all'organizzazione della scuola.";
 
 		$pdf->SetFont($fontdefault,'',$fontsizedefault);
 		$testo = utf8_decode($testo);
@@ -1890,11 +1892,11 @@ $h1 = 6;
 
 	$i = 1;
 	if ($ckpadreesclusodanucleo_fam != 1) {
-		$pdf->Row(array($i, $cognomepadre_fam, $nomepadre_fam, $comunenascitapadre_fam."-".$provnascitapadre_fam."-".$datanascitapadre_fam, "padre"));
+		$pdf->Row(array($i, $cognomepadre_fam, $nomepadre_fam, $comunenascitapadre_fam."-".$provnascitapadre_fam."-".$datanascitapadre_fam, $ruolopadre_fam));
 		$i++;
 	}
 	if ($ckmadreesclusadanucleo_fam != 1) {
-		$pdf->Row(array($i, $cognomemadre_fam, $nomemadre_fam, $comunenascitamadre_fam."-".$provnascitamadre_fam."-".$datanascitamadre_fam, "madre"));
+		$pdf->Row(array($i, $cognomemadre_fam, $nomemadre_fam, $comunenascitamadre_fam."-".$provnascitamadre_fam."-".$datanascitamadre_fam, $ruolomadre_fam));
 		$i++;
 	}
 
