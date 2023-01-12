@@ -352,10 +352,10 @@ $h1 = 6;
 	$classiV = array("ASILO"=>"<5", "I"=>"<5", "II"=>"<5", "III"=>"<5", "IV"=>"<5", "V"=>">5", "VI"=>">5", "VII"=>">5", "VIII"=>">5", "IX"=>">5", "X"=>">5","XI"=>">5","XII"=>">5","XIII"=>">5","NIDO"=>"<5");
 	$classiI_IV = array("ASILO"=>"0", "I"=>"1", "II"=>"1", "III"=>"1", "IV"=>"1", "V"=>"0", "VI"=>"0", "VII"=>"0", "VIII"=>"0", "IX"=>"0", "X"=>"0", "XI"=>"0", "XII"=>"0", "XIII"=>"0", "NIDO"=>"0");
 
-
+	$primaosesta = false;
 	while (mysqli_stmt_fetch($stmt)) {
 
-
+		if ($classe_cla == "I" || $classe_cla == "VI") { $primaosesta = true;}
 
 		if ($classiV[$classe_cla] == "<5") {$ISC_mostra_uscitaautonoma = 0; }
 
@@ -1312,7 +1312,19 @@ $h1 = 6;
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
-		
+		$pdf->Ln(5);
+		$testo= "I versamenti vanno eseguiti a mezzo bonifico intestato a 'Associazione Pedagogica Steineriana' al seguente IBAN:";
+		$pdf->SetFont('TitilliumWeb-SemiBold','',11);
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+		$pdf->Ln(2);
+		$testo= "IT 36 P 08016 01801 000031355562";
+		$pdf->SetFont('TitilliumWeb-SemiBold','',12);
+		$testo = utf8_decode($testo);
+		$pdf->Cell(0,10,$testo,1,1,'C');
+
+
 		if ($ISC_mostra_intestazionefatt ==1) {
 			$pdf->Ln(12);
 			$intestazionefattA= array("altro"=>"a", "padre"=>"al padre", "madre"=>"alla madre");
@@ -1818,6 +1830,7 @@ $h1 = 6;
 //PAGINA PATTO DI CORRESPONSABILITA' *********************************************************************************
 
 	if ($ISC_include_pattocorresponsabilita == 1) {
+
 		include("inc_pattocorresponsabilitaModuloIscrizione.php");
 	}
 

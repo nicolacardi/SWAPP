@@ -1,7 +1,5 @@
 <?
 
-
-
    	if ($codscuola =='AR') {
         $pdf->AddPage();
         $pdf->SetFont('TitilliumWeb-SemiBold','',16);
@@ -252,7 +250,7 @@
 
     if ($codscuola =='VR') {
         //if (1==1) {
-        if ($classe_cla == "I" || $classe_cla == "VI") {
+        if ($primaosesta) {
             $pdf->AddPage();
 
             $fontsizedefault = 10;
