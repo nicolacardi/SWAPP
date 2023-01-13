@@ -8,7 +8,7 @@
     $almenounaquotaannuazero = false;
 
     //seleziono fratello per fratello di ID_fam_alu dell'anno corrente
-    $sql = "SELECT ID_alu_cla FROM tab_classialunni JOIN tab_anagraficaalunni ON ID_alu_cla = ID_alu WHERE ID_fam_alu = ? AND annoscolastico_cla = ?";
+    $sql = "SELECT ID_alu_cla FROM tab_classialunni JOIN tab_anagraficaalunni ON ID_alu_cla = ID_alu WHERE ID_fam_alu = ? AND annoscolastico_cla = ? AND listaattesa_cla = 0";
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "is", $ID_fam, $annoscolastico);
 	mysqli_stmt_execute($stmt);

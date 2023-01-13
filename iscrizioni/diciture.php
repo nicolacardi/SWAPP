@@ -83,7 +83,7 @@ switch ($codscuola) {
         $ragionesocialescuola = "Soc. Coop. Steiner Waldorf Padova";
         $titolaretrattamentoTitolo = "il presidente pro-tempore della Società Cooperativa Sociale Steiner Waldorf Padova";
         $titolaretrattamento = "Enrica Salvatori";
-        $linkPTOF = "http://www.waldorfpadova.it/cms/wp-content/uploads/2020/01/PTOF-SCUOLA-WALDORF-SOPHIA-ANNI-2019-2022.pdf";
+        $linkPTOF = "https://www.waldorfpadova.it/cms/wp-content/uploads/2023/01/PTOF-SCUOLA-WALDORF-SOPHIA-ANNI-2022-2025.pdf";
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
         $quotaiscrizione = "85 per ciascun/a figlio/a iscritto/a";
         $scadrientromodulo = "28/01/";
