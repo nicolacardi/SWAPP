@@ -12,10 +12,10 @@ $pdf->Cell(0,5,"ANNO SCOLASTICO ".$_SESSION['annopreiscrizione_fam'], 0,1, 'C');
 
 $pdf->Ln(5);
 $pdf->SetFont('TitilliumWeb-SemiBold','',12);
-$testo= utf8_decode("Il contributo scolastico deve essere inteso come ANNUALE.");
+$testo= utf8_decode("Il contributo scolastico è ANNUALE.");
 $pdf->Cell(0,5,$testo,0,1, "C");
 
-$testo= utf8_decode("Solo per agevolare le famiglie può essere ripartito in quote mensili.");
+$testo= utf8_decode("Per agevolare le famiglie può essere ripartito in quote mensili.");
 $pdf->Cell(0,5,$testo,0,1, "C");
 
 $pdf->Ln(5);
@@ -116,7 +116,7 @@ $pdf->Cell(2,8,"", 0,1, 'C');
 
 $pdf->Ln(10);
 $pdf->SetFont($fontdefault,'',9);
-$testo= utf8_decode("(1) Il saldo spese didattiche va versato entro la fine di Giugno ed è calcolato sull'effettivo costo che è stato sostenuto dalla classe e per il singolo alunno nel corso dell'anno scolastico");
+$testo= utf8_decode("(1) Il saldo spese didattiche va versato entro il 15/06/".$anno2." ed è calcolato sull'effettivo costo che è stato sostenuto dalla classe e per il singolo alunno nel corso dell'anno scolastico");
 $pdf->MultiCell(0,5,$testo);
 
 $pdf->Ln(5);
@@ -127,6 +127,15 @@ $pdf->Cell(0,5,$testo,0,1, "C");
 $testo= utf8_decode("IBAN: IT76 F083 2712 1000 0000 0800 907");
 $pdf->Cell(0,5,$testo,0,1,"C");
 
+
+$pdf->SetFont($fontdefault,'',12);
+$testo= utf8_decode("intestato a ARCA Educazione Cooperativa Sociale");
+$pdf->MultiCell(0,5,$testo, 0, "C");
+
+$pdf->Ln(2);
+$pdf->SetFont($fontdefault,'',10);
+$testo= utf8_decode("Indicare come causale ''Contributo supporto alla didattica per 'Nome e Cognome Alunno' 'mese/periodo di riferimento' ''");
+$pdf->MultiCell(0,5,$testo, 0, "C");
 
 
 ?>

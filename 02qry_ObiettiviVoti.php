@@ -35,7 +35,7 @@ $Hriga = '44px';
                 <input class="tablelabel0 w100" type="text" value = "Obiettivo" disabled>
             </th>
             <th style="width: 110px">
-                <input class="tablelabel0 w100" type="text" value = "Obiettivo" disabled>
+                <input class="tablelabel0 w100" type="text" value = "Livello" disabled>
             </th>
         </tr>
     </thead>

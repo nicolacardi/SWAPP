@@ -118,7 +118,7 @@
 		<form id="formiscrizione" style="margin-top: 100px; ">
 			<div class="row" style="text-align: justify; font-size: 14px; line-height: 2; margin-left: 2px; margin-right: 2px; ">
 				<div class="col-md-6 col-md-offset-3">
-					La <?=$nomescuola?> si finanzia, in massima parte, con contributi e donazioni delle famiglie, necessari alla copertura delle spese del personale (maestri, segreteria...) e al buon funzionamento dell'organizzazione: per questi motivi la puntualità nei pagamenti, la correttezza e la solidarietà rappresentano valori irrinunciabili.
+					La <?=$nomescuola?> si finanzia, in massima parte, con contributi e donazioni delle famiglie, necessari alla copertura delle spese del personale e al buon funzionamento dell'organizzazione: per questi motivi la puntualità nei pagamenti, la correttezza e la solidarietà rappresentano valori irrinunciabili.
 				</div>
 				<div class="col-md-6 col-md-offset-3" style="text-align: center;" >
 					<h4>I GENITORI SI IMPEGNANO<br>IN SOLIDO:</h4>

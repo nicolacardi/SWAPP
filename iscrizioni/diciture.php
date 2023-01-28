@@ -15,13 +15,13 @@ switch ($codscuola) {
         $ragionesocialescuola = "Cooperativa Sociale ARCA Educazione";
         $titolaretrattamentoTitolo = "il presidente pro-tempore di ARCA Educazione Cooperativa Sociale";
         $titolaretrattamento = "Nicola cardi";
-        $linkPTOF = "http://arcascuola.it";
+        $linkPTOF = "https://www.arcascuola.it/img/PEDprimobiennio-LES.pdf";
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
-        $quotaiscrizione = "";
-        $scadrientromodulo = "12/09/";                  //TEMPORANEO
-        $scadrientromodulolett = "12 settembre ";       //TEMPORANEO
-        $scadiscrizione = "12/09/";                     //TEMPORANEO
-        $scadiscrizionelett = "12 settembre ";          //TEMPORANEO
+        $quotaiscrizione = "50 per ciascun/a alunno/a iscritto/a";
+        $scadrientromodulo = "30/01/";                  
+        $scadrientromodulolett = "30 gennaio ";       
+        $scadiscrizione = "30/01/";                   
+        $scadiscrizionelett = "30 gennaio ";        
         $scadfrase1 = "";
         $scadfrase2 = "sottoscriverli dove indicato e consegnarli in Segreteria <br>entro la scadenza del ";
         $scadrataunicaDDMM = "30/09/";
@@ -110,7 +110,7 @@ switch ($codscuola) {
         $fraseAllegatoC= "l Regolamento Pediatrico";
         $fraseAllegatoCALL= "REGOLAMENTO PEDIATRICO";
 
-        $titoloPagColonnaVoti = "Obiettivi di Apprendimento";
+        $titoloPagColonnaVoti = "Giudizio descrittivo";
 
         //per pagelle
         $TipoVoto = "Livello di Apprendimento";

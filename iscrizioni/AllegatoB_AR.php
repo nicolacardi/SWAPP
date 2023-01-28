@@ -15,7 +15,7 @@ $pdf->MultiCell(0,5,$testo);
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
 $pdf->Cell(0,10,utf8_decode("1) ORARIO DI LEZIONE"), 0,1, 'J');
 $testo= "I ragazzi entrano alle ore 8.00. Le lezioni del mattino iniziano alle ore 8.10 e terminano tutti i giorni alle ore 13.00.
-Nei giorni di martedì e giovedì riprendono alle ore 14 e terminano alle ore 16.
+Due giorni alla settimana (in giorni da stabilire) riprendono alle ore 14 e terminano alle ore 16.
 
 Si raccomanda la massima puntualità sia per l'ingresso sia per l'uscita.
 E' necessario un permesso firmato da entrambi i genitori valevole per tutto l'anno scolastico per consentire l'uscita autonoma dei ragazzi.

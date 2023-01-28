@@ -676,7 +676,13 @@ $h1 = 6;
 
 
 		$pdf->Ln(4);
-		$testo="art.5)	I genitori/tutori/esercenti la responsabilità genitoriale si impegnano a versare a consuntivo entro il 15/06/".$anno2." l'eventuale conguaglio per le spese didattiche anticipate dalla Società Cooperativa.";
+		$testo= "art.5)	I genitori/tutori/esercenti la responsabilità genitoriale che richiedano l'adesione ai servizi educativi all'anno successivo si impegnano a versare una quota pari a euro ".$quotaiscrizione." entro il ".$scadiscrizionelett.$anno2.";";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+
+		$pdf->Ln(4);
+		$testo="art.6)	I genitori/tutori/esercenti la responsabilità genitoriale si impegnano a versare a consuntivo entro il 15/06/".$anno2." l'eventuale conguaglio per le spese didattiche anticipate dalla Società Cooperativa.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -722,12 +728,12 @@ $h1 = 6;
 		$pdf->SetFont($fontdefault,'',11);
 
 		$pdf->Ln(4);
-		$testo= "Art.6) E' riconosciuto ad ARCA Educazione il diritto di richiedere il rispetto dei tempi dei versamenti. Si precisa che il contributo non potrà essere mensilmente suddiviso tra entrambi i genitori, ma dovrà essere necessariamente versato interamente da uno dei due.";
+		$testo= "Art.7) E' riconosciuto ad ARCA Educazione il diritto di richiedere il rispetto dei tempi dei versamenti. Si precisa che il contributo non potrà essere mensilmente suddiviso tra entrambi i genitori, ma dovrà essere necessariamente versato interamente da uno dei due.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="Art.7) Nel caso di astensione prolungata dal programma per cause non imputabili ad ARCA Educazione (malattia, impegni sportivi, studio all'estero, etc.) è fatto obbligo ai genitori di continuare a versare le quote dovute secondo quanto stabilito.";
+		$testo="Art.8) Nel caso di astensione prolungata dal programma per cause non imputabili ad ARCA Educazione (malattia, impegni sportivi, studio all'estero, etc.) è fatto obbligo ai genitori di continuare a versare le quote dovute secondo quanto stabilito.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -742,17 +748,17 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 		
 		$pdf->Ln(4);
-		$testo="Art.8) In applicazione di quanto previsto dall'art. 1456 c.c., in caso di violazione da parte dei Genitori/Tutori/esercenti la responsabilità genitoriale degli impegni contenuti nel presente contratto, ARCA Educazione potrà risolvere di diritto il presente contratto comunicando ai Genitori/Tutori/esercenti la responsabilità genitoriale l'intenzione di avvalersi della presente clausola risolutiva.";
+		$testo="Art.9) In applicazione di quanto previsto dall'art. 1456 c.c., in caso di violazione da parte dei Genitori/Tutori/esercenti la responsabilità genitoriale degli impegni contenuti nel presente contratto, ARCA Educazione potrà risolvere di diritto il presente contratto comunicando ai Genitori/Tutori/esercenti la responsabilità genitoriale l'intenzione di avvalersi della presente clausola risolutiva.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="Art.9) Per quanto non previsto nel presente contratto, le cui clausole si intendono tutte essenziali ed inderogabili, si rinvia alle norme di legge in materia.";
+		$testo="Art.10) Per quanto non previsto nel presente contratto, le cui clausole si intendono tutte essenziali ed inderogabili, si rinvia alle norme di legge in materia.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="Art.10) Ogni controversia inerente l'applicazione e /o l'interpretazione del presente contratto che non richieda l'intervento obbligatorio del Pubblico Ministero sarà prima sottoposta al Collegio dei Probiviri di ARCA EDUCAZIONE Cooperativa Sociale e, qualora non risolta, sarà fatta oggetto di un tentativo preliminare di mediazione presso l'organismo della Camera di Commercio di Padova. Foro competente è il foro di Padova.";
+		$testo="Art.11) Ogni controversia inerente l'applicazione e /o l'interpretazione del presente contratto che non richieda l'intervento obbligatorio del Pubblico Ministero sarà prima sottoposta al Collegio dei Probiviri di ARCA EDUCAZIONE Cooperativa Sociale e, qualora non risolta, sarà fatta oggetto di un tentativo preliminare di mediazione presso l'organismo della Camera di Commercio di Padova. Foro competente è il foro di Padova.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 		
