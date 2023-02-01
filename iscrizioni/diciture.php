@@ -347,7 +347,7 @@ switch ($codscuola) {
         $nomescuola = "Scuola Steiner Waldorf Trento";
         $nomecittascuola = "Scuola Steiner Waldorf di Trento";
         $indirizzoscuola = "Via E. Conci 86 - Trento";
-        $indirizzocompletoscuola= "Via E. Conci 86 - 38123 - Trento - tel.0461 913085 - segreteria@scuolasteiner-trento.it";
+        $indirizzocompletoscuola= "Via E. Conci 86 - 38123 - Trento - tel.0461 930658 - segreteria@scuolasteiner-trento.it";
         $ragionesocialescuola = "Associazione Pedagogica Steineriana";
         $datiscuola = "C.F. 96014820227 - P.IVA 02183250220 - c.c.i.a.a. di Trento Numero REA TN - 159747";
         $cfscuola = "96014820227";
