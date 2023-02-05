@@ -21,9 +21,9 @@ include_once("iscrizioni/settings_fpdf_Base.php");
 $ID_alu_cla = $_POST['ID_alu_cla']; 
 $annoscolastico_cla = $_POST['annoscolastico_cla']; //tipo yyyy-yy
 $quadrimestre = $_POST['quadrimestre'];             //vale 1 o 2
-$classe_cla = $_POST['classe_cla'];                 //vale I II III IV V VI VII VIII ASILO
+$classe_cla = $_POST['classe_cla'];                 //vale I II III IV V VI VII VIII IX X XI XII XIII ASILO
 $sezione_cla = $_POST['sezione_cla'];               //vale A B C
-$aselme_cla = $_POST['aselme_cla'];                 //vale AS EL ME NI
+$aselme_cla = $_POST['aselme_cla'];                 //vale AS EL ME NI SU
 $codscuola = $_SESSION['codscuola'];                //vale PD CI VR
 $Doc = $_POST['Doc'];                               //vale CerCom, ConOri oppure un numero
 

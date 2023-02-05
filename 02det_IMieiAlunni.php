@@ -754,8 +754,8 @@ while (mysqli_stmt_fetch($stmt4))
 		postData.push( {name: "annoscolastico_cor", value: annoscolastico});
 		postData.push( {name: "data_cor", value: data_cor});
 
-		console.log ("02det_IMieiAlunni.php - salvaConOri - postData a 02qry_updateCons.php")
-		console.log (postData);
+		// console.log ("02det_IMieiAlunni.php - salvaConOri - postData a 02qry_updateCons.php")
+		// console.log (postData);
 		$.ajax({
 			type: 'POST',
 			url: "02qry_updateCons.php",
@@ -763,8 +763,8 @@ while (mysqli_stmt_fetch($stmt4))
 			dataType: 'json',
 			success: function(data){
 
-				console.log ("02det_IMieiAlunni.php - salvaConOri - ritorno da 02qry_updateCons.php")
-				console.log (data.sql);
+				// console.log ("02det_IMieiAlunni.php - salvaConOri - ritorno da 02qry_updateCons.php")
+				// console.log (data.sql);
 
 				if (data.stopgo == "STOP") {
 					$('#titolo01Msg_OK').html('CONSIGLIO ORIENTATIVO');
@@ -859,9 +859,6 @@ while (mysqli_stmt_fetch($stmt4))
 
 		if (exit == true) { return;}
 
-
-
-
 		
 		//verifico se il documento in questione è stato compilato a dovere per dare un warning quando non lo è
 		procedi = 'OK';
@@ -881,80 +878,82 @@ while (mysqli_stmt_fetch($stmt4))
 				// console.log ("CkDocInt1="+data.CkDocInt1);
 				// console.log ("CkDocInt2="+data.CkDocInt2);
 				// console.log ("CkCerCom="+data.CkCerCom);
-				// console.log (data.Ck);
+				// console.log ("data.Ck", data.Ck); 
 				if (data.Ck == 'NO') {
 					if (! confirm('Sembra che il documento richiesto non sia ancora completo procedere comunque?')) {
 						procedi = 'NO';
 					}
+				} else {
+					// console.log ("02det_IMieiAlunni.php - scaricaPagellaPOST - ritorno da 12qry_checkDocumentiCompilati.php NB: async!!! sistemare");
+					// console.log ("procedi", procedi);
+					// console.log("ID_alu_cla", ID_alu_cla, "- classe_cla:", classe_cla, "- sezione_cla:", sezione_cla, "- annoscolastico_cla:", annoscolastico_cla, "- aselme_cla:", aselme_cla, "- quadrimestre:", quadrimestre, "- Doc:", Doc)
+					//in più rispetto a downloadPagellE c'è anche la possibilità di scaricare 
+					//la Certificazione delle Competenze e del Consiglio orientativo
+					//PagUff, DocInt e CerCom funzionano resta da vedere se ConOri funziona
+					url ="12downloadPDF.php";
+
+					let form = $('<form target="_blank" action="' + url + '"method="post"></form>');
+
+					//rispetto al downloadPagelle downloadPagella posta anche l'ID_alu_cla
+					let input_ID_alu_cla = $("<input>")
+					.attr("type", "text")
+					.attr("name", "ID_alu_cla")
+					.val(ID_alu_cla);
+					$(form).append($(input_ID_alu_cla));
+
+					let input_classe_cla = $("<input>")
+					.attr("type", "text")
+					.attr("name", "classe_cla")
+					.val(classe_cla);
+					$(form).append($(input_classe_cla));
+
+					let input_sezione_cla = $("<input>")
+					.attr("type", "text")
+					.attr("name", "sezione_cla")
+					.val(sezione_cla);
+					$(form).append($(input_sezione_cla));
+
+					let input_annoscolastico_cla = $("<input>")
+					.attr("type", "text")
+					.attr("name", "annoscolastico_cla")
+					.val(annoscolastico_cla);
+					$(form).append($(input_annoscolastico_cla));
+
+					let input_aselme_cla = $("<input>")
+					.attr("type", "text")
+					.attr("name", "aselme_cla")
+					.val(aselme_cla);
+					$(form).append($(input_aselme_cla));
+
+					let input_quadrimestre = $("<input>")
+					.attr("type", "text")
+					.attr("name", "quadrimestre")
+					.val(quadrimestre);
+					$(form).append($(input_quadrimestre));
+
+					let input_datapagella = $("<input>")
+					.attr("type", "text")
+					.attr("name", "datapagella")
+					.val('1900-01-01');
+					$(form).append($(input_datapagella));
+
+					let input_Doc = $("<input>")
+					.attr("type", "text")
+					.attr("name", "Doc")
+					.val(Doc);
+					$(form).append($(input_Doc));
+
+					form.appendTo( document.body );
+
+					$(form).submit();
+					$(form).remove();
 				}
 			},
 			error: function(){
 				alert("Errore: contattare l'amministratore fornendo il codice di errore '02det_IMieiAlunni ##fname##'");     
 			}
 		});
-		if (procedi != 'OK') {return;}
-		// console.log ("02det_IMieiAlunni.php - scaricaPagellaPOST - ritorno da 12qry_checkDocumentiCompilati.php NB: async!!! sistemare");
-		// console.log (procedi);
-		//in più rispetto a downloadPagellE c'è anche la possibilità di scaricare 
-		//la Certificazione delle Competenze e del Consiglio orientativo
-		//PagUff, DocInt e CerCom funzionano resta da vedere se ConOri funziona
-		url ="12downloadPDF.php";
-
-		let form = $('<form target="_blank" action="' + url + '"method="post"></form>');
-
-		//rispetto al downloadPagelle downloadPagella posta anche l'ID_alu_cla
-		let input_ID_alu_cla = $("<input>")
-		.attr("type", "text")
-		.attr("name", "ID_alu_cla")
-		.val(ID_alu_cla);
-		$(form).append($(input_ID_alu_cla));
-
-		let input_classe_cla = $("<input>")
-		.attr("type", "text")
-		.attr("name", "classe_cla")
-		.val(classe_cla);
-		$(form).append($(input_classe_cla));
-
-		let input_sezione_cla = $("<input>")
-		.attr("type", "text")
-		.attr("name", "sezione_cla")
-		.val(sezione_cla);
-		$(form).append($(input_sezione_cla));
-
-		let input_annoscolastico_cla = $("<input>")
-		.attr("type", "text")
-		.attr("name", "annoscolastico_cla")
-		.val(annoscolastico_cla);
-		$(form).append($(input_annoscolastico_cla));
-
-		let input_aselme_cla = $("<input>")
-		.attr("type", "text")
-		.attr("name", "aselme_cla")
-		.val(aselme_cla);
-		$(form).append($(input_aselme_cla));
-
-		let input_quadrimestre = $("<input>")
-		.attr("type", "text")
-		.attr("name", "quadrimestre")
-		.val(quadrimestre);
-		$(form).append($(input_quadrimestre));
-
-		let input_datapagella = $("<input>")
-		.attr("type", "text")
-		.attr("name", "datapagella")
-		.val('1900-01-01');
-		$(form).append($(input_datapagella));
-
-		let input_Doc = $("<input>")
-		.attr("type", "text")
-		.attr("name", "Doc")
-		.val(Doc);
-		$(form).append($(input_Doc));
-
-		form.appendTo( document.body );
-
-		$(form).submit();
-		$(form).remove();
+		
 
 	}
 

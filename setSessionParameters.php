@@ -34,6 +34,7 @@ setSessionPar('SeqMesi3RateDefault');
 setSessionPar('SeqMesi2RateDefault');
 
 setSessionPar('scalino');
+setSessionPar('mostra_logo_federazione');
 
 include_once("iscrizioni/setSessionParametersISC.php");
 ?>

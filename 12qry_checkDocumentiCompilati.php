@@ -3,6 +3,7 @@
 $ID_alu = $_POST['ID_alu'];
 $annoscolastico_cla = $_POST['annoscolastico_cla'];
 $aselme_cla = $_POST['aselme_cla'];
+$aselme_cla = 'SU';
 $Doc = $_POST['Doc'];
 $quadrimestre = $_POST['quadrimestre'];
 if ($Doc == 'CerCom') {$quadrimestre ="";} //nel caso di Certificazione delle competenze non è rilevante il quadrimestre ed anzi disturberebbe a fine routine

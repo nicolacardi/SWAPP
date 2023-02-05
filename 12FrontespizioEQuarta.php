@@ -134,20 +134,22 @@ $pdf->Image('assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$a
 $pdf->SetDash(1,1); //5mm on, 5mm off
 $pdf->SetXY ((15+210),240);
 if ($quadrimestre == 2) {
-    $pdf->Cell(60,10,$citta.", ".timestamp_to_ggmmaaaa($datapagella2_cla), "B" ,0, 'C');
+    $pdf->Cell(60,10,"        ".$citta.", ".timestamp_to_ggmmaaaa($datapagella2_cla), "B" ,0, 'L');
 } else {
-    $pdf->Cell(60,10,$citta.", ".timestamp_to_ggmmaaaa($datapagella1_cla), "B" ,0, 'C');
+    $pdf->Cell(60,10,"        ".$citta.", ".timestamp_to_ggmmaaaa($datapagella1_cla), "B" ,0, 'L');
 }
 //$pdf->Cell(60,10,"", "B" ,0, 'C');
 $pdf->SetXY ((135+210),240);
 $pdf->Cell(60,10,"", "B" ,0, 'C');
 $pdf->SetDash(); //Restore dash
 
-$width = 60;
-$positionX= 210 / 2 - ($width/2)+210;
-$positionY =  253;
-// if ($pagprimotrim_cls == 1) {
-$pdf->Image('assets/img/logo/logo'.$codscuola.'/logofederazione.png',$positionX,$positionY, $width);
+if ($_SESSION['mostra_logo_federazione'] == 1) {
+    $width = 60;
+    $positionX= 210 / 2 - ($width/2)+210;
+    $positionY =  253;
+    // if ($pagprimotrim_cls == 1) {
+    $pdf->Image('assets/img/logo/logo'.$codscuola.'/logofederazione.png',$positionX,$positionY, $width);
+}
 
 //FINE FRONTESPIZIO************************************************************************************************************************************
 ?>
