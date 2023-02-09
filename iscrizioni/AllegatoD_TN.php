@@ -1,12 +1,10 @@
 <?
-//ATTENZIONE: QUESTO COMPARE SIA NEGLI ALLEGATI (come allegato D) sia nel modulo di iscrizione: a rigore questo non va bene
-
-$pdf->AddPage();
-$pdf->SetLink($link5);
-$pdf->SetFont('TitilliumWeb-SemiBold','',16);
-$pdf->Cell(0,8,utf8_decode("ALLEGATO D"), 0,1, 'C');
+//ATTENZIONE: L'ALLEGATO D DI TRENTO E' STATO SPOSTATO ANCHE NEL MODULO IN QUANTO LO VOGLIONO FIRMATO
+        $pdf->AddPage();
+		$pdf->SetLink($link5);
+		$pdf->SetFont('TitilliumWeb-SemiBold','',16);
+		$pdf->Cell(0,8,utf8_decode("ALLEGATO D"), 0,1, 'C');
     
-
 
         $pdf->SetFont('TitilliumWeb-SemiBold','',16);
 		$pdf->Cell(0,10,"CONDIZIONI ECONOMICHE", 0,1, 'C');
@@ -179,5 +177,4 @@ $pdf->Cell(0,8,utf8_decode("ALLEGATO D"), 0,1, 'C');
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,$interlinea,$testo, 0, "J");
 		$pdf->Ln($dopoparagrafo);
-
 ?>

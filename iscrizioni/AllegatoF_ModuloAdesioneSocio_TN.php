@@ -84,7 +84,7 @@ $pdf->AddPage();
     $testo="di accettare i contenuti dello Statuto, di condividere gli scopi sociali e contribuire alla loro realizzazione.";
     $pdf->MultiCell(0,5,utf8_decode($testo), 0, "C");
 
-    if ($volontario == 1) {
+    if ($volontario != 1) {
         $testo="Si impegna altresì a versare alla scadenza fissata la quota di rinnovo stabilita annualmente dal Consiglio Direttivo.";
         $pdf->MultiCell(0,5,utf8_decode($testo), 0, "C");
     }

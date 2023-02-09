@@ -97,6 +97,8 @@
 			<input class="tablecell6 disab val<?=$alunno->ID_alu?> <?=$cllistaattesa?>" type="text" value = "<?=$alunno->{$campo[9]}?>" disabled>
 			<?if(($campodata==9)&&($recorrente ==1)) {?><img class="imgCrown" title="Anno del Re attuale" src='assets/img/Icone/crown.svg'><?}?>
 			<?if(($campodata==9)&&($reprossimo ==1)) {?><img class="imgCrown" title="Anno del Re Prossimo" src='assets/img/Icone/crown2.svg'><?}?>
+			<?if(($campodata==9)&&($alunno->scalino_cla ==1)) {?><img class="imgCrown" title="Scalino" src='assets/img/Icone/scalino.svg'><?}?>
+
 		</td>
 		<td>
 			<input style="width: 20px;" class="tablecell6 val<?=$alunno->ID_alu?>" type="checkbox" name="<? echo(sprintf("%'.04d\n", $alunno->ID_asc)); ?><?=$alunno->annoscolastico_cla?>-ck-<? echo(sprintf("%'.04d\n", $alunno->ID_alu)); ?>-cls-<?echo(sprintf("%'.02d\n",$alunno->ord_cls));?><?=$alunno->sezione_cla?>" id="<?=$riga?>ck">

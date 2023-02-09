@@ -98,6 +98,8 @@
 		public $sezione_cla;
 		public $aselme_cla;
 		public $annoscolastico_cla;
+		public $scalino_cla;
+
 
 		//CAMPI DELLA TAB_LISTADATTESA
 		public $data0_lda;
@@ -229,7 +231,7 @@
 			$wherelistaattesa = " AND tab_classialunni.listaattesa_cla = ".$listaattesa." ";
 		}
 
-		$sql = "SELECT DISTINCT ID_alu, ID_asc, ord_cls, nome_alu, cognome_alu, mf_alu, cf_alu, tab_classialunni.annoscolastico_cla, tab_classialunni.aselme_cla, tab_classialunni.classe_cla, tab_classialunni.sezione_cla, tab_classialunni.listaattesa_cla, indirizzo_alu, citta_alu, prov_alu, CAP_alu, paese_alu, datanascita_alu, comunenascita_alu, provnascita_alu, paesenascita_alu, ckautfoto_alu, ckautuscite_alu, ckautmateriale_alu,
+		$sql = "SELECT DISTINCT ID_alu, ID_asc, ord_cls, nome_alu, cognome_alu, mf_alu, cf_alu, tab_classialunni.annoscolastico_cla, tab_classialunni.aselme_cla, tab_classialunni.classe_cla, tab_classialunni.sezione_cla, tab_classialunni.listaattesa_cla, tab_classialunni.scalino_cla, indirizzo_alu, citta_alu, prov_alu, CAP_alu, paese_alu, datanascita_alu, comunenascita_alu, provnascita_alu, paesenascita_alu, ckautfoto_alu, ckautuscite_alu, ckautmateriale_alu,
 		
 		nomepadre_fam, cognomepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, nomemadre_fam, cognomemadre_fam,  telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, sociopadre_fam, sociomadre_fam, annoscolasticoprec_asc, tab_classialunniprec.classe_cla AS classeprec_cla, tab_classialunni.ritirato_cla, data0_lda, data1_lda, data2_lda, data3_lda, accolto_lda
 		FROM (((((tab_anagraficaalunni LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla) 
@@ -241,7 +243,7 @@
 		$whereannocorrente.$wherelistaattesa.$filsql.$ordsql;
 		$stmt = mysqli_prepare($mysqli, $sql);
 		mysqli_stmt_execute($stmt);
-		mysqli_stmt_bind_result($stmt, $ID_alu, $ID_asc, $ord_cls, $nome_alu, $cognome_alu, $mf_alu, $cf_alu, $annoscolastico_cla, $aselme_cla, $classe_cla, $sezione_cla, $listaattesa_cla, $indirizzo_alu, $citta_alu, $prov_alu, $CAP_alu, $paese_alu, $datanascita_alu, $comunenascita_alu, $provnascita_alu, $paesenascita_alu, $ckautfoto_alu, $ckautuscite_alu, $ckautmateriale_alu,
+		mysqli_stmt_bind_result($stmt, $ID_alu, $ID_asc, $ord_cls, $nome_alu, $cognome_alu, $mf_alu, $cf_alu, $annoscolastico_cla, $aselme_cla, $classe_cla, $sezione_cla, $listaattesa_cla, $scalino_cla, $indirizzo_alu, $citta_alu, $prov_alu, $CAP_alu, $paese_alu, $datanascita_alu, $comunenascita_alu, $provnascita_alu, $paesenascita_alu, $ckautfoto_alu, $ckautuscite_alu, $ckautmateriale_alu,
 		$nomepadre_fam, $cognomepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $nomemadre_fam, $cognomemadre_fam,  $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $sociopadre_fam, $sociomadre_fam, $annoscolasticoprec_asc, $classeprec_cla, $ritirato_cla, $data0_lda, $data1_lda, $data2_lda, $data3_lda, $accolto_lda);
 		//id_asc è l'indice che corrisponde in tabella anniscolastici all'annoscolastico del record selezionato. Lo estraggo per metterlo nell'attributo name del campo tipo checkbox perchè serve
 		//a effettuare le promozioni: con il codice id_asc si può accedere alla tabella anniscolastici ed estrarre l'anno scolastico "+1". Va salvato "padded" nel name della checkbox per poterlo poi estrarre.
@@ -288,6 +290,7 @@
 			$MyAlu->ritirato_cla = $ritirato_cla;
 			$MyAlu->aselme_cla = $aselme_cla;
 			$MyAlu->annoscolastico_cla = $annoscolastico_cla;
+			$MyAlu->scalino_cla = $scalino_cla;
 			
 
 			//aggiungo alcuni campi che mi servono e che non son prropriamente della clsse alunni
