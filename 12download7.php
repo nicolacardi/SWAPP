@@ -13,8 +13,8 @@ $pdf->Cell(-10,-10,$tipodoc_mat, 0,1, 'C');
 
 $pdf->SetFillColor(200,200,200);
 $titleSize =    16;
-$yRectQuarta =  10;
-$hRectQuarta = 275;
+$yRectQuarta =  180;
+$hRectQuarta =  105;
 $colorsPag = explode (";", $_SESSION['colorsPag']); 
 $R =           $colorsPag[0];
 $G =           $colorsPag[1];
@@ -31,6 +31,18 @@ $sottoTitoloDoc = $sottoTitoloDocValutazione;
 include("12stampasoloamministrativiA3.php");
 
 include("12FrontespizioEQuarta.php"); 
+
+include("12TimbrieFirmeQuarta.php");
+
+//********************** Immagine del Maestro ******************************/
+
+$pdf->SetXY (10, 10);
+$pdf->Cell(190,10,utf8_decode("Rilevazione dei progressi nello sviluppo personale e sociale dell'alunno"), 1,0, 'C', 1);
+$pdf->SetXY (10,23);
+$pdf->Rect(10,23,190,100);
+$pdf->SetFont($fontdefault,'',10);
+if ($quadrimestre == 1) {$giuquad_cla = $giuquad1_cla;} else {$giuquad_cla = $giuquad2_cla;}
+$pdf->MultiCell(190,6,utf8_decode(str_replace("\\n", "\r", $giuquad_cla)), 0, "J");
 
 //FINE FRONTESPIZIO E QUARTA************************************************************************************************************************************
 
@@ -197,58 +209,58 @@ while (mysqli_stmt_fetch($stmt)) {
 
 
 
-///Timbro Firme e tratteggi per firme Sinistra
-if ($pagprimotrim_cls == 1) {
-    $indicetimbro = rand(1,9);
-    $pdf->Image('assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png', (135), 250, 20);
-    $pdf->SetFont($fontdefault,'',12);
-    $pdf->SetXY (15,250);
-    $pdf->Cell(60,10,"Firma del genitore", 0 ,1, 'C');
-    $pdf->SetXY (15,255);
-    $pdf->SetFont($fontdefault,'',9);
-    $pdf->Cell(60,10,"(o di chi ne fa le veci)", 0 ,0, 'C');
-    $pdf->SetFont($fontdefault,'',12);
-    $pdf->SetXY (135,250);
-    $pdf->Cell(60,10,"Il Coordinatore Didattico", 0 ,1, 'C');
-    $indicefirma = rand(1,15);
-    $pdf->Image('assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png', (135), 255, 60);
+// ///Timbro Firme e tratteggi per firme Sinistra
+// if ($pagprimotrim_cls == 1) {
+//     $indicetimbro = rand(1,9);
+//     $pdf->Image('assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png', (135), 250, 20);
+//     $pdf->SetFont($fontdefault,'',12);
+//     $pdf->SetXY (15,250);
+//     $pdf->Cell(60,10,"Firma del genitore", 0 ,1, 'C');
+//     $pdf->SetXY (15,255);
+//     $pdf->SetFont($fontdefault,'',9);
+//     $pdf->Cell(60,10,"(o di chi ne fa le veci)", 0 ,0, 'C');
+//     $pdf->SetFont($fontdefault,'',12);
+//     $pdf->SetXY (135,250);
+//     $pdf->Cell(60,10,"Il Coordinatore Didattico", 0 ,1, 'C');
+//     $indicefirma = rand(1,15);
+//     $pdf->Image('assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png', (135), 255, 60);
 
-    $pdf->SetDash(1,1); //5mm on, 5mm off
-    $pdf->SetXY ((15),260);
-    $pdf->Cell(60,10,"", "B" ,0, 'C');
-    $pdf->SetXY ((135),260);
-    $pdf->Cell(60,10,"", "B" ,0, 'C');
-    $pdf->SetDash(); //Restore dash
-    $pdf->SetTextColor(0,0,0);
-    $pdf->SetDrawColor(0,0,0);
-}
+//     $pdf->SetDash(1,1); //5mm on, 5mm off
+//     $pdf->SetXY ((15),260);
+//     $pdf->Cell(60,10,"", "B" ,0, 'C');
+//     $pdf->SetXY ((135),260);
+//     $pdf->Cell(60,10,"", "B" ,0, 'C');
+//     $pdf->SetDash(); //Restore dash
+//     $pdf->SetTextColor(0,0,0);
+//     $pdf->SetDrawColor(0,0,0);
+// }
 
-//Timbro Firme e tratteggi per firme Destra
-$y1 = 250;
-$indicetimbro = rand(1,9);
-if ($quadrimestre == 2) {
-	$pdf->Image('assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png', (135+210), $y1, 20);
-}
-$pdf->SetFont($fontdefault,'',12);
-$pdf->SetXY ((15+210),$y1);
-$pdf->Cell(60,10,"Firma del genitore", 0 ,0, 'C');
-$pdf->SetXY ((15+210),($y1+5));
-$pdf->SetFont($fontdefault,'',9);
-$pdf->Cell(60,10,"(o di chi ne fa le veci)", 0 ,0, 'C');
-$pdf->SetFont($fontdefault,'',12);
-$pdf->SetXY ((135+210),($y1+5));
-$pdf->Cell(60,10,"Il Coordinatore Didattico", 0 ,1, 'C');
-$indicefirma = rand(1,15);
-if ($quadrimestre == 2) {
-	$pdf->Image('assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png', (135+210), ($y1+5), 60);
-}
+// //Timbro Firme e tratteggi per firme Destra
+// $y1 = 250;
+// $indicetimbro = rand(1,9);
+// if ($quadrimestre == 2) {
+// 	$pdf->Image('assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png', (135+210), $y1, 20);
+// }
+// $pdf->SetFont($fontdefault,'',12);
+// $pdf->SetXY ((15+210),$y1);
+// $pdf->Cell(60,10,"Firma del genitore", 0 ,0, 'C');
+// $pdf->SetXY ((15+210),($y1+5));
+// $pdf->SetFont($fontdefault,'',9);
+// $pdf->Cell(60,10,"(o di chi ne fa le veci)", 0 ,0, 'C');
+// $pdf->SetFont($fontdefault,'',12);
+// $pdf->SetXY ((135+210),($y1+5));
+// $pdf->Cell(60,10,"Il Coordinatore Didattico", 0 ,1, 'C');
+// $indicefirma = rand(1,15);
+// if ($quadrimestre == 2) {
+// 	$pdf->Image('assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png', (135+210), ($y1+5), 60);
+// }
 
-$pdf->SetDash(1,1); //5mm on, 5mm off
-$pdf->SetXY ((15+210),($y1+10));
-$pdf->Cell(60,10,"", "B" ,0, 'C');
-$pdf->SetXY ((135+210),($y1+10));
-$pdf->Cell(60,10,"", "B" ,0, 'C');
-$pdf->SetDash(); //Restore dash
-$pdf->SetTextColor(0,0,0);
-$pdf->SetDrawColor(0,0,0);
+// $pdf->SetDash(1,1); //5mm on, 5mm off
+// $pdf->SetXY ((15+210),($y1+10));
+// $pdf->Cell(60,10,"", "B" ,0, 'C');
+// $pdf->SetXY ((135+210),($y1+10));
+// $pdf->Cell(60,10,"", "B" ,0, 'C');
+// $pdf->SetDash(); //Restore dash
+// $pdf->SetTextColor(0,0,0);
+// $pdf->SetDrawColor(0,0,0);
 ?>

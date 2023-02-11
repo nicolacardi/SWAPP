@@ -886,7 +886,7 @@ while (mysqli_stmt_fetch($stmt4))
 				} else {
 					// console.log ("02det_IMieiAlunni.php - scaricaPagellaPOST - ritorno da 12qry_checkDocumentiCompilati.php NB: async!!! sistemare");
 					// console.log ("procedi", procedi);
-					// console.log("ID_alu_cla", ID_alu_cla, "- classe_cla:", classe_cla, "- sezione_cla:", sezione_cla, "- annoscolastico_cla:", annoscolastico_cla, "- aselme_cla:", aselme_cla, "- quadrimestre:", quadrimestre, "- Doc:", Doc)
+					console.log("ID_alu_cla", ID_alu_cla, "- classe_cla:", classe_cla, "- sezione_cla:", sezione_cla, "- annoscolastico_cla:", annoscolastico_cla, "- aselme_cla:", aselme_cla, "- quadrimestre:", quadrimestre, "- Doc:", Doc)
 					//in più rispetto a downloadPagellE c'è anche la possibilità di scaricare 
 					//la Certificazione delle Competenze e del Consiglio orientativo
 					//PagUff, DocInt e CerCom funzionano resta da vedere se ConOri funziona

@@ -66,6 +66,7 @@ switch ($codscuola) {
         $POF_PTOF_PSDext = "Progetto Educativo-Didattico";
         $istituzione_supporto =" programma di supporto alla didattica ";
 
+        $sottoTitoloDocValutazione = "";
 
         break;
 
@@ -134,7 +135,7 @@ switch ($codscuola) {
         $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
         $istituzione_supporto ="l'istituzione scolastica ";
 
-
+        $sottoTitoloDocValutazione = "- AD USO INTERNO -";
         break;
     case 'CI':
         $nickscuola = "Sc. Waldorf Cittadella";
@@ -201,6 +202,7 @@ switch ($codscuola) {
         $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
         $istituzione_supporto ="l'istituzione scolastica ";
 
+        $sottoTitoloDocValutazione = "- AD USO INTERNO -";
 
         break;
     case "VR":
@@ -269,6 +271,7 @@ switch ($codscuola) {
         $istituzione_supporto ="l'istituzione scolastica ";
 
 
+        $sottoTitoloDocValutazione = "- AD USO INTERNO -";
 
         break;
     case "TV":
@@ -336,6 +339,7 @@ switch ($codscuola) {
         $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
         $istituzione_supporto ="l'istituzione scolastica ";
 
+        $sottoTitoloDocValutazione = "- AD USO INTERNO -";
 
 
         break;
@@ -403,6 +407,7 @@ switch ($codscuola) {
         $POF_PTOF_PSDext = "Piano Triennale dell'Offerta Formativa";
         $istituzione_supporto ="l'istituzione scolastica ";
         
+        $sottoTitoloDocValutazione = "- AD USO INTERNO -";
 
         break;
     default:

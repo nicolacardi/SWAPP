@@ -69,7 +69,7 @@
 								anno scolastico
 							</div>
 							<div class="row">
-								<select name="selectannoscolastico"  style="margin-left: 0px;"  id="selectannoscolastico" onchange="aggiornaComboMaestri(); PopolaSelectClasse(); PopolaSelectAlunno();">
+								<select name="selectannoscolastico"  style="margin-left: 0px;"  id="selectannoscolastico" onchange="aggiornaComboMaestri(); PopolaSelectClasse(); PopolaSelectAlunno(); Popola_tipopagella();">
 									<?foreach (GetArrayAnniScolasticiFrequentati() as $alunno) {
 										?> <option value="<? echo ($alunno->annoscolastico_cla) ?>"  <? if ($alunno->annoscolastico_cla == $_SESSION["anno_corrente"]) { echo 'selected';}	?>><? echo ($alunno->annoscolastico_cla) ?></option><?
 									}?>
@@ -440,6 +440,8 @@
 		});
 	}
 	
+
+
 	function Popola_aselme_cla() {
 		let classe_cls = $( "#selectclasse option:selected" ).val();
 		postData = {classe_cls: classe_cls};
@@ -960,6 +962,9 @@
 		//la Certificazione delle Competenze e del Consiglio orientativo
 		//PagUff, DocInt e CerCom funzionano resta da vedere se ConOri funziona
 		url ="12downloadPDF.php";
+
+		console.log("ID_alu_cla", ID_alu_cla, "- classe_cla:", classe_cla, "- sezione_cla:", sezione_cla, "- annoscolastico_cla:", annoscolastico_cla, "- aselme_cla:", aselme_cla, "- quadrimestre:", quadrimestre, "- Doc:", Doc)
+
 
 		let form = $('<form target="_blank" action="' + url + '"method="post"></form>');
 
