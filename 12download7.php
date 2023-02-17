@@ -11,6 +11,8 @@ $pdf->AddPage("L", "A3");
 $pdf->SetFont($fontdefault,'',5);
 $pdf->Cell(-10,-10,$tipodoc_mat, 0,1, 'C');
 
+
+
 $pdf->SetFillColor(200,200,200);
 $titleSize =    16;
 $yRectQuarta =  180;
@@ -35,6 +37,10 @@ include("12FrontespizioEQuarta.php");
 include("12TimbrieFirmeQuarta.php");
 
 //********************** Immagine del Maestro ******************************/
+
+
+
+
 
 $pdf->SetXY (10, 10);
 $pdf->Cell(190,10,utf8_decode("Rilevazione dei progressi nello sviluppo personale e sociale dell'alunno"), 1,0, 'C', 1);

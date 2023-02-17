@@ -14,6 +14,12 @@ $sql1 ="INSERT INTO tab_pagamenti (ID_ret_pag, ID_alu_pag, data_pag, importo_pag
 $stmt = mysqli_prepare($mysqli, $sql1);
 mysqli_stmt_execute($stmt);
 
+//QUI VADO AD INSERIRE IL LOG TEMPORANEO
+$sqllog1 ="INSERT INTO tab_log (operazione_log, utente_log) VALUES ('".addslashes($sql1)."', ".$_SESSION['ID_usr'].") ;";
+$stmt = mysqli_prepare($mysqli, $sqllog1);
+mysqli_stmt_execute($stmt);
+
+
 //Porto qui dentro l'update della tabella tab_mensilirette
 if ($causale_pag == 1) {
 
@@ -25,16 +31,26 @@ if ($causale_pag == 1) {
     mysqli_stmt_bind_result($stmt2, $totalePag);
     while (mysqli_stmt_fetch($stmt2)) {
     }
-    
+
+//QUI VADO AD INSERIRE IL LOG TEMPORANEO
+
+$sqllog2 ="INSERT INTO tab_log (operazione_log, utente_log) VALUES ('".$sql2." - con ID_ret_pag = ".$ID_ret_pag."', ".$_SESSION['ID_usr'].") ;";
+$stmt = mysqli_prepare($mysqli, $sqllog2);
+mysqli_stmt_execute($stmt);
+
     $sql3 = "UPDATE tab_mensilirette SET pagato_ret = ? WHERE ID_ret = ?";
     $stmt3 = mysqli_prepare($mysqli, $sql3);
-    mysqli_stmt_bind_param($stmt3, "di", $totalePag, $ID_ret_pag);	//d per i decimali!!!!
+    mysqli_stmt_bind_param($stmt3, "ii", $totalePag, $ID_ret_pag);	
     mysqli_stmt_execute($stmt3);
+
+$sqllog3 ="INSERT INTO tab_log (operazione_log, utente_log) VALUES ('".$sql3." - con pagato_ret = ".$totalePag." - con ID_ret_pag = ".$ID_ret_pag."', ".$_SESSION['ID_usr'].") ;";
+$stmt = mysqli_prepare($mysqli, $sqllog3);
+mysqli_stmt_execute($stmt);
 
 }
 
 
 
-$return['test'] = $totalePag;
+$return['test'] = $sql1;
 echo json_encode($return);
 ?>

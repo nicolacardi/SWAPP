@@ -343,8 +343,8 @@
 
         postData = { ID_ret_pag: ID_ret_pag, ID_alu_pag: ID_alu_pag, data_pag: data_pag, importo_pag: importo_pag, causale_pag: causale_pag, tipo_pag: tipo_pag, soggetto_pag : soggetto_pag, annoscolastico_pag: annoscolastico};
         
-        console.log ("04qry_getPagamenti.php - salvaNuovoPagamento - postData a 04qry_insertNuovoPagamento.php")
-        console.log (postData);
+        // console.log ("04qry_getPagamenti.php - salvaNuovoPagamento - postData a 04qry_insertNuovoPagamento.php")
+        // console.log (postData);
 
         $.ajax({
             type: 'POST',

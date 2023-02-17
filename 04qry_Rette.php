@@ -383,7 +383,7 @@
 		<td>
 			<input id="where_hidden" 			value = "<?=$wherelistaattesa.$filsql?>" 	hidden>
 		</td>
-		$whereannocorrente.$wherelistaattesa.$filsql
+		<!-- $whereannocorrente.$wherelistaattesa.$filsql -->
 	</tr>
 <script>
 
