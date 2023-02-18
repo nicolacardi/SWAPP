@@ -8,6 +8,9 @@ include ('12downloadEstrazioneDati.php');
 //FRONTESPIZIO E QUARTA************************************************************************************************************************************
 
 $pdf->AddPage("L", "A3");
+
+
+
 $pdf->SetFont($fontdefault,'',5);
 $pdf->Cell(-10,-10,$tipodoc_mat, 0,1, 'C');
 
@@ -30,6 +33,7 @@ $sottoTitoloDoc = $sottoTitoloDocValutazione;
 // $pdf->SetDash(1,1); //5mm on, 5mm off
 // $pdf->SetDash();
 
+
 include("12stampasoloamministrativiA3.php");
 
 include("12FrontespizioEQuarta.php"); 
@@ -37,8 +41,6 @@ include("12FrontespizioEQuarta.php");
 include("12TimbrieFirmeQuarta.php");
 
 //********************** Immagine del Maestro ******************************/
-
-
 
 
 

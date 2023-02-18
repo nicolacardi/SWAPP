@@ -40,13 +40,13 @@ $pdf->SetFont($fontdefault,'',12);
 $pdf->Cell(210,10,"Alunn".$finmin, 0,1, 'C');
 $pdf->SetX (210);
 $pdf->SetFont('TitilliumWeb-SemiBold','',$titleSize);
-$pdf->Cell(210,10,$nome_alu." ".$cognome_alu, 0,1, 'C');
+$pdf->Cell(210,10,utf8_decode($nome_alu." ".$cognome_alu), 0,1, 'C');
 $pdf->SetFont($fontdefault,'',12);
 $pdf->SetX (210);
 $pdf->Cell(210,7,"C.F. ".$cf_alu, 0,1, 'C');
 $pdf->SetX (210);
 if ($provnascita_alu !="") { $comunenascita_alu = $comunenascita_alu ." (".$provnascita_alu.")";}
-$pdf->Cell(210,7,"Nat".$finmin." a ".$comunenascita_alu." il ".timestamp_to_ggmmaaaa($datanascita_alu), 0,1, 'C');
+$pdf->Cell(210,7,"Nat".$finmin." a ".utf8_decode($comunenascita_alu)." il ".timestamp_to_ggmmaaaa($datanascita_alu), 0,1, 'C');
 $pdf->SetX (210);
 $pdf->SetFont('TitilliumWeb-SemiBold','',$titleSize);
 if ($mostraSez) {
