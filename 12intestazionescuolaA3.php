@@ -13,7 +13,7 @@ switch ($codscuola) {
         $pdf->Cell(0,$HRigaint,utf8_decode("Cooperativa Sociale"), 0 ,1, 'L');
         $startY = $startY + 2*$HRiga;
         $pdf->SetXY (20,$startY);
-        $pdf->Cell(0,$HRigaint,utf8_decode("Progetto educativo per le scuole Superiori"), 0 ,1, 'L');
+        $pdf->Cell(0,$HRigaint,utf8_decode("Percorso educativo ADRIANO OLIVETTI"), 0 ,1, 'L');
         $startY = $startY + $HRiga;
         $pdf->SetXY (20,$startY);
         $pdf->Cell(0,$HRigaint,utf8_decode("Sede legale: Via T. Aspetti 248 - 35133 PADOVA"), 0 ,1, 'L');

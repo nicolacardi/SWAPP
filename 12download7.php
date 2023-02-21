@@ -27,7 +27,7 @@ $B =           $colorsPag[2];
 $mostraSez =     1;
 $pdf->SetDrawColor($R,$G,$B);
 $pdf->SetTextColor($R,$G,$B);
-$coloreLogo = "Azzurro";
+$coloreLogo = "Viola";
 $titoloDoc = "Profilo dello studente";
 $sottoTitoloDoc = $sottoTitoloDocValutazione;
 // $pdf->SetDash(1,1); //5mm on, 5mm off
@@ -48,14 +48,23 @@ $pdf->SetXY (10, 10);
 $pdf->Cell(190,10,utf8_decode("Rilevazione dei progressi nello sviluppo personale e sociale dell'alunno"), 1,0, 'C', 1);
 $pdf->SetXY (10,23);
 $pdf->Rect(10,23,190,100);
-$pdf->SetFont($fontdefault,'',10);
+$pdf->SetFont($fontdefault,'',12);
 if ($quadrimestre == 1) {$giuquad_cla = $giuquad1_cla;} else {$giuquad_cla = $giuquad2_cla;}
-$pdf->MultiCell(190,6,utf8_decode(str_replace("\\n", "\r", $giuquad_cla)), 0, "J");
+$pdf->MultiCell(190,8,utf8_decode(str_replace("\\n", "\r", $giuquad_cla)), 0, "J");
 
 //FINE FRONTESPIZIO E QUARTA************************************************************************************************************************************
 
   //INIZIO SCRITTURA DOCUMENTO INTERNO************************************************************************************************************************************
 $pdf->AddPage("L", "A3");
+
+
+$pdf->SetXY (10,260);
+$pdf->SetFont($fontdefault,'',11);
+$pdf->Cell(190,10,utf8_decode($footerpagella), 0,1, 'C');
+$pdf->SetXY (220,260);
+$pdf->SetFont($fontdefault,'',11);
+$pdf->Cell(190,10,utf8_decode($footerpagella), 0,1, 'C');
+$pdf->SetXY (0,0);
 
 include("12stampasoloamministrativiA3.php");
 $pdf->SetTextColor(0,0,0);
@@ -149,13 +158,13 @@ while (mysqli_stmt_fetch($stmt)) {
                 //non possibile
                 break;
             case "EL" :
-                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',8); $mcrowH = 4;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 4;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
                 break;
             case "ME" :
-                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',7.5); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
                 break;
             case "SU" :
-                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',7.5); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
                 break;
         }
 
@@ -173,6 +182,9 @@ while (mysqli_stmt_fetch($stmt)) {
         // $txt = $pdf->MultiCell($w3,$mcrowH,$rndstr, 0 , 'C', 0, 4);
 
         $txt = $pdf->MultiCell($w3,$mcrowH,utf8_decode(str_replace( "@@", "\n", stripslashes(str_replace("\\n", "@@", $giu1_cla)))), 0 , 'C', 0, 4);
+        //footer con nome scuola (download7 viene usato da scuola ARCA)
+
+
     }
 	
 	//Pagina di destra
@@ -200,20 +212,24 @@ while (mysqli_stmt_fetch($stmt)) {
             //non possibile
             break;
         case "EL" :
-            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',8); $mcrowH = 4;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 4;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
             break;
         case "ME" :
-            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',7.5); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
             break;
         case "SU" :
-            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',7.5); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
             break;
     }
 
 	if ($quadrimestre == 2) {$txt = $pdf->MultiCell($w3,$mcrowH,utf8_decode(str_replace( "@@", "\n", stripslashes(str_replace("\\n", "@@", $giu2_cla)))),0, 'C', 0, 4);} else {	$txt = $pdf->MultiCell(125,$mcrowH,"",0, 'C', 0, 4);}
 	
-	$y1 = $y1 + $rowh;                
+	$y1 = $y1 + $rowh;     
+
 }
+
+
+
 
 
 
@@ -271,4 +287,8 @@ while (mysqli_stmt_fetch($stmt)) {
 // $pdf->SetDash(); //Restore dash
 // $pdf->SetTextColor(0,0,0);
 // $pdf->SetDrawColor(0,0,0);
+
+
+
+
 ?>

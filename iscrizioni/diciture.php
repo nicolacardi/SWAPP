@@ -8,6 +8,7 @@ switch ($codscuola) {
         $li= "Padova";
         $nomescuola = "Iniziativa ARCA Padova";
         $nomecittascuola = "Iniziativa ARCA di Padova - programma di supporto alla didattica";
+        $footerpagella = "Percorso Educativo ADRIANO OLIVETTI - ARCA EDUCAZIONE Cooperativa sociale";
         $indirizzoscuola = "Via T.Aspetti 248 - Padova - PD";
         $indirizzocompletoscuola= "Via T.Aspetti, 248 - 35133 - Padova - tel.346 2245653 - segreteria@arcascuola.it";
         $datiscuola = "C.F. e P.IVA 05484330286 - iscrizione albo nazionale società cooperative n° C138857";
@@ -77,6 +78,8 @@ switch ($codscuola) {
         $li= "Padova";
         $nomescuola = "Scuola Waldorf Sophia Padova";
         $nomecittascuola = "Scuola Waldorf Sophia di Padova";
+        $footerpagella = "";
+
         $indirizzoscuola = "Via Retrone 20 - Padova - PD";
         $indirizzocompletoscuola= "Via Retrone, 20 - 35135 - Padova - tel.049/61.95.10 - fax 049/88.94.39 - segreteria@waldorfpadova.it";
         $datiscuola = "C.F. 92106210286 - P.IVA 03577600285 - c.c.i.a.a. n. 416913 iscrizione albo nazionale società cooperative n° A23118";
@@ -144,6 +147,8 @@ switch ($codscuola) {
         $li= "Cittadella";
         $nomescuola = "Scuola Steiner Waldorf Aurora";
         $nomecittascuola = "Scuola Aurora di Cittadella";
+        $footerpagella = "";
+
         $indirizzoscuola = "Via Casaretta 103 - Cittadella - PD";
         $indirizzocompletoscuola= "Via Casaretta 103 - Cittadella - PD - tel.049/ 940 1303 - info@aurorascuola.it";
         $datiscuola = "Codice Fiscale e Partita IVA: 03431790280";
@@ -212,6 +217,8 @@ switch ($codscuola) {
         $li= "Mozzecane";
         $nomescuola = "Scuola Steiner Waldorf Verona";
         $nomecittascuola = "Scuola Steiner Waldorf Verona";
+        $footerpagella = "";
+
         $indirizzoscuola = "Via Tione, 25 - 37069 Villafranca di Verona (VR) ";
         $indirizzocompletoscuola = "Via Tione, 25 - 37069 Villafranca di Verona (VR) ";
         $ragionesocialescuola = "Steiner Waldorf Verona Cooperativa Sociale";
@@ -281,6 +288,8 @@ switch ($codscuola) {
         $li= "Treviso";
         $nomescuola = "Scuola Steiner Waldorf Treviso";
         $nomecittascuola = "Scuola Steiner Waldorf di Treviso";
+        $footerpagella = "";
+
         $indirizzoscuola = "Via S. Ambrogio di Fiera 60 - Treviso";
         $indirizzocompletoscuola= "Via S. Ambrogio di Fiera 60 - 31100 - Treviso";
         $ragionesocialescuola = "Associazione per la Pedagogia Steineriana Michael";
@@ -350,6 +359,8 @@ switch ($codscuola) {
         $li= "Trento";
         $nomescuola = "Scuola Steiner Waldorf Trento";
         $nomecittascuola = "Scuola Steiner Waldorf di Trento";
+        $footerpagella = "";
+
         $indirizzoscuola = "Via E. Conci 86 - Trento";
         $indirizzocompletoscuola= "Via E. Conci 86 - 38123 - Trento - tel.0461 930658 - segreteria@scuolasteiner-trento.it";
         $ragionesocialescuola = "Associazione Pedagogica Steineriana";
