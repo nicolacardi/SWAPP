@@ -125,42 +125,49 @@
         $pdf->Cell(0,5,"RICHIESTA DI TRASPORTO SCOLASTICO PUBBLICO",0,1,'C', True);
         $pdf->SetFont($fontdefault,'',8.5);
         $pdf->Ln(1);
-        if ($cktrasportopubblico_alu == 1) {
-            //dichiarazione nel caso uno decida di richiedere
-            $testo="Il/i sottoscritto/i dichiara/no che ".$articolo." propri".$desinenza." figli".$desinenza." utilizza già il trasporto urbano e/o extraurbano. in questo caso il rinnovo è automatico.";
-            $testo = utf8_decode($testo);
-            $pdf->Image($imgsquare,$pdf->GetX()+2, $pdf->GetY(),4);
-            $pdf->Cell(10,5,"",0,0,'L');
-            $pdf->MultiCell(0,3.6,$testo);
-            
-            $pdf->Ln(1);
-            $testo="Il/i sottoscritto/i intende/intendono richiedere per ".$articolo." propri".$desinenza." figli".$desinenza." il servizio trasporto urbano e/o extraurbano. In questo caso la scuola provvederà ad inoltrare la richiesta al Servizio Trasporti Pubblici.";
-            $testo = utf8_decode($testo);
-            $pdf->Image($imgsquare,$pdf->GetX()+2, $pdf->GetY()+1,4);
-            $pdf->Cell(10,5,"",0,0,'L');
-            $pdf->MultiCell(0,3.6,$testo);
-            
-            $pdf->SetFont('TitilliumWeb-SemiBold','',9);
-            $pdf->Cell(0,6,"COMPILARE QUALORA PER ESIGENZE FAMILIARI SI DEBBA FARE RIFERIMENTO AD UN INDIRIZZO DIVERSO DA QUELLO SUINDICATO",0,1,'C');
+        if ($cktrasportopubblico_alu == 1 || $cktrasportopubblico_alu == 2) {
+                //dichiarazione nel caso uno decida di richiedere
+                $testo="Il/i sottoscritto/i dichiara/no che ".$articolo." propri".$desinenza." figli".$desinenza." utilizza già il trasporto urbano e/o extraurbano. in questo caso il rinnovo è automatico.";
+                $testo = utf8_decode($testo);
+                if ($cktrasportopubblico_alu == 1) $pdf->Image($imgsquarecrossed,$pdf->GetX()+2, $pdf->GetY(),4);
+                if ($cktrasportopubblico_alu == 2) $pdf->Image($imgsquare,$pdf->GetX()+2, $pdf->GetY(),4);
 
-            $pdf->SetLineWidth(0.05);
-            $pdf->SetFont($fontdefault,'',10);
-            $pdf->Cell($w1,$h2,"Comune",1,0,'L');
-            $pdf->Cell($w2,$h2,"",1,1,'L');
-            $pdf->Cell($w1,$h2,"Frazione",1,0,'L');
-            $pdf->Cell($w2,$h2,"",1,1,'L');
-            $pdf->Cell($w1,$h2,"Via e N.",1,0,'L');
-            $pdf->Cell($w2,$h2,"",1,1,'L');
-            $pdf->SetLineWidth(0.2);
-        } else {
-            //dichiarazione nel caso uno decida di non richiederlo
-            $testo="Il/i sottoscritto/i dichiara/no di non essere interessato/i al servizio trasporti per ".$articolo." propri".$desinenza." figli".$desinenza.".";
-            $testo = utf8_decode($testo);
-            //$pdf->Image($imgsquarecrossed, $pdf->GetX()+2, $pdf->GetY(),4);
-            //$pdf->Cell(10,5,"",0,0,'L');
-            $pdf->MultiCell(0,3.5,$testo);
-            
-        }
+                $pdf->Cell(10,5,"",0,0,'L');
+                $pdf->MultiCell(0,3.6,$testo);
+
+
+                $pdf->Ln(1);
+                $testo="Il/i sottoscritto/i intende/intendono richiedere per ".$articolo." propri".$desinenza." figli".$desinenza." il servizio trasporto urbano e/o extraurbano. In questo caso la scuola provvederà ad inoltrare la richiesta al Servizio Trasporti Pubblici.";
+                $testo = utf8_decode($testo);
+
+                if ($cktrasportopubblico_alu == 1) $pdf->Image($imgsquare,$pdf->GetX()+2, $pdf->GetY(),4);
+                if ($cktrasportopubblico_alu == 2) $pdf->Image($imgsquarecrossed,$pdf->GetX()+2, $pdf->GetY(),4);
+
+                $pdf->Cell(10,5,"",0,0,'L');
+                $pdf->MultiCell(0,3.6,$testo);
+
+
+                $pdf->SetFont('TitilliumWeb-SemiBold','',9);
+                $pdf->Cell(0,6,"COMPILARE QUALORA PER ESIGENZE FAMILIARI SI DEBBA FARE RIFERIMENTO AD UN INDIRIZZO DIVERSO DA QUELLO SUINDICATO",0,1,'C');
+
+                $pdf->SetLineWidth(0.05);
+                $pdf->SetFont($fontdefault,'',10);
+                $pdf->Cell($w1,$h2,"Comune",1,0,'L');
+                $pdf->Cell($w2,$h2,"",1,1,'L');
+                $pdf->Cell($w1,$h2,"Frazione",1,0,'L');
+                $pdf->Cell($w2,$h2,"",1,1,'L');
+                $pdf->Cell($w1,$h2,"Via e N.",1,0,'L');
+                $pdf->Cell($w2,$h2,"",1,1,'L');
+                $pdf->SetLineWidth(0.2);
+            }
+            if ($cktrasportopubblico_alu == -1) {
+                //dichiarazione nel caso uno decida di non richiederlo
+                $testo="Il/i sottoscritto/i dichiara/no di non essere interessato/i al servizio trasporti per ".$articolo." propri".$desinenza." figli".$desinenza.".";
+                $testo = utf8_decode($testo);
+                //$pdf->Image($imgsquarecrossed, $pdf->GetX()+2, $pdf->GetY(),4);
+                //$pdf->Cell(10,5,"",0,0,'L');
+                $pdf->MultiCell(0,3.5,$testo);
+            }
         
     }
 

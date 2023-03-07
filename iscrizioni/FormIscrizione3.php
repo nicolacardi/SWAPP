@@ -446,9 +446,10 @@
 					<div id="altreligioneBlock_alu" class="mt10 bb-dashed" style="margin-top: 10px!important; <?if ($ckreligione_alu == 1 || $ckreligione_alu == NULL) {echo("display: none");}?>">
 						In alternativa alle ore di religione indicare la propria scelta:
 						<select class="mb10 mt5 w50" id= "altReligioneSelect" name="altreligione_alu" onclick="showMsgReligione(); return false; ">
+								<option value="3" <?if ($altreligione_alu ==3){echo("selected");}?> >Non frequenza della scuola nelle ore di insegnamento della religione cattolica</option>
 								<option value="1" <?if ($altreligione_alu ==1){echo("selected");}?> >Attività didattiche e Formative</option>	
 								<option value="2" <?if ($altreligione_alu ==2){echo("selected");}?> >Attività di studio e/o ricerca individuali con assistenza docenti</option>
-								<option value="3" <?if ($altreligione_alu ==3){echo("selected");}?> >Non frequenza della scuola nelle ore di insegnamento della religione cattolica</option>
+
 								
 						</select>
 					</div>
@@ -496,17 +497,18 @@
 				
 					<br><br>RICHIESTA DI<br>TRASPORTO SCOLASTICO PUBBLICO
 					<div class="col-md-12 col-sm-12 col-xs-12" id="lblcktrasportopubblico_alu" style="padding-bottom: 2px;">
-						<div class="col-md-6 col-sm-6 col-xs-6 center fs12" style="z-index: 100;">
-							<input type="radio" class="cktrasportopubblico_alu" name="cktrasportopubblico_alu" value="1" <?if ($cktrasportopubblico_alu == 1) {echo "checked";}?>>&nbsp;richiedo
+						<div class="col-md-4 col-sm-4 col-xs-4 center fs12" style="z-index: 100;">
+							<input type="radio" class="cktrasportopubblico_alu" name="cktrasportopubblico_alu" value="1" <?if ($cktrasportopubblico_alu == 1) {echo "checked";}?>>&nbsp;richiedo rinnovo
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6 center fs12" style="z-index: 100;">
+						<div class="col-md-4 col-sm-4 col-xs-4 center fs12" style="z-index: 100;">
+							<input type="radio" class="cktrasportopubblico_alu" name="cktrasportopubblico_alu" value="2" <?if ($cktrasportopubblico_alu == 2) {echo "checked";}?>>&nbsp;richiedo per la prima volta
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 center fs12" style="z-index: 100;">
 							<input type="radio" class="cktrasportopubblico_alu ml20" name="cktrasportopubblico_alu" value="-1" <?if ($cktrasportopubblico_alu == -1) {echo "checked";}?>>&nbsp;non richiedo
 						</div>
 
 					</div>
-					<div class="col-md-12 mb15 center fs12">
-						In caso di richiesta si prega di<br> completare il modulo nella sezione corrispondente.
-					</div>
+
 				</div>
 				
 

@@ -205,7 +205,7 @@
 
                         <? if ($_SESSION['ISC_mostra_trasportopubblico'] == 1) {?>
                             <div class="row mt5">
-                                <input style="width:10%;" class="tablecell" type="checkbox"  id="cktrasportopubblico_alu_det" name="cktrasportopubblico_alu_det" value="RichiestaTrasportoPubblico" <? if ($cktrasportopubblico_alu_det == 1) { echo ('checked');} ?>> Rich. Trasp. Pubblico 
+                                <input style="width:10%;" class="tablecell" type="checkbox"  id="cktrasportopubblico_alu_det" name="cktrasportopubblico_alu_det" value="RichiestaTrasportoPubblico" <? if ($cktrasportopubblico_alu_det == 1 || $cktrasportopubblico_alu_det == 2) { echo ('checked');} ?>> Rich. Trasp. Pubblico 
                             </div>
                         <?}?>
                         
