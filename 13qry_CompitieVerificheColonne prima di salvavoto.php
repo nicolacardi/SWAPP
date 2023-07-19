@@ -22,16 +22,16 @@
 			<img title="Aggiungi nuovo Compito/Verifica" style="width: 20px; cursor: pointer; margin-top: 50px; margin-left: 5px; margin-bottom: 6px;" src='assets/img/Icone/circle-plus.svg' onclick="showModalAddCompito();">
 		</td>
 		<td>
-			<input class="tablelabel0" style="vertical-align: bottom; max-width:100px; margin-top: 50px; margin-bottom: 6px;" type="text" name="nome_alu" value = "NOME" disabled>
+			<input class="tablelabel0" style="vertical-align: bottom; max-width:100px; margin-top: 50px; margin-bottom: 6px;" type="text" id="nome_alu" name="nome_alu" value = "NOME" disabled>
 		</td>
 		<td>
-			<input class="tablelabel0"  style="vertical-align: bottom; max-width:100px; margin-top: 50px; margin-bottom: 6px;" type="text" name="cognome_alu" value = "COGNOME" disabled>
+			<input class="tablelabel0"  style="vertical-align: bottom; max-width:100px; margin-top: 50px; margin-bottom: 6px;" type="text" id="cognome_alu" name="cognome_alu" value = "COGNOME" disabled>
 		</td>
 		<td>
-			<input class="tablelabel0" style="vertical-align: bottom; max-width:70px; margin-top: 50px; margin-bottom: 6px;" type="text" name="classe_alu" value = "Classe" disabled>
+			<input class="tablelabel0" style="vertical-align: bottom; max-width:70px; margin-top: 50px; margin-bottom: 6px;" type="text" id="classe_alu" name="classe_alu" value = "Classe" disabled>
 		</td>
 		<td>
-			<input class="tablelabel0"  style="vertical-align: bottom; max-width:40px; margin-top: 50px; margin-bottom: 6px;" type="text" name="sezione_alu" value = "Sez" disabled>
+			<input class="tablelabel0"  style="vertical-align: bottom; max-width:40px; margin-top: 50px; margin-bottom: 6px;" type="text" id="sezione_alu" name="sezione_alu" value = "Sez" disabled>
 		</td>
 	<?
 	while (mysqli_stmt_fetch($stmt1)) {?>
@@ -49,7 +49,12 @@
 	<?
 	$k++;
 	}
+	if ($k !=1) {
 	?>
+	<td style="vertical-align: top">
+		<button class="btnBlu" style="height: 50px; margin-top: 0px" onclick="salvaVoti();">Salva Voti</button>
+	</td>
+	<?}?>
 <script>
 	function mostraCompito (ID_cov, codmat_cov, tipo_cov, data_cov, argomento_cov){
 		resetModalAddCompito(); 
@@ -137,28 +142,20 @@
 	
 
 
-	function salvaVoto (ID_alu_vcc, ID_cov_vcc, inputElement) {
-			voto_vcc = inputElement.value;
-			numvoto_vcc = parseFloat(voto_vcc);
-
-			if( (numvoto_vcc<=0) || (numvoto_vcc>10)) {
-				$('#voto'+ID_alu_vcc+"."+ID_cov_vcc).val(10);
-				inputElement.value = "";
-				msg = "Sono consentiti solo valori tra 0 e 10 eventualmente con un decimale";
-				$('#titolo01Msg_OK').html('ATTENZIONE');
-				$('#msg01Msg_OK').html(msg);
-				$('#modal01Msg_OK').modal('show');
-				return;
-			}
-			console.log(voto_vcc, parseFloat(voto_vcc));
-
+	function salvaVoto () {
+		$('.voto_vcc').each(function(){
+			let idvoto_vcc = $(this).attr('id');  							//qui c'è scritto "votoID_alu.ID_Compito
+			let n = idvoto_vcc.indexOf(".");								//estraggo la posizione del punto
+			let ID_alu_vcc = parseInt(idvoto_vcc.substr(4,n-4));			//a sinistra del punto, tolti i primi quattro caratteri c'è ID_alu_vcc
+			let ID_cov_vcc = parseInt(idvoto_vcc.substr(n+1));				//a destra c'è l'ID_cov_vcc
+			let voto_vcc = $(this).val(); 									//questo è il voto da impostare
 			//>>>>>>>>>>>>>>>>>>>>>> a questo punto posso salvare. 
 			// opzione 1: cancello tutto e salvo...ma "cosa" cancello?
 			// opzione2 scrivo la SQL del tipo IF EXISTS allora update altrimenti INSERT. SOLO SE voto <> ""? 
 			// eh no, perchè se uno ha cancellato? dovrei fare che se è "" allora faccio una DELETE...
 			//riassumendo: se voto = "" allora DELETE, se <> "" allora SQL dentro la quale c'è l'IF EXISTS
 			postData = { ID_alu_vcc: ID_alu_vcc, ID_cov_vcc: ID_cov_vcc, voto_vcc: voto_vcc};
-			//console.log ("13CompitieVerificheColonne.php - salvaVoto - postData a 13qry_deleteVoto.php");
+			//console.log ("13CompitieVerificheColonne.php - salvaVoti - postData a 13qry_deleteVoto.php");
 			//console.log (postData);
 			if ((voto_vcc == "0.0") || (voto_vcc == "")) {
 				$.ajax({
@@ -168,15 +165,15 @@
 					async: false,
 					dataType: 'json',
 					success: function(data){
-						//console.log ("13CompitieVerificheColonne.php - salvaVoto - ritorno da 13qry_deleteVoto.php");
+						//console.log ("13CompitieVerificheColonne.php - salvaVoti - ritorno da 13qry_deleteVoto.php");
 						//console.log(data.sql);
 					},
 					error: function(){
-						alert("Errore: contattare l'amministratore fornendo il codice di errore '13qry_CompitieVerificheColonne ##salvaVoto##'");     
+						alert("Errore: contattare l'amministratore fornendo il codice di errore '13qry_CompitieVerificheColonne ##salvaVoti##'");     
 					}
 				});
 			} else {
-				console.log ("13CompitieVerificheColonne.php - salvaVoto - postData a 13qry_insertVoto.php");
+				console.log ("13CompitieVerificheColonne.php - salvaVoti - postData a 13qry_insertVoto.php");
 				console.log(postData);
 				$.ajax({
 					type: 'POST',
@@ -184,7 +181,7 @@
 					data: postData,
 					dataType: 'json',
 					success: function(data){
-						console.log ("13CompitieVerificheColonne.php - salvaVoto - ritorno da 13qry_insertVoto.php");
+						console.log ("13CompitieVerificheColonne.php - salvaVoti - ritorno da 13qry_insertVoto.php");
 						console.log(data);
 						if (data.alunnoassente == "1") {
 							datacompito = data.datacov;
@@ -207,73 +204,73 @@
 				});
 			}
 			//console.log ($(this).attr('id')+" "+ID_alu+" "+ID_cov+" "+voto);
-
+		});
 	}
 
 
 	
-	// function salvaVoti () {
-	// 	$('.voto_vcc').each(function(){
-	// 		let idvoto_vcc = $(this).attr('id');  							//qui c'è scritto "votoID_alu.ID_Compito
-	// 		let n = idvoto_vcc.indexOf(".");								//estraggo la posizione del punto
-	// 		let ID_alu_vcc = parseInt(idvoto_vcc.substr(4,n-4));			//a sinistra del punto, tolti i primi quattro caratteri c'è ID_alu_vcc
-	// 		let ID_cov_vcc = parseInt(idvoto_vcc.substr(n+1));				//a destra c'è l'ID_cov_vcc
-	// 		let voto_vcc = $(this).val(); 									//questo è il voto da impostare
-	// 		//>>>>>>>>>>>>>>>>>>>>>> a questo punto posso salvare. 
-	// 		// opzione 1: cancello tutto e salvo...ma "cosa" cancello?
-	// 		// opzione2 scrivo la SQL del tipo IF EXISTS allora update altrimenti INSERT. SOLO SE voto <> ""? 
-	// 		// eh no, perchè se uno ha cancellato? dovrei fare che se è "" allora faccio una DELETE...
-	// 		//riassumendo: se voto = "" allora DELETE, se <> "" allora SQL dentro la quale c'è l'IF EXISTS
-	// 		postData = { ID_alu_vcc: ID_alu_vcc, ID_cov_vcc: ID_cov_vcc, voto_vcc: voto_vcc};
-	// 		//console.log ("13CompitieVerificheColonne.php - salvaVoti - postData a 13qry_deleteVoto.php");
-	// 		//console.log (postData);
-	// 		if ((voto_vcc == "0.0") || (voto_vcc == "")) {
-	// 			$.ajax({
-	// 				type: 'POST',
-	// 				url: "13qry_deleteVoto.php",
-	// 				data: postData,
-	// 				async: false,
-	// 				dataType: 'json',
-	// 				success: function(data){
-	// 					//console.log ("13CompitieVerificheColonne.php - salvaVoti - ritorno da 13qry_deleteVoto.php");
-	// 					//console.log(data.sql);
-	// 				},
-	// 				error: function(){
-	// 					alert("Errore: contattare l'amministratore fornendo il codice di errore '13qry_CompitieVerificheColonne ##salvaVoti##'");     
-	// 				}
-	// 			});
-	// 		} else {
-	// 			console.log ("13CompitieVerificheColonne.php - salvaVoti - postData a 13qry_insertVoto.php");
-	// 			console.log(postData);
-	// 			$.ajax({
-	// 				type: 'POST',
-	// 				url: "13qry_insertVoto.php",
-	// 				data: postData,
-	// 				dataType: 'json',
-	// 				success: function(data){
-	// 					console.log ("13CompitieVerificheColonne.php - salvaVoti - ritorno da 13qry_insertVoto.php");
-	// 					console.log(data);
-	// 					if (data.alunnoassente == "1") {
-	// 						datacompito = data.datacov;
-	// 						anno = datacompito.substring(0, 4);
-	// 						mese = datacompito.substring(5, 7);
-	// 						giorno = datacompito.substring(8, 10);
-	// 						datacompito = giorno+"/"+mese+"/"+anno;
-	// 						msg2= "<br><br>Le assenze di classe del mese desiderato sono anche scaricabili da 'Elenco Assenze'<br>nella pagina 'Emissione Documenti'<br><br>Questa è solo una segnalazione - il voto verrà comunque salvato.";
-	// 						msg3 = $('#nome_alu'+ID_alu_vcc).val()+" "+ $('#cognome_alu'+ID_alu_vcc).val() + " era assente almeno un'ora il "+datacompito + "<br>data in cui per "+ $('#nome_alu'+ID_alu_vcc).val()+" è stato segnato un voto in: "+data.materia+"."+data.tipo+msg2;
-	// 						$('#titolo01Msg_OK').html('VERIFICA VOTI-ASSENZE');
-	// 						$('#msg01Msg_OK').html(msg3);
-	// 						$('#modal01Msg_OK').modal('show');
-	// 					} else {
-	// 						requery();
-	// 					}
-	// 				},
-	// 				error: function(){
-	// 					alert("Errore: contattare l'amministratore fornendo il codice di errore '13qry_CompitieVerificheColonne ##fname##'");     
-	// 				}
-	// 			});
-	// 		}
-	// 		//console.log ($(this).attr('id')+" "+ID_alu+" "+ID_cov+" "+voto);
-	// 	});
-	// }
+	function salvaVoti () {
+		$('.voto_vcc').each(function(){
+			let idvoto_vcc = $(this).attr('id');  							//qui c'è scritto "votoID_alu.ID_Compito
+			let n = idvoto_vcc.indexOf(".");								//estraggo la posizione del punto
+			let ID_alu_vcc = parseInt(idvoto_vcc.substr(4,n-4));			//a sinistra del punto, tolti i primi quattro caratteri c'è ID_alu_vcc
+			let ID_cov_vcc = parseInt(idvoto_vcc.substr(n+1));				//a destra c'è l'ID_cov_vcc
+			let voto_vcc = $(this).val(); 									//questo è il voto da impostare
+			//>>>>>>>>>>>>>>>>>>>>>> a questo punto posso salvare. 
+			// opzione 1: cancello tutto e salvo...ma "cosa" cancello?
+			// opzione2 scrivo la SQL del tipo IF EXISTS allora update altrimenti INSERT. SOLO SE voto <> ""? 
+			// eh no, perchè se uno ha cancellato? dovrei fare che se è "" allora faccio una DELETE...
+			//riassumendo: se voto = "" allora DELETE, se <> "" allora SQL dentro la quale c'è l'IF EXISTS
+			postData = { ID_alu_vcc: ID_alu_vcc, ID_cov_vcc: ID_cov_vcc, voto_vcc: voto_vcc};
+			//console.log ("13CompitieVerificheColonne.php - salvaVoti - postData a 13qry_deleteVoto.php");
+			//console.log (postData);
+			if ((voto_vcc == "0.0") || (voto_vcc == "")) {
+				$.ajax({
+					type: 'POST',
+					url: "13qry_deleteVoto.php",
+					data: postData,
+					async: false,
+					dataType: 'json',
+					success: function(data){
+						//console.log ("13CompitieVerificheColonne.php - salvaVoti - ritorno da 13qry_deleteVoto.php");
+						//console.log(data.sql);
+					},
+					error: function(){
+						alert("Errore: contattare l'amministratore fornendo il codice di errore '13qry_CompitieVerificheColonne ##salvaVoti##'");     
+					}
+				});
+			} else {
+				console.log ("13CompitieVerificheColonne.php - salvaVoti - postData a 13qry_insertVoto.php");
+				console.log(postData);
+				$.ajax({
+					type: 'POST',
+					url: "13qry_insertVoto.php",
+					data: postData,
+					dataType: 'json',
+					success: function(data){
+						console.log ("13CompitieVerificheColonne.php - salvaVoti - ritorno da 13qry_insertVoto.php");
+						console.log(data);
+						if (data.alunnoassente == "1") {
+							datacompito = data.datacov;
+							anno = datacompito.substring(0, 4);
+							mese = datacompito.substring(5, 7);
+							giorno = datacompito.substring(8, 10);
+							datacompito = giorno+"/"+mese+"/"+anno;
+							msg2= "<br><br>Le assenze di classe del mese desiderato sono anche scaricabili da 'Elenco Assenze'<br>nella pagina 'Emissione Documenti'<br><br>Questa è solo una segnalazione - il voto verrà comunque salvato.";
+							msg3 = $('#nome_alu'+ID_alu_vcc).val()+" "+ $('#cognome_alu'+ID_alu_vcc).val() + " era assente almeno un'ora il "+datacompito + "<br>data in cui per "+ $('#nome_alu'+ID_alu_vcc).val()+" è stato segnato un voto in: "+data.materia+"."+data.tipo+msg2;
+							$('#titolo01Msg_OK').html('VERIFICA VOTI-ASSENZE');
+							$('#msg01Msg_OK').html(msg3);
+							$('#modal01Msg_OK').modal('show');
+						} else {
+							requery();
+						}
+					},
+					error: function(){
+						alert("Errore: contattare l'amministratore fornendo il codice di errore '13qry_CompitieVerificheColonne ##fname##'");     
+					}
+				});
+			}
+			//console.log ($(this).attr('id')+" "+ID_alu+" "+ID_cov+" "+voto);
+		});
+	}
 </script>

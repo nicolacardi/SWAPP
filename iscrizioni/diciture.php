@@ -69,6 +69,7 @@ switch ($codscuola) {
 
         $sottoTitoloDocValutazione = "";
 
+        $attestazioneAmmissione = false;
         break;
 
     case 'PD':
@@ -139,6 +140,9 @@ switch ($codscuola) {
         $istituzione_supporto ="l'istituzione scolastica ";
 
         $sottoTitoloDocValutazione = "- AD USO INTERNO -";
+
+        $attestazioneAmmissione = true;
+
         break;
     case 'CI':
         $nickscuola = "Sc. Waldorf Cittadella";
@@ -208,6 +212,9 @@ switch ($codscuola) {
         $istituzione_supporto ="l'istituzione scolastica ";
 
         $sottoTitoloDocValutazione = "- AD USO INTERNO -";
+
+        $attestazioneAmmissione = true;
+
 
         break;
     case "VR":
@@ -280,6 +287,9 @@ switch ($codscuola) {
 
         $sottoTitoloDocValutazione = "- AD USO INTERNO -";
 
+        $attestazioneAmmissione = true;
+
+
         break;
     case "TV":
         $nickscuola = "Scuola Waldorf TV";
@@ -350,6 +360,7 @@ switch ($codscuola) {
 
         $sottoTitoloDocValutazione = "- AD USO INTERNO -";
 
+        $attestazioneAmmissione = true;
 
         break;
     case "TN":
@@ -419,6 +430,8 @@ switch ($codscuola) {
         $istituzione_supporto ="l'istituzione scolastica ";
         
         $sottoTitoloDocValutazione = "- AD USO INTERNO -";
+
+        $attestazioneAmmissione = true;
 
         break;
     default:

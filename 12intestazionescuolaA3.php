@@ -120,7 +120,7 @@ switch ($codscuola) {
         $startY = $startY + $HRiga;
         $pdf->SetXY (20,$startY);
         $pdf->SetFont($fontdefault,'',12);
-        $pdf->Cell(0,$HRigaint,utf8_decode("Steiner Waldorf Verona - Cooperativa Sociale Onlus"), 0 ,1, 'L');
+        $pdf->Cell(0,$HRigaint,utf8_decode("Steiner Waldorf Verona - Cooperativa Sociale"), 0 ,1, 'L');
         $startY = $startY + 2*$HRiga;
         $pdf->SetXY (20,$startY);
         $pdf->Cell(0,$HRigaint,utf8_decode("Scuola dell'Infanzia non paritaria"), 0 ,1, 'L');
@@ -132,10 +132,10 @@ switch ($codscuola) {
         $pdf->Cell(0,$HRigaint,utf8_decode("Scuola Secondaria di I° Grado iscritta all'Albo Regionale delle Scuole Non Paritarie (VR1MV95009)"), 0 ,1, 'L');
         $startY = $startY + $HRiga;
         $pdf->SetXY (20,$startY);
-        $pdf->Cell(0,$HRigaint,utf8_decode("Sede legale : via Tione, 25  - 37069  Villafranca di Verona (VR)"), 0 ,1, 'L');
+        $pdf->Cell(0,$HRigaint,"", 0 ,1, 'L');
         $startY = $startY + $HRiga;
         $pdf->SetXY (20,$startY);
-        $pdf->Cell(0,$HRigaint,utf8_decode("Sede operativa : località Laura, 4 - frazione Grezzano - 37060  Mozzecane (VR)"), 0 ,1, 'L');
+        $pdf->Cell(0,$HRigaint,utf8_decode("Sede legale e operativa : località Laura, 4 - frazione Grezzano - 37060  Mozzecane (VR)"), 0 ,1, 'L');
         $startY = $startY + $HRiga;
         $pdf->SetXY (20,$startY);
         $pdf->Cell(0,$HRigaint,utf8_decode("Tel. 045 5549256 - info@scuolawaldorfverona.it "), 0 ,1, 'L');

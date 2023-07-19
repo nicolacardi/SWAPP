@@ -78,43 +78,60 @@ if ($quadrimestre == 2) {
     //$pdf->Rect(230,185,170,45);
     $pdf->SetX (250);
     $pdf->SetFont('TitilliumWeb-SemiBold','',$titleSize);
-    $pdf->Cell(130,10,'ATTESTAZIONE', "B",1, 'C');
-    $pdf->SetFont($fontdefault,'',12);
-    $pdf->SetX (210);
-    
-    //COVID
-    $pdf->Cell(210,6,utf8_decode("Accertato che l'alunn".$finmin." ai fini della validità dell'anno scolastico (art 2, 2. 10 DPR 122/2009)"), 0,1, 'C');
-    $pdf->SetX (210);
-    $pdf->Cell(210,6,utf8_decode("con ".($ggassenza2_cla)." giorni di assenza"), 0,1, 'C');
 
-    if ($hafreq_cla == 1) {
-        $hafreqphrase = "ha frequentato le lezioni e le attività didattiche per almeno i 3/4 dell'orario annuale";
+    if  ($attestazioneAmmissione) {
+
+
+        $pdf->Cell(130,10,'ATTESTAZIONE', "B",1, 'C');
+        $pdf->SetFont($fontdefault,'',12);
+        $pdf->SetX (210);
+        $pdf->Cell(210,6,utf8_decode("Accertato che l'alunn".$finmin." ai fini della validità dell'anno scolastico (art 2, 2. 10 DPR 122/2009)"), 0,1, 'C');
+        $pdf->SetX (210);
+        $pdf->Cell(210,6,utf8_decode("con ".($ggassenza2_cla)." giorni di assenza"), 0,1, 'C');
+        if ($hafreq_cla == 1) {
+            $hafreqphrase = "ha frequentato le lezioni e le attività didattiche per almeno i 3/4 dell'orario annuale";
+        } else {
+            $hafreqphrase = "non ha frequentato le lezioni e le attività didattiche per almeno i 3/4 dell'orario annuale";
+        }
+        //COVID
+        $pdf->SetX (210);
+        $pdf->Cell(210,6,utf8_decode($hafreqphrase), 0,1, 'C');
+        //COVID
+        $pdf->SetX (210);
+
+        $pdf->Cell(210,6,utf8_decode("visti gli atti d'ufficio e la valutazione dei docenti della classe si attesta che"), 0,1, 'C');
+
+        //COVID
+        //$ammesso_cla=1; //COVID!
+
+
+        if ($ammesso_cla == 1) {
+            if ($_SESSION['stampa_voti_ammissione_VIII'] == 1) {$convoto = "con votazione ".$votofinale_cla." decimi";} else {$convoto = "";}
+            $ammessophrase = "l'alunn".$finmin." è risultat".$finmin." AMMESS".$finMAI." alla classe successiva";
+            if ($classe_cla == "V") {$ammessophrase = "l'alunn".$finmin." è risultat".$finmin." AMMESS".$finMAI." al successivo grado di istruzione";}
+            if ($classe_cla == "VIII") {$ammessophrase = "l'alunn".$finmin." è risultat".$finmin." AMMESS".$finMAI." a sostenere l'esame di Stato ".$convoto;}
+        } else {
+            $ammessophrase = "l'alunn".$finmin." è risultat".$finmin." NON AMMESS".$finMAI." alla classe successiva";
+            if ($classe_cla == "V") {$ammessophrase = "l'alunn".$finmin." è risultat".$finmin." NON AMMESS".$finMAI." al successivo grado di istruzione";}
+            if ($classe_cla == "VIII") {$ammessophrase = "l'alunn".$finmin." è risultato NON AMMESS".$finMAI." a sostenere l'esame di Stato";}
+        }
+        $pdf->SetX (210);
+        $pdf->Cell(210,10,utf8_decode($ammessophrase), 0,1, 'C');
     } else {
-        $hafreqphrase = "non ha frequentato le lezioni e le attività didattiche per almeno i 3/4 dell'orario annuale";
+        $pdf->Cell(130,10,'', "B",1, 'C');
+        $pdf->SetFont($fontdefault,'',12);
+        $pdf->SetX (210);
+        $pdf->Cell(210,6,utf8_decode("Si attesta che l'alunn".$finmin.", con ".($ggassenza2_cla)." giorni di assenza,"), 0,1, 'C');
+        if ($hafreq_cla == 1) {
+            $hafreqphrase = "ha frequentato le lezioni e le attività didattiche per almeno i 3/4 dell'orario annuale";
+        } else {
+            $hafreqphrase = "non ha frequentato le lezioni e le attività didattiche per almeno i 3/4 dell'orario annuale";
+        }
+        $pdf->SetX (210);
+        $pdf->Cell(210,6,utf8_decode($hafreqphrase), 0,1, 'C');
+        $pdf->SetX (210);
     }
-    //COVID
-    $pdf->SetX (210);
-    $pdf->Cell(210,6,utf8_decode($hafreqphrase), 0,1, 'C');
-    //COVID
-    $pdf->SetX (210);
-    $pdf->Cell(210,6,utf8_decode("visti gli atti d'ufficio e la valutazione dei docenti della classe si attesta che"), 0,1, 'C');
-    //COVID
-    //$ammesso_cla=1; //COVID!
 
-
-    if ($ammesso_cla == 1) {
-        if ($_SESSION['stampa_voti_ammissione_VIII'] == 1) {$convoto = "con votazione ".$votofinale_cla." decimi";} else {$convoto = "";}
-        $ammessophrase = "l'alunn".$finmin." è risultat".$finmin." AMMESS".$finMAI." alla classe successiva";
-        if ($classe_cla == "V") {$ammessophrase = "l'alunn".$finmin." è risultat".$finmin." AMMESS".$finMAI." al successivo grado di istruzione";}
-        if ($classe_cla == "VIII") {$ammessophrase = "l'alunn".$finmin." è risultat".$finmin." AMMESS".$finMAI." a sostenere l'esame di Stato ".$convoto;}
-    } else {
-        $ammessophrase = "l'alunn".$finmin." è risultat".$finmin." NON AMMESS".$finMAI." alla classe successiva";
-        if ($classe_cla == "V") {$ammessophrase = "l'alunn".$finmin." è risultat".$finmin." NON AMMESS".$finMAI." al successivo grado di istruzione";}
-        if ($classe_cla == "VIII") {$ammessophrase = "l'alunn".$finmin." è risultato NON AMMESS".$finMAI." a sostenere l'esame di Stato";}
-    }
-    $pdf->SetX (210);
-
-    $pdf->Cell(210,10,utf8_decode($ammessophrase), 0,1, 'C');
 }
 
 

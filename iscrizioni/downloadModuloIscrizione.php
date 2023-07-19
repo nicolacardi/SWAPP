@@ -569,7 +569,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 245/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
+		$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 445/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -872,7 +872,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 245/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
+		$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 445/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -1571,7 +1571,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(2);
-		$testo="- <b>Steiner Waldorf Verona Cooperativa Sociale Onlus</b>, con sede in Via Tione, 25 - 37069 Villafranca di Verona (VR) , di seguito 'Ente Gestore' e";
+		$testo="- <b>Steiner Waldorf Verona Cooperativa Sociale </b>, con sede in Loc. Laura, 4 - Fraz. Grezzano - 37060 Mozzecane (VR), di seguito 'Ente Gestore' e";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 
@@ -1650,7 +1650,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 245/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
+		$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 445/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 

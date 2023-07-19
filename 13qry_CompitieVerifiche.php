@@ -88,7 +88,7 @@
 			//devo creare e mostrare i compiti SOLO se sono del maestro corrente/loggato
 			for ($compito = 1; $compito <= $compiti; $compito++) {?>
 				<td style="width:40px;">
-					<input type="number" min="0" max = "10" max-length = "3" class="tablecell3 disab voto_vcc" style="text-align: right; width: 40px;" id="voto<?=$ID_aluA[$alunno]?>.<?=$ID_covA[$compito]?>" name="voto_vcc" value = "<?=$voto_vccA[$compito][$alunno]?>" onkeypress="return isNumberKey(event)">
+					<input type="number" min="0" max = "10" max-length = "3" class="tablecell3 disab voto_vcc" style="text-align: right; width: 40px;" id="voto<?=$ID_aluA[$alunno]?>.<?=$ID_covA[$compito]?>" name="voto_vcc" value = "<?=$voto_vccA[$compito][$alunno]?>" onkeypress="return isNumberKey(event)"  onchange="salvaVoto(<?=$ID_aluA[$alunno]?>,<?=$ID_covA[$compito]?>, this)"   >
 				</td>
 			<?}?>
 

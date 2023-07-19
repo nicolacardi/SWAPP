@@ -388,7 +388,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->MultiCell(0,5,$testo);
 		$pdf->Ln(4);
 
-		$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 245/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
+		$testo="art.3)	I genitori/tutori/esercenti la responsabilità genitoriale sono consapevoli delle conseguenze amministrative per chi rilasci dichiarazioni non corrispondenti a verità, ai sensi del D.P.R. 445/2000, anche in osservanza delle disposizioni sulla responsabilità genitoriale di cui agli artt. 316, 337 ter e 337 quater del codice civile che richiedono il consenso di entrambi i genitori;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
