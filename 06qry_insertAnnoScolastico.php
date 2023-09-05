@@ -5,7 +5,8 @@
 	$classe_cla = $_POST['classe_cla'];
 	$sezione_cla = $_POST['sezione_cla'];
 	$bocciato = $_POST['bocciato'];
-	if ($_POST['scalino']) {$scalino = 1;} else {$scalino = 0;}
+	$scalino = 0;
+	if ($_POST['scalino'] == "true") {$scalino = 1;}
 	$return['result']= "NOTOK";
 
 	//ListaDattesa può essere solo false questo check è un retaggio di un modo precedente di inserire che non viene più usato
@@ -183,7 +184,7 @@ iscrizione:
 	$return['msg'] = "Iscrizione andata a buon fine";
 	$return['sql3'] = $sql3;
 	$return['sql4'] = $sql4;
-	$return['test'] = $sql16;
+	$return['test'] = "POST arrivato per scalino: ".$_POST['scalino']." tradotto in scalino: ".$scalino;
 
 
 
@@ -194,7 +195,7 @@ finelabel:
 	$return['annoscolastico_asc'] = $annoscolastico_asc;
 	$return['classe_cla'] = $classe_cla;
 	$return['sezione_cla'] = $sezione_cla;
-
+	$return['scalino_cla'] = $scalino;
 
     echo json_encode($return);
 ?>

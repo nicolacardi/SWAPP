@@ -29,11 +29,36 @@
 	 
 	<tr>
 	<td>
-		<?//echo(json_encode($_POST['campo']))?>
+		<?
+		// for ($x = 1; $x <= 9; $x++) {
+		// 	$_POST['fil'][$x] = addslashes($_POST['fil'][$x]);
+		// 	$filsql = filterbysqlexplode( $_POST['fil'][$x], $_POST['campo'][$x], $filsql);
+		// }
+		// echo ($filsql);
+			
+			?>
+		<?//echo(json_encode(GetAlunniPerAnno ($_POST['campo'], 9, $_POST['ord'], $_POST['fil'], $_POST['annoscolastico_cla'], $_POST['listaattesa'])))?>
+		<?//echo(json_encode($_POST['fil']))?>
 		<?//echo(GetAlunniPerAnno($_POST['campo'], $_POST['ord'], $_POST['fil']));?>
 		<?//=$annoreprossimo;?>
 	</td>
 	</tr>
+	<?
+	/*GetAlunniPerAnno è una routine nella classe alunni
+	riceve
+	1. $_POST['campo'] che è un array con l'elenco dei campi che sono selezionati nelle combo
+		p.e. ["","nome_alu","cognome_alu","tab_classialunni.classeprec_cla","tab_classialunni.sezione_cla","tab_classialunni.aselme_cla","indirizzo_alu","citta_alu","comunenascita_alu","datanascita_alu"]
+	2. il numero dei campi (9 in qs caso)
+	3. $_POST['ord'] che è un array che dice quale sia l'ordinamento 
+		p.e. ["","--","--","az","--","--","--","--","--","--"]
+	4. $_POST['fil'] che è un array che dice quali siano i filtri da applicare
+		p.e. ["","","","","","EL","","","",""]
+	5. $_POST['annoscolastico_cla']
+	6. $_POST['listaattesa']
+	e restituisce un array di record filtrati e ordinati in base a quelle selezioni
+	
+	*/
+	?>
 	<?foreach (GetAlunniPerAnno ($_POST['campo'], 9, $_POST['ord'], $_POST['fil'], $_POST['annoscolastico_cla'], $_POST['listaattesa']) as $alunno) {
 		
 		//Ora stabilisco se va mostrata la coroncina per questo record

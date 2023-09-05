@@ -39,7 +39,8 @@
 <option disabled>──────────</option>
 <option value="tab_classialunni.ritirato_cla" <?if ($sel == 33){echo ('selected');}?>>Ritirato</option>
 
-<!--STRANAMENTE classeprec_cla non funziona bene: non si può filtarre: eppure nella sql c'è proprio una AS classeprec_cla 
-e quindi la filsql che ne risulta dovrebbe funzionare....intanto la tolgo
-    <option value="classeprec_cla" <?//if ($sel == 34){echo ('selected');}?>>Classe Precedente</option> -->
+<!-- STRANAMENTE classeprec_cla non funziona bene: non si può filtrare: eppure nella sql c'è proprio una AS classeprec_cla 
+e quindi la filsql che ne risulta dovrebbe funzionare....intanto la tolgo 
+sembra legato al fatto che tab_classialunni.classeprec_cla funziona per mostrare a video ma non funziona per filtrare...in quel caso servirebbe tab_classialunniprec.classe_cla-->
+<!-- <option value="tab_classialunniprec.classe_cla" <?//if ($sel == 34){echo ('selected');}?>>Classe Precedente</option> -->
 

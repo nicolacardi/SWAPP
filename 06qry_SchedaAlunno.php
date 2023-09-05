@@ -871,8 +871,8 @@ $ID_alu = $_POST['ID_alu'];?>
 
 
 		postData = { ID_alu_cla: ID_alu_cla, annoscolastico_asc: annoscolastico_asc, classe_cla: classe_cla, sezione_cla: sezione_cla, bocciato: bocciato, ListaDAttesa: ListaDAttesa, scalino: scalino};
-		//console.log ("06qry_SchedaAlunno/ funzione aggiungiAnnoscolastico - Dati di post a: 06_qry_insertAnnoscolastico.php")
-		//console.log ("postData", postData);
+		console.log ("06qry_SchedaAlunno/ funzione aggiungiAnnoscolastico - Dati di post a: 06_qry_insertAnnoscolastico.php")
+		console.log ("postData", postData);
 		
 		$.ajax({
 			type: 'POST',
@@ -880,7 +880,7 @@ $ID_alu = $_POST['ID_alu'];?>
 			data: postData,
 			dataType: 'json',
 			success: function(data){
-					//console.log(data.test);
+					console.log(data.test);
 					$("#alertaggiungiAS").removeClass('alert-success');
 					$("#alertaggiungiAS").addClass('alert-danger');
 					$('#alertaggiungimsg').html(data.msg);
