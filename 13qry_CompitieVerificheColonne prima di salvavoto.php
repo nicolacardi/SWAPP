@@ -143,6 +143,7 @@
 
 
 	function salvaVoto () {
+		console.log ("passa ancora di qui?********************************");
 		$('.voto_vcc').each(function(){
 			let idvoto_vcc = $(this).attr('id');  							//qui c'è scritto "votoID_alu.ID_Compito
 			let n = idvoto_vcc.indexOf(".");								//estraggo la posizione del punto
@@ -173,7 +174,7 @@
 					}
 				});
 			} else {
-				console.log ("13CompitieVerificheColonne.php - salvaVoti - postData a 13qry_insertVoto.php");
+				console.log ("13CompitieVerificheColonne.php - salvaVoto - postData a 13qry_insertVoto.php");
 				console.log(postData);
 				$.ajax({
 					type: 'POST',
@@ -181,7 +182,7 @@
 					data: postData,
 					dataType: 'json',
 					success: function(data){
-						console.log ("13CompitieVerificheColonne.php - salvaVoti - ritorno da 13qry_insertVoto.php");
+						console.log ("13CompitieVerificheColonne.php - salvaVoto - ritorno da 13qry_insertVoto.php");
 						console.log(data);
 						if (data.alunnoassente == "1") {
 							datacompito = data.datacov;

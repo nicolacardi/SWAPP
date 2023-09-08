@@ -57,6 +57,7 @@ $pdf->WriteTag(0,4,utf8_decode($testo),"","J",0,0);
 $pdf->SetFont($fontdefault,'',8);
 $lcella = 40;
 $hcella = 4;
+$pdf->Ln(1);
 $pdf->Cell(30,$hcella,"", 'R',0, 'C');
 $pdf->Cell($lcella,$hcella,"Retta Completa", 1,0, 'C');
 $pdf->Cell($lcella,$hcella,"Retta Ridotta", 1,0, 'C');
