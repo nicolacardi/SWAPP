@@ -731,8 +731,7 @@
 		postData.push( {name: "decisioni_new", value: decisioni_new}  );
 		let num_ver = $('#num_ver_new').val();
 		postData.push( {name: "num_ver", value: num_ver}  );
-		console.log("14Verbali.php - salvaVerbale - postData a 14qry_insertVerbale.php")
-		console.log (postData);
+
 		if ($('#num_ver_new').val() == "..") {
 			//caso nuovo verbale
 			if ((ora_ver_new =="") || (data_ver_new=="") || (titolo_ver_new=="") || (tematiche_new=="")){
@@ -741,6 +740,8 @@
 				$("#alertmsg").html('Tutti i campi contrassegnati da * sono obbligatori');
 				$("#alertaggiungi").show();
 			} else {
+				console.log("14Verbali.php - salvaVerbale - postData a 14qry_insertVerbale.php")
+				console.log (postData);
 				console.log("14Verbali.php - salvaVerbale - verificato che campi obbligatori sono compilati");
 				$.ajax(
 				{

@@ -618,8 +618,8 @@
 			supplente_ora = $('#hidden_ID_mae').val();
 		}
 		postData = { ID_ora : ID_ora, ID_mae_ora : ID_mae_ora, firma_mae_ora: firma_mae_ora, argomento_ora: argomento_ora, compitiassegnati_ora: compitiassegnati_ora, assente_ora: assente_ora, supplente_ora: supplente_ora };
-		//console.log("11Ilmioregistro.php - saveFirma_ChiudiModal - postData a 11qry_UpdateFirma.php");
-		//console.log (postData);
+		console.log("11Ilmioregistro.php - saveFirma_ChiudiModal - postData a 11qry_UpdateFirma.php");
+		console.log (postData);
 		$.ajax({
 			type: 'POST',
 			url: "11qry_UpdateFirma.php",

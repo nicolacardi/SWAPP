@@ -15,10 +15,9 @@ $pdf->MultiCell(0,5,$testo);
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
 $pdf->Cell(0,10,utf8_decode("1) ORARIO DI LEZIONE"), 0,1, 'J');
 $testo= "I ragazzi entrano alle ore 8.00. Le lezioni del mattino iniziano alle ore 8.10 e terminano tutti i giorni alle ore 13.00.
-Due giorni alla settimana (in giorni da stabilire) riprendono alle ore 14 e terminano alle ore 16.
+Due giorni alla settimana (in giorni da stabilire) riprendono alle ore 13.45 e terminano alle ore 15.45.
 
 Si raccomanda la massima puntualità sia per l'ingresso sia per l'uscita.
-E' necessario un permesso firmato da entrambi i genitori valevole per tutto l'anno scolastico per consentire l'uscita autonoma dei ragazzi.
 ARCA declina ogni responsabilità fuori dall'orario scolastico.";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
@@ -80,15 +79,15 @@ $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
-$pdf->SetFont('TitilliumWeb-SemiBold','',10);
-$pdf->Cell(0,10,utf8_decode("9)	ATTIVITA' POMERIDIANE"), 0,1, 'J');
-$testo= "Durante la settimana vengono proposte alcune attività pomeridiane (corsi di musica, falegnameria, dopo scuola ecc.).Tali attività sono a cura degli insegnanti che direttamente le gestiscono. Solo gli alunni e i genitori coinvolti in queste attività possono partecipare.";
-$pdf->SetFont($fontdefault,'',10);
-$testo = utf8_decode($testo);
-$pdf->MultiCell(0,5,$testo);
+// $pdf->SetFont('TitilliumWeb-SemiBold','',10);
+// $pdf->Cell(0,10,utf8_decode("9)	ATTIVITA' POMERIDIANE"), 0,1, 'J');
+// $testo= "Durante la settimana vengono proposte alcune attività pomeridiane (corsi di musica, falegnameria, dopo scuola ecc.).Tali attività sono a cura degli insegnanti che direttamente le gestiscono. Solo gli alunni e i genitori coinvolti in queste attività possono partecipare.";
+// $pdf->SetFont($fontdefault,'',10);
+// $testo = utf8_decode($testo);
+// $pdf->MultiCell(0,5,$testo);
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
-$pdf->Cell(0,10,utf8_decode("10)	AMBIENTE SCOLASTICO"), 0,1, 'J');
+$pdf->Cell(0,10,utf8_decode("9)	AMBIENTE SCOLASTICO"), 0,1, 'J');
 $testo= "Gli spazi adibiti alla formazione sono concessi in locazione da terzi: ci si appella alla coscienza di tutti affinché vengano rispettati; essi hanno bisogno della massima cura e manutenzione da parte di tutti.
 Tutti i luoghi ed il materiale utilizzato, le aule, i corridoi, i bagni, il salone, i banchi e gli oggetti vanno rispettati e trattati con cura e responsabilità.
 Una particolare attenzione deve essere riservata, da parte degli alunni, alla cura dei banchi e delle sedie: scritte ed incisioni sono severamente vietate. Nel caso di non rispetto degli stessi è fatta cura del genitore o dell'alunno di provvedere tempestivamente al ripristino dello stato originario dei medesimi. 
@@ -99,7 +98,7 @@ $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
-$pdf->Cell(0,10,utf8_decode("11) DIVIETO DI FUMO"), 0,1, 'J');
+$pdf->Cell(0,10,utf8_decode("10) DIVIETO DI FUMO"), 0,1, 'J');
 $testo= "In tutti i locali interne e nelle aree comune interne è severamente vietato fumare. Il divieto di fumo è esteso anche alle sigarette elettroniche. Per i trasgressori sono previste sanzioni pecuniarie (fino a euro 500) e sanzioni disciplinari. 
 Il divieto riguarda tutte le persone presenti a scuola: studenti, personale docente, genitori ed esterni.";
 $pdf->SetFont($fontdefault,'',10);
@@ -107,14 +106,14 @@ $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
-$pdf->Cell(0,10,utf8_decode("12) SEGRETERIA"), 0,1, 'J');
+$pdf->Cell(0,10,utf8_decode("11) SEGRETERIA"), 0,1, 'J');
 $testo= "La segreteria è aperta il lunedì, mercoledì e giovedì dalle 8.15 alle 13, salvo modifiche dell'orario che verranno comunicate.";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
-$pdf->Cell(0,10,utf8_decode("13) PAGAMENTI"), 0,1, 'J');
+$pdf->Cell(0,10,utf8_decode("12) PAGAMENTI"), 0,1, 'J');
 $testo= "Le quote scolastiche sono necessarie per permettere alla Soc. Cooperativa Sociale Arca di assolvere con puntualità agli obblighi economici quali:
 - il pagamento del canone di locazione della sede;
 - il pagamento degli stipendi agli insegnanti e di coloro che vi lavorano;

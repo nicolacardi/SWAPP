@@ -33,7 +33,7 @@
 	classe_ver = ?,
 	sezione_ver = ? WHERE ID_ver = ? ;";
 	$stmt = mysqli_prepare($mysqli, $sql);
-	mysqli_stmt_bind_param($stmt, "ssissssissssssi", $data_ver_new, $ora_ver_new, $selectedTipo, $selectedInsegnanti, $selectedGenitori, $invitatiult_ver, $titolo_ver_new, $argnum_ver_new, $txtargomentoaltro_ver, $tematiche_new, $decisioni_new, $annoscolastico_ver, $classe_ver, $sezione_ver, $ID_ver);
+	mysqli_stmt_bind_param($stmt, "ssissssissssssi", $data_ver_new, $ora_ver_new, $selectedTipo, $selectedInsegnanti, $selectedGenitori, $invitatiult_ver_new, $titolo_ver_new, $argnum_ver_new, $txtargomentoaltro_ver, $tematiche_new, $decisioni_new, $annoscolastico_ver, $classe_ver, $sezione_ver, $ID_ver);
 	mysqli_stmt_execute($stmt);
 	$return['sql'] = $sql;
     echo json_encode($return);
