@@ -72,7 +72,7 @@ $j = 0; //j è un numero che cresce di una unità ogni volta che scrivo un alunn
 $wstart = 10;
 $hstartTit = 35;
 $hstart = 45;
-$hgap = 20; //distanza tra un alunno e il successivo in altezza
+$hgap = 25; //distanza tra un alunno e il successivo in altezza
 $wnome = 25;
 $wcognome = 25;
 $wclasse = 10;
@@ -173,6 +173,8 @@ while (mysqli_stmt_fetch($stmt3)) {
 		$pdf->SetXY ($wstartquote, $currY + 2 * $h);
 		$pdf->Cell($wintestazione,$h,'Pagato', 1 ,1, 'L');
 		$pdf->SetXY ($wstartquote, $currY + 3 * $h);
+		$pdf->Cell($wintestazione,$h,'Dovuto', 1 ,1, 'L');
+		$pdf->SetXY ($wstartquote, $currY + 4 * $h);
 		
 		//$pdf->Cell($wintestazione,$h,'Data Pag.', 1 ,1, 'L');
 		
@@ -188,29 +190,49 @@ while (mysqli_stmt_fetch($stmt3)) {
 		$pdf->SetFont($fontdefault,'',8);
 	}
 	// Ho scritto l'intestazione (con nome cognome ecc) ora scrivo le quote
+
+	//DEFAULT
 	$pdf->SetXY ($wstartquote + $wintestazione + $wquote * $riga, $currY);
 	$pdf->Cell($wquote,$h,$default_ret, 1 ,1, 'R');
 	$pdf->SetXY ($wstartquote + $wintestazione + $wquote * $riga, $currY + $h);
+
+	//CONCORDATO
 	if ($concordato_ret < $default_ret) {
 		$pdf->SetFillColor(226,172,20);
 		$pdf->SetTextColor(255,255,255);
 	}
 	$pdf->Cell($wquote,$h,$concordato_ret, 1 ,1, 'R', true);
+	
 	$pdf->SetFillColor(255,255,255);
 	$pdf->SetTextColor(0,0,0);
 	$pdf->SetXY ($wstartquote + $wintestazione + $wquote * $riga, $currY + 2 * $h);
+	
+	//PAGATO
 	if ($pagato_ret < $concordato_ret) {
 		$pdf->SetFillColor(204,37,27);
 		$pdf->SetTextColor(255,255,255);
 	}
 	$pdf->Cell($wquote,$h,$pagato_ret, 1 ,1, 'R', true);
-
+	
 	$pdf->SetXY ($wstartquote + $wintestazione + $wquote * $riga, $currY + 3 * $h);
 	$pdf->SetFont($fontdefault,'',6);
 	//$pdf->Cell($wquote,$h,$datapagato, 1 ,1, 'R', true);
+
 	$pdf->SetFillColor(255,255,255);
 	$pdf->SetTextColor(0,0,0);
 	$pdf->SetFont($fontdefault,'',8);
+
+
+		// //RIMANENTE
+		// if ($concordato_ret - $pagato_ret) {
+		// 	$pdf->SetFillColor(226,172,20);
+		// 	$pdf->SetTextColor(255,255,255);
+		// }
+		// $pdf->Cell($wquote,$h,$concordato_ret-$pagato_ret, 1 ,1, 'R', true);
+		
+		// $pdf->SetFillColor(255,255,255);
+		// $pdf->SetTextColor(0,0,0);
+		// $pdf->SetXY ($wstartquote + $wintestazione + $wquote * $riga, $currY + 3 * $h);
 
 
 	$TOTD =  $TOTD + floatval($default_ret);
@@ -224,7 +246,12 @@ while (mysqli_stmt_fetch($stmt3)) {
 		$pdf->Cell($wquote,$h,$TOTC, 1 ,1, 'R');
 		$pdf->SetXY ($wstartquote + $wintestazione + $wquote * 13+2, $currY + 2 * $h);
 		$pdf->Cell($wquote,$h,$TOTP, 1 ,1, 'R');
+		$pdf->SetXY ($wstartquote + $wintestazione + $wquote * 13+2, $currY + 3 * $h);
+		$pdf->Cell($wquote,$h,$TOTC - $TOTP, 1 ,1, 'R');
+
 		$riga = 0;
+
+
 	}
 
 }

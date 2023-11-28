@@ -233,6 +233,7 @@
 		postData = { ID_fam: ID_fam, ID_soc: ID_soc, dataiscrizione_soc: dataiscrizione_soc, datadisiscrizione_soc: datadisiscrizione_soc, tipo_soc: tipo_soc};
 		console.log ("06inc_Affiliazione.php - aggiornaAffiliazione - postData a 21qry_updateAffiliazione.php ");
 		console.log (postData);
+
 		$.ajax({
 			type: 'POST',
 			url: "21qry_updateAffiliazione.php",
@@ -266,10 +267,12 @@
 
 		dataiscrizione_soc = $('#dataiscrizione_soc').val();
 		datadisiscrizione_soc= $('#datadisiscrizione_soc').val();
+		tipo_soc = $('#selectTipoSoc').val();
 
-		postData = { ID_fam_mae: ID_fam, padremadre: padremadre, dataiscrizione_soc: dataiscrizione_soc, datadisiscrizione_soc: datadisiscrizione_soc};
-		//console.log ("06inc_Affiliazione.php - inserisciAffiliazione - postData a 21qry_insertAffiliazione.php ");
-		//console.log (postData);
+		postData = { ID_fam_mae: ID_fam, padremadre: padremadre, dataiscrizione_soc: dataiscrizione_soc, datadisiscrizione_soc: datadisiscrizione_soc, tipo_soc: tipo_soc};
+		console.log ("06inc_Affiliazione.php - inserisciAffiliazione - postData a 21qry_insertAffiliazione.php ");
+		console.log (postData);
+
 		$.ajax({
 			type: 'POST',
 			url: "21qry_insertAffiliazione.php",

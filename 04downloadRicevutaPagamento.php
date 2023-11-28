@@ -169,9 +169,9 @@ $pdf->Cell($wAlu,6,"", "T" ,1, 'C');
 
 
 //MARCA DA BOLLO **********************************************************
-$pdf->SetXY ($startXCau+$wCau+$wImp,90);
-$pdf->SetFont($fontdefault,'',8);
-$pdf->Cell($wAlu,25,"Marca da bollo 2,00 euro", 1 ,0, 'C');
+// $pdf->SetXY ($startXCau+$wCau+$wImp,90);
+// $pdf->SetFont($fontdefault,'',8);
+// $pdf->Cell($wAlu,25,"Marca da bollo 2,00 euro", 1 ,0, 'C');
 
 
 //DICITURE IN CALCE **********************************************************
@@ -322,11 +322,9 @@ $pdf->Cell($wAlu,6,"", "T" ,1, 'C');
 
 
 //MARCA DA BOLLO **********************************************************
-//$pdf->SetXY ($startXCau+$wCau+$wImp,90+$offsetY);
-$pdf->SetXY (10,90+$offsetY);
-$pdf->SetFont($fontdefault,'',10);
-//$pdf->Cell($wAlu,25,"Imposta di bollo assolta sull'originale", 1 ,0, 'C');
-$pdf->Cell(190,25,"Imposta di bollo assolta sull'originale", 0 ,0, 'C');
+// $pdf->SetXY (10,90+$offsetY);
+// $pdf->SetFont($fontdefault,'',10);
+// $pdf->Cell(190,25,"Imposta di bollo assolta sull'originale", 0 ,0, 'C');
 
 //DICITURE IN CALCE **********************************************************
 $pdf->SetXY (10,120+$offsetY);

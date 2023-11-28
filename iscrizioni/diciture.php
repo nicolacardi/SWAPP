@@ -302,7 +302,7 @@ switch ($codscuola) {
 
         $indirizzoscuola = "Via S. Ambrogio di Fiera 60 - Treviso";
         $indirizzocompletoscuola= "Via S. Ambrogio di Fiera 60 - 31100 - Treviso";
-        $ragionesocialescuola = "Associazione per la Pedagogia Steineriana Michael";
+        $ragionesocialescuola = "Associazione Michael APS per la pedagogia steineriana ETS ";
         $datiscuola = "---";
         $cfscuola = "---";
         $titolaretrattamentoTitolo = "---";

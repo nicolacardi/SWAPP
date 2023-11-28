@@ -4,6 +4,7 @@
     $dataiscrizione_soc = $_POST['dataiscrizione_soc'];
     $datadisiscrizione_soc = $_POST['datadisiscrizione_soc'];
     $pm = $_POST['padremadre']; //nel caso di maestro il valore è proprio "maestro"
+	$tipo_soc = intval($_POST["tipo_soc"]); 
 
 	if ($dataiscrizione_soc != '') {
 		$dataiscrizione_soc = date('Y-m-d', strtotime(str_replace('/','-', $dataiscrizione_soc)));
@@ -46,7 +47,8 @@
             ID_mae_soc,
 
             dataiscrizione_soc,
-            datadisiscrizione_soc)
+            datadisiscrizione_soc,
+            tipo_soc)
             SELECT 
             mf_mae,
             nome_mae,
@@ -71,14 +73,14 @@
             ? AS ID_mae,
 
             ? AS dataiscrizione,
-            ? AS datadisiscrizione
-    
+            ? AS datadisiscrizione,
+            ? AS tiposoc
             FROM tab_anagraficamaestri
             WHERE ID_mae = ?;";
     
     
             $stmt = mysqli_prepare($mysqli, $sql);
-            mysqli_stmt_bind_param($stmt, "issi", $ID_fam_mae, $dataiscrizione_soc, $datadisiscrizione_soc, $ID_fam_mae);
+            mysqli_stmt_bind_param($stmt, "issii", $ID_fam_mae, $dataiscrizione_soc, $datadisiscrizione_soc, $tipo_soc, $ID_fam_mae);
             mysqli_stmt_execute($stmt);
             
             //devo anche inserire il flag in tab-famiglie in sociopadre o sociomadre
@@ -114,7 +116,9 @@
         ID_fam_soc,
         padremadre_soc,
         dataiscrizione_soc,
-        datadisiscrizione_soc)
+        datadisiscrizione_soc,
+        tipo_soc
+        )
         SELECT 
         '".$sex."' AS sex,
         nome".$pm."_fam,
@@ -139,14 +143,14 @@
         ? AS ID_fam,
         ? AS padremadre,
         ? AS dataiscrizione,
-        ? AS datadisiscrizione
-
+        ? AS datadisiscrizione,
+        ? AS tiposoc
         FROM tab_famiglie
         WHERE ID_fam = ?;";
 
 
         $stmt = mysqli_prepare($mysqli, $sql);
-        mysqli_stmt_bind_param($stmt, "isssi", $ID_fam_mae, $pm, $dataiscrizione_soc, $datadisiscrizione_soc, $ID_fam_mae);
+        mysqli_stmt_bind_param($stmt, "isssii", $ID_fam_mae, $pm, $dataiscrizione_soc, $datadisiscrizione_soc, $tipo_soc, $ID_fam_mae);
         mysqli_stmt_execute($stmt);
         
         //devo anche inserire il flag in tab-famiglie in sociopadre o sociomadre
