@@ -25,6 +25,18 @@
 	<? $_SESSION['page'] = "Compiti e Verifiche";?>
 </head>
 
+
+			<div class="frameXlDownload">
+				<div class="row center">
+					in caso di voti per obiettivi
+				</div>
+				<div>
+					<div>1 = "In via di acquisizione"</div>
+					<div>2 = "Base"</div>
+					<div>3 = "Intermedio"</div>
+					<div>4 = "Avanzato"</div>
+				</div>
+			</div>
 <body style="overflow: auto;">
 	<? include("NavBar.php"); ?>
 	<div id="main">
