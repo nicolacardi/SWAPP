@@ -43,7 +43,7 @@ switch ($codscuola) {
         $swapp = "www.arcascuola.it/swapp";
         $fraseAllegatoC= "le norme igienico sanitarie";
         $fraseAllegatoCALL= "NORME IGIENICO SANITARIE";
-        $titoloPagColonnaVoti = "Obiettivi di Apprendimento";
+        $titoloPagColonnaVoti = "Giudizio Descrittivo";
 
         //per pagelle
         $TipoVoto = "Livello di Apprendimento";
@@ -115,7 +115,7 @@ switch ($codscuola) {
         $fraseAllegatoC= "l Regolamento Pediatrico";
         $fraseAllegatoCALL= "REGOLAMENTO PEDIATRICO";
 
-        $titoloPagColonnaVoti = "Giudizio descrittivo";
+        $titoloPagColonnaVoti = "Giudizio Descrittivo";
 
         //per pagelle
         $TipoVoto = "Livello di Apprendimento";

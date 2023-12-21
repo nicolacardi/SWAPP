@@ -139,14 +139,16 @@ if ($quadrimestre == 2) {
 
 //Timbro Firme e tratteggi per firme
 $indicetimbro = rand(1,9);
-$pdf->Image('assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png', (135+210), 230, 20);
+$filetimbro = 'assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png';
+if (file_exists($filetimbro)) {$pdf->Image($filetimbro, (135+210), 230, 20);}
 $pdf->SetFont($fontdefault,'',12);
 $pdf->SetXY ((15+210),230);
 $pdf->Cell(60,10,"Data e Luogo", 0 ,0, 'C');
 $pdf->SetXY ((135+210),230);
 $pdf->Cell(60,10,"Il Coordinatore Didattico", 0 ,1, 'C');
 $indicefirma = rand(1,15);
-$pdf->Image('assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png', (135+210), 235, 60);
+$filefirma = 'assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png';
+if (file_exists($filefirma)) {$pdf->Image($filefirma, (135+210), 235, 60);}
 
 $pdf->SetDash(1,1); //5mm on, 5mm off
 $pdf->SetXY ((15+210),240);

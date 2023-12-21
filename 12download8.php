@@ -1,6 +1,6 @@
-<?//Costruzione pagella ufficiale di tipo 3 (così codificata in database)
-//quella voluta da Verona e usata anche da Cittadella
-$tipodoc_mat = 3;
+<?//Costruzione pagella ufficiale di tipo 8 (così codificata in database)
+//Come la 3 ma senza comportamento e con riquadro in ultima pagina (come ce l'ha il template 4)
+$tipodoc_mat = 8;
 
 include ('12downloadEstrazioneDati.php');
 
@@ -34,9 +34,7 @@ include("12FrontespizioEQuarta.php");
 
 include("12TimbrieFirmeQuarta.php");
 
-if ($quadrimestre ==2) {
-    include("12RilevazioneProgressi.php");
-}
+include("12RilevazioneProgressi.php");
 
 
 //FINE FRONTESPIZIO E QUARTA************************************************************************************************************************************
@@ -45,15 +43,11 @@ if ($quadrimestre ==2) {
   //INIZIO SCRITTURA PAGELLA************************************************************************************************************************************
 $pdf->AddPage("L", "A3");
 
-
-
 include("12stampasoloamministrativiA3.php");
 $pdf->SetTextColor(0,0,0);
 $pdf->SetDrawColor(0,0,0);
 
 include("12LogoAltoDxeSx.php");
-
-
 
 if ($quadrimestre ==2) {
     $nquadrimestre = "SECONDO";
@@ -71,13 +65,8 @@ if ($quadrimestre ==2) {
     $pdf->SetFont($fontdefault,'',11);
     $pdf->Cell(190,10,utf8_decode("- ". $nome_alu." ".$cognome_alu." - a.s. ".$annoscolastico_cla. " -" ), '',1, 'C');
     $pdf->SetFont($fontdefault,'',13);
-   
-//Legenda
-//
 
-if ($aselme_cla == "EL") {
-    include("12LegendaObiettivi.php");
-}
+
     $x1 = 210;
 
     if ($aselme_cla == "EL") {
@@ -93,9 +82,9 @@ if ($aselme_cla == "EL") {
     $pdf->Cell(110,7,utf8_decode($titoloPagColonnaVoti), 0,0, 'C');
     $pdf->Cell(2,7,utf8_decode(""), 0,0, 'C');
     $pdf->SetFont($fontdefault,'',11);
-    $pdf->Cell(36,7,utf8_decode("Livello"), 0,0, 'C');
-    $pdf->SetXY (10+$x1+40+2+110+2, $startY + 5);
-    $pdf->Cell(36,7,utf8_decode("di Apprendimento"), 0,0, 'C');
+    $pdf->Cell(36,7,utf8_decode("Voto"), 0,0, 'C');
+    // $pdf->SetXY (10+$x1+40+2+110+2, $startY + 5);
+    // $pdf->Cell(36,7,utf8_decode("di Apprendimento"), 0,0, 'C');
 // }
 //Intestazioni Pagina di destra
 
@@ -109,9 +98,9 @@ $pdf->Cell(2,7,utf8_decode(""), 0,0, 'C');
 $pdf->Cell(110,7,utf8_decode($titoloPagColonnaVoti), 0,0, 'C');
 $pdf->Cell(2,7,utf8_decode(""), 0,0, 'C');
 $pdf->SetFont($fontdefault,'',11);
-$pdf->Cell(36,7,utf8_decode("Livello"), 0,0, 'C');
-$pdf->SetXY (10+$x1+40+2+110+2, $startY + 5);
-$pdf->Cell(36,7,utf8_decode("di Apprendimento"), 0,0, 'C');
+$pdf->Cell(36,7,utf8_decode("Voto"), 0,0, 'C');
+// $pdf->SetXY (10+$x1+40+2+110+2, $startY + 5);
+// $pdf->Cell(36,7,utf8_decode("di Apprendimento"), 0,0, 'C');
 
 $pdf->SetFont($fontdefault,'',14);
 
@@ -153,31 +142,35 @@ if ($aselme_cla == "EL") {
     $pdf->SetXY (10, 147);
     $pdf->Cell(190,10,utf8_decode("Area Matematico Scientifico Tecnologica"),1,0, 'C',1);
 }
+
+//qui parte il loop di fetch sui voti estratti: la select si trova in 12downloadEstrazioneDati.php
 while (mysqli_stmt_fetch($stmt)) {
-    if ($descmateria_mat =="Comportamento") {
-        $votcomportamento1 = $vot1_cla;
-        $votcomportamento2 = $vot2_cla;
-        $giucomportamento1 = $giu1_cla;
-        $giucomportamento2 = $giu2_cla;
 
-        if ($aselme_cla == "EL") {
-            $startY = 232;
-        } else {
-            $startY = 245;
-        }
-        $pdf->SetXY (10+210, $startY);
-        $pdf->Cell(40,10,utf8_decode("Comportamento"), 1,0, 'C');
-        $pdf->Cell(2,10,"", 0,0, 'C');
-        
-        if ($quadrimestre ==2) {
-            $pdf->Cell(110,10,utf8_decode(array_search($votcomportamento2, $votidesccomp)), 1,0, 'C');
-        } else {
-            $pdf->Cell(110,10,utf8_decode(array_search($votcomportamento1, $votidesccomp)), 1,0, 'C');
-        }
+    //QUESTO TEMPLATE NON PREVEDE IL COMPORTAMENTO
+    // if ($descmateria_mat =="Comportamento") {
+    //     $votcomportamento1 = $vot1_cla;
+    //     $votcomportamento2 = $vot2_cla;
+    //     $giucomportamento1 = $giu1_cla;
+    //     $giucomportamento2 = $giu2_cla;
 
+    //     if ($aselme_cla == "EL") {
+    //         $startY = 232;
+    //     } else {
+    //         $startY = 245;
+    //     }
+    //     $pdf->SetXY (10+210, $startY);
+    //     $pdf->Cell(40,10,utf8_decode("Comportamento"), 1,0, 'C');
+    //     $pdf->Cell(2,10,"", 0,0, 'C');
 
-    } else {
-        $nmateria++;
+    //     if ($quadrimestre ==2) {
+    //         $pdf->Cell(110,10,utf8_decode(array_search($votcomportamento2, $votidesccomp)), 1,0, 'C');
+    //     } else {
+    //         $pdf->Cell(110,10,utf8_decode(array_search($votcomportamento1, $votidesccomp)), 1,0, 'C');
+    //     }
+    
+    // } else {
+
+        $nmateria++; //ad ogni giro aumento di uno la materia, che va a pescare le posizioni negli array posx-yEL e posx-yME
 
 
         switch ($aselme_cla) {
@@ -242,7 +235,7 @@ while (mysqli_stmt_fetch($stmt)) {
 
 
         $pdf->SetFont($fontdefault,'',13);
-    }
+    // }
 }
 
 

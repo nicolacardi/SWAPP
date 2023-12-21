@@ -8,7 +8,7 @@ include ('12downloadEstrazioneDati.php');
 //FRONTESPIZIO E QUARTA************************************************************************************************************************************
 
 $pdf->AddPage("L", "A3");
-$pdf->SetFont($fontdefault,'',8);
+$pdf->SetFont($fontdefault,'',5);
 $pdf->Cell(-10,-10,$tipodoc_mat, 0,1, 'C');
 
 $pdf->SetFillColor(200,200,200);
@@ -33,17 +33,7 @@ include("12FrontespizioEQuarta.php");
 
 include("12TimbrieFirmeQuarta.php");
 
-//********************** Immagine del Maestro ******************************/
-
-$pdf->SetXY (10, 10);
-$pdf->Cell(190,10,utf8_decode("Relazione del consiglio di classe"), 1,0, 'C', 1);
-
-$pdf->SetXY (10,23);
-$pdf->Rect(10,23,190,100);
-$pdf->SetFont($fontdefault,'',10);
-if ($quadrimestre ==1) { $txtToWrite = $giuquad1_cla;} else {$txtToWrite = $giuquad2_cla;}
-
-$txt = $pdf->MultiCell(190,6,utf8_decode(str_replace( "@@", "\n", stripslashes(str_replace("\\n", "@@", $txtToWrite)))), 0 , 'J');
+include("12RilevazioneProgressi.php");
 
 //FINE FRONTESPIZIO E QUARTA************************************************************************************************************************************
  

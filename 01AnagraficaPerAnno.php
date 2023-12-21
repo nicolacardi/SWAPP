@@ -539,8 +539,6 @@
 										dataType: 'json',
 										success: function(data){
 
-
-
 											//con i dati di ritorno vado a sua volta a chiamare la qry_insertAnnoScolastico che dovrebbe in teoria procedere alla iscrizione all'anno successivo senza blocchi.
 											//l'unico caso in cui non procederà sarà l'iscrizione di un alunno delle elementari o delle medie al medesimo anno (caso in cui uno abbia risposto di mantenere nella stessa classe ma selezionando bambini non dell'asilo: la routine qry_insertAnnoScolastico infatti non inserisce nuovamente bambini alle EL o ME allo stesso anno salvo che si indichi che è bocciato)
 											ID_alu_cla_new = data.ID_alu;

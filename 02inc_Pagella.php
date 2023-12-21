@@ -1,6 +1,6 @@
 <?//ora estraggo da tab_classialunnivoti le varie materie
 
-//**************** per fase test e vedere se ci stanno le stringhe
+//**************** per fasetipovoti test e vedere se ci stanno le stringhe
 
 function generateRandomString($testlength = 600) {
 

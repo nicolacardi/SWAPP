@@ -698,6 +698,8 @@
 										<option value="4" >Pagella Tipo 4</option>
 										<option value="5" >Pagella Tipo 5</option>
 										<option value="6" >Pagella Tipo 6</option>
+										<option value="7" >Pagella Tipo 7</option>
+										<option value="8" >Pagella Tipo 8</option>
 										<option value="11" >Cert. Competenze</option>
 									</select>
 								</div>

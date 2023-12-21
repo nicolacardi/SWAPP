@@ -5,6 +5,7 @@ $tipodoc_mat = 1;
 include ('12downloadEstrazioneDati.php');
 
 
+
 //FRONTESPIZIO E QUARTA************************************************************************************************************************************
 
 $pdf->AddPage("L", "A3");
@@ -239,7 +240,8 @@ if ($giuquad1_cla == '' && $giuquad2_cla == '') {
 //Timbro Firme e tratteggi per firme Sinistra
 if ($pagprimotrim_cls == 1) {
     $indicetimbro = rand(1,9);
-    $pdf->Image('assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png', (135), 250, 20);
+    $filetimbro = 'assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png';
+    if (file_exists($filefirma)) {$pdf->Image($filetimbro, (135), 250, 20);}
     $pdf->SetFont($fontdefault,'',12);
     $pdf->SetXY (15,250);
     $pdf->Cell(60,10,"Firma del genitore", 0 ,1, 'C');
@@ -250,8 +252,8 @@ if ($pagprimotrim_cls == 1) {
     $pdf->SetXY (135,250);
     $pdf->Cell(60,10,"Il Coordinatore Didattico", 0 ,1, 'C');
     $indicefirma = rand(1,15);
-    $pdf->Image('assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png', (135), 255, 60);
-
+    $filefirma = 'assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png';
+    if (file_exists($filefirma)) {$pdf->Image($filefirma, (135), 255, 60);}
     $pdf->SetDash(1,1); //5mm on, 5mm off
     $pdf->SetXY ((15),260);
     $pdf->Cell(60,10,"", "B" ,0, 'C');
@@ -264,8 +266,9 @@ if ($pagprimotrim_cls == 1) {
 
 //Timbro Firme e tratteggi per firme Destra
 $indicetimbro = rand(1,9);
+$filetimbro = 'assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png';
 if ($quadrimestre == 2) {
-    $pdf->Image('assets/img/timbri/timbro'.$codscuola.'/timbro'.$indicetimbro.'.png', (135+210), 250, 20);
+    if (file_exists($filefirma)) {$pdf->Image($filetimbro, (135+210), 250, 20);}
 }
 $pdf->SetFont($fontdefault,'',12);
 $pdf->SetXY ((15+210),250);
@@ -277,8 +280,9 @@ $pdf->SetFont($fontdefault,'',12);
 $pdf->SetXY ((135+210),250);
 $pdf->Cell(60,10,"Il Coordinatore Didattico", 0 ,1, 'C');
 $indicefirma = rand(1,15);
+$filefirma = 'assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png';
 if ($quadrimestre == 2) {
-    $pdf->Image('assets/img/firmecoordinatori/firme'.$codscuola.'/CoordDidattico'.$aselme_cla.$indicefirma.'.png', (135+210), 255, 60);
+    if (file_exists($filefirma)) {$pdf->Image($filefirma, (135+210), 255, 60);}
 }
 
 $pdf->SetDash(1,1); //5mm on, 5mm off

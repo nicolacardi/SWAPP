@@ -274,6 +274,7 @@ $ID_alu = $_POST['ID_alu'];?>
 								<option value="A">A</option>
 								<option value="B">B</option>
 								<option value="C">C</option>
+								<option value="X">X</option>
 							</select>
 							<br>
 
@@ -349,9 +350,15 @@ $ID_alu = $_POST['ID_alu'];?>
 							<br>
 							E' raccomandabile utilizzare questa funzionalità SOLAMENTE
 							<br>
-							per le nuove iscrizioni e non per alunni che abbiamo già frequentato l'anno
+							per le nuove iscrizioni e non per alunni che abbiamo già iniziato la frequenza
 							<br>
 							Tipicamente per assegnare ad un asilo invece che all'altro gli alunni in fase di inserimento
+							<br><br>
+							Il cambio di sezione NON perde le quote inserite ma 
+							<br>
+							compromette documenti didattici già inseriti per l'anno
+							<br>
+							(pagelle, registri, votazioni, verbali)
 						<div class="mt10" id="selectSezioneContainer">
 
 						</div>
@@ -802,6 +809,9 @@ $ID_alu = $_POST['ID_alu'];?>
 		select = select + "<option value='C' ";
 		if (sezione_cla == 'C') {select = select + " selected "}
 		select = select + ">C</option>";
+		select = select + "<option value='X' ";
+		if (sezione_cla == 'X') {select = select + " selected "}
+		select = select + ">X</option>";
 		select = select + "</select>";
 		$('#selectSezioneContainer').html(select);
 

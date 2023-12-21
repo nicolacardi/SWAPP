@@ -879,6 +879,7 @@ while (mysqli_stmt_fetch($stmt4))
 				// console.log ("CkDocInt2="+data.CkDocInt2);
 				// console.log ("CkCerCom="+data.CkCerCom);
 				// console.log ("data.Ck", data.Ck); 
+				//console.log ("o2det_IMieiAlunni.php - scaricaPagellaPOST - data", data);
 				if (data.Ck == 'NO') {
 					if (! confirm('Sembra che il documento richiesto non sia ancora completo procedere comunque?')) {
 						procedi = 'NO';
@@ -887,9 +888,9 @@ while (mysqli_stmt_fetch($stmt4))
 					// console.log ("02det_IMieiAlunni.php - scaricaPagellaPOST - ritorno da 12qry_checkDocumentiCompilati.php NB: async!!! sistemare");
 					// console.log ("procedi", procedi);
 					console.log("ID_alu_cla", ID_alu_cla, "- classe_cla:", classe_cla, "- sezione_cla:", sezione_cla, "- annoscolastico_cla:", annoscolastico_cla, "- aselme_cla:", aselme_cla, "- quadrimestre:", quadrimestre, "- Doc:", Doc)
-					//in più rispetto a downloadPagellE c'è anche la possibilità di scaricare 
+					//in più rispetto a downloadPagelle c'è anche la possibilità di scaricare 
 					//la Certificazione delle Competenze e del Consiglio orientativo
-					//PagUff, DocInt e CerCom funzionano resta da vedere se ConOri funziona
+					
 					url ="12downloadPDF.php";
 
 					let form = $('<form target="_blank" action="' + url + '"method="post"></form>');
@@ -944,7 +945,7 @@ while (mysqli_stmt_fetch($stmt4))
 					$(form).append($(input_Doc));
 
 					form.appendTo( document.body );
-
+					
 					$(form).submit();
 					$(form).remove();
 				}
