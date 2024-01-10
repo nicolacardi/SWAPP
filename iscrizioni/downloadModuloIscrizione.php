@@ -829,10 +829,15 @@ $h1 = 6;
 
 		$pdf->Ln(4);
 		$testo="-	si è presa visione e si condividono il ".$POF_PTOF_PSD." e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.waldorfpadova.it);<br>";
-
-		// $testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSD." e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.waldorfpadova.it);<br>";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
+
+		$pdf->Ln(4);
+		$testo="-	Si è presa visione e si condivide l'informativa sulla raccolta del trattamento dati (<a href='downloadAllegato.php?nomeallegato=F_".$codscuola."'>Allegato F</a>);";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
+
+
 		if ($ISC_mostra_regolinterno ==1) {
 			$pdf->Ln(4);
 			$testo="-	si è presa visione e si condivide il Regolamento Interno (<a href='downloadAllegato.php?nomeallegato=B_".$codscuola."'>Allegato B</a>);<br>";
@@ -867,7 +872,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="art.2)	l'Ente Gestore suindicato si obbliga nei confronti dell'altra parte contraente a fornire i servizi educativi previsti dal ".$POF_PTOF_PSD." ;";
+		$testo="art.2)	l'Ente Gestore su indicato si obbliga nei confronti dell'altra parte contraente a fornire i servizi educativi previsti dal ".$POF_PTOF_PSD." ;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 

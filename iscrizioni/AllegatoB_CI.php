@@ -135,11 +135,11 @@ $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
-$testo= "- L'apertura e' alle ore 07,45 per accogliere in cortile tutti gli alunni. Si entra dal portoncino laterale affacciato sul parcheggio. 
+$testo= "- L'apertura e' alle ore 07,40 per accogliere in cortile tutti gli alunni. Si entra dal portoncino laterale affacciato sul parcheggio. 
 Classi 6,7,8 entrata ore 7,50 - inizio lezioni ore 8,00
 Classi 1,2,3,4,5 entrata ore 8,00 - inizio lezioni 8,10 
 Scuola dell'infanzia entrata ore 8,20 - per chi arriva con i fratelli o arriva prima per necessità lavorative dei genitori, l'insegnante sarà presente dalle 7,50.
-- Il portoncino viene chiuso alle ore 09,00. 
+- Il portoncino viene chiuso alle ore 08,45. 
 - La puntualita' e' segno di maturita' sociale e di rispetto, quindi e' opportuno essere presenti 'insieme' fin dall'inizio della giornata.";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
@@ -151,8 +151,8 @@ $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
 $testo= "- E' richiesta la puntualita' anche al termine delle lezioni: 
-      Scuola dell'infanzia dalle 14.30 alle 14.40; 
-      Classi 1, 2, 3 e 4 alle 14.40 - i bambini saranno accompagnati dagli insegnanti nelle aree assegnate; 
+      Scuola dell'infanzia dalle 14.40 alle 14.50; 
+      Classi 1, 2, 3 e 4 alle 14.50 - i bambini saranno accompagnati dagli insegnanti nelle aree assegnate; 
       Classi 5, 6, 7 e 8 alle 14.50. 
       Classi 6,7 e 8 martedì e venerdì 15.40.
 - La scuola viene chiusa alle ore 15.15. Il martedì e venerdì rimane aperto dalle 15.40 fino alle 16.10 esclusivamente per i ragazzi che hanno il rientro. La scuola declina ogni responsabilita' nei riguardi degli alunni/e che dovessero essere ancora presenti all'interno dei locali scolastici o in giardino oltre tali orari. 
@@ -228,19 +228,19 @@ $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 $pdf->Ln(4);
 
-$testo= "Ulteriori specifiche indicazioni di comportamento per gli alunni delle classi 5^- 6^-7^- 8^";
+$testo= "Ulteriori specifiche indicazioni di comportamento per gli alunni delle classi 4^-5^-6^-7^-8^";
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 
-$testo="In riferimento a quanto scritto nel regolamento di istituto, gli insegnanti delle classi 5^- 6^-7^- 8^ intendono precisare alcune regole per gli studenti di questa fascia di età, al fine di evitare fraintendimenti durante l'anno.
+$testo="In riferimento a quanto scritto nel regolamento di istituto, gli insegnanti delle classi 4^-5^-6^-7^-8^ intendono precisare alcune regole per gli studenti di questa fascia di età, al fine di evitare fraintendimenti durante l'anno.
 Pertanto viene richiesto che:
-- gli alunni non vengano a scuola con smalto e trucco e capelli colorati;
+- gli alunni non vengano a scuola con smalto e trucco e capelli colorati, orecchino per i maschi;
 - gli indumenti non abbiano scritte con contenuto non adeguato, immagini volgari o simboli mortiferi (per esempio: teschi);
 - le maglie coprano il busto per intero;
-- pantaloncini e gonne non siano succinti (no shorts e minigonne);
+- pantaloncini e gonne non siano succinti (no shorts e minigonne) pantaloncini e gonne altezza ginocchio;
 - vengano evitate canottiere con la bretella stretta;
-- non portino a scuola e nelle uscite didattiche dispositivi digitali di vario genere, inclusi gli smart-watch (fatto salvo accordi particolari con i maestri);
+- non portino a scuola e nelle uscite didattiche soldi, dispositivi digitali di vario genere, inclusi gli smart-watch (fatto salvo accordi particolari con i maestri);
 - non portino a scuoola e nelle uscite didattiche bibite gassate ed energizzanti con caffeina;
 - evidenziatori, pennarelli e penne colorate non vengano usate e portate a scuola, salvo particolari accordi con i maestri.";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);

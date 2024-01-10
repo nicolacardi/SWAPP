@@ -3,6 +3,7 @@ $ISC_mostra_regolinterno=			$_SESSION['ISC_mostra_regolinterno'];
 $ISC_mostra_regolpediatrico=		$_SESSION['ISC_mostra_regolpediatrico'];
 $ISC_mostra_allegatoA=		        $_SESSION['ISC_mostra_allegatoA'];
 $ISC_mostra_dietespeciali=		    $_SESSION['ISC_mostra_dietespeciali'];
+$ISC_mostra_informativa=		    $_SESSION['ISC_mostra_informativa'];
 
 
 include_once("iscrizioni/diciture.php");
@@ -18,13 +19,15 @@ $link3 = $pdf->AddLink();
 $link4 = $pdf->AddLink();
 $link5 = $pdf->AddLink();
 $link6 = $pdf->AddLink();
+
+
 $pdf->SetTextColor(0,0,255);
 $pdf->SetFont('','U');
-$pdf->Write(10,'> Informativa relativa alla raccolta ed il trattamento dei dati',$link1);
+$pdf->Write(10,'> ALLEGATO H: Informativa relativa alla raccolta ed il trattamento dei dati',$link1);
 
 if ($ISC_mostra_allegatoA ==1) {
     $pdf->Ln(10);
-    $pdf->Write(10,'> ALLEGATO A : I PRINCIPI PEDAGOGICI DELLA SCUOLA STEINER WALDORF',$link2);
+    $pdf->Write(10,'> ALLEGATO A: I PRINCIPI PEDAGOGICI DELLA SCUOLA STEINER WALDORF',$link2);
 }
 if ($ISC_mostra_regolinterno ==1) {
     $pdf->Ln(10);
@@ -34,8 +37,6 @@ if ($ISC_mostra_regolpediatrico ==1) {
     $pdf->Ln(10);
     $pdf->Write(10,'> ALLEGATO C: '.$fraseAllegatoCALL,$link4);
 }
-
-
 
 $pdf->Ln(10);
 $pdf->Write(10,'> ALLEGATO D: CONTRIBUTI SCOLASTICI E REGOLAMENTO ECONOMICO',$link5);
@@ -47,6 +48,8 @@ if ($ISC_mostra_dietespeciali ==1) {
     $pdf->Write(10,'> ALLEGATO E: MODULO RICHIESTA DIETE SPECIALI',$link6);
 }
 
+
+
 $pdf->SetTextColor(0,0,0);
 $pdf->SetFont($fontdefault,'',10);
 
@@ -56,17 +59,18 @@ $pdf->SetTextColor(0,115,0);
 $pdf->Cell(30,10,utf8_decode("[Per rispetto nei confronti dell'ambiente stampate questo documento solo se davvero necessario]"), 0,1, 'L');
 $pdf->SetTextColor(0,0,0);
 //INFORMATIVA Trattamento dei dati ************************************************************************************************************************************
-$pdf->AddPage();
-$pdf->SetLink($link1);
-$pdf->SetFont('TitilliumWeb-SemiBold','',16);
-$pdf->Cell(0,10,utf8_decode("RACCOLTA E TRATTAMENTO DEI DATI"), 0,1, 'C');
-$pdf->Cell(0,10,utf8_decode("Informativa ai sensi dell'art.13 del Regolamento UE 2016/679"), 0,1, 'C');
 
-$pdf->Ln(3);
-$pdf->SetFont($fontdefault,'',9.5);
-$informativaprivacy = utf8_decode($informativaprivacy);
-$pdf->MultiCell(0,4.1,$informativaprivacy); //era 4.6
-$pdf->Ln(3);
+include_once("AllegatoH_".$codscuola.".php");
+// $pdf->SetLink($link1);
+// $pdf->SetFont('TitilliumWeb-SemiBold','',16);
+// $pdf->Cell(0,10,utf8_decode("RACCOLTA E TRATTAMENTO DEI DATI"), 0,1, 'C');
+// $pdf->Cell(0,10,utf8_decode("Informativa ai sensi dell'art.13 del Regolamento UE 2016/679"), 0,1, 'C');
+
+// $pdf->Ln(3);
+// $pdf->SetFont($fontdefault,'',9.5);
+// $informativaprivacy = utf8_decode($informativaprivacy);
+// $pdf->MultiCell(0,4.1,$informativaprivacy); //era 4.6
+// $pdf->Ln(3);
 
 if ($ISC_mostra_allegatoA ==1) {
     include_once("AllegatoA_".$codscuola.".php");

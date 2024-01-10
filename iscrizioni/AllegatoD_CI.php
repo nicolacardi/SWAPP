@@ -83,9 +83,13 @@ $pdf->Cell($lcella,$hcella,"4.770,00", 1,0, 'C');
 $pdf->Cell($lcella,$hcella,"4.695,00", 1,1, 'C');
 $pdf->Ln(2);
 $testo="Per le famiglie con piu' figli frequentanti la Scuola Aurora, e' possibile sottoscrivere la retta minima con più figli.
-La previsione della retta completa non cambia l'impostazione della struttura economica della scuola, che necessita sempre dell'aiuto e collaborazione dei genitori per trovare le possibilita' di risparmio e contenimento dei costi, al fine di consentire a tutte le famiglie che desiderano questa pedagogia per i loro figli, di potervi accedere, senza pregiudizio economico.
-Gli importi sono stati calcolati tenendo conto dell'andamento degli ultimi anni. Se dovessero intervenire condizioni tali da variare sostanzialmente le previsioni di bilancio, sara' premura del C.d.A. comunicare quanto prima eventuali cambiamenti.";
+La scuola necessita sempre dell'aiuto e collaborazione dei genitori per trovare le possibilita' di risparmio e contenimento dei costi, al fine di consentire a tutte le famiglie che desiderano questa pedagogia per i loro figli, di potervi accedere, senza pregiudizio economico.";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
+$testo = utf8_decode($testo);
+$pdf->MultiCell(0,$interlinea,$testo);
+$pdf->Ln(2);
+$testo="Gli importi sono stati calcolati tenendo conto dell'andamento degli ultimi anni. Se dovessero intervenire condizioni tali da variare sostanzialmente le previsioni di bilancio, sara' premura del C.d.A. comunicare quanto prima eventuali cambiamenti.";
+$pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 $pdf->Ln(2);
@@ -131,7 +135,7 @@ $pdf->MultiCell(0,$interlinea,$testo);
 
 $testo= "La quota di iscrizione annua viene richiesta dalla scuola per essere poi versata in parte alla Federazione Italiana delle scuole Steiner Waldorf e in parte all'Associazione Veneto Steiner Waldorf.
 Per l'anno ".$_SESSION['annopreiscrizione_fam']." la quota da versare prevista e' di Euro 100,00 per ogni alunno iscritto. In caso di ritiro, tale somma verra' comunque trattenuta a copertura delle spese di segreteria.
-ACCANTONAMENTO FONDO PROGETTI - e' richiesto un contributo di Euro 100,00 per famiglia da destinare al Progetto Scuola Nuova. Considerata l'attuale situazione, è lasciata alla facoltà della famiglia, la possibilità di versare o meno il contributo.";
+ACCANTONAMENTO FONDO PROGETTI - e' richiesto un contributo di Euro 100,00 per famiglia da destinare al Progetto Scuola Nuova.";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
@@ -256,7 +260,7 @@ $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);
 $pdf->Ln($dopoparagrafo);
 
-$testo= "10. Entro il 31/10 dovrà essere versata la quota a fondo progetti di euro 100 a famiglia e la quota pulizie in base alla scelta effettuata.";
+$testo= "10. Entro il 31/10 dovrà essere versata la quota pulizie in base alla scelta effettuata.";
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$interlinea,$testo);

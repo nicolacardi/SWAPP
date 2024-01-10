@@ -2,6 +2,8 @@
 $pdf->AddPage();
 $pdf->SetLink($link6);
 $pdf->SetFont('TitilliumWeb-SemiBold','',16);
+$pdf->Cell(0,10,"ALLEGATO E", 0,1, 'C');
+
 $pdf->Cell(0,10,"MODULO RICHIESTA DI DIETA SPECIALE PER MOTIVI SANITARI", 0,1, 'C');
 $pdf->SetFont('TitilliumWeb-SemiBold','',16);
 $pdf->Cell(0,10,"PER IL SERVIZIO DI REFEZIONE SCOLASTICA", 0,1, 'C');

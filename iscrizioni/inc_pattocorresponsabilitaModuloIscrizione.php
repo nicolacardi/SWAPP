@@ -165,7 +165,7 @@
         <bul>Essere disponibile al dialogo con alunni e genitori, favorendo le soluzioni più opportune;</bul>
         <bul>Valorizzare l'individualità degli alunni promuovendone la crescita personale e culturale, ponendo attenzione sia alle situazioni di difficoltà che alla presenza di particolari talenti;</bul>
         <bul>Favorire l'integrazione, l'accoglienza e il rispetto, adoperandosi per la formazione di individui consapevoli;</bul>
-        <bul>Favorire l’incontro con gli alunni e le famiglie offrendo adeguate occasioni di comunicazione sull'andamento didattico-disciplinare;</bul>
+        <bul>Favorire l'incontro con gli alunni e le famiglie offrendo adeguate occasioni di comunicazione sull'andamento didattico-disciplinare;</bul>
         <bul>Operare una valutazione trasparente e tempestiva, sulla base dei criteri condivisi in sede di Collegio e pubblicati nel PTOF.</bul>
 
         <h1>GLI ALUNNI SI IMPEGNANO A</h1>
@@ -183,12 +183,12 @@
 
         <bul>Sostenere la cultura del dialogo ed educare alla cittadinanza attiva prevenendo e contrastando il bullismo e la violenza;</bul>
         <bul>Adottare stili di vita che prevengano le dipendenze e le patologie comportamentali ad esse correlate;</bul>
-        <bul>Facilitare atteggiamenti di apertura, comprensione e rispetto delle diversità, valorizzando la propria e l’altrui personalità per favorire la crescita di individui liberi, attivi e responsabili.</bul>
+        <bul>Facilitare atteggiamenti di apertura, comprensione e rispetto delle diversità, valorizzando la propria e l'altrui personalità per favorire la crescita di individui liberi, attivi e responsabili.</bul>
         <bul>Educare al rispetto dell'ambiente per una migliore qualità della vita;</bul>
         <bul>Acquisire una sempre maggiore consapevolezza sul corretto utilizzo delle nuove tecnologie nel rispetto delle tappe evolutive degli alunni/figli;</bul>
         <bul>Assicurare l'assiduità e la qualità della partecipazione scolastica, educando alla responsabilità e al rispetto di tutti, alla partecipazione attiva e assidua alle lezioni, alla puntualità e alla collaborazione con compagni e insegnanti;</bul>
         <bul>Portare a coscienza i contenuti del PTOF, le iniziative extracurricolari e i progetti della Scuola;</bul>
-        <bul>Contribuire fattivamente e regolarmente alla vita pratica e alla cura dell’ambiente scolastico;</bul>
+        <bul>Contribuire fattivamente e regolarmente alla vita pratica e alla cura dell'ambiente scolastico;</bul>
         <bul>Sostenere attivamente e concretamente la buona economia della Scuola.</bul>
 
         <n>
