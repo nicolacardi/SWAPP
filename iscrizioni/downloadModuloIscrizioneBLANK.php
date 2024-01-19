@@ -1115,7 +1115,7 @@ $pdf->SetFont($fontdefault,'',10);
 
 	$pdf->Ln(8);
 	$pdf->Cell(0,5,utf8_decode("per l'invio di comunicazioni elettroniche anche tramite messaggi SMS, MMS ecc. "),0,1,"C");
-	$pdf->Cell(0,5,utf8_decode("e/o posta elettronica E-MAIL e/o fax ai recapiti da me forniti per finalità informative"),0,1,"C");
+	$pdf->Cell(0,5,utf8_decode("e/o posta elettronica E-MAIL ai recapiti da me forniti per finalità informative"),0,1,"C");
 
 	//
 

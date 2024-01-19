@@ -833,13 +833,12 @@ $h1 = 6;
 		$pdf->WriteHTML($testo);
 
 		$pdf->Ln(4);
-		$testo="-	Si è presa visione e si condivide l'informativa sulla raccolta del trattamento dati (<a href='downloadAllegato.php?nomeallegato=F_".$codscuola."'>Allegato F</a>);";
+		$testo="-	si è presa visione e si condivide l'informativa sulla raccolta del trattamento dati (<a href='downloadAllegato.php?nomeallegato=H_".$codscuola."'>Allegato H</a>);";
 		$testo = utf8_decode($testo);
-		$pdf->MultiCell(0,5,$testo);
-
+		$pdf->WriteHTML($testo);
 
 		if ($ISC_mostra_regolinterno ==1) {
-			$pdf->Ln(4);
+			$pdf->Ln(8);
 			$testo="-	si è presa visione e si condivide il Regolamento Interno (<a href='downloadAllegato.php?nomeallegato=B_".$codscuola."'>Allegato B</a>);<br>";
 			$testo = utf8_decode($testo);
 			$pdf->WriteHTML($testo);
@@ -1598,7 +1597,7 @@ $h1 = 6;
 		$pdf->SetFont($fontdefault,'',11);
 
 		$pdf->Ln(4);
-		$testo="-	L'Ente Gestore gestisce una istituzione scolastica pubblica non statale primaria paritaria e una materna e secondaria di primo grado non paritarie;";
+		$testo="-	L'Ente Gestore gestisce una istituzione scolastica pubblica non statale primaria e secondaria di primo grado paritarie e una materna non paritaria;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -1613,7 +1612,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSD." e PEI della scuola (disponibili in segreteria o scaricabili dal sito www.scuolawaldorfverona.it);<br>";
+		$testo="-	si è presa visione e si condividono i principi che regolano il Percorso pedagogico (<a href='downloadAllegato.php?nomeallegato=A_".$codscuola."'>Allegato A</a>) ed il ".$POF_PTOF_PSD." e PEI della Scuola (disponibili in segreteria o scaricabili dal sito www.scuolawaldorfverona.it);<br>";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 		if ($ISC_mostra_regolinterno ==1) {
@@ -1723,9 +1722,9 @@ $h1 = 6;
 		$pdf->SetFont($fontdefault,'',11);
 		$pdf->Cell(0,10,$testo12,0,1,"L");
 
-		$unicasoluzione = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 05/09/".$anno1;
+		$unicasoluzione = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 10/09/".$anno1;
 		if ($ratepromesse_fam == 1) {
-			$unicasoluzione = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 05/09/".$anno1;
+			$unicasoluzione = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5)."      unica entro il 10/09/".$anno1;
 		}
 		$pdf->Cell(0,8,$unicasoluzione,0,1,'L');
 
@@ -1734,15 +1733,15 @@ $h1 = 6;
 		}
 		$pdf->Cell(0,8,$trerate,0,1,'L');
 		
-		$diecirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
+		$diecirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 10 di ciascun mese in 10 mensilità (da settembre a giugno)");
 		if ($ratepromesse_fam == 10) {
-			$diecirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("       DILAZIONATA entro il giorno 5 di ciascun mese in 10 mensilità (da settembre a giugno)");
+			$diecirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("       DILAZIONATA entro il giorno 10 di ciascun mese in 10 mensilità (da settembre a giugno)");
 		}
 		if ($_SESSION['ISC_mostra_10rate'] == 1) {$pdf->Cell(0,8,$diecirate,0,1,'L');}
 
-		$dodicirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 12 mensilità (da settembre a agosto)");
+		$dodicirate = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 10 di ciascun mese in 12 mensilità (da settembre a agosto)");
 		if ($ratepromesse_fam == 12) {
-			$dodicirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 5 di ciascun mese in 12 mensilità (da settembre a agosto)");
+			$dodicirate = $pdf->Image($imgsquarecrossed,$pdf->GetX(), $pdf->GetY()+1,5).utf8_decode("      DILAZIONATA entro il giorno 10 di ciascun mese in 12 mensilità (da settembre a agosto)");
 		}			
 		
 		if ($_SESSION['ISC_mostra_12rate'] == 1) {$pdf->Cell(0,8,$dodicirate,0,1,'L');}
@@ -2000,7 +1999,7 @@ $h1 = 6;
 
 		$testo1 = "La ".$ragionesocialescuola." ritiene fondamentale che i genitori/tutori degli alunni iscritti siano a conoscenza sia dei principi alla base del percorso pedagogico proposto sia dei principi che regolano il corretto funzionamento dell'organismo sociale in cui si trovano come soci della Cooperativa.
 		A tal fine, premesso che:
-		a)	La Steiner Waldorf Verona Cooperativa Sociale Onlus non ha scopo di lucro. ''Lo scopo principale che la Cooperativa intende perseguire è quello dell'interesse generale della comunità alla promozione umana e all'integrazione sociale dei cittadini, con lo svolgimento delle attività previste dal presente statuto e quindi l'attuazione di servizi socio assistenziali ed educativi e formativi, ai sensi dell'art. 1, lettera a) della Legge n. 381/1991... (omissis) (art. 3 dello statuto)''
+		a)	La Steiner Waldorf Verona Cooperativa Sociale non ha scopo di lucro. ''Lo scopo principale che la Cooperativa intende perseguire è quello dell'interesse generale della comunità alla promozione umana e all'integrazione sociale dei cittadini, con lo svolgimento delle attività previste dal presente statuto e quindi l'attuazione di servizi socio assistenziali ed educativi e formativi, ai sensi dell'art. 1, lettera a) della Legge n. 381/1991... (omissis) (art. 3 dello statuto)''
 		b)	La direzione pedagogica è affidata dal Consiglio di Amministrazione al Collegio degli Insegnanti, i quali adottano l'indirizzo pedagogico steineriano, con assoluta  libertà ed indipendenza delle scelte di carattere pedagogico.
 		Si richiede la comprensione e la condivisione da parte dei genitori degli alunni iscritti, di alcuni aspetti fondamentali:
 		a)	del piano di studi e dell'approccio educativo/pedagogico proposto, ispirato al pensiero di Rudolf Steiner
@@ -2336,7 +2335,7 @@ $h1 = 6;
 	}
 	$pdf->Ln(8);
 	$pdf->Cell(0,5,utf8_decode("per l'invio di comunicazioni elettroniche anche tramite messaggi SMS, MMS ecc. "),0,1,"C");
-	$pdf->Cell(0,5,utf8_decode("e/o posta elettronica E-MAIL e/o fax ai recapiti da me forniti per finalità informative"),0,1,"C");
+	$pdf->Cell(0,5,utf8_decode("e/o posta elettronica E-MAIL ai recapiti da me forniti per finalità informative"),0,1,"C");
 
 	//
 

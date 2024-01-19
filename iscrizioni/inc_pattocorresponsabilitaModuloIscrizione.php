@@ -207,6 +207,7 @@
         $pdf->Cell(5,5,"",0,0,'C');
         $pdf->Cell(60,5,"Data e luogo",0,1,'C');
 
+
         $pdf->SetFont($fontdefault,'',8);
         $pdf->Cell(60,5,"(Enrica Salvatori))",0,0,'C');
         $pdf->Cell(5,5,"",0,0,'C');
@@ -218,8 +219,9 @@
         $pdf->Cell(5,5,"","",0,'C');
         $pdf->Cell(60,5,"","B",0,'C');
         $pdf->Cell(5,5,"","",0,'C');
-        $pdf->Cell(60,5,"","B",0,'C');
 
+        $pdf->SetFont($fontdefault,'',10);
+        $pdf->Cell(60,5,$li.",","B",0,'L');
 
         $pdf->Ln(16);
         $pdf->SetFont($fontdefault,'',10);
@@ -242,8 +244,9 @@
         $pdf->Cell(5,5,"","",0,'C');
         //$pdf->Cell(60,5,"","B",0,'C');
         
-        $pdf->Image('../assets/img/Icone/frecciafirmablack.png', $pdf->GetX()-200, $pdf->GetY()-18, 20);
+        $pdf->Image('../assets/img/Icone/frecciafirmablack.png', $pdf->GetX()-75, $pdf->GetY()-18, 20);
         $pdf->Image('../assets/img/Icone/frecciafirmablack.png', $pdf->GetX()-135, $pdf->GetY()-18, 20);
+
         //$pdf->Image('../assets/img/Icone/frecciafirmablack.png', $pdf->GetX()-60, $pdf->GetY()-18, 20);
         
     }

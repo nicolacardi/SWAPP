@@ -567,7 +567,7 @@
 						</div>
 					</div>
 					<div class="col-md-12 center fs12">
-						per l’invio di comunicazioni elettroniche<br>anche tramite SMS, MMS ecc. e/o posta elettronica E-MAIL<br>e/o fax ai recapiti da me forniti<br>per finalità informative
+						per l’invio di comunicazioni elettroniche<br>anche tramite SMS, MMS ecc. e/o posta elettronica E-MAIL<br> ai recapiti da me forniti<br>per finalità informative
 					</div>
 					
 				</div>

@@ -30,7 +30,7 @@ $txt="
 LA PEDAGOGIA STEINER-WALDORF
 </h1>
 <n>
-Attualmente è la pedagogia laica più diffusa al mondo: ad un secolo dalla fondazione della prima scuola Waldorf (Stoccarda, 1919) è ancora oggi in continua espansione in tutti e cinque in continenti. (<a href='https://scuolasteiner-ticino.ch/waldorf-nel-mondo/'>https://scuolasteiner-ticino.ch/waldorf-nel-mondo/</a>).
+Attualmente è la pedagogia laica più diffusa al mondo: a più di un secolo dalla fondazione della prima scuola Waldorf (Stoccarda, 1919) è ancora oggi in continua espansione in tutti e cinque in continenti. (<a href='https://scuolasteiner-ticino.ch/waldorf-nel-mondo/'>https://scuolasteiner-ticino.ch/waldorf-nel-mondo/</a>).
 </n>
 <n>
 Le scuole Steiner-Waldorf si fondano sulle indicazioni raccolte nelle opere pedagogiche di Rudolf Steiner, nonché sugli importanti approfondimenti elaborati nel corso degli ultimi cent' anni dai pedagoghi e dagli insegnanti che hanno portato avanti il suo impulso (per un riferimento bibliografico, sebbene non esaustivo, si veda <a href='https://www.rudolfsteiner.it/shop/libri/pedagogia/999/'>https://www.rudolfsteiner.it/shop/libri/pedagogia/999/</a> ).
@@ -115,10 +115,10 @@ L'esperienza con questo tipo di pedagogia risulta significativa e arricchente an
 FORMAZIONE DEGLI INSEGNANTI E IMPORTANZA DEL LAVORO DEL COLLEGIO
 </h1>
 <n>
-Per essere abilitati all'insegnamento nelle scuole Steiner-Waldorf gli insegnanti devono aver completato un percorso formativo specifico, riconosciuto dalla Federazione delle Scuole Steiner-Waldorf. Esistono diversi corsi di formazione: alcuni, i più diffusi e frequentati, offrono una preparazione a tutto tondo sulla pedagogia e sul piano di studi, altri, più specifici, sono rivolti agli insegnamenti di specifiche materie (musica, lingue straniere, ginnastica Bothmer etc). Un esempio (del primo tipo) è quello tenuto presso l'Accademia Aldo Bargero di Oriago, che attualmente fornisce il maggior numero di insegnanti alle scuole Steiner-Waldorf del Veneto (<a href='https://www.accademiaaldobargero.com/'>https://www.accademiaaldobargero.com/</a>).
+Per essere abilitati all'insegnamento nelle scuole Steiner-Waldorf gli insegnanti devono aver completato un percorso formativo specifico, riconosciuto dalla Federazione delle Scuole Steiner-Waldorf. Esistono diversi corsi di formazione: alcuni, i più diffusi e frequentati, offrono una preparazione a tutto tondo sulla pedagogia e sul piano di studi, altri, più specifici, sono rivolti agli insegnamenti di specifiche materie (musica, lingue straniere, ginnastica Bothmer etc). Un esempio (del primo tipo) è quello tenuto presso l'Accademia Aldo Bargero di Oriago (<a href='https://www.accademiaaldobargero.com/'>https://www.accademiaaldobargero.com/</a>).
 </n>
 <n>
-Il corso propone un biennio a tempo pieno, oppure -in alternativa- un equivalente triennio che procede con la cadenza di due fine settimana al mese, più un periodo intensivo conclusivo, da svolgersi nel periodo estivo. A fine percorso viene rilasciato un diploma, a fronte della presentazione di una tesi e dello svolgimento completo di un percorso di tirocinio: requisiti necessari per l'abilitazione all'insegnamento. 
+Il corso propone un biennio a tempo pieno, oppure -in alternativa- un equivalente triennio che procede con la cadenza di due fine settimana al mese, più un periodo intensivo conclusivo, da svolgersi nel periodo estivo. A fine percorso viene rilasciato un diploma, a fronte della presentazione di una tesi e dello svolgimento completo di un anno di tirocinio: requisiti necessari per l'abilitazione all'insegnamento. 
 </n>
 <n>
 Durante il percorso formativo, gli insegnamenti impartiti partono da un approfondimento dalle basi antropologiche sulla quale si fonda la pedagogia. Per quanto riguarda la parte pedagogica, accanto all'approfondimento del piano di studi, una parte fondamentale del corso è costituita da una pratica diretta e costantemente approfondita delle diverse esperienze artistiche che vengono proposte agli allievi nelle scuole Waldorf. Altrettanto importante è l'apprendimento delle norme che regolano la vita della scuola, a partire da un approfondimento della triarticolazione sociale sopra menzionata: conoscenze necessarie per entrare a far parte in modo cosciente e attivo di un organismo sociale autoregolato quali sono le nostre scuole. 

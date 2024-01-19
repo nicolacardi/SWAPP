@@ -39,6 +39,8 @@
                 <?}?>
                 <option value="tutore" <?if ($ruolomadre_fam =='tutore'){echo ('selected');}?>>tutore</option>
                 <option value="affidatario" <?if ($ruolomadre_fam =='affidatario'){echo ('selected');}?>>affidatario</option>
+                <option value="nondisp" <?if ($ruolomadre_fam =='nondisp'){echo ('selected');}?>>non disponibile</option>
+
             </select>
         </div>   
     </div>

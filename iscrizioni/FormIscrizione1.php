@@ -158,6 +158,8 @@ $_SESSION['anno2'] = $anno2;
 					<?}?>
 					<option value="tutore" <?if ($ruolopadre_fam =='tutore'){echo ('selected');}?>>tutore</option>
 					<option value="affidatario" <?if ($ruolopadre_fam =='affidatario'){echo ('selected');}?>>affidatario</option>
+					<option value="nondisp" <?if ($ruolopadre_fam =='nondisp'){echo ('selected');}?>>non disponibile</option>
+
 				</select>
 			</div>
 			<div>
@@ -330,7 +332,7 @@ $_SESSION['anno2'] = $anno2;
 
 				<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px;">
 					<div class="row">
-						IBAN (per SDD, 27 caratteri)
+						IBAN (per SDD, 27 caratteri) *
 					</div>
 					<div class="row">
 						<input class="tablecell5 resetme" type="text"  id="ibanpadre_fam" name="ibanpadre_fam" maxlength="50" onchange="checkiban()" value = "<?=$ibanpadre_fam?>">
@@ -606,6 +608,7 @@ $_SESSION['anno2'] = $anno2;
 
 			console.log("FormIscrizione1.php - SalvaEProcedi - postData a qry_updatePadreMadre.php");
 			console.log (postData);
+			
 			$.ajax({
 				url : "qry_updatePadreMadre.php",
 				type: "POST",
@@ -613,9 +616,9 @@ $_SESSION['anno2'] = $anno2;
 				dataType: "json",
 				success:function(data){
 					console.log("FormIscrizione1.php - SalvaEProcedi - ritorno valori ricevuti da a qry_updatePadreMadre.php ");
-					console.log (data.test);
-					console.log (data.test2);
-					console.log (data.sql);
+					console.log ("1", data.test);
+					console.log ("2", data.test2);
+					console.log ("3", data.sql);
 					updateStatusFamiglia(20, "FormIscrizione2.php");
 				}
 			});
@@ -630,6 +633,8 @@ $_SESSION['anno2'] = $anno2;
 			data : postData,
 			dataType: "json",
 			success:function(data){
+				console.log("FormIscrizione1.php - updateStatusFamiglia - ritorno valori ricevuti da a qry_updateStatusFam.php ");
+
 				console.log (data.sql);
 				window.location.href = pagina;
 			}

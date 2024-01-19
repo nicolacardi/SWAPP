@@ -18,7 +18,7 @@ $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
-$testo= "3.ORARI: Gli alunni dovranno essere a scuola alle ore 7.55. Si raccomanda la puntualità. La scuola non si assume responsabilità per gli alunni non accompagnati che rimangono all'esterno del perimetro della scuola. Durante l'orario scolastico gli allievi non possono uscire dai confini dell'area scolastica per nessun motivo. Nell'ambito dell'orario scolastico, salvo casi particolari, l'alunno partecipa a tutte le attività programmate dalla scuola. Tutti i permessi per le attività didattiche previste fuori dal perimetro della scuola vanno autorizzate e firmate dai genitori/affidatari. In mancanza della firma, l'alunno resta a scuola.";
+$testo= "3.ORARI: Gli alunni dovranno essere a scuola alle ore 7.55. Si raccomanda la puntualità. La scuola non si assume responsabilità per gli alunni non accompagnati che rimangono all'esterno del perimetro della scuola. Durante l'orario scolastico gli allievi non possono uscire dai confini dell'area scolastica per nessun motivo. Nell'ambito dell'orario scolastico, salvo casi particolari, l'alunno partecipa a tutte le attività programmate dalla scuola. Tutti i permessi per le attività didattiche previste fuori dal circondario della scuola vanno autorizzate e firmate dai genitori/affidatari. In mancanza della firma, l'alunno resta a scuola.";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
@@ -58,7 +58,7 @@ $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
-$testo= "11.MODALITÀ PAGAMENTO RETTA ANNUALE. Il pagamento della retta annuale può essere effettuato in un'unica soluzione a mezzo bonifico o essere ripartito in 12 (dodici) rate entro il giorno 5 di ogni mese, da settembre ad agosto compresi, tramite mandato per addebito diretto SEPA - SDD Core (Area Unica dei Pagamenti in Euro).";
+$testo= "11.MODALITÀ PAGAMENTO RETTA ANNUALE. Il pagamento della retta annuale può essere effettuato in un'unica soluzione a mezzo bonifico o essere ripartito in 12 (dodici) rate entro il giorno 10 di ogni mese, da settembre ad agosto compresi, tramite mandato per addebito diretto SEPA - SDD Core (Area Unica dei Pagamenti in Euro).";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
@@ -93,7 +93,7 @@ $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
-$testo= "18.SERVIZIO DOPOSCUOLA. Alle famiglie che ne fossero interessate, nei giorni di rientro, la scuola offre un servizio di doposcuola a pagamento, come da modulo da sottoscrivere ad inizio anno scolastico. Il servizio consiste in attività extra scolastiche, e non nello svolgimento dei compiti assegnati per casa, e sarà attivato al raggiungimento del numero minimo necessario per la copertura dei relativi costi. L'importo pattuito è annuale, indipendentemente dal numero di presenze del bambino, ferie scolastiche, gite, uscite didattiche, ecc..., può essere pagato in un'unica soluzione o ripartito in 9 rate da ottobre a giugno entro il giorno 5 di ogni mese.";
+$testo= "18.SERVIZIO DOPOSCUOLA. Alle famiglie che ne fossero interessate, nei giorni di rientro, la scuola offre un servizio di doposcuola a pagamento, come da modulo da sottoscrivere ad inizio anno scolastico. Il servizio consiste in attività extra scolastiche, e non nello svolgimento dei compiti assegnati per casa, e sarà attivato al raggiungimento del numero minimo necessario per la copertura dei relativi costi. L'importo pattuito è annuale, indipendentemente dal numero di presenze del bambino, ferie scolastiche, gite, uscite didattiche, ecc..., può essere pagato in un'unica soluzione o ripartito in 9 rate da ottobre a giugno entro il giorno 10 di ogni mese.";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
@@ -103,7 +103,7 @@ $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
-$testo= "20.ATTIVITÀ POMERIDIANE: Durante la settimana la Scuola propone alcune attività pomeridiane come il doposcuola musicale. Tali attività sono a cura degli insegnanti che direttamente le gestiscono. Solo gli alunni e i genitori coinvolti in queste attività possono sostare negli spazi della Scuola. Durante le attese i bambini e i ragazzi devono comunque essere sorvegliati dai propri genitori.";
+$testo= "20.ATTIVITÀ POMERIDIANE: Durante la settimana la Scuola ospita alcune attività pomeridiane come il doposcuola musicale. Tali attività sono a cura degli insegnanti che direttamente le gestiscono. Solo gli alunni e i genitori coinvolti in queste attività possono sostare negli spazi della Scuola. Durante le attese i bambini e i ragazzi devono comunque essere sorvegliati dai propri genitori.";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);

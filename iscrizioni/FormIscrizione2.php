@@ -148,6 +148,8 @@
 					<?}?>
 					<option value="tutore" <?if ($ruolomadre_fam =='tutore'){echo ('selected');}?>>tutore</option>
 					<option value="affidatario" <?if ($ruolomadre_fam =='affidatario'){echo ('selected');}?>>affidatario</option>
+					<option value="nondisp" <?if ($ruolomadre_fam =='nondisp'){echo ('selected');}?>>non disponibile</option>
+
 				</select>
 			</div>
 			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; border-top: 1px solid grey; margin-top: 10px;  ">
@@ -324,7 +326,7 @@
 
 			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px;">
 				<div class="row">
-					IBAN (per SDD, 27 caratteri)
+					IBAN (per SDD, 27 caratteri) *
 				</div>
 				<div class="row">
 					<input class="tablecell5 resetme" type="text"  id="ibanmadre_fam" name="ibanmadre_fam" maxlength="50" value = "<?=$ibanmadre_fam?>">

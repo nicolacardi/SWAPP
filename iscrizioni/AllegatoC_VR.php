@@ -72,9 +72,8 @@ $pdf->Ln(2);
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
 $pdf->Cell(0,10,utf8_decode("6)	ASSENZA PER MALATTIA E RIAMMISSIONE ALLA FREQUENZA "), 0,1, 'J');
 $testo= "I genitori/tutori devono comunicare tempestivamente il motivo dell'assenza del proprio bambino, quando possa trattarsi di malattia infettiva diffusa, al fine di consentire l'attuazione di opportune misure profilattiche agli altri utenti della struttura. 
-L'assenza per malattia, anche di durata superiore a cinque giorni consecutivi non necessita di certificato medico che ne attesti l'idoneità alla frequenza scolastica, tuttavia si raccomanda ai genitori di dichiarare, nella giustificazione di rientro, di essersi attenuti a quanto prescritto dal medico di famiglia e alle prescrizioni vigenti emanate in materia di prevenzione contagio covid.
-Anche quando l'assenza non sia dovuta a malattia del bambino, ma ad altri motivi, i genitori devono preventivamente avvertire il personale della Scuola.
-I bambini che sono stati allontanati dal servizio per sospetta malattia, se assenti fino a 5 giorni, sono riammessi su autodichiarazione del genitore che attesti di essersi attenuto alle indicazioni del pediatra. Le riammissioni avverranno quando saranno decadute le condizioni che ne hanno provocato l'allontanamento, cioè quando il bambino sarà definitivamente guarito (almeno un giorno senza manifestare i sintomi della malattia sopraggiunta). In particolare, dovranno essere rispettate le seguenti misure di profilassi:";
+L'assenza per malattia, anche di durata superiore a cinque giorni consecutivi non necessita di certificato medico che ne attesti l'idoneità alla frequenza scolastica. Ogni assenza va tempestivamente comunicata all'insegnante o al personale della scuola.
+Le riammissioni avverranno quando saranno decadute le condizioni che ne hanno provocato l'allontanamento, cioè quando il bambino sarà definitivamente guarito (almeno un giorno senza manifestare i sintomi della malattia sopraggiunta). In particolare, dovranno essere rispettate le seguenti misure di profilassi:";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);

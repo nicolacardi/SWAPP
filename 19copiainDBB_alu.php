@@ -3,7 +3,7 @@
 	$ID_fam_alu = $_POST['ID_fam_alu'];
 	$annoscolastico_cla = $_POST['annoscolastico_cla'];
 	//trovo se ci sono fratelli e per ogni fratello faccio quanto segue
-	$sql2 = "SELECT ID_alu FROM tab_anagraficaalunni JOIN tab_classialunni ON ID_alu_cla = ID_alu WHERE ID_fam_alu = ? AND annoscolastico_cla = ?";
+	$sql2 = "SELECT ID_alu FROM tab_anagraficaalunni JOIN tab_classialunni ON ID_alu_cla = ID_alu WHERE ID_fam_alu = ? AND annoscolastico_cla = ?  AND listaattesa_cla = 0";
 	$stmt2 = mysqli_prepare($mysqli, $sql2);
 	mysqli_stmt_bind_param($stmt2, "is", $ID_fam_alu, $annoscolastico_cla);
 	mysqli_stmt_execute($stmt2);

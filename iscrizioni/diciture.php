@@ -226,8 +226,8 @@ switch ($codscuola) {
         $nomecittascuola = "Scuola Steiner Waldorf Verona";
         $footerpagella = "";
 
-        $indirizzoscuola = "Via Tione, 25 - 37069 Villafranca di Verona (VR) ";
-        $indirizzocompletoscuola = "Via Tione, 25 - 37069 Villafranca di Verona (VR) ";
+        $indirizzoscuola = "Località Laura, 4 - frazione Grezzano - 37060  Mozzecane (VR) ";
+        $indirizzocompletoscuola = "Località Laura, 4 - frazione Grezzano - 37060  Mozzecane (VR) ";
         $ragionesocialescuola = "Steiner Waldorf Verona Cooperativa Sociale";
         $datiscuola = "C.F. e P.IVA: 04028200238 - N. REA VR 385885 - iscrizione albo nazionale società cooperative n° A212808";
         $cfscuola = "04028200238";
@@ -236,14 +236,14 @@ switch ($codscuola) {
         $linkPTOF = "http://www.scuolawaldorfverona.it/media/pei-e-ptof-scuola-waldorf-vero-3ef.pdf";  
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
         $quotaiscrizione = "330 per ciascun/a alunno/a iscritto/a";
-        $scadrientromodulo = "28/01/";
-        $scadrientromodulolett = "28 gennaio ";
-        $scadiscrizione = "28/01/";
-        $scadiscrizionelett = "28 gennaio ";
+        $scadrientromodulo = "10/02/";
+        $scadrientromodulolett = "10 febbraio ";
+        $scadiscrizione = "10/02/";
+        $scadiscrizionelett = "10 febbraio ";
         $scadfrase1 = "";
         $scadfrase2 = "sottoscriverli dove indicato e consegnarli in Segreteria <br>entro la scadenza del ";
-        $scadrataunicaDDMM = "05/09/";
-        $scadrataunica = "5 settembre";
+        $scadrataunicaDDMM = "10/09/";
+        $scadrataunica = "10 settembre";
         $scad3rate = "---";
         $scadrata1trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione
         $scadrata2trerate ="---";//in verità non viene usata nei contesti in cui ci sono le tre rate: si usa $dilazione

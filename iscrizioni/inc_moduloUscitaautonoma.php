@@ -71,6 +71,14 @@
         $testo = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+2,5)."      di delegare le seguenti persone maggiorenni a ritirare".$figliofiglia."al termine delle lezioni" ;
 		$pdf->Cell(190,$h1,utf8_decode($testo),0,1,'L');
 
+        $testo = $pdf->Image($imgsquare,$pdf->GetX(), $pdf->GetY()+2,5)."      che".$figliofiglia."uscirà autonomamente dai locali della Scuola esonerando il personale scolastico dalla" ;
+		$pdf->Cell(190,$h1,utf8_decode($testo),0,1,'L');
+
+        $testo = "      responsabilità connessa all'adempimento dell'obbligo di vigilanza" ;
+		$pdf->Cell(190,$h1,utf8_decode($testo),0,1,'L');
+
+        $testo = "      (L. 172/2017 e Nota Miur n° 2379 del 12/12/2017)." ;
+		$pdf->Cell(190,$h1,utf8_decode($testo),0,1,'L');
 
         $pdf->Ln(2);
 
@@ -153,45 +161,45 @@
         $pdf->Cell(10,$h,$testo,0,0,'L');
         $pdf->Cell(55,$h,"","B",1,'L');
 
-        $pdf->Ln(2);
-        $testo="11.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(115,$h,"","B",0,'L');
-        $testo="Tel.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(55,$h,"","B",1,'L');
+        // $pdf->Ln(2);
+        // $testo="11.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(115,$h,"","B",0,'L');
+        // $testo="Tel.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(55,$h,"","B",1,'L');
 
-        $pdf->Ln(2);
-        $testo="12.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(115,$h,"","B",0,'L');
-        $testo="Tel.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(55,$h,"","B",1,'L');
+        // $pdf->Ln(2);
+        // $testo="12.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(115,$h,"","B",0,'L');
+        // $testo="Tel.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(55,$h,"","B",1,'L');
 
-        $pdf->Ln(2);
-        $testo="13.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(115,$h,"","B",0,'L');
-        $testo="Tel.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(55,$h,"","B",1,'L');
+        // $pdf->Ln(2);
+        // $testo="13.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(115,$h,"","B",0,'L');
+        // $testo="Tel.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(55,$h,"","B",1,'L');
 
-        $pdf->Ln(2);
-        $testo="14.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(115,$h,"","B",0,'L');
-        $testo="Tel.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(55,$h,"","B",1,'L');
+        // $pdf->Ln(2);
+        // $testo="14.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(115,$h,"","B",0,'L');
+        // $testo="Tel.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(55,$h,"","B",1,'L');
 
-        $pdf->Ln(2);
-        $testo="15.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(115,$h,"","B",0,'L');
-        $testo="Tel.";
-        $pdf->Cell(10,$h,$testo,0,0,'L');
-        $pdf->Cell(55,$h,"","B",1,'L');
+        // $pdf->Ln(2);
+        // $testo="15.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(115,$h,"","B",0,'L');
+        // $testo="Tel.";
+        // $pdf->Cell(10,$h,$testo,0,0,'L');
+        // $pdf->Cell(55,$h,"","B",1,'L');
 
         $pdf->Ln(5);
         $testo = "Si impegnano altresì a comunicare tempestivamente eventuali modifiche alle autorizzazioni sopra indicate.";

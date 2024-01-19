@@ -76,16 +76,16 @@
     $pdf->SetFont($fontdefault,'',10);
 
     if ($disabilita_alu == 1) {
-        $disabilita = $pdf->Image($imgsquarecrossed,$pdf->GetX()+2, $pdf->GetY()+1,4)."        alunn".$desinenza." con disabilita'";
+        $disabilita = $pdf->Image($imgsquarecrossed,$pdf->GetX()+2, $pdf->GetY()+1,4)."        alunn".$desinenza." con disabilita' (l.104/92)";
     } else {
-        $disabilita = $pdf->Image($imgsquare,$pdf->GetX()+2, $pdf->GetY()+1,4)."        alunn".$desinenza." con disabilita'";
+        $disabilita = $pdf->Image($imgsquare,$pdf->GetX()+2, $pdf->GetY()+1,4)."        alunn".$desinenza." con disabilita' (l.104/92)";
     }
     $pdf->Cell(95,$h1,$disabilita,1,0,'L');
 
     if ($DSA_alu == 1) {
-        $DSA = $pdf->Image($imgsquarecrossed,$pdf->GetX()+2, $pdf->GetY()+1,4)."        alunn".$desinenza." con DSA";
+        $DSA = $pdf->Image($imgsquarecrossed,$pdf->GetX()+2, $pdf->GetY()+1,4)."        alunn".$desinenza." con DSA (l.170/2010)";
     } else {
-        $DSA = $pdf->Image($imgsquare,$pdf->GetX()+2, $pdf->GetY()+1,4)."        alunn".$desinenza." con DSA";
+        $DSA = $pdf->Image($imgsquare,$pdf->GetX()+2, $pdf->GetY()+1,4)."        alunn".$desinenza." con DSA (l.170/2010)";
     }
     $pdf->Cell(95,$h1,$DSA,1,1,'L');
 
