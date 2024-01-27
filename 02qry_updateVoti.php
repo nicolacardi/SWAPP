@@ -82,13 +82,13 @@
 	mysqli_stmt_bind_param($stmt, "is", $ID_alu_cla, $annoscolastico_cla);	
 	mysqli_stmt_execute($stmt);
 	$return['n'] = $n;
-	$return['sql2'] = $sql2;
+	$return['sql'] = $sql;
 	$return['ID_alu_cla']= $ID_alu_cla;
 	$return['annoscolastico_cla']= $annoscolastico_cla;
 	$return['codmat_cla']= $codmat_cla;
 	$return['quadrimestre']= $quadrimestre;
 	$return['vot_cla']= $vot_cla;
-	$return['giu_cla']= $giu_cla;
+	$return['giuquad_cla']= $giuquad_cla;
 	$return['commento_cla']= $commento_cla;
 	$return['datapagella']= $datapagella_cla;
 	$return['hafreq_cla']= $hafreq_cla;

@@ -51,6 +51,7 @@
 	$classiI_IV = array("ASILO"=>"0", "I"=>"1", "II"=>"1", "III"=>"1", "IV"=>"1", "V"=>"0", "VI"=>"0", "VII"=>"0", "VIII"=>"0", "NIDO"=>"0", "IX"=>"0", "X"=>"0", "XI"=>"0", "XII"=>"0", "XIII"=>"0");
 
 
+
 	$num_fratello = $_POST['num_fratello'];
 	
 	$sql = "SELECT `ID_alu`, `mf_alu`, `nome_alu`, `cognome_alu`, datanascita_alu, comunenascita_alu, provnascita_alu, paesenascita_alu, cittadinanza_alu, cf_alu, indirizzo_alu, citta_alu, CAP_alu, prov_alu, paese_alu, disabilita_alu, DSA_alu, ckprivacy1_alu, ckprivacy2_alu, ckprivacy3_alu, ckautfoto_alu, ckautmateriale_alu, ckautuscite_alu, ckautuscitaautonoma_alu, ckdoposcuola_alu, ckreligione_alu, altreligione_alu, ckmensa_alu, cktrasportopubblico_alu, scuolaprovenienza_alu, indirizzoscproven_alu, noniscritto_alu, classe_cla, annoscolastico_cla FROM (`tab_famiglie` JOIN `tab_anagraficaalunni` ON `ID_fam_alu` = `ID_fam`) JOIN tab_classialunni ON ID_alu = ID_alu_cla WHERE `ID_fam`= ? ORDER BY datanascita_alu ASC";
@@ -218,11 +219,11 @@
 					}
 
 					//doposcuola dipende anche dal fatto che l'alunno sia in classe I-IV ...andrebbe parametrizzato
-
+					//NON PIU'!
 					if ($classiI_IV[$classe_cla] == "0") {
 						$mostradoposcuola =	0; }
 					else {
-						$mostradoposcuola = $_SESSION['ISC_mostra_doposcuola'];
+					$mostradoposcuola = $_SESSION['ISC_mostra_doposcuola'];
 					}
 					?>
 
@@ -416,11 +417,11 @@
 			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; border-top: 1px solid grey; margin-top: 10px; ">
 				<div class="col-md-6 col-sm-12" style="display: flex; text-align: center; font-size:12px;">
 					<input type="checkbox"  id="disabilita_alu" name="disabilita_alu" <?if ($disabilita_alu == 1) {echo ("checked");}?>>
-					<label id ="lbldisabilita_alu" for="lbldisabilita_alu" style="margin-bottom: 1px;">&nbsp;Alunno/a con Disabilità</label>
+					<label id ="lbldisabilita_alu" for="lbldisabilita_alu" style="margin-bottom: 1px;">&nbsp;Alunno/a con Disabilità (L.104/92)</label>
 				</div>
 				<div class="col-md-6 col-sm-12" style="display: flex; text-align: center; font-size:12px;">
 					<input type="checkbox"  id="DSA_alu" name="DSA_alu" <?if ($DSA_alu == 1) {echo ("checked");}?>>
-					<label id ="lblDSA_alu" for="lblDSA_alu" style="margin-bottom: 1px;">&nbsp;Alunno/a con DSA</label>
+					<label id ="lblDSA_alu" for="lblDSA_alu" style="margin-bottom: 1px;">&nbsp;Alunno/a con DSA (L.170/2010)</label>
 				</div>
 				<div class="col-md-12 col-sm-12" style="display: flex; text-align: center; font-size:12px; margin-top: 10px; ">
 					Ai sensi della legge 104/1992 e della legge 170/2010, in caso di alunno, rispettivamente con disabilità o disturbi specifici di
@@ -606,7 +607,7 @@
 			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; margin-top: 10px; border-top: 1px solid grey; padding-bottom: 25px; padding-left:2px; padding-right: 2px;">
 				AUTORIZZAZIONE ALLE USCITE DIDATTICHE
 				<textarea style="width: 100%; margin-top: 5px; font-size: 10px; " rows="5" readonly>
-					AUTORIZZAZIONE ALLE USCITE DIDATTICHE&#013;&#013;Si chiede di autorizzare le uscite didattiche sul territorio cittadino all’interno dell’orario scolastico. Tali uscite saranno man mano presentate ai genitori nell’ambito delle riunioni di classe. Sarà cura degli insegnanti dare avviso dell’uscita mediante brevi comunicazioni sul diario alcuni giorni prima delle visite previste. </textarea>
+					AUTORIZZAZIONE ALLE USCITE DIDATTICHE&#013;&#013;Si chiede di autorizzare le uscite didattiche sul territorio circostante all’interno dell’orario scolastico. Tali uscite saranno man mano presentate ai genitori nell’ambito delle riunioni di classe. Sarà cura degli insegnanti dare avviso dell’uscita mediante brevi comunicazioni sul diario alcuni giorni prima delle visite previste. Con la presente autorizzazione si esonera anche l’Amministrazione da qualsiasi responsabilità derivante da comportamenti dell’alunno/a difformi dalle disposizioni impartite dai docenti.</textarea>
 				<div class="col-md-12 col-sm-12 col-xs-12" id="lblckautuscite_alu" style="text-align: center; font-size:12px; padding-bottom: 2px; ">
 					<div class="col-md-6 col-sm-6 col-xs-6" style="text-align: center; font-size:12px;">
 						<input type="radio" class="ckautuscite_alu" name="ckautuscite_alu" value="1" <?if ($ckautuscite_alu == 1) {echo "checked";}?>>&nbsp;Autorizzo
@@ -777,6 +778,7 @@
 			let campodesc = ["Comune di Nascita", "Provincia di Nascita", "Paese di Nascita", "Cittadinanza", "Codice Fiscale", "Via e N. Civico", "Comune di Residenza", "Provincia di Residenza", "Paese di Residenza", "CAP di residenza", "Privacy1", "Privacy2", "Privacy3", "Autorizzazione uso Foto e Video", "Autorizzazione Materiale Prodotto", "Autorizzazione Uscite Didattiche", "Data di nascita Alunno", "Scuola di provenienza", "Indirizzo Scuola di provenienza", "Uscita Autonoma", "Scelta Insegnamento Religione", "Mensa", "Trasporto Pubblico", "Doposcuola"];
 			//ci sono dei campi che in alcuni casi non vanno controllati: dipende dai parametri di iscrizione
 			let controllacampo = [ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,$('#mostrauscitaautonoma_hidden').val(),$('#mostrareligione_hidden').val(),$('#mostramensa_hidden').val(),$('#mostratrasporto_hidden').val(), $('#mostradoposcuola_hidden').val()];
+			console.log ("FormIscrizione3 - ChekBeforeFormNext - controllacampo", controllacampo);
 			let campomissing = [];
 			let missingfields = 0;
 			
@@ -1075,7 +1077,7 @@
 
 	function showModalDoposcuola() {
 		$('#titolo01Msg_OK').html('DOPOSCUOLA');
-		$('#msg01Msg_OK').html("Il servizio consiste in attività extra scolastiche,<br>e non nello svolgimento dei compiti assegnati per casa,<br>e sarà attivato al raggiungimento del numero minimo<br>necessario per la copertura dei relativi costi.<br>L'importo pattuito è annuale, indipendentemente dal numero di presenze<br> dell'alunno/a, ferie scolastiche, gite, uscite didattiche, ecc...,<br>può essere pagato in un'unica soluzione <br>o ripartito in 9 rate da ottobre a giugno<br>entro il giorno 5 di ogni mese.");
+		$('#msg01Msg_OK').html("SERVIZIO RISERVATO AGLI ALUNNI DALLA PRIMA ALLA QUARTA CLASSE.<br>Il servizio consiste in attività extra scolastiche,<br>e non nello svolgimento dei compiti assegnati per casa,<br>e sarà attivato al raggiungimento del numero minimo<br>necessario per la copertura dei relativi costi.<br>L'importo pattuito è annuale, indipendentemente dal numero di presenze<br> dell'alunno/a, ferie scolastiche, gite, uscite didattiche, ecc...,<br>può essere pagato in un'unica soluzione <br>o ripartito in 9 rate da ottobre a giugno<br>entro il giorno 10 di ogni mese.");
 		$('#modal01Msg_OK').modal('show');
 	}
 

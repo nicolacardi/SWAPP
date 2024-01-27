@@ -647,6 +647,7 @@ while (mysqli_stmt_fetch($stmt4))
 		let nmaterie = $('#numeromaterie_hidden_'+tipopagella).val(); //il suffisso tipopagella dice se pescare nella tab del tipo 1 o del tipo 2
 		
 		// console.log ('01AnagraficaPerAnno.php - salvaVoti')
+		// console.log (giuquad_cla);
 		// console.log("numero materie: "+nmaterie);
 		//Se asilo, elementari, medie, cambia il numero di materie
 		for (materia = 0; materia < (nmaterie); materia++) {
@@ -658,9 +659,9 @@ while (mysqli_stmt_fetch($stmt4))
 			giu_cla = giu_cla.substring(1, giu_cla.length-1);
 			let commento_cla = $('#com'+quadrimestre+'_'+materia+'_'+tipopagella).val();
 			postData = { quadrimestre: quadrimestre, ID_alu_cla: ID_alu_cla, annoscolastico_cla: annoscolastico_cla, codmat_cla: codmat_cla, vot_cla: vot_cla, giu_cla: giu_cla, commento_cla: commento_cla, ggassenza_cla: ggassenza_cla, datapagella_cla: datapagella_cla, hafreq_cla: hafreq_cla, votofinale_cla: votofinale_cla, ammesso_cla: ammesso_cla, giuquad_cla: giuquad_cla, classe_cla: classe_cla, sezione_cla: sezione_cla, aselme_cla: aselme_cla};
-			//console.log ("02det_IMieiAlunni.php - SalvaVoti - postData a 02qry_updateVoti.php ");
-			//console.log(postData);
-
+			// console.log ("02det_IMieiAlunni.php - SalvaVoti - postData a 02qry_updateVoti.php ");
+			// console.log(postData);
+			
 			$.ajax({
 				type: 'POST',
 				url: "02qry_updateVoti.php",
@@ -675,10 +676,10 @@ while (mysqli_stmt_fetch($stmt4))
 					$("#btn_cancelSalvaPagella").html('Chiudi');
 					$("#btn_OKSalvaPagella").hide();
 					$("#btn_cancelSalvaPagella").attr("onclick","ricarica()");
-					
 
-					// console.log ("02det_IMieiAlunni.php - SalvaVoti - ritorno da 02qry_updateVoti.php ");
-					// console.log(data.test);
+
+					console.log ("02det_IMieiAlunni.php - SalvaVoti - ritorno da 02qry_updateVoti.php ");
+					console.log(data);
 
 					if (materia == nmaterie -1) {
 						//requeryDettaglio(ID_alu_cla);

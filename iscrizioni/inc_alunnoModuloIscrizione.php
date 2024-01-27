@@ -25,7 +25,7 @@
     $pdf->SetFont($fontdefault,'',10);
     $pdf->Cell($w1,$h1,"Nome",1,0,'L');
     $pdf->SetFont($fontdefault,'',12);
-    $pdf->Cell($w2,$h1,strtoupper($nome_alu),1,1,'L');
+    $pdf->Cell($w2,$h1,strtoupper(utf8_decode($nome_alu)),1,1,'L');
 
     $pdf->SetFont($fontdefault,'',10);
     $pdf->Cell($w1,$h1,"Luogo di nascita",1,0,'L');
@@ -172,8 +172,8 @@
     }
 
 // MENSA *********************************************************************************************
-    if ($ISC_mostra_mensa ==1 ) {
-        //lo mostro solo se uno decide di non avvalersi
+    if ($ISC_mostra_mensa ==1) {
+
         $pdf->Ln(2);
         $pdf->SetFont('TitilliumWeb-SemiBold','',12);
         $pdf->Cell(0,5,"MENSA SCOLASTICA",0,1,'C', True);
@@ -242,9 +242,9 @@
     }
 
 // DOPOSCUOLA ***********************************************************************************
-
+    //$pdf->Cell(0,6,"ISC_mostra_doposcuola =".$ISC_mostra_doposcuola,0,1,'C', True);
     if ($ISC_mostra_doposcuola ==1) {
-        //lo mostro solo se uno decide di autorizzare...in una pagina a sè stante
+        
         $pdf->Ln(2);
         $pdf->SetFont('TitilliumWeb-SemiBold','',12);
         $pdf->Cell(0,6,"RICHIESTA DOPOSCUOLA",0,1,'C', True);

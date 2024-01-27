@@ -171,7 +171,7 @@ if ($aselme_cla=="EL")  {
                     </td>
                     <td colspan="3">
                         <!--Voto Complessivo (immagine del maestro-->
-                        <textarea input class="tablecell6 voti ta"  style=" height: 80px;" id ="giuquad1_cla_<?=$tipopagella?>" rows= "2" maxlength="1500" oninput="modificaincorso('giuquad1_cla_<?=$tipopagella?>');"><? echo (str_replace("\\n", "&#010;", $giuquad1_cla)); ?></textarea>
+                        <textarea input class="tablecell6 voti ta"  style=" height: 80px;" id ="giuquad1_cla_<?=$tipopagella?>" rows= "2" maxlength="2000" oninput="modificaincorso('giuquad1_cla_<?=$tipopagella?>');"><? echo (str_replace("\\n", "&#010;", $giuquad1_cla)); ?></textarea>
 
                     </td>
                 </tr>
@@ -286,7 +286,7 @@ if ($aselme_cla=="EL")  {
                     </td>
                     <td colspan="3">
                         <!--Voto Complessivo (immagine del maestro-->
-                        <textarea input class="tablecell6 voti ta"  style="height: 80px;" id ="giuquad2_cla_<?=$tipopagella?>" rows= "2" maxlength="1500" oninput="modificaincorso('giuquad2_cla_<?=$tipopagella?>');"><? echo (str_replace("\\n", "&#010;", $giuquad2_cla)); ?></textarea>
+                        <textarea input class="tablecell6 voti ta"  style="height: 80px;" id ="giuquad2_cla_<?=$tipopagella?>" rows= "2" maxlength="2000" oninput="modificaincorso('giuquad2_cla_<?=$tipopagella?>');"><? echo (str_replace("\\n", "&#010;", $giuquad2_cla)); ?></textarea>
 
                         <!-- <textarea input class="tablecell6 voti ta"  style="height: 80px;" id ="giuquad2_cla_1" rows= "2" maxlength="<?//=$testlength?>" oninput="modificaincorso('giuquad2_cla_1');"><?// echo (str_replace("\\n", "&#010;", generateRandomString())); ?></textarea> -->
                     </td>

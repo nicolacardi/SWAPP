@@ -233,8 +233,8 @@ switch ($codscuola) {
         $cfscuola = "04028200238";
         $titolaretrattamentoTitolo = "il presidente pro-tempore della Steiner Waldorf Verona Cooperativa Sociale";
         $titolaretrattamento = "Rosella Danzi";
-        $linkPTOF = "http://www.scuolawaldorfverona.it/media/pei-e-ptof-scuola-waldorf-vero-3ef.pdf";  
-        $scadpagamenti ="entro il giorno 5 di ciascun mese";
+        $linkPTOF = "http://www.scuolawaldorfverona.it/media/2022-2025-ptof-scuola-steiner-aa5.pdf";  
+        $scadpagamenti ="entro il giorno 10 di ciascun mese";
         $quotaiscrizione = "330 per ciascun/a alunno/a iscritto/a";
         $scadrientromodulo = "10/02/";
         $scadrientromodulolett = "10 febbraio ";

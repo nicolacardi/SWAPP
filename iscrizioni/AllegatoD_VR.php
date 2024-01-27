@@ -5,7 +5,7 @@ $pdf->SetLink($link5);
 $pdf->SetFont('TitilliumWeb-SemiBold','',16);
 $pdf->Cell(0,10,"ALLEGATO D", 0,1, 'C');
 $pdf->SetFont('TitilliumWeb-SemiBold','',12);
-$pdf->Cell(0,10,"ORARI ANNO SCOLASTICO".$_SESSION['annopreiscrizione_fam'], 0,1, 'C');
+$pdf->Cell(0,10,"ORARI ANNO SCOLASTICO ".$_SESSION['annopreiscrizione_fam'], 0,1, 'C');
 $pdf->SetFont($fontdefault,'',9);
 
 // $pdf->SetWidths(array(40, 75, 75));
@@ -21,16 +21,21 @@ $pdf->Cell($w1,5,"ASILO", 1,0, 'L');
 $pdf->Cell($w2,5,utf8_decode("DA LUNEDÌ A VENERDÌ"), 0,0, 'L');
 $pdf->Cell($w3,5,"dalle ore 8:00 alle ore 14:50", 0,1, 'L');
 
-$pdf->Cell($w1,5,"", 0,0, 'L');
-$pdf->Cell($w2,5,"", 0,0, 'L');
-
-$pdf->SetFont($fontdefault,'',7);
-$pdf->Cell($w3,5,"eventuali altri orari di uscita verranno concordati con le maestre", 0,1, 'L');
-$pdf->SetFont($fontdefault,'',9);
 
 $pdf->Cell(0,1,"", "B",1, 'L');
 
 $pdf->Ln(1);
+
+// $pdf->Cell($w1,5,"", 0,0, 'L');
+// $pdf->Cell($w2,5,"", 0,0, 'L');
+
+// $pdf->SetFont($fontdefault,'',7);
+// $pdf->Cell($w3,5,"", 0,1, 'L');
+// $pdf->SetFont($fontdefault,'',9);
+
+// $pdf->Cell(0,1,"", "B",1, 'L');
+
+// $pdf->Ln(1);
 
 $pdf->Cell($w1,5,"SCUOLA PRIMARIA", 1,0, 'L');
 $pdf->Cell($w2,5,"", 0,0, 'L');
@@ -46,11 +51,11 @@ $pdf->Cell($w3,5,"dalle ore 8:00 alle ore 13:20", 0,1, 'L');
 
 $pdf->Cell($w1,5,"", 0,0, 'L');
 $pdf->Cell($w2,5,"", 0,0, 'L');
-$pdf->Cell($w3,5,utf8_decode("possibilità di 'doposcuola' fino alle ore 14:50"), 0,1, 'L');
+$pdf->Cell($w3,5,utf8_decode("possibilità di 'doposcuola' fino alle ore 15:00"), 0,1, 'L');
 
 $pdf->Cell($w1,5,"", 0,0, 'L');
 $pdf->Cell($w2,5,utf8_decode("MERCOLEDÌ"), 0,0, 'L');
-$pdf->Cell($w3,5,"dalle ore 8:00 alle ore 14:50", 0,1, 'L');
+$pdf->Cell($w3,5,"dalle ore 8:00 alle ore 15:00", 0,1, 'L');
 
 $pdf->Ln(1);
 
@@ -58,8 +63,8 @@ $pdf->SetFont('TitilliumWeb-SemiBold','',9);
 $pdf->Cell($w1,5,"CLASSI III, IV", 0,0, 'L');
 $pdf->SetFont($fontdefault,'',9);
 
-$pdf->Cell($w2,5,utf8_decode("MARTEDÌ, GIOVEDÌ, VENERDÌ"), 0,0, 'L');
-$pdf->Cell($w3,5,"dalle ore 8:00 alle ore 14:50", 0,1, 'L');
+$pdf->Cell($w2,5,utf8_decode("MARTEDÌ, MERCOLEDÌ, GIOVEDÌ"), 0,0, 'L');
+$pdf->Cell($w3,5,"dalle ore 8:00 alle ore 15:00", 0,1, 'L');
 
 $pdf->Cell($w1,5,"", 0,0, 'L');
 $pdf->Cell($w2,5,utf8_decode("LUNEDÌ, VENERDÌ"), 0,0, 'L');
@@ -67,7 +72,7 @@ $pdf->Cell($w3,5,"dalle ore 8:00 alle ore 13:20", 0,1, 'L');
 
 $pdf->Cell($w1,5,"", 0,0, 'L');
 $pdf->Cell($w2,5,"", 0,0, 'L');
-$pdf->Cell($w3,5,utf8_decode("possibilità di 'doposcuola' fino alle ore 14:50"), 0,1, 'L');
+$pdf->Cell($w3,5,utf8_decode("possibilità di 'doposcuola' fino alle ore 15:00"), 0,1, 'L');
 
 $pdf->Ln(1);
 
@@ -76,7 +81,7 @@ $pdf->Cell($w1,5,"CLASSE V", 0,0, 'L');
 $pdf->SetFont($fontdefault,'',9);
 
 $pdf->Cell($w2,5,utf8_decode("DA LUNEDÌ A VENERDÌ"), 0,0, 'L');
-$pdf->Cell($w3,5,"dalle ore 8:00 alle ore 14:50", 0,1, 'L');
+$pdf->Cell($w3,5,"dalle ore 8:00 alle ore 15:00", 0,1, 'L');
 
 $pdf->Cell(0,1,"", "B",1, 'L');
 
@@ -93,7 +98,7 @@ $pdf->Cell($w1,5,"CLASSI VI, VII, VIII", 0,0, 'L');
 $pdf->SetFont($fontdefault,'',9);
 
 $pdf->Cell($w2,5,utf8_decode("DA LUNEDÌ A VENERDÌ"), 0,0, 'L');
-$pdf->Cell($w3,5,"dalle ore 8:00 alle ore 14:50", 0,1, 'L');
+$pdf->Cell($w3,5,"dalle ore 8:00 alle ore 15:00", 0,1, 'L');
 
 $pdf->Cell(0,1,"", "B",1, 'L');
 $pdf->Ln(1);
@@ -111,19 +116,19 @@ $w2 = 95;
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $pdf->Cell($w1,5,"- ASILO (pasti compresi)", 0,0, 'L');
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
-$pdf->Cell($w2,5,"euro 3.864", 0,1, 'L');
+$pdf->Cell($w2,5,"euro 4.008 + 330 di iscrizione", 0,1, 'L');
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $pdf->Cell($w1,5,"- SCUOLA PRIMARIA (pasti esclusi)", 0,0, 'L');
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
-$pdf->Cell($w2,5,"euro 3.924", 0,1, 'L');
+$pdf->Cell($w2,5,"euro 4.068 + 330 di iscrizione", 0,1, 'L');
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $pdf->Cell($w1,5,utf8_decode("- SCUOLA SECONDARIA DI I° GRADO (pasti esclusi)"), 0,0, 'L');
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
-$pdf->Cell($w2,5,"euro 4.116", 0,1, 'L');
+$pdf->Cell($w2,5,"euro 4.260 + 330 di iscrizione", 0,1, 'L');
 
-$pdf->Ln(2);
+$pdf->Ln(1);
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
 $pdf->Cell(0,5,utf8_decode("Modalità di pagamento"), 0,1, 'L');
@@ -143,7 +148,7 @@ $testo= "c) iscrizione entro il ".$scadiscrizione.$anno1." e importo dell'intero
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$rowH,$testo);
 
-$testo= "d) iscrizione entro il ".$scadiscrizione.$anno1." a mezzo bonifico bancario e 12 rate tramite addebito SDD (ex RID) il giorno 5 di ogni mese da settembre ".$anno1." a agosto ".$anno2;
+$testo= "d) iscrizione entro il ".$scadiscrizione.$anno1." a mezzo bonifico bancario e 12 rate tramite addebito SDD (ex RID) il giorno 10 di ogni mese da settembre ".$anno1." a agosto ".$anno2;
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$rowH,$testo);
 
@@ -151,7 +156,7 @@ $testo= "e) in caso di necessità diverse modalità di pagamento potranno essere
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$rowH,$testo);
 
-$pdf->Ln(2);
+$pdf->Ln(1);
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
 $pdf->Cell(0,$rowH,utf8_decode("Importo delle 12 rate mensili"), 0,1, 'L');
@@ -160,30 +165,40 @@ $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $pdf->Cell($w1,$rowH,"- ASILO", 0,0, 'L');
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
-$pdf->Cell($w2,$rowH,"euro 322", 0,1, 'L');
+$pdf->Cell($w2,$rowH,"euro 334", 0,1, 'L');
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $pdf->Cell($w1,$rowH,"- SCUOLA PRIMARIA", 0,0, 'L');
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
-$pdf->Cell($w2,$rowH,"euro 327", 0,1, 'L');
+$pdf->Cell($w2,$rowH,"euro 339", 0,1, 'L');
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $pdf->Cell($w1,$rowH,utf8_decode("- SCUOLA SECONDARIA DI I° GRADO"), 0,0, 'L');
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
-$pdf->Cell($w2,$rowH,"euro 343", 0,1, 'L');
+$pdf->Cell($w2,$rowH,"euro 355", 0,1, 'L');
 
 $pdf->Cell(0,1,"", "B",1, 'L');
 
-$pdf->Ln(2);
+$pdf->Ln(1);
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',12);
 $testo= "DOPO SCUOLA - RETTE ANNUALI ". $_SESSION['annopreiscrizione_fam'];
 $pdf->Cell(0,5,utf8_decode($testo), 0,1, 'C');
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
+$pdf->Cell($w1,5,"- 1 rientro settimanale", 0,0, 'L');
+$pdf->SetFont($fontdefault,'',$fontsizedefault);
+$pdf->Cell($w2,5,"euro 360/anno - euro 40/rata mensile", 0,1, 'L');
+
+$pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $pdf->Cell($w1,5,"- 2 rientri settimanali", 0,0, 'L');
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $pdf->Cell($w2,5,"euro 630/anno - euro 70/rata mensile", 0,1, 'L');
+
+$pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
+$pdf->Cell($w1,5,"- 3 rientri settimanali", 0,0, 'L');
+$pdf->SetFont($fontdefault,'',$fontsizedefault);
+$pdf->Cell($w2,5,"euro 900/anno - euro 100/rata mensile", 0,1, 'L');
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',$fontsizedefault);
 $pdf->Cell($w1,5,"- 4 rientri settimanali", 0,0, 'L');
@@ -195,13 +210,13 @@ $pdf->Cell($w1,5,utf8_decode("- occasionale"), 0,0, 'L');
 $pdf->SetFont($fontdefault,'',$fontsizedefault);
 $pdf->Cell($w2,5,"euro 15/giorno", 0,1, 'L');
 
-$testo= "la frequenza concordata ad inizio anno, salvo giustificati motivi, si intende per l'intero anno scolastico. La fattura è annuale, il pagamento mensile, entro il 5 del mese a mezzo bonifico bancario da ottobre a giugno";
+$testo= "la frequenza concordata ad inizio anno, salvo giustificati motivi, si intende per l'intero anno scolastico. La fattura è annuale, il pagamento mensile, entro il 10 del mese a mezzo bonifico bancario da ottobre a giugno";
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
 $pdf->Cell(0,1,"", "B",1, 'L');
 
-$pdf->Ln(2);
+$pdf->Ln(1);
 
 
 $pdf->SetFont('TitilliumWeb-SemiBold','',12);

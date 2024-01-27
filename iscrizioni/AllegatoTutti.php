@@ -11,6 +11,8 @@ $pdf->AddPage();
 $pdf->Image('../assets/img/Icone/recycle-sign.png',165,125,10);
 $pdf->SetFont('TitilliumWeb-SemiBold','',16);
 $pdf->Cell(0,10,utf8_decode("INFORMATIVA ed ALLEGATI"), 0,1, 'C');
+$pdf->SetFont($fontdefault,'',11);
+$pdf->Cell(0,10,utf8_decode("(DA CONSERVARE A CURA DEI GENITORI)"), 0,1, 'C');
 $pdf->SetFont($fontdefault,'',12);
 $pdf->Cell(0,10,utf8_decode("Questo documento contiene:"), 0,1, 'L');
 $link1 = $pdf->AddLink();

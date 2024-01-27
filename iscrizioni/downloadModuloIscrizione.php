@@ -600,7 +600,7 @@ $h1 = 6;
 		while (mysqli_stmt_fetch($stmt)) {
 			$totquotapromessa = $totquotapromessa + intval($quotapromessa_alu);
 			$n++;
-			$pdf->Cell(75,8,$nome_alu." ".$cognome_alu,1,0,'L');
+			$pdf->Cell(75,8,utf8_decode($nome_alu)." ".utf8_decode($cognome_alu),1,0,'L');
 			$pdf->Cell(40,8,$Nfiglio[$n].$MF[$mf_alu],1,0,'L');
 			$pdf->Cell(45,8,$classi2[$classe_cla],1,0,'L');
 			$pdf->Cell(30,8,$quotapromessa_alu.",00",1,1,'C');
@@ -2103,11 +2103,11 @@ $h1 = 6;
 
 	$i = 1;
 	if ($ckpadreesclusodanucleo_fam != 1) {
-		$pdf->Row(array($i, $cognomepadre_fam, $nomepadre_fam, $comunenascitapadre_fam."-".$provnascitapadre_fam."-".$datanascitapadre_fam, $ruolopadre_fam));
+		$pdf->Row(array($i, utf8_decode($cognomepadre_fam), utf8_decode($nomepadre_fam), $comunenascitapadre_fam."-".$provnascitapadre_fam."-".$datanascitapadre_fam, $ruolopadre_fam));
 		$i++;
 	}
 	if ($ckmadreesclusadanucleo_fam != 1) {
-		$pdf->Row(array($i, $cognomemadre_fam, $nomemadre_fam, $comunenascitamadre_fam."-".$provnascitamadre_fam."-".$datanascitamadre_fam, $ruolomadre_fam));
+		$pdf->Row(array($i, utf8_decode($cognomemadre_fam), utf8_decode($nomemadre_fam), $comunenascitamadre_fam."-".$provnascitamadre_fam."-".$datanascitamadre_fam, $ruolomadre_fam));
 		$i++;
 	}
 
@@ -2116,7 +2116,7 @@ $h1 = 6;
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "i", $ID_fam);
 	mysqli_stmt_execute($stmt);
-	mysqli_stmt_bind_result($stmt, $ID_alu, $nome_alu, $cognome_alu, $mf_alu, $datanascita_alu, $comunenascita_alu, $provnascita_alu, $paesenascita_alu);
+	mysqli_stmt_bind_result($stmt, $ID_alu, utf8_decode($nome_alu), utf8_decode($cognome_alu), $mf_alu, $datanascita_alu, $comunenascita_alu, $provnascita_alu, $paesenascita_alu);
 	$nriga = $i;
 	while (mysqli_stmt_fetch($stmt)) {
 		if ($mf_alu == "M"){$figliofiglia = "figlio";} else {$figliofiglia = "figlia";}
