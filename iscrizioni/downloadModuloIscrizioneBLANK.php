@@ -358,7 +358,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->WriteHTML($testo);
 		$pdf->Ln(4);
 
-		$testo="-	si è presa visione e si condivide il Regolamento Pediatrico (<a href='downloadAllegato.php?nomeallegato=C_PD'>Allegato C</a>);<br>";
+		$testo="-	si è presa visione e si condivide il Regolamento Pediatrico (<a href='downloadAllegato.php?nomeallegato=C_".$codscuola.">Allegato C</a>);<br>";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 		$pdf->Ln(4);

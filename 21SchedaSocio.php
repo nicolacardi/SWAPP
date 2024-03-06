@@ -61,6 +61,9 @@
 							<div id="showresult" style="text-align: center; cursor: default; z-index: 15;" ></div>
 						</div>
 					</div>
+
+
+
 					<input id="ID_soc_det_hidden" name="ID_soc_det_hidden" <? 	if (isset ($_POST['ID_socDaAltraPag'])) {echo ("value ='".$_POST['ID_socDaAltraPag']."'");}?> hidden>
 					<input id="pagtoshow_hidden" name="pagtoshow_hidden" value="<? if ($role_usr == 3) { echo ("Classi");} else {echo ("DatiAnagrafici");}?>" hidden>
 				</div>

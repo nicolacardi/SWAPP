@@ -24,7 +24,7 @@
         // Title
         $txt="
         <n>
-        Promuovere la corresponsabilità educativa significa riconoscere che l'educazione dei giovani compete tanto all'istituzione, cui essi sono affidati, quanto agli stessi genitori, in un concorso di reciproca responsabilità, al cui raggiungimento contribuiscono un dialogo costante e una profonda condivisione dei valori di riferimento a cui è ispirato il Progetto Educativo-Didattico (PED). Affinché si formi una comunità educante, luogo di cooperazione tra docenti, genitori e studenti, volta a promuovere lo sviluppo armonico delle facoltà del giovane, viene chiesto alle famiglie di prendere visione del PED, che sarà pubblicato nel sito web dell'ente gestore, e di stipulare il seguente patto di corresponsabilità, con il quale:
+        Promuovere la corresponsabilità educativa significa riconoscere che l'educazione dei giovani compete tanto all'istituzione, cui essi sono affidati, quanto agli stessi genitori, in un concorso di reciproca responsabilità, al cui raggiungimento contribuiscono un dialogo costante e una profonda condivisione dei valori di riferimento a cui è ispirato il Progetto Educativo-Didattico (PED). Affinché si formi una comunità educante, luogo di cooperazione tra docenti, genitori e studenti, volta a promuovere lo sviluppo armonico delle facoltà del giovane, viene chiesto alle famiglie di prendere visione del PED, che è stato pubblicato nel sito web dell'ente gestore, e di stipulare il seguente patto di corresponsabilità, con il quale:
         </n>
         <h1>
         IL COLLEGIO DOCENTI SI IMPEGNA A

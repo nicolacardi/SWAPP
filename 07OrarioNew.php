@@ -723,8 +723,8 @@
 			lunediPropaga = $("#data1").val(); //data/settimana da propagare
 			classe = $( "#selectclasse option:selected" ).val();
 			postData = { lunediPropaga: lunediPropaga, classe: classe};
-			console.log("07Orario.php - propagaEpoca -  postData a 07qry_PropagaEpocaSett.php")
-			console.log (postData);
+			//console.log("07Orario.php - propagaEpoca -  postData a 07qry_PropagaEpocaSett.php")
+			//console.log (postData);
 			$.ajax({
 				type: 'POST',
 				url: "07qry_PropagaEpocaSett.php",
@@ -732,7 +732,9 @@
 				dataType: 'json',
 				success: function(data){
 					//inserire un log delle cancellazioni
+					console.log("07Orario.php - propagaEpoca -  ritorno da 07qry_PropagaEpocaSett.php")
 					console.log(data.test);
+					console.log(data.test2);
 					$("#messageModalManutContainer").removeClass('alert-danger');
 					$("#messageModalManutContainer").addClass('alert-success');
 					$("#messageModalManut").html('Orario di epoca del lunedì propagato agli altri giorni della settimana');

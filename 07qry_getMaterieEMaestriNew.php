@@ -178,8 +178,8 @@
 		$('#inmodifica').val("1");
 		$('#plusaggiungi').css('visibility','hidden');
 
-        console.log ("07qry_getUlterioriMaestri.php - aggiungiMaestroUlteriore - descmateria_mttA");	
-        console.log (descmateria_mttA);	
+        //console.log ("07qry_getUlterioriMaestri.php - aggiungiMaestroUlteriore - descmateria_mttA");	
+        //console.log (descmateria_mttA);	
 	}
 
 
@@ -208,12 +208,12 @@
 				data: postData,
 				dataType: 'json',
 				success: function(data){
-                          console.log ("07qry_getUlterioriMaestri.php - verificaMaestroNew - risposta da 07qry_checkMaestroNew");	
-                          console.log ("responso=>           "+data.responso);
-                          console.log ("msg=>                "+data.msg);
-                          console.log ("nome_cognome_mae=>   "+data.nome_cognome_mae);
-                          console.log ("test=>               "+data.test);
-                          console.log ("ID_mae_cma=>         "+data.ID_mae_ora);
+                          //console.log ("07qry_getUlterioriMaestri.php - verificaMaestroNew - risposta da 07qry_checkMaestroNew");	
+                          //console.log ("responso=>           "+data.responso);
+                          //console.log ("msg=>                "+data.msg);
+                          //console.log ("nome_cognome_mae=>   "+data.nome_cognome_mae);
+                          //console.log ("test=>               "+data.test);
+                          //console.log ("ID_mae_cma=>         "+data.ID_mae_ora);
 					if (data.responso =='NO_1') {
                         //caso NO_1=Maestro non ancora assegnato alla materia selezionata in questa classe
                         //questo caso non dovrebbe accadere mai in quanto ora le materie mostrate sono solo quelle assegnate
@@ -271,8 +271,8 @@
 
         postData = { IDora2: IDora2, materia2: materia2, ID_mae2: ID_mae2, data2: data2, ora2: ora2, classe2: classe2, sezione2 : sezione2};
 
-         console.log ("07qry_getMaterieEMaestriNew.php - saveMateriaMaestro - postData a 07qry_updateOrarioSingoloNew.php")
-         console.log (postData);
+         //console.log ("07qry_getMaterieEMaestriNew.php - saveMateriaMaestro - postData a 07qry_updateOrarioSingoloNew.php")
+         //console.log (postData);
         $.ajax({
             type: 'POST',
             url: "07qry_updateOrarioSingoloNew.php",
@@ -356,8 +356,8 @@
                 data: postData,
                 dataType: 'json',
                 success: function(data){
-                    console.log ("07qry_getMaterieEMaestriNew.php - firmaTutor - ritorno da 07qry_deleteTutor.php")
-                    console.log (data.test);
+                    //console.log ("07qry_getMaterieEMaestriNew.php - firmaTutor - ritorno da 07qry_deleteTutor.php")
+                    //console.log (data.test);
                     $('#alertModalTutor').removeClass('alert-danger');
                     $('#alertModalTutor').addClass('alert-success');
                     $('#alertmsgModalTutor').html('Eliminazione firma Tutor completata');
@@ -394,8 +394,8 @@
 
                         materia = "TUX"; //inserisco la materia TUX e vado ad aggiornare ID_ora principale
                         postData = { ID_ora: ID_ora, materia: materia, ID_mae: ID_tutor, data: dataGG, ora: ora, classe: classe, sezione : sezione};
-                        console.log ("07qry_getMaterieEMaestriNew.php - firmaTutor - postData a 07qry_setFirmaTutorNew.php")
-                        console.log(postData);
+                        //console.log ("07qry_getMaterieEMaestriNew.php - firmaTutor - postData a 07qry_setFirmaTutorNew.php")
+                        //console.log(postData);
 
                         $.ajax({
                             type: 'POST',

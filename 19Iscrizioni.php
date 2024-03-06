@@ -608,10 +608,16 @@
 				console.log(data.sql3);
 				 console.log(data.importato);
 				   console.log ("test", 					data.test);
-				   console.log ("test2", 					data.test2);
-				   console.log ("test3", 					data.test3);
+				   console.log ("test2 SeqMesiRataUnicaDefault", 					data.test2);
+				   console.log ("test3 sql7", 					data.test3);
 				   console.log ("test4 rate", 				data.test4);
 				   console.log ("test5 ratepromesse_alu", 	data.test5);
+				   console.log ("test6 quota", 	data.test6);
+				   console.log ("test7 quotaProRata", 	data.test7);
+				   console.log ("test8 QuotaProRataDefault", 	data.test8);
+				   console.log ("test9 ID_alu_ret", 	data.test9);
+				   console.log ("test10 quotadefault", 	data.test10);
+
 				$("#remove-contentImportazione").slideUp();
 				$("#alertaggiungiImportazione").removeClass('alert-danger');
 				$("#alertaggiungiImportazione").addClass('alert-success');

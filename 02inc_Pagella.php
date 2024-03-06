@@ -34,7 +34,7 @@ mysqli_stmt_store_result($stmt);
 
 $j =  0;
 
-//C'è il tipo pagella tipodoc_mat che va da 1 (vecchia pagella) a 6. In tabella parametrixanno c'è questo valore sia per ME che per EL
+//C'è il tipo pagella tipodoc_mat che va da 1 (vecchia pagella) a 9. In tabella parametrixanno c'è questo valore sia per ME che per EL
 //e poi c'è il tipo di voti che si trovano in una ulteriore colonna della stessa tabella. Teoricamente si potrebbe avere i voti letterali in una pagella di tipo 2 o numerici in una pagella di tipo 2 o qualsiasi combinazione...
 //In generale la pagella di tipo 2 ha i voti di tipo 3 (Avanzato, Intermedio ecc.)
 //e la pagella di tipo 1 ha i voti numerici ma non è obbligatorio
@@ -73,6 +73,7 @@ if ($aselme_cla=="EL")  {
 <!-- ********************************************** TAB QUADRIMESTRE 1 **********************************************-->
 <div class="tab-pane active" id="Quadrimestre1">
     <div class="col-md-12 center" style="margin-left: 20px; ">
+
         <div class="row mt10">
             <div class="col-md-3">
                 <button class="btnBlu w200px" onclick="showModalSalvaPagella(1, <?=$tipopagella?>);">Salva 1^ Quadr.</button>

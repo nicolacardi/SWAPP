@@ -126,10 +126,10 @@ switch ($codscuola) {
         $pdf->Cell(0,$HRigaint,utf8_decode("Scuola dell'Infanzia non paritaria"), 0 ,1, 'L');
         $startY = $startY + $HRiga;
         $pdf->SetXY (20,$startY);
-        $pdf->Cell(0,$HRigaint,utf8_decode("Scuola Primaria paritaria (1772 del 16/07/2019)"), 0 ,1, 'L');
+        $pdf->Cell(0,$HRigaint,utf8_decode("Scuola Primaria paritaria (1772 del 16/07/2019) C.M. VR1ESU500Z"), 0 ,1, 'L');
         $startY = $startY + $HRiga;
         $pdf->SetXY (20,$startY);
-        $pdf->Cell(0,$HRigaint,utf8_decode("Scuola Secondaria di I° Grado iscritta all'Albo Regionale delle Scuole Non Paritarie (VR1MV95009)"), 0 ,1, 'L');
+        $pdf->Cell(0,$HRigaint,utf8_decode("Scuola Secondaria di I° Grado paritaria (4326 del 04/08/2023) C.M. VR1MV95009"), 0 ,1, 'L');
         $startY = $startY + $HRiga;
         $pdf->SetXY (20,$startY);
         $pdf->Cell(0,$HRigaint,"", 0 ,1, 'L');

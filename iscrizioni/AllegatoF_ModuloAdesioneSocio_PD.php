@@ -41,6 +41,8 @@ $pdf->AddPage();
     $pdf->Cell(145,7,$indirizzo_socio,"B",1,'C');
     $pdf->Cell(35,7,"COD FISCALE ",0,0,'L');
     $pdf->Cell(145,7,strtoupper($cf_socio),"B",1,'C');
+    // $pdf->Cell(20,7,utf8_decode("nazionalità "),0,0,'L');
+    // $pdf->Cell(45,7,strtoupper($cf_socio),"B",1,'C');
     $pdf->Cell(35,7,"Tel ",0,0,'L');
     $pdf->Cell(40,7,strtoupper($telefono_socio),"B",0,'C');
     $pdf->Cell(20,7,"e-mail ",0,0,'C');

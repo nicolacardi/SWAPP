@@ -363,6 +363,9 @@ for ($settimana = 1; $settimana <= $settimane; $settimana++) {
 		//in alternativa dovrei per ogni record sapere quanti ce ne sono con quello stesso valore di ora_ora, annidando una sql dentro questa sql...
 		//embra stare in piedi come è qui scritta
 
+		//DOPO LA SISTEMAZIONE DELLE LEZIONI DEI TUTOR NON HA PIU' SENSO CONCATENARE...
+		//ADESSO SIA I COMPITI ASSEGNATI CHE GLI ARGOMENTI TRATTATI POSSONO/DEVONO ESSERE PRESI DAL TUTOR E NON CONCATENATI TRA TUTTE LE LEZIONI CHE VENGONO TROVATE
+
 		$n++;
 
 		$pdf->SetFont($fontdefault,'',9);
@@ -379,8 +382,8 @@ for ($settimana = 1; $settimana <= $settimane; $settimana++) {
 		if ($compitiassegnati_ora != "") {
 			$compitiassegnati_ora = " - PER CASA: ".$compitiassegnati_ora;
 		}
-
-		if ($ora_ora != $ora_ora_prec && $n!=1) {
+		if ($ora_ora != $ora_ora_prec) {   
+		//if ($ora_ora != $ora_ora_prec && $n!=1) {   //era così per concatenare, ora inibisco per non concatenare più
 			//scarico il precedente
 			//se più di 130 caratteri riduco il font
 			if (strlen($parkedArgomentoeCompiti) > 130) {
@@ -391,14 +394,17 @@ for ($settimana = 1; $settimana <= $settimane; $settimana++) {
 			if (strlen($parkedArgomentoeCompiti) > 176) {
 				$parkedArgomentoeCompiti = substr ($parkedArgomentoeCompiti, 0, 176)."...";
 			}
-			$pdf->Cell($w6,$spacemateriaY,utf8_decode($parkedArgomentoeCompiti), 0 ,0, 'L');
+			$pdf->Cell($w6,$spacemateriaY,utf8_decode($parkedArgomentoeCompiti), 0 ,0, 'L');  //SCRIVO NEL DOCUMENTO
 			$parkedArgomentoeCompiti = $argomento_ora.$compitiassegnati_ora. "    ";
 			//$parkedArgomentoeCompiti = $ora_ora;
-		} else {
-			$pdf->SetFont($fontdefault,'',9);
-			//unisco al precedente e tengo, non scarico, scaricherò al turno in cui ora_ora <> ora_ora_prec
-			$parkedArgomentoeCompiti= $parkedArgomentoeCompiti.$argomento_ora.$compitiassegnati_ora;
-			//$parkedArgomentoeCompiti= $parkedArgomentoeCompiti.$ora_ora;
+
+
+
+				// } else {					//era così per concatenare, ora inibisco per non concatenare più
+				// 	$pdf->SetFont($fontdefault,'',9);
+				// 	//unisco al precedente e tengo, non scarico, scaricherò al turno in cui ora_ora <> ora_ora_prec
+				// 	$parkedArgomentoeCompiti= $parkedArgomentoeCompiti.$argomento_ora.$compitiassegnati_ora;
+				// 	//$parkedArgomentoeCompiti= $parkedArgomentoeCompiti.$ora_ora;
 		}
 
 		$ora_ora_prec = $ora_ora;

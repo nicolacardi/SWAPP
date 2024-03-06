@@ -249,8 +249,8 @@
         postData = {data: data, ora: ora, classe: classe, sezione: sezione, j: j, x: x};
         //vado a popolare la tabella materie e maestri a partire da data, ora, classe, sezione
 
-        console.log ("07OrarioNew.php - showModalTutor - postData a 07qry_getMaterieEMaestriNew.php")
-		console.log (postData);
+        //console.log ("07OrarioNew.php - showModalTutor - postData a 07qry_getMaterieEMaestriNew.php")
+		//console.log (postData);
         $.ajax({
             type: 'POST',
             url: "07qry_getMaterieEMaestriNew.php",

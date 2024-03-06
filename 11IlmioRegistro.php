@@ -627,9 +627,14 @@
 			dataType: 'json',
 			success: function(data){
 				console.log("11Ilmioregistro.php - saveFirma_ChiudiModal - ritorno da 11qry_UpdateFirma.php");
-				console.log (data.test);
-				console.log (data.sql);
-				console.log (data.altrelezionitrovate);
+				console.log ("data.test", data.test);
+				console.log ("data.sql", data.sql);
+				console.log ("data.altrelezionitrovate", data.altrelezionitrovate);
+				console.log ("data.IDfirmatutor_ora", data.IDfirmatutor_ora);
+				console.log ("data.argomento_ora_tutor", data.argomento_ora_tutor);
+				console.log ("data.test2", data.test2);
+				console.log ("data.test3", data.test3);
+
 				$("#remove-contentFirma").slideUp();
 				$("#alertmsgFirma").html('Lezione firmata, grazie!');
 				$("#alertFirma").removeClass('alert-danger');

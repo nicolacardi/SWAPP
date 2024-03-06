@@ -709,6 +709,7 @@
 				//copia in DB B tutti gli alunni della famiglia se già non ci sono
 				// console.log ("19qry_Iscrizioni.php - inviamail - postData a 19copiainDBB_alu");
 				// console.log (postData2);
+				
 				$.ajax({
 					type: 'POST',
 					url: "19copiainDBB_alu.php",

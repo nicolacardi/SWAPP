@@ -180,12 +180,12 @@
 				data: postData,
 				dataType: 'json',
 				success: function(data){
-                     console.log ("07qry_getUlterioriMaestri.php - verificaMaestroNew - risposta da 07qry_checkMaestro");	
-					 console.log ("responso=>"+ data.responso);
-					 console.log ("msg=>"+data.msg);
-					 console.log ("nome_cognome_mae=>"+data.nome_cognome_mae);
-					 console.log ("test=>"+data.test);
-                     console.log ("ID_mae_cma=>"+data.ID_mae_ora);
+                     //console.log ("07qry_getUlterioriMaestri.php - verificaMaestroNew - risposta da 07qry_checkMaestro");	
+					 //console.log ("responso=>"+ data.responso);
+					 //console.log ("msg=>"+data.msg);
+					 //console.log ("nome_cognome_mae=>"+data.nome_cognome_mae);
+					 //console.log ("test=>"+data.test);
+                     //console.log ("ID_mae_cma=>"+data.ID_mae_ora);
                     
 					if (data.responso =='OK') {
 						$('#nome_cognome_maenew'+n).val(data.nome_cognome_mae);

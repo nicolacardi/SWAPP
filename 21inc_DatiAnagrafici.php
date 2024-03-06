@@ -28,6 +28,20 @@
                 <input class="tablecell5" type="text"  id="mf_soc_det" name="mf_soc_det" maxlength="1" value="<?=$mf_soc_det?>" <?if ($disabilita) {echo ("disabled");}?>>
             </div>
         </div>
+        <div class="col-xs-2 col-xs-offset-5 col-sm-1 col-sm-offset-0 col-md-1 col-md-offset-0 itemSchedaAnagrafica">
+            <div class="row">
+            </div>
+            <div class="row">
+                <button class="btnBlu hideonlessthan1280" style=" width: 40%; margin-bottom: 10px;" onclick="trovaEAggiornaSocio();">
+                <img title="Sincronizza" 
+                            src="assets/img/Icone/sync-alt-solid.svg"
+                            style=" width: 15px;" >
+            </button>
+
+
+            </div>
+
+        </div>
     </div>
 
 
@@ -279,5 +293,29 @@
 		
 		$(form).submit();
 	}
+
+    function trovaEAggiornaSocio() {
+        //questa funzione va a cercare se esiste un socio che si chiama come quello attuale tra i genitori e tra i docenti e se sì ne copia tutti i dati e ne fa l'update
+        let ID_soc = $("#ID_soc_det_hidden").val(); 
+		postData = { ID_soc : ID_soc };
+        console.log ("21inc_DatiAnagrafici.php - trovaEAggiornaSocio - postData a 21qry_updateAnagraficaSocioTrova.php ");
+		console.log (postData);
+		$.ajax({
+			type: 'POST',
+			url: "21qry_updateAnagraficaSocioTrova.php",
+			data: postData,
+			dataType: 'json',
+			success: function(data){
+				console.log ("padre", data.padre);
+                console.log ("madre", data.madre);
+                console.log ("maestro", data.maestro);
+                console.log ("sql2", data.sql2);
+                requery();
+			},
+			error: function(){
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '21inc_DatiAnagrafici ##trovaEAggiornaSocio##'");      
+			}
+		});
+    }
 
     </script>

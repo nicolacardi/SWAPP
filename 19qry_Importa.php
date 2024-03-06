@@ -384,10 +384,17 @@
 
 	$return['test2'] = $SeqMesiRataUnicaDefault;
 
-	$return['test3'] = $annoscolastico;
+	$return['test3'] = $sql7;
 	$return['test4'] = $rate;
 	$return['test5'] = $ratepromesse_alu;
 
-	
+	$return['test6'] = $quota;
+
+	$return['test7'] = $QuotaProRata;
+
+	$return['test8'] = $QuotaProRataDefault;
+	$return['test9'] = $ID_alu_ret;
+	$return['test10'] = $quotadefault;
+
      echo json_encode($return);?>
 

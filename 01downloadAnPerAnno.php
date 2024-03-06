@@ -64,7 +64,7 @@
 	while (mysqli_stmt_fetch($stmt)) { 
 		//10,53,65 sono gli indici dei campi data
 		$j++;
-		$spreadsheet->getActiveSheet()->SetCellValue("A".$j, $j-4 );
+		$spreadsheet->getActiveSheet()->SetCellValue("A".$j, $j-5 );
 		for ($x = 1; $x <= 75; $x++) {
 			if ($campo[32] == 1) { //in campo 31 c'è lista d'attesa ma estraggo anche listaattesa come campo singolo
 				$spreadsheet->getActiveSheet()->getStyle($colonna[$x].$j)->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID);
