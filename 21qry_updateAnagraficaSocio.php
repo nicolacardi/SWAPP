@@ -41,6 +41,7 @@
 					$comunenascita_soc = $_POST['comunenascita'.$padremadre.'_fam'];
 					$provnascita_soc = strtoupper($_POST['provnascita'.$padremadre.'_fam']);
 					$paesenascita_soc = strtoupper($_POST['paesenascita'.$padremadre.'_fam']);
+					$cittadinanza_soc = strtoupper($_POST['cittadinanza'.$padremadre.'_fam']);
 					$telefono_soc = $_POST['telefono'.$padremadre.'_fam'];
 					$altrotel_soc = $_POST['altrotel'.$padremadre.'_fam'];
 					$note_soc = $_POST['note'.$padremadre.'_fam'];
@@ -61,6 +62,7 @@
 					comunenascita_soc = ?,
 					provnascita_soc = ?,
 					paesenascita_soc = ?,
+					cittadinanza_soc = ?,
 					telefono_soc = ?,
 					altrotel_soc = ?,
 					email_soc = ?,
@@ -70,7 +72,7 @@
 					WHERE ID_soc  = ? ;";
 			
 					$stmt1 = mysqli_prepare($mysqli, $sql1);
-					mysqli_stmt_bind_param($stmt1, "sssssssssssssssssi", $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $ID_soc);
+					mysqli_stmt_bind_param($stmt1, "ssssssssssssssssssi", $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $cittadinanza_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $ID_soc);
 					mysqli_stmt_execute($stmt1);
 
 
@@ -104,6 +106,7 @@
 				$comunenascita_soc = $_POST['comunenascita_mae'];
 				$provnascita_soc = strtoupper($_POST['provnascita_mae']);
 				$paesenascita_soc = strtoupper($_POST['paesenascita_mae']);
+				$cittadinanza_soc = strtoupper($_POST['cittadinanza_mae']);
 				$telefono_soc = $_POST['telefono_mae'];
 				$altrotel_soc = $_POST['altrotel_mae'];
 				$note_soc = $_POST['note_mae'];
@@ -124,6 +127,7 @@
 				comunenascita_soc = ?,
 				provnascita_soc = ?,
 				paesenascita_soc = ?,
+				cittadinanza_soc = ?,
 				telefono_soc = ?,
 				altrotel_soc = ?,
 				email_soc = ?,
@@ -133,7 +137,7 @@
 				WHERE ID_soc  = ? ;";
 		
 				$stmt1 = mysqli_prepare($mysqli, $sql1);
-				mysqli_stmt_bind_param($stmt1, "sssssssssssssssssi", $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $ID_soc);
+				mysqli_stmt_bind_param($stmt1, "ssssssssssssssssssi", $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $cittadinanza_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $ID_soc);
 				mysqli_stmt_execute($stmt1);
 			}
 		break;
@@ -153,6 +157,7 @@
 			$comunenascita_soc = $_POST['comunenascita_soc'];
 			$provnascita_soc = strtoupper($_POST['provnascita_soc']);
 			$paesenascita_soc = strtoupper($_POST['paesenascita_soc']);
+			$cittadinanza_soc = strtoupper($_POST['cittadinanza_soc']);
 			$telefono_soc = $_POST['telefono_soc'];
 			$altrotel_soc = $_POST['altrotel_soc'];
 			$note_soc = $_POST['note_soc'];
@@ -201,6 +206,7 @@
 			comunenascita_soc = ?,
 			provnascita_soc = ?,
 			paesenascita_soc = ?,
+			cittadinanza_soc = ?,
 			telefono_soc = ?,
 			altrotel_soc = ?,
 			email_soc = ?,
@@ -218,7 +224,7 @@
 			WHERE ID_soc  = ? ;";
 
 			$stmt = mysqli_prepare($mysqli, $sql);
-			mysqli_stmt_bind_param($stmt, "issssssssssssssssssssssiisi", $tipo_soc, $mf_soc, $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ckrinunciaquota_soc, $motivocessazione_soc, $ID_soc);
+			mysqli_stmt_bind_param($stmt, "isssssssssssssssssssssssiisi", $tipo_soc, $mf_soc, $nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $cittadinanza_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ckrinunciaquota_soc, $motivocessazione_soc, $ID_soc);
 			mysqli_stmt_execute($stmt);
 	  }
 
@@ -227,7 +233,7 @@
 	
 	$return['msg'] = "Dati del socio ". $nome_soc . " " . $cognome_soc ." aggiornati";
 	$return['test'] = $sql;		
-	$testA = [$nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $motivocessazione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ID_soc];
+	$testA = [$nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $cittadinanza_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $motivocessazione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ID_soc];
 	$return['testA'] = $testA;	
 	echo json_encode($return);
 ?>

@@ -63,14 +63,14 @@ if ($ID_fam == 0) {
 
 foreach ($ID_famA as $ID_fam) {
 
-	$sql = "SELECT cognome_fam, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, ruolopadre_fam,
-	sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ruolomadre_fam,
+	$sql = "SELECT cognome_fam, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cittadinanzapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, ruolopadre_fam,
+	sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cittadinanzamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ruolomadre_fam,
 	ckcarpoolingpadre_fam, ckcarpoolingmadre_fam, ckmadreesclusadanucleo_fam, ckpadreesclusodanucleo_fam, ibanpadre_fam, ibanmadre_fam
 	FROM tab_famiglie WHERE ID_fam= ?";
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "i", $ID_fam);
 	mysqli_stmt_execute($stmt);
-	mysqli_stmt_bind_result($stmt, $cognome_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $ruolopadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ruolomadre_fam, $ckcarpoolingpadre_fam, $ckcarpoolingmadre_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam, $ibanpadre_fam, $ibanmadre_fam);
+	mysqli_stmt_bind_result($stmt, $cognome_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cittadinanzapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $ruolopadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cittadinanzamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ruolomadre_fam, $ckcarpoolingpadre_fam, $ckcarpoolingmadre_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam, $ibanpadre_fam, $ibanmadre_fam);
 	$n = 0;
 	$blank = false;
 	while (mysqli_stmt_fetch($stmt)) {
@@ -178,7 +178,11 @@ $h1 = 6;
 	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Cell(40,$h1,"Paese di nascita",1,0,'L');
 	$pdf->SetFont($fontdefault,'',12);
-	$pdf->Cell(150,$h1,$paesenascitapadre_fam,1,1,'L');
+	$pdf->Cell(60,$h1,$paesenascitapadre_fam,1,0,'L');
+	$pdf->SetFont($fontdefault,'',10);
+	$pdf->Cell(30,$h1,"Cittadinanza",1,0,'L');
+	$pdf->SetFont($fontdefault,'',12);
+	$pdf->Cell(60,$h1,$cittadinanzapadre_fam,1,1,'L');
 
 	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Cell(40,$h1,"Codice Fiscale",1,0,'L');
@@ -287,7 +291,12 @@ $h1 = 6;
 	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Cell(40,$h1,"Paese di nascita",1,0,'L');
 	$pdf->SetFont($fontdefault,'',12);
-	$pdf->Cell(150,$h1,$paesenascitamadre_fam,1,1,'L');
+	$pdf->Cell(60,$h1,$paesenascitamadre_fam,1,0,'L');
+	$pdf->SetFont($fontdefault,'',10);
+	$pdf->Cell(30,$h1,"Cittadinanza",1,0,'L');
+	$pdf->SetFont($fontdefault,'',12);
+	$pdf->Cell(60,$h1,$cittadinanzamadre_fam,1,1,'L');
+
 
 	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Cell(40,$h1,"Codice Fiscale",1,0,'L');

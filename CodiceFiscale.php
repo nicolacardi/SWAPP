@@ -252,6 +252,16 @@ function trovaCF (Chi, event) {
 		luogo = $('#comunenascita_soc_new').val();
 		CF = $('#cf_soc_new');
 	}
+	if (Chi == "socio") {
+		sesso = $('#mf_soc_det').val();
+		nome = $('#nome_soc_det').val();
+		cognome = $('#cognome_soc_det').val();
+		data = $('#datanascita_soc_det').val();
+		luogo = $('#comunenascita_soc_det').val();
+		CF = $('#cf_soc_det');
+	}
+
+
 
 	if (data =="") {data="00/00/0000"; }
 	//var sesso=form.sesso[0].checked?'M':'F'; //è come if (form.sesso[0].checked) { M } else { F }: mette in sesso M o F a seconda

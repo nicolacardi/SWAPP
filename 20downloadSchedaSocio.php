@@ -108,7 +108,11 @@ $pdf->Cell(150,$h1,$datanascita_soc,1,1,'L');
 $pdf->SetFont($fontdefault,'',10);
 $pdf->Cell(40,$h1,"Paese di nascita",1,0,'L');
 $pdf->SetFont($fontdefault,'',12);
-$pdf->Cell(150,$h1,$paesenascita_soc,1,1,'L');
+$pdf->Cell(60,$h1,$paesenascita_soc,1,0,'L');
+$pdf->SetFont($fontdefault,'',10);
+$pdf->Cell(30,$h1,"Cittadinanza",1,0,'L');
+$pdf->SetFont($fontdefault,'',12);
+$pdf->Cell(60,$h1,$cittadinanza_soc,1,1,'L');
 
 $pdf->SetFont($fontdefault,'',10);
 $pdf->Cell(40,$h1,"Codice Fiscale",1,0,'L');

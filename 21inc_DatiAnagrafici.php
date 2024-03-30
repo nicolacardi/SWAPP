@@ -306,10 +306,14 @@
 			data: postData,
 			dataType: 'json',
 			success: function(data){
+                console.log ("ID_soc", data.ID_soc);
+                console.log ("nome cognome", data.nomecognome);
 				console.log ("padre", data.padre);
                 console.log ("madre", data.madre);
                 console.log ("maestro", data.maestro);
-                console.log ("sql2", data.sql2);
+                console.log ("ID_fam", data.ID_fam);
+                console.log ("sql", data.sql);
+                console.log ("strupd", data.strupd);
                 requery();
 			},
 			error: function(){

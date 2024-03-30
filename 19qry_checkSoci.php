@@ -1,5 +1,5 @@
 <?
-	//La routine verifica se è stato modificato il socio padre o il socio madre da arte dell'utente.
+	//La routine verifica se è stato modificato il socio padre o il socio madre da parte dell'utente.
 	//infatti confronta il dbA con il dbB sulla famiglia che è stata passata.
 	 include_once("database/databaseii.php"); //è nel database B che vado a guardare!!!!
 
@@ -31,7 +31,7 @@
     $socioPadreChanged = false;
     if ($sociopadreA_fam != $sociopadreB_fam) {$socioPadreChanged = true;}
 
-    $testA = [$nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $motivocessazione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ID_soc];
+    // $testA = [$nome_soc, $cognome_soc, $indirizzo_soc, $comune_soc, $CAP_soc, $prov_soc, $paese_soc, $cf_soc, $datanascita_soc, $comunenascita_soc, $provnascita_soc, $paesenascita_soc, $cittadinanza_soc, $telefono_soc, $altrotel_soc, $email_soc, $note_soc, $img_soc, $dataiscrizione_soc, $datadisiscrizione_soc, $datarichiestaiscrizione_soc, $motivocessazione_soc, $datarestituzionequota_soc, $quotapagata_soc, $ID_soc];
 
 	$return['socioMadreDa'] = $sociomadreA_fam;
 	$return['socioPadreDa'] = $sociopadreA_fam;

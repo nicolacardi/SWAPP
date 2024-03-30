@@ -98,12 +98,12 @@
 
 			<?
 
-		$sql = "SELECT cognome_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, ruolomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, ruolopadre_fam, ckpresavisione1_fam,  ckpresavisione2_fam, ckpresavisione3_fam, ckpresavisione4_fam, ckpresavisione5_fam, ckpresavisione6_fam, ckpresavisione7_fam, ckmadreesclusadanucleo_fam, ckpadreesclusodanucleo_fam ".
+		$sql = "SELECT cognome_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cittadinanzamadre_fam, ruolomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cittadinanzapadre_fam, ruolopadre_fam, ckpresavisione1_fam,  ckpresavisione2_fam, ckpresavisione3_fam, ckpresavisione4_fam, ckpresavisione5_fam, ckpresavisione6_fam, ckpresavisione7_fam, ckmadreesclusadanucleo_fam, ckpadreesclusodanucleo_fam ".
 		"FROM tab_famiglie WHERE `ID_fam`= ?";
 		$stmt = mysqli_prepare($mysqli, $sql);
 		mysqli_stmt_bind_param($stmt, "i", $_SESSION['ID_fam']);
 		mysqli_stmt_execute($stmt);
-		mysqli_stmt_bind_result($stmt, $cognome_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $ruolomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $ruolopadre_fam, $ckpresavisione1_fam,  $ckpresavisione2_fam, $ckpresavisione3_fam, $ckpresavisione4_fam, $ckpresavisione5_fam, $ckpresavisione6_fam, $ckpresavisione7_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam);
+		mysqli_stmt_bind_result($stmt, $cognome_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cittadinanzamadre_fam, $ruolomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cittadinanzapadre_fam, $ruolopadre_fam, $ckpresavisione1_fam,  $ckpresavisione2_fam, $ckpresavisione3_fam, $ckpresavisione4_fam, $ckpresavisione5_fam, $ckpresavisione6_fam, $ckpresavisione7_fam, $ckmadreesclusadanucleo_fam, $ckpadreesclusodanucleo_fam);
 		while (mysqli_stmt_fetch($stmt)) {
 		}?>
 		<form id="formiscrizione" style="margin-top: 100px; ">

@@ -63,10 +63,14 @@ $pdf->SetFont($fontdefault,'',10);
 
 	$pdf->Cell(150,7,"",1,1,'L');
 
-	$pdf->SetFont($fontdefault,'',12);
+	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Cell(40,7,"Paese di nascita",1,0,'L');
-	$pdf->SetFont($fontdefault,'',14);
-	$pdf->Cell(150,7,"",1,1,'L');
+	$pdf->SetFont($fontdefault,'',12);
+	$pdf->Cell(60,7,"",1,0,'L');
+	$pdf->SetFont($fontdefault,'',10);
+	$pdf->Cell(30,7,"Cittadinanza",1,0,'L');
+	$pdf->SetFont($fontdefault,'',12);
+	$pdf->Cell(60,7,"",1,1,'L');
 
 	$pdf->SetFont($fontdefault,'',12);
 	$pdf->Cell(40,7,"Codice Fiscale",1,0,'L');
@@ -138,10 +142,14 @@ $pdf->SetFont($fontdefault,'',10);
 
 	$pdf->Cell(150,7,"",1,1,'L');
 
-	$pdf->SetFont($fontdefault,'',12);
+	$pdf->SetFont($fontdefault,'',10);
 	$pdf->Cell(40,7,"Paese di nascita",1,0,'L');
-	$pdf->SetFont($fontdefault,'',14);
-	$pdf->Cell(150,7,"",1,1,'L');
+	$pdf->SetFont($fontdefault,'',12);
+	$pdf->Cell(60,7,"",1,0,'L');
+	$pdf->SetFont($fontdefault,'',10);
+	$pdf->Cell(30,7,"Cittadinanza",1,0,'L');
+	$pdf->SetFont($fontdefault,'',12);
+	$pdf->Cell(60,7,"",1,1,'L');
 
 	$pdf->SetFont($fontdefault,'',12);
 	$pdf->Cell(40,7,"Codice Fiscale",1,0,'L');

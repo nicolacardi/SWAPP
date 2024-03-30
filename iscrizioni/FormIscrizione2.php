@@ -55,12 +55,12 @@
 
 	$annoiscrizioni = $_SESSION['anno_iscrizioni'];
 
-	$sql = "SELECT cognome_fam, ruolopadre_fam, ruolomadre_fam, sociopadre_fam, sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ibanmadre_fam, ckautorizzazionemadre_fam, ckcarpoolingmadre_fam ".
+	$sql = "SELECT cognome_fam, ruolopadre_fam, ruolomadre_fam, sociopadre_fam, sociomadre_fam, cognomemadre_fam, nomemadre_fam, datanascitamadre_fam, comunenascitamadre_fam, provnascitamadre_fam, paesenascitamadre_fam, cittadinanzamadre_fam, cfmadre_fam, indirizzomadre_fam, comunemadre_fam, CAPmadre_fam, provmadre_fam, paesemadre_fam, telefonomadre_fam, altrotelmadre_fam, emailmadre_fam, titolomadre_fam, profmadre_fam, ibanmadre_fam, ckautorizzazionemadre_fam, ckcarpoolingmadre_fam ".
 	"FROM `tab_famiglie` WHERE `ID_fam`= ?";
 			$stmt = mysqli_prepare($mysqli, $sql);
 			mysqli_stmt_bind_param($stmt, "i", $_SESSION['ID_fam']);
 			mysqli_stmt_execute($stmt);
-			mysqli_stmt_bind_result($stmt, $cognome_fam, $ruolopadre_fam, $ruolomadre_fam, $sociopadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ibanmadre_fam, $ckautorizzazionemadre_fam, $ckcarpoolingmadre_fam);
+			mysqli_stmt_bind_result($stmt, $cognome_fam, $ruolopadre_fam, $ruolomadre_fam, $sociopadre_fam, $sociomadre_fam, $cognomemadre_fam, $nomemadre_fam, $datanascitamadre_fam, $comunenascitamadre_fam, $provnascitamadre_fam, $paesenascitamadre_fam, $cittadinanzamadre_fam, $cfmadre_fam, $indirizzomadre_fam, $comunemadre_fam, $CAPmadre_fam, $provmadre_fam, $paesemadre_fam, $telefonomadre_fam, $altrotelmadre_fam, $emailmadre_fam, $titolomadre_fam, $profmadre_fam, $ibanmadre_fam, $ckautorizzazionemadre_fam, $ckcarpoolingmadre_fam);
 			while (mysqli_stmt_fetch($stmt)) {
 			}?>
 			
@@ -156,7 +156,15 @@
 				NATA
 			</div>
 			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; padding-bottom: 5px; padding-left:2px; padding-right: 2px;">				
-				<div class="col-md-9 col-sm-9" style="text-align: center; font-size: 14px;">
+				<div class="col-md-4 col-sm-4" style="text-align: center; font-size: 14px;">
+					<div class="row">
+						Data
+					</div>
+					<div class="row">
+						<input class="tablecell5 datepicker" type="text"  id="datanascitamadre_fam" name="datanascitamadre_fam" maxlength="10" value = "<?if($datanascitamadre_fam!='0000-00-00' && $datanascitamadre_fam!='1900-01-01' && $datanascitamadre_fam!= NULL) {echo(date('d/m/Y', strtotime(str_replace('-','/', $datanascitamadre_fam))));}?>">
+					</div>
+				</div>	
+				<div class="col-md-8 col-sm-8" style="text-align: center; font-size: 14px;">
 					<div class="row">
 						Comune
 					</div>
@@ -167,7 +175,7 @@
 						<div class="showcomuneB" name="showComuneNascita_fam" id="showComuneNascita_fam" ></div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-3" style="text-align: center; font-size: 14px;">
+				<div class="col-md-4 col-sm-4" style="text-align: center; font-size: 14px;">
 					<div class="row">
 						Prov
 					</div>
@@ -194,12 +202,12 @@
 						<!--<input class="tablecell5" type="text"  id="paesenascitamadre_fam" name="paesenascitamadre_fam" value = "<?//=$paesenascitamadre_fam?>">-->
 					</div>
 				</div>
-				<div class="col-md-4 col-sm-4" style="text-align: center; font-size: 14px;">
+				<div class="col-md-12 col-sm-12" style="text-align: center; font-size: 14px;">
 					<div class="row">
-						Data
+						Cittadinanza
 					</div>
 					<div class="row">
-						<input class="tablecell5 datepicker" type="text"  id="datanascitamadre_fam" name="datanascitamadre_fam" maxlength="10" value = "<?if($datanascitamadre_fam!='0000-00-00' && $datanascitamadre_fam!='1900-01-01' && $datanascitamadre_fam!= NULL) {echo(date('d/m/Y', strtotime(str_replace('-','/', $datanascitamadre_fam))));}?>">
+						<input class="tablecell5" type="text"  id="cittadinanzamadre_fam" name="cittadinanzamadre_fam" maxlength = "16" onchange="makeuppercase(cittadinanzamadre_fam)" value = "<?=$cittadinanzamadre_fam?>" >
 					</div>
 				</div>
 				<div class="col-md-12 col-sm-12" style="text-align: center; font-size: 14px;">
@@ -485,11 +493,11 @@
 
 	function CheckBeforeForm3(){
 		//verifica che i dati obbligatori ci siano tutti
-		let campo = ["comunenascitamadre_fam", "provnascitamadre_fam", "paesenascitamadre_fam", "cfmadre_fam", "indirizzomadre_fam", "comunemadre_fam", "provmadre_fam", "paesemadre_fam", "CAPmadre_fam", "telefonomadre_fam", "emailmadre_fam", "ckautorizzazionemadre_fam"];
+		let campo = ["comunenascitamadre_fam", "provnascitamadre_fam", "paesenascitamadre_fam", "cittadinanzamadre_fam", "cfmadre_fam", "indirizzomadre_fam", "comunemadre_fam", "provmadre_fam", "paesemadre_fam", "CAPmadre_fam", "telefonomadre_fam", "emailmadre_fam", "ckautorizzazionemadre_fam"];
 		let campodesc = ["Comune di Nascita", "Provincia di Nascita", "Paese di Nascita", "Codice Fiscale", "Via e N. Civico", "Comune di Residenza", "Provincia di Residenza", "Paese di Residenza", "CAP di residenza", "Telefono", "Indirizzo e-mail", "Autorizzazione Privacy"];
 		let campomissing = [];
 		let missingfields = 0;
-		for (i = 0; i < 11; i++) { 
+		for (i = 0; i < 12; i++) { 
 			if ($('#'+campo[i]).val()=="") {
 				$('#'+campo[i]).css("border", "1px solid red");
 				campomissing[missingfields]=campodesc[i];
@@ -794,6 +802,7 @@
 		$('.resetme').val("-");
 		$('#datanascitamadre_fam').val('01/01/1970');
 		$('#paesenascitamadre_fam').val('ITALIA');
+		$('#cittadinanzamadre_fam').val('ITALIANA');
 		$('#paesemadre_fam').val('ITALIA');
 		$('#titolomadre_fam').val('');
 	}

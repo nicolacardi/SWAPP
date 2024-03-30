@@ -47,7 +47,7 @@
 
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
         <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-md-offset-0" style="z-index:100">
-            <div class="RiquadroInfoShort">
+            <div class="RiquadroInfoLong">
                 <h4>Foto & Note</h4>
                 <div style="text-align: center; margin-top: 19px; ">
                     <button type="Button" class="btnBlu hideonlessthan1280 mb5" data-toggle="modal" id="launchModalCrop" onclick="openCroppie('madri');">Cerca Foto</button>
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-md-offset-0" style="z-index:100">
-            <div class="RiquadroInfoShort">
+            <div class="RiquadroInfoLong">
                 <h4>Nata</h4>
                 <div class="row mt30">
                     il
@@ -103,6 +103,12 @@
                     <input class="tablecell7" type="text"  id="paesenascitamadre_fam_det" name="paesenascitamadre_fam_det" value = "<?=$paesenascitamadre_fam_det?>">
                 </div>
                 <div  class="row mt5">
+                    Cittadinanza
+                </div>
+                <div  class="row mt5">
+                    <input class="tablecell7" type="text"  id="cittadinanzamadre_fam_det" name="cittadinanzamadre_fam_det" value = "<?=$cittadinanzamadre_fam_det?>">
+                </div>
+                <div  class="row mt5">
                     <button class="btnBlu20" style=" width: 40%;" onclick="trovaCF('madre', event);">C.F.</button>
                 </div>
                 <div  class="row mt5">
@@ -111,7 +117,7 @@
             </div>
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-md-offset-0" style="z-index:100">
-            <div class="RiquadroInfoShort"> 
+            <div class="RiquadroInfoLong"> 
                 <h4 class="mb5" >Residenza</h4>
                 <button class="btnBlu20" style=" width: 45%; margin-bottom: 0px; margin-top: 0px;" onclick="CopiaResidenza('alu','madre');">= figlio</button>
                 <button class="btnBlu20" style=" width: 45%; margin-bottom: 0px; margin-top: 0px;" onclick="CopiaResidenza('padre','madre');">= padre</button>
@@ -151,7 +157,7 @@
             </div>
         </div>
         <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-md-3 col-md-offset-0" style="z-index:100">
-            <div class="RiquadroInfoShort">
+            <div class="RiquadroInfoLong">
                 <h4>ALTRI DATI</h4>		
                 <div class="row mt30">
                     <div class="col-xs-6" >

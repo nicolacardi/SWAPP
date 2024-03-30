@@ -67,11 +67,11 @@ $_SESSION['anno2'] = $anno2;
 	$countries = array("Italia", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antigua e Barbuda", "Antille Olandesi", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belgio", "Belize", "Benin", "Bermuda", "Bhutan", "Bielorussia", "Bolivia", "Bosnia Herzegowina", "Botswana", "Bouvet Island", "Brasile", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambogia", "Camerun", "Canada", "Capo Verde", "Cayman", "Chad", "Cile", "Cina", "Città del Vaticano", "Colombia", "Comoros", "Congo", "Congo, Rep. Democratica del", "Corea, Repubblica popolare democratica di", "Corea, Repubblica della", "Costa Rica", "Costa d'Avorio", "Croazia", "Cuba", "Cipro", "Danimarca", "Djibouti", "Dominica", "East Timor", "Ecuador", "Egitto", "El Salvador", "Eritrea", "Estonia", "Etiopia", "Fiji", "Filippines", "Finlandia", "Francia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germania", "Ghana", "Giappone",  "Gibilterra", "Giordania", "Grecia", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guiana Francese", "Guinea", "Guinea-Bissau", "Guinea Equatoriale", "Guyana", "Haiti", "Honduras", "Islanda", "India", "Indonesia", "Iran (Repubblica Islamica dell')", "Iraq", "Irlanda", "Isole Christmas", "Isole Cocos (Keeling)", "Isole Cook", "Isole Falkland (Malvinas)", "Isole Faroe", "Isole Heard and Mc Donald", "Isole Marshall", "Isole Solomon", "Isole Svalbard e Jan Mayen", "Isole Turks and Caicos", "Isole Vergini (British)", "Isole Vergini (U.S.)", "Isole Wallis e Futuna","Israele", "Jamaica", "Kazakhstan", "Kenia", "Kiribati", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lesotho", "Libano", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lituania", "Lussemburgo",  "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malesia", "Maldive", "Mali", "Malta", "Marocco", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Messico", "Micronesia, Federazione della", "Moldova, Repubblica della", "Monaco", "Mongolia", "Montserrat", "Mozambico", "Myanmar", "Namibia", "Nauru", "Nepal",  "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norvegia",  "Nuova Caledonia", "Nuova Zelanda", "Olanda", "Oman", "Pakistan", "Palau", "Panama", "Papua Nuova Guinea", "Paraguay", "Peru", "Pitcairn", "Polonia", "Polinesia Francese", "Portogallo", "Puerto Rico", "Qatar", "Repubblica Ceca", "Repubblica Centroafricana", "Republica Dominicana", "Reunion", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Repubblica della)", "Slovenia", "Somalia",  "South Georgia and the South Sandwich Islands", "Spagna", "Sri Lanka", "Stati Uniti d'America", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname",  "Sudafrica", "Svezia", "Svizzera","Swaziland",  "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, Repubblica della", "Thailandia", "Togo", "Tokelau", "Tonga", "Trinidad e Tobago", "Tunisia", "Turchia", "Turkmenistan",  "Tuvalu", "Ucraina", "Uganda",  "Ungheria", "United Arab Emirates", "UK",  "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
 	$countriesN = count($countries);
 
-	$sql = "SELECT cognome_fam, ruolopadre_fam, ruolomadre_fam, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, ibanpadre_fam, ckautorizzazionepadre_fam, ckcarpoolingpadre_fam, nonmostrarepiu_fam FROM `tab_famiglie` WHERE `ID_fam`= ?";
+	$sql = "SELECT cognome_fam, ruolopadre_fam, ruolomadre_fam, sociopadre_fam, sociomadre_fam, cognomepadre_fam, nomepadre_fam, datanascitapadre_fam, comunenascitapadre_fam, provnascitapadre_fam, paesenascitapadre_fam, cittadinanzapadre_fam, cfpadre_fam, indirizzopadre_fam, comunepadre_fam, CAPpadre_fam, provpadre_fam, paesepadre_fam, telefonopadre_fam, altrotelpadre_fam, emailpadre_fam, titolopadre_fam, profpadre_fam, ibanpadre_fam, ckautorizzazionepadre_fam, ckcarpoolingpadre_fam, nonmostrarepiu_fam FROM `tab_famiglie` WHERE `ID_fam`= ?";
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "i", $_SESSION['ID_fam']);
 	mysqli_stmt_execute($stmt);
-	mysqli_stmt_bind_result($stmt, $cognome_fam, $ruolopadre_fam, $ruolomadre_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $ibanpadre_fam, $ckautorizzazionepadre_fam, $ckcarpoolingpadre_fam, $nonmostrarepiu_fam); 
+	mysqli_stmt_bind_result($stmt, $cognome_fam, $ruolopadre_fam, $ruolomadre_fam, $sociopadre_fam, $sociomadre_fam, $cognomepadre_fam, $nomepadre_fam, $datanascitapadre_fam, $comunenascitapadre_fam, $provnascitapadre_fam, $paesenascitapadre_fam, $cittadinanzapadre_fam, $cfpadre_fam, $indirizzopadre_fam, $comunepadre_fam, $CAPpadre_fam, $provpadre_fam, $paesepadre_fam, $telefonopadre_fam, $altrotelpadre_fam, $emailpadre_fam, $titolopadre_fam, $profpadre_fam, $ibanpadre_fam, $ckautorizzazionepadre_fam, $ckcarpoolingpadre_fam, $nonmostrarepiu_fam); 
 	while (mysqli_stmt_fetch($stmt)) {
 	}?>
 	
@@ -166,8 +166,16 @@ $_SESSION['anno2'] = $anno2;
 				<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; border-top: 1px solid grey; margin-top: 10px;  ">
 					NATO
 				</div>
-				<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; padding-bottom: 5px; padding-left:2px; padding-right: 2px;">				
-					<div class="col-md-9 col-sm-9" style="text-align: center; font-size: 14px;">
+				<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; padding-bottom: 5px; padding-left:2px; padding-right: 2px;">	
+					<div class="col-md-4 col-sm-4" style="text-align: center; font-size: 14px;">
+						<div class="row">
+							Data
+						</div>
+						<div class="row">
+							<input class="tablecell5 datepicker" type="text"  id="datanascitapadre_fam" name="datanascitapadre_fam" maxlength="10" value = "<?if($datanascitapadre_fam!='0000-00-00' && $datanascitapadre_fam!='1900-01-01' && $datanascitapadre_fam!= NULL) {echo(date('d/m/Y', strtotime(str_replace('-','/', $datanascitapadre_fam))));}?>">
+						</div>
+					</div>			
+					<div class="col-md-8 col-sm-8" style="text-align: center; font-size: 14px;">
 						<div class="row">
 							Comune
 						</div>
@@ -178,7 +186,7 @@ $_SESSION['anno2'] = $anno2;
 							<div class="showcomuneB" name="showComuneNascita_fam" id="showComuneNascita_fam"  ></div>
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-3" style="text-align: center; font-size: 14px;">
+					<div class="col-md-4 col-sm-4" style="text-align: center; font-size: 14px;">
 						<div class="row">
 							Prov
 						</div>
@@ -205,12 +213,12 @@ $_SESSION['anno2'] = $anno2;
 							<!--<input class="tablecell5" type="text"  id="paesenascitapadre_fam" name="paesenascitapadre_fam" value = "<?//=$paesenascitapadre_fam?>">-->
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-4" style="text-align: center; font-size: 14px;">
+					<div class="col-md-12 col-sm-12" style="text-align: center; font-size: 14px;">
 						<div class="row">
-							Data
+							Cittadinanza
 						</div>
 						<div class="row">
-							<input class="tablecell5 datepicker" type="text"  id="datanascitapadre_fam" name="datanascitapadre_fam" maxlength="10" value = "<?if($datanascitapadre_fam!='0000-00-00' && $datanascitapadre_fam!='1900-01-01' && $datanascitapadre_fam!= NULL) {echo(date('d/m/Y', strtotime(str_replace('-','/', $datanascitapadre_fam))));}?>">
+							<input class="tablecell5" type="text"  id="cittadinanzapadre_fam" name="cittadinanzapadre_fam" maxlength = "16" onchange="makeuppercase(cittadinanzapadre_fam)" value = "<?=$cittadinanzapadre_fam?>" >
 						</div>
 					</div>
 					<div class="col-md-12 col-sm-12" style="text-align: center; font-size: 14px;">
@@ -500,12 +508,12 @@ $_SESSION['anno2'] = $anno2;
 	function CheckBeforeForm2(){
 		console.log("FormIscrizione1.php - ChekBeforeForm2");
 		//verifica che i dati obbligatori ci siano tutti
-		let campo = ["comunenascitapadre_fam", "provnascitapadre_fam", "paesenascitapadre_fam", "cfpadre_fam", "indirizzopadre_fam", "comunepadre_fam", "provpadre_fam", "paesepadre_fam", "CAPpadre_fam", "telefonopadre_fam", "emailpadre_fam", "ckautorizzazionepadre_fam"];
+		let campo = ["comunenascitapadre_fam", "provnascitapadre_fam", "paesenascitapadre_fam", "cittadinanzapadre_fam", "cfpadre_fam", "indirizzopadre_fam", "comunepadre_fam", "provpadre_fam", "paesepadre_fam", "CAPpadre_fam", "telefonopadre_fam", "emailpadre_fam", "ckautorizzazionepadre_fam"];
 		let campodesc = ["Comune di Nascita", "Provincia di Nascita", "Paese di Nascita", "Codice Fiscale", "Via e N. Civico", "Comune di Residenza", "Provincia di Residenza", "Paese di Residenza", "CAP di residenza", "Telefono", "Indirizzo e-mail", "Autorizzazione Privacy"];
 
 		let campomissing = [];
 		let missingfields = 0;
-		for (i = 0; i < 11; i++) { 
+		for (i = 0; i < 12; i++) { 
 			if ($('#'+campo[i]).val()=="") {
 				$('#'+campo[i]).css("border", "1px solid red");
 				campomissing[missingfields]=campodesc[i];
@@ -770,6 +778,7 @@ $_SESSION['anno2'] = $anno2;
 		$('.resetme').val("-");
 		$('#datanascitapadre_fam').val('01/01/1970');
 		$('#paesenascitapadre_fam').val('ITALIA');
+		$('#cittadinanzapadre_fam').val('ITALIANA');
 		$('#paesepadre_fam').val('ITALIA');
 		$('#titolopadre_fam').val('');
 	}

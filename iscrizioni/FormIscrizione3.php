@@ -258,7 +258,15 @@
 				<? if ($mf_alu== "M") { echo("NATO"); } else { echo("NATA"); } ?>
 			</div>
 			<div class="col-md-4 col-sm-12 col-md-offset-4" style="text-align: center; font-size: 14px; padding-bottom: 5px; padding-left:2px; padding-right: 2px;">				
-				<div class="col-md-9 col-sm-9" style="text-align: center; font-size: 14px;">
+				<div class="col-md-4 col-sm-4" style="text-align: center; font-size: 14px;">
+					<div class="row">
+						Data
+					</div>
+					<div class="row">
+						<input class="tablecell5 datepicker" type="text"  id="datanascita_alu" name="datanascita_alu" maxlength="10" value = "<?if($datanascita_alu!='0000-00-00' && $datanascita_alu!='1900-01-01' && $datanascita_alu!= NULL) {echo(date('d/m/Y', strtotime(str_replace('-','/', $datanascita_alu))));}?>">
+					</div>
+				</div>	
+				<div class="col-md-8 col-sm-8" style="text-align: center; font-size: 14px;">
 					<div class="row">
 						Comune
 					</div>
@@ -269,7 +277,7 @@
 						<div class="showcomuneB" name="showComuneNascita_alu" id="showComuneNascita_alu" ></div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-3" style="text-align: center; font-size: 14px;">
+				<div class="col-md-4 col-sm-4" style="text-align: center; font-size: 14px;">
 					<div class="row">
 						Prov
 					</div>
@@ -296,14 +304,7 @@
 						<!--<input class="tablecell5" type="text"  id="paesenascitamadre_fam" name="paesenascitamadre_fam" value = "<?//=$paesenascitamadre_fam?>">-->
 					</div>
 				</div>
-				<div class="col-md-4 col-sm-4" style="text-align: center; font-size: 14px;">
-					<div class="row">
-						Data
-					</div>
-					<div class="row">
-						<input class="tablecell5 datepicker" type="text"  id="datanascita_alu" name="datanascita_alu" maxlength="10" value = "<?if($datanascita_alu!='0000-00-00' && $datanascita_alu!='1900-01-01' && $datanascita_alu!= NULL) {echo(date('d/m/Y', strtotime(str_replace('-','/', $datanascita_alu))));}?>">
-					</div>
-				</div>
+
 				<div class="col-md-12 col-sm-12" style="text-align: center; font-size: 14px;">
 					<div class="row">
 						Cittadinanza

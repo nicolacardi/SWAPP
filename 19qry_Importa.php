@@ -176,9 +176,13 @@
 	
 //Arrays per tab_famiglie **************************************************************************************
 
-	$nomicampifam = array("idle", "cognome_fam", "sociopadre_fam", "cognomepadre_fam", "nomepadre_fam", "datanascitapadre_fam", "comunenascitapadre_fam", "provnascitapadre_fam", "paesenascitapadre_fam", "cfpadre_fam", "indirizzopadre_fam", "comunepadre_fam", "CAPpadre_fam", "provpadre_fam", "paesepadre_fam", "telefonopadre_fam", "altrotelpadre_fam", "emailpadre_fam", "titolopadre_fam", "profpadre_fam", "sociomadre_fam", "cognomemadre_fam", "nomemadre_fam", "datanascitamadre_fam", "comunenascitamadre_fam", "provnascitamadre_fam", "paesenascitamadre_fam", "cfmadre_fam", "indirizzomadre_fam", "comunemadre_fam", "CAPmadre_fam", "provmadre_fam", "paesemadre_fam", "telefonomadre_fam", "altrotelmadre_fam", "emailmadre_fam", "titolomadre_fam", "profmadre_fam", "quotacontraggiuntivo_fam", "ratecontraggiuntivo_fam", "intestazionefatt_fam", "modalitapag_fam", "pulizie_fam", "richcolloquio_fam", "ratepromesse_fam", "ckcarpoolingpadre_fam", "ckcarpoolingmadre_fam", "ibanpadre_fam", "ibanmadre_fam", "ruolopadre_fam", "ruolomadre_fam");
+	$nomicampifam = array("idle", "cognome_fam", "sociopadre_fam", "cognomepadre_fam", "nomepadre_fam", "datanascitapadre_fam", "comunenascitapadre_fam", "provnascitapadre_fam", "paesenascitapadre_fam", "cittadinanzapadre_fam", "cfpadre_fam", "indirizzopadre_fam", "comunepadre_fam", "CAPpadre_fam", "provpadre_fam", "paesepadre_fam", "telefonopadre_fam", "altrotelpadre_fam", "emailpadre_fam", "titolopadre_fam", "profpadre_fam", "sociomadre_fam", "cognomemadre_fam", "nomemadre_fam", "datanascitamadre_fam", "comunenascitamadre_fam", "provnascitamadre_fam", "paesenascitamadre_fam", "cittadinanzamadre_fam", "cfmadre_fam", "indirizzomadre_fam", "comunemadre_fam", "CAPmadre_fam", "provmadre_fam", "paesemadre_fam", "telefonomadre_fam", "altrotelmadre_fam", "emailmadre_fam", "titolomadre_fam", "profmadre_fam", "quotacontraggiuntivo_fam", "ratecontraggiuntivo_fam", "intestazionefatt_fam", "modalitapag_fam", "pulizie_fam", "richcolloquio_fam", "ratepromesse_fam", "ckcarpoolingpadre_fam", "ckcarpoolingmadre_fam", "ibanpadre_fam", "ibanmadre_fam", "ruolopadre_fam", "ruolomadre_fam");
+	//nomicampifam sembra contenere un elemento in più rispetto a stringaupdatefam
 
-	$stringaupdatefam = "sisssssssssssssssssisssssssssssssssssiisiiiiiissss";
+	
+	$stringaupdatefam = "ssssssssssssssssssssissssssssssssssssssiisiiiiiissss";
+
+	//$stringaupdatefam = "sisssssssssssssssssisssssssssssssssssiisiiiiiissss";
 
 //Scrittura dinamica dei valori in importazione in matrici *****************************************************	
 

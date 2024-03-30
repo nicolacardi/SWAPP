@@ -9,6 +9,7 @@
 		$comunenascita_socio = 		$comunenascitapadre_fam;
 		$provnascita_socio = 		$provnascitapadre_fam;
 		$paesenascita_socio = 		$paesenascitapadre_fam;
+		$cittadinanza_socio = 		$cittadinanzapadre_fam;
 		$datanascita_socio = 		$datanascitapadre_fam;
 		$comune_socio = 			$comunepadre_fam;
 		$prov_socio = 				$provpadre_fam;
@@ -19,6 +20,7 @@
 		$telefono_socio = 			$telefonopadre_fam;
 		$email_socio = 				$emailpadre_fam;
 		$professione_socio =		$profpadre_fam;
+
 
 
 		if ($sociopadre_fam == 1 || $blank) {
@@ -53,6 +55,7 @@
 		$comunenascita_socio = 		$comunenascitamadre_fam;
 		$provnascita_socio = 		$provnascitamadre_fam;
 		$paesenascita_socio = 		$paesenascitamadre_fam;
+		$cittadinanza_socio = 		$cittadinanzamadre_fam;
 		$datanascita_socio = 		$datanascitamadre_fam;
 		$comune_socio = 			$comunemadre_fam;
 		$prov_socio = 				$provmadre_fam;
