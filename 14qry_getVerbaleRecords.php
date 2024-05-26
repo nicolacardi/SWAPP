@@ -27,7 +27,7 @@
 				</select>
 				<input style="width: 85%; margin-top: 5px; text-align: left; <?if($argnum_ver!=9) {echo('display:none;');}?> " class="tablecell5" type="text"  id="argomentoaltro_ver<?=$i?>" name="argomentoaltro_ver<?=$i?>" placeholder="...prego specificare" <?if($argnum_ver==9) {echo("value='".stripslashes($argomento_ver)."';"); }?>>
 			</div>
-			<div class="col-md-6 w600px" style="padding-left: 5px; padding-right: 5px">
+			<div class="col-md-6 w500px" style="padding-left: 5px; padding-right: 5px">
 				<textarea style="text-align: left; font-size: 13px; height: 80px; resize: vertical" class="tablecell5" id="tematiche_new<?=$i?>"><?=stripslashes($tematiche_ver)?></textarea>
 			</div>
 			<div class="col-md-3 w200px" style="padding-left: 5px; padding-right: 5px">

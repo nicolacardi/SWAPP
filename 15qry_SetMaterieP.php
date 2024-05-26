@@ -94,7 +94,8 @@ $sql= "SELECT ID_mat, codmat_mat, descmateria_mat, aselme_mat, tipodoc_mat, ord_
 					<option value="6" <?if($tipodoc_mat == '6') {echo('selected');}?>>Pagella Tipo 6</option>
 					<option value="7" <?if($tipodoc_mat == '7') {echo('selected');}?>>Pagella Tipo 7</option>	
 					<option value="8" <?if($tipodoc_mat == '8') {echo('selected');}?>>Pagella Tipo 8</option>	
-
+					<option value="8" <?if($tipodoc_mat == '9') {echo('selected');}?>>Pagella Tipo 9</option>	
+					<option value="8" <?if($tipodoc_mat == '10') {echo('selected');}?>>Pagella Tipo 10</option>	
 					<option value="11" <?if($tipodoc_mat == '11') {echo('selected');}?>>Cert. Competenze</option>
                  </select>
 			</td>

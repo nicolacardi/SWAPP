@@ -163,10 +163,10 @@
 
         <div class="row"  style="margin-top:20px;">
             <div class="col-sm-12" style="text-align: center;">
-                Commento Generale del Collegio
+                Commento Generale del Collegio (max 2000 char)
             </div>
             <div class="col-sm-12" style="margin-left:50px;">
-                <textarea style="width: 92%; height: 100px; margin-top:10px;" id="commento_alu" ><?=$commento_alu_det?></textarea>
+                <textarea maxlength="2000" style="width: 92%; height: 100px; margin-top:10px;" id="commento_alu" ><?=$commento_alu_det?></textarea>
             </div>
             <div class="col-sm-12" style="text-align: center;">
                 <button class="btnBlu w100px" onclick="salvaCommento();">Salva</button>

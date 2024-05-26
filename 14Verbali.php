@@ -135,6 +135,9 @@
 								<div class="col-md-1" style="text-align: center;">
 									# Ver.
 								</div>
+								<!-- <div class="col-md-1" style="text-align: center;">
+									Ometti Intestazione
+								</div> -->
 							</div>
 							<div class="row" style="margin-left: 100px;">
 								<div class="col-md-3" style="text-align: center;" id="TipoVerbaleContainer">
@@ -159,6 +162,10 @@
 								<div class="col-md-1" style="text-align: center;">
 									<input class="tablecell5 w100" type="text"  id="num_ver_new" name="num_ver_new" value = ".." readonly>
 								</div>
+								<!-- <div class="col-md-1" style="text-align: center;">
+									<input type="checkbox" class="tablecell5" id="omettiint_ver_new">
+								</div> -->
+								
 							</div>
 							<div class="row" style="margin-top: 10px; margin-left: 90px;">
 								<div class="col-md-12">
@@ -203,7 +210,7 @@
 								<div class="col-md-2" style="width: 280px;">
 									Argomenti trattati
 								</div>
-								<div class="col-md-6 w600px" style="padding-left: 5px; padding-right: 5px">
+								<div class="col-md-6 w500px" style="padding-left: 5px; padding-right: 5px">
 									Tematiche affrontate*
 								</div>
 								<div class="col-md-3 w200px" style="padding-left: 5px; padding-right: 5px">
@@ -228,8 +235,8 @@
 									</select>
 									<input style="width: 85%; margin-top: 5px; text-align: left; display:none;" class="tablecell5" type="text"  id="argomentoaltro_ver0" name="argomentoaltro_ver0" placeholder="...prego specificare">
 								</div>
-								<div class="col-md-6 w600px" style="padding-left: 5px; padding-right: 5px">
-									<textarea style="text-align: left; font-size: 13px; height: 80px; resize: vertical" class="tablecell5" id="tematiche_new"></textarea>
+								<div class="col-md-6 w500px" style="padding-left: 5px; padding-right: 5px">
+									<textarea style="text-align: left; font-size: 13px; height: 80px; resize: vertical;" class="tablecell5" id="tematiche_new"></textarea>
 								</div>
 								<div class="col-md-3 w200px" style="padding-left: 5px; padding-right: 5px">
 									<textarea onkeyup="countChar(this)" style="text-align: left; font-size: 13px; height: 80px; resize: vertical" class="tablecell5" id="decisioni_new"></textarea>
@@ -631,17 +638,18 @@
 		$("#sezione_ver_new").val(sezione_ver);
 		//faccio prima una chiamata ajax post di tipo data per alcuni dati base (ora, data, titolo, numero, insegnanti presenti e genitori presenti)
 		postData = {num_ver: num_ver};
-		// console.log("14Verbali.php - showModalVerbale - postData a 14qry_getVerbaleBasics.php")
-		// console.log (postData);
+		console.log("14Verbali.php - showModalVerbale - postData a 14qry_getVerbaleBasics.php")
+		console.log (postData);
 		$.ajax({
 			url : "14qry_getVerbaleBasics.php",
 			type: "POST",
 			data : postData,
 			dataType: "json",
 			success:function(data){
-				console.log("14Verbali.php - showModalVerbale - ritorno da 14qry_getVerbaleBasics.php")
-				console.log (data.sql);
-				console.log ("titolo"+data.titolo_ver);
+				//console.log("14Verbali.php - showModalVerbale - ritorno da 14qry_getVerbaleBasics.php");
+				//console.log (data.sql);
+				//console.log ("titolo: "+data.titolo_ver);
+				//console.log ("ckomettiint_ver: "+data.ckomettiint_ver);
 				$('#num_ver_new').val(num_ver);
 				$("#selectTipo").val(data.tipo_ver).change();
 				$('#ora_ver_new').val(data.ora_ver);
@@ -651,6 +659,12 @@
 				$("#selectclasse_new").val(data.classe_ver).change();
 				$('#sezione_ver_new').val(data.sezione_ver);
 				$('#invitatiult_ver_new').html(data.invitatiult_ver);
+
+				// if (data.ckomettiint_ver == 1) {
+				// 	$("#omettiint_ver_new").prop('checked', true);
+				// }
+
+
 				PopolaGenitoriPresenti(data.idalunni_ver);
 				PopolaInsegnantiPresenti(data.iddocenti_ver);
 			},
@@ -701,6 +715,8 @@
 	}
 	
 	function salvaVerbale(){
+
+
 		let postData = $("#form_AddVerbale").serializeArray();
 		let ora_ver_new = $('#ora_ver_new').val();
 		let data_ver_new = $('#data_ver_new').val();
@@ -732,10 +748,14 @@
 		let num_ver = $('#num_ver_new').val();
 		postData.push( {name: "num_ver", value: num_ver}  );
 
+				// let omettiint_ver = $("#omettiint_ver_new").is(":checked");
+				// if (omettiint_ver == false) {ckomettiint_ver = 0;} else {ckomettiint_ver =1;}
+				// postData.push( {name: "ckomettiint_ver", value: ckomettiint_ver}  );
+
 		if ($('#num_ver_new').val() == "..") {
 			//caso nuovo verbale
 			if ((ora_ver_new =="") || (data_ver_new=="") || (titolo_ver_new=="") || (tematiche_new=="")){
-				$("#alertaggiungi").removeClass('alert-success');
+				$("#alertaggiungi").removeClass('salert-success');
 				$("#alertaggiungi").addClass('alert-danger');
 				$("#alertmsg").html('Tutti i campi contrassegnati da * sono obbligatori');
 				$("#alertaggiungi").show();
@@ -824,6 +844,7 @@
 					postData1.push( {name: "annoscolastico_ver", value: annoscolastico_ver}  );
 					postData1.push( {name: "classe_ver", value: classe_ver}  );
 					postData1.push( {name: "sezione_ver", value: sezione_ver}  );
+					// postData1.push( {name: "ckomettiint_ver", value: ckomettiint_ver}  );
 					console.log("14Verbali.php - salvaVerbale - postData a 14qry_updateVerbale.php")
 					console.log (postData1);
 					$.ajax(
@@ -833,7 +854,7 @@
 						data : postData1,
 						dataType: "json",
 						success:function(data) {
-							//console.log ("UPDATESQL: "+ data.sql);
+							console.log ("UPDATESQL: "+ data.sql);
 							$("#remove-content").slideUp();
 							$("#alertaggiungi").removeClass('alert-danger');
 							$("#alertaggiungi").addClass('alert-success');

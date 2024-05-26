@@ -2,19 +2,19 @@
 
 session_start();
 
-$_SESSION['databaseB'] = 'swappwaldorfB';
-$_SESSION['databaseA'] = 'swappwaldorf';
-$codscuola="PD";
+$_SESSION['databaseB'] = 'swappwaldorfB_trento';
+$_SESSION['databaseA'] = 'swappwaldorf_trento';
+$codscuola="TN";
 
 // Variabili per accesso al database
-//$username = "Sql1256175";
-//$password = "586531rtj5";
-//$database = "Sql1256175_2";
-//$host = "89.46.111.73";
+//$username = "Sql1592916";
+//$password = "LUR$YkgD76";
+//$database = "Sql1592916_2";
+//$host = "31.11.39.64";
 
 $username = 'root';
 $password = 'root';
-$database = 'swappwaldorfB';
+$database = 'swappwaldorfB_trento';
 $host = 'localhost';
 
 //lavoro in forma procedurale con la libreria mysqli

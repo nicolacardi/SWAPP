@@ -700,6 +700,8 @@
 										<option value="6" >Pagella Tipo 6</option>
 										<option value="7" >Pagella Tipo 7</option>
 										<option value="8" >Pagella Tipo 8</option>
+										<option value="9" >Pagella Tipo 9</option>
+										<option value="10" >Pagella Tipo 10</option>
 										<option value="11" >Cert. Competenze</option>
 									</select>
 								</div>

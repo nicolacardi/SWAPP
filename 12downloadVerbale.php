@@ -48,6 +48,10 @@ default:
 }
 
 
+//successivamente estraggo le informazioni che invece cambiano e record per record vado a scriverle
+//if ($ckomettiint_ver == 1 ) { $titoloToWrite = "COMMISSIONE D'ESAME";}
+
+
 
 
 //FRONTESPIZIO************************************************************************************************************************************
