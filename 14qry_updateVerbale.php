@@ -16,7 +16,6 @@
 	$annoscolastico_ver = $_POST['annoscolastico_ver'];
 	$classe_ver = $_POST['classe_ver'];
 	$sezione_ver = $_POST['sezione_ver'];
-	// $ckomettiint_ver = $_POST['ckomettiint_ver'];
 
 	$sql = "UPDATE tab_verbali SET 
 	data_ver = ?,

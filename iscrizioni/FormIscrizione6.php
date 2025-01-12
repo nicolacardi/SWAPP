@@ -89,6 +89,7 @@
 					I dati sono stati salvati e trasmessi alla Segreteria<br>tuttavia è anche necessario<br>stampare i moduli precompilati,<br><?=$scadfrase1?><span style="text-decoration: underline"><?=$scadfrase2?><?=$scadiscrizionelett?><?=$_SESSION['anno1']?>.</span>
 				</div>
 				<div class="col-md-6 col-md-offset-3">
+					<span style="text-decoration: underline">Non è ammesso apportare alcun tipo di variazione al modulo stampato.</span><br>
 					Solo la consegna in Segreteria rappresenta l'atto formale di richiesta di iscrizione <br>
 					<span style="text-decoration: underline">senza del quale la richiesta stessa<br>non può ritenersi completa.</span>
 				</div>

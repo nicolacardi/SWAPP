@@ -339,7 +339,7 @@ $pdf->SetFont($fontdefault,'',10);
 		$pdf->Ln(4);
 		
 
-		$testo="-	L'Ente Gestore gestisce una istituzione scolastica pubblica non statale paritaria per materna e primaria, non paritaria per secondaria di primo grado;";
+		$testo="-	L'Ente Gestore gestisce una istituzione scolastica pubblica non statale paritaria per materna e primaria, iscritta all'albo delle scuole non paritarie per la secondaria di primo grado;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 		$pdf->Ln(4);
@@ -923,7 +923,7 @@ $pdf->SetFont($fontdefault,'',10);
 	$pdf->Ln(6);
 
 
-	$testo="-	che nel caso il/i proprio/i figlio/i fosse(ro) affetto/i da allergie, intolleranze o patologie che richiedano diete speciali daranno tempestiva comunicazione alla segreteria della Scuola tramite la compilazione del <a href='downloadAllegato.php?nomeallegato=E'>MODULO DI RICHIESTA DIETE SPECIALI</a>  (corredato da certificato medico specialistico)";
+	$testo="-	che nel caso il/i proprio/i figlio/i fosse(ro) affetto/i da allergie, intolleranze o patologie che richiedano diete speciali daranno tempestiva comunicazione alla segreteria della Scuola tramite la compilazione del <a href='downloadAllegato.php?nomeallegato=E_".$codscuola."'>MODULO DI RICHIESTA DIETE SPECIALI</a>  (corredato da certificato medico specialistico)";
 	$testo = utf8_decode($testo);
 	$pdf->WriteHTML($testo);
 	$pdf->Ln(6);

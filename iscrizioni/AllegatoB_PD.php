@@ -30,8 +30,8 @@ Al fine di permettere un'entrata ed un'uscita ordinate invitiamo i genitori a no
 Al termine delle lezioni gli insegnanti accompagnano bambini e ragazzi alle rispettive uscite.
 Si raccomanda la massima puntualità sia per l'ingresso sia per l'uscita.
 In caso di ritardo i genitori devono avvisare la segreteria ed organizzare il ritiro del proprio figlio tramite persone di fiducia opportunamente autorizzate tramite delega scritta.
-I genitori sono pregati di attendere i bambini oltre la linea di cortesia e di non sostare oltre il necessario nel parcheggio e nella strada in modo da mantenere buone abitudini e cordiali rapporti di buon vicinato con gli abitanti del quartiere.
-Nel caso in cui si acconsenta a permettere ai ragazzi più grandi di tornare a casa in modo autonomo, è necessario un permesso firmato da entrambi i genitori valevole per tutto l'anno scolastico.
+I genitori sono pregati di non sostare oltre il necessario nel parcheggio e nella strada in modo da mantenere buone abitudini e cordiali rapporti di buon vicinato con gli abitanti del quartiere.
+Nel caso in cui si acconsenta a permettere ai ragazzi più grandi di tornare a casa in modo autonomo, è necessario compilare l'apposito modulo di permesso che deve essere firmato da entrambi i genitori, valido solo per l'anno scolastico in corso.
 La scuola declina ogni responsabilità fuori dall'orario scolastico.";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
@@ -41,13 +41,12 @@ $pdf->MultiCell(0,5,$testo);
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
 $pdf->Cell(0,10,utf8_decode("2)	PERMESSI ENTRATE/USCITE/ASSENZE"), 0,1, 'J');
 $testo= "Per qualsiasi tipo di ritardo, entrata posticipata, uscita anticipata o assenza , il genitore deve compilare l'apposito modulo nel libretto personale.
-Per assenze superiori ai sei giorni (si conteggiano anche il sabato e la domenica) è necessario presentare, oltre alla giustificazione, anche il certificato medico a cura del proprio medico curante. 
-Per la Scuola dell'Infanzia è sufficiente comunicare verbalmente alla propria maestra eventuali entrate, uscite fuori orario ed assenze inferiori ai sette giorni; resta necessario il certificato medico in caso di assenze di sette o più giorni.
-E' necessario che i genitori leggano attentamente e approvino il Regolamento Pediatrico (Allegato C).";
+<b>E' necessario che i genitori leggano attentamente e approvino il Regolamento Pediatrico (Allegato C).</b>";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
-$pdf->MultiCell(0,5,$testo);
+$pdf->WriteHTML($testo);
 
+$pdf->Ln(5);
 $pdf->SetFont('TitilliumWeb-SemiBold','',10);
 $pdf->Cell(0,10,utf8_decode("3)	RICEVIMENTO DEI GENITORI:"), 0,1, 'J');
 $testo= "Gli insegnanti incontrano i genitori nelle riunioni di classe e, per colloqui individuali, durante l'orario di ricevimento, esposto in bacheca vicino alla segreteria.

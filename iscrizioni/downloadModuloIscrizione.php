@@ -547,7 +547,7 @@ $h1 = 6;
 		}
 		if ($ISC_mostra_regolpediatrico ==1) {
 			$pdf->Ln(4);
-			$testo="-	si è presa visione di e si condividono le norme igienico sanitarie (<a href='downloadAllegato.php?nomeallegato=C_AR'>Allegato C</a>);<br>";
+			$testo="-	si è presa visione di e si condividono le norme igienico sanitarie (<a href='downloadAllegato.php?nomeallegato=C_".$codscuola."'>Allegato C</a>);<br>";
 			$testo = utf8_decode($testo);
 			$pdf->WriteHTML($testo);
 		}
@@ -822,7 +822,7 @@ $h1 = 6;
 		$pdf->SetFont($fontdefault,'',11);
 
 		$pdf->Ln(4);
-		$testo="-	L'Ente Gestore gestisce una istituzione scolastica non statale paritaria per materna e primaria, non paritaria per secondaria di primo grado;";
+		$testo="-	L'Ente Gestore gestisce una istituzione scolastica non statale paritaria per la materna e la primaria, iscritta all'albo delle scuole non paritarie per la secondaria di primo grado;";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -894,7 +894,7 @@ $h1 = 6;
 		$pdf->AddPage();
 	
 
-		$testo= "art.4)	I genitori/tutori/esercenti la responsabilità genitoriale si obbligano in solido a corrispondere all'Ente Gestore per l'anno scolastico ".$annoscolastico.", una quota annua a titolo di  CONTRIBUTO MINIMO PER I SERVIZI EDUCATIVI così definito (vedi <a href='downloadAllegato.php?nomeallegato=D_".$codscuola."'>Allegato D</a>):
+		$testo= "art.4)	I genitori/tutori/esercenti la responsabilità genitoriale <b>si obbligano in solido</b> a corrispondere all'Ente Gestore per l'anno scolastico ".$annoscolastico.", una quota annua a titolo di  CONTRIBUTO MINIMO PER I SERVIZI EDUCATIVI così definito (vedi <a href='downloadAllegato.php?nomeallegato=D_".$codscuola."'>Allegato D</a>):
 		";
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
@@ -972,14 +972,14 @@ $h1 = 6;
 		}
 
 
-		$pdf->Ln(5);
-		$pdf->SetFont($fontdefault,'',11);
-		$testo= "art.5)	I genitori/tutori/esercenti la responsabilità genitoriale che richiedano l'adesione ai servizi educativi all'anno successivo si impegnano a versare una quota pari a euro ".$quotaiscrizione." entro il ".$scadiscrizionelett.$anno2."; la quota di adesione è di euro 160 per iscrizioni oltre tale data";
-		$testo = utf8_decode($testo);
-		$pdf->MultiCell(0,5,$testo);
+		// $pdf->Ln(5);
+		// $pdf->SetFont($fontdefault,'',11);
+		// $testo= "art.5)	I genitori/tutori/esercenti la responsabilità genitoriale che richiedano l'adesione ai servizi educativi all'anno successivo si impegnano a versare una quota pari a euro ".$quotaiscrizione." entro il ".$scadiscrizionelett.$anno2."; la quota di adesione è di euro 160 per iscrizioni oltre tale data";
+		// $testo = utf8_decode($testo);
+		// $pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="art.6)	I genitori/tutori/esercenti la responsabilità genitoriale si impegnano a versare a consuntivo entro il 15/06/".$anno2." l'eventuale conguaglio per le spese didattiche anticipate dall'Ente Gestore.";
+		$testo="art.5)	I genitori/tutori/esercenti la responsabilità genitoriale si impegnano a versare a consuntivo entro il 15/06/".$anno2." l'eventuale conguaglio per le spese didattiche anticipate dall'Ente Gestore.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -990,6 +990,11 @@ $h1 = 6;
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 		$pdf->Ln(4);
+
+		$pdf->Ln(4);
+		$testo="La fatture verranno intestate al genitore che si associa alla cooperativa il quale provvederà a effettuare il bonifico.";
+		$testo = utf8_decode($testo);
+		$pdf->MultiCell(0,5,$testo);
 
 		if ($ISC_mostra_intestazionefatt ==1) {
 
@@ -1011,6 +1016,9 @@ $h1 = 6;
 			$testo = utf8_decode($testo);
 			$pdf->WriteHTML($testo);
 		}
+
+
+
 		$pdf->Ln(8);
 		$testo = "I contributi vanno versati entro il 5 di ogni mese sul conto";
 		$testo = utf8_decode($testo);
@@ -1025,17 +1033,18 @@ $h1 = 6;
 		$pdf->SetFont($fontdefault,'',11);
 
 		$pdf->Ln(4);
-		$testo= "Art.7) E' riconosciuto all'Ente Gestore il diritto di richiedere il rispetto dei tempi dei versamenti. Si precisa che il pagamento del contributo non potrà essere suddiviso tra i genitori, ma dovrà essere necessariamente versato interamente da uno dei due.";
+		$testo= "Art.6) I versamenti vanno effettuati entro i termini concordati. Eventuali deroghe dovranno essere preventivamente approvate dall'ente gestore stesso. Si precisa che <b>il pagamento del contributo non potrà essere suddiviso tra i genitori</b>, ma dovrà essere necessariamente versato interamente da uno dei due.";
+		$testo = utf8_decode($testo);
+		$pdf->WriteHTML($testo);
+
+
+		$pdf->Ln(10);
+		$testo="Art.7) Nel caso di astensione prolungata dalle lezioni per cause non imputabili alla scuola (malattia, impegni sportivi, studio all'estero, etc.) è fatto obbligo ai genitori di continuare a versare il contributo dovute secondo quanto stabilito.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="Art.8) Nel caso di astensione prolungata dalle lezioni per cause non imputabili alla scuola (malattia, impegni sportivi, studio all'estero, etc.) è fatto obbligo ai genitori di continuare a versare il contributo dovute secondo quanto stabilito.";
-		$testo = utf8_decode($testo);
-		$pdf->MultiCell(0,5,$testo);
-
-		$pdf->Ln(4);
-		$testo="Art.9) In caso di ritiro /disdetta dell'adesione oltre il 30 marzo ".$anno1.", l'Ente Gestore si avvale del diritto di trattenere interamente la quota di adesione.";
+		$testo="Art.8) In caso di ritiro /disdetta dell'adesione oltre il 30 marzo ".$anno1.", l'Ente Gestore si avvale del diritto di trattenere interamente la quota di adesione.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
@@ -1050,17 +1059,17 @@ $h1 = 6;
 		$pdf->MultiCell(0,5,$testo);
 		
 		$pdf->Ln(4);
-		$testo="Art.10) In applicazione di quanto previsto dall'art. 1456 c.c., in caso di violazione da parte dei Genitori/Tutori/esercenti la responsabilità genitoriale degli impegni contenuti nel presente contratto, l'Ente Gestore potrà risolvere di diritto il presente contratto comunicando ai Genitori/Tutori/esercenti la responsabilità genitoriale l'intenzione di avvalersi della presente clausola risolutiva.";
+		$testo="Art.9) In applicazione di quanto previsto dall'art. 1456 c.c., in caso di violazione da parte dei Genitori/Tutori/esercenti la responsabilità genitoriale degli impegni contenuti nel presente contratto, l'Ente Gestore potrà risolvere di diritto il presente contratto comunicando ai Genitori/Tutori/esercenti la responsabilità genitoriale l'intenzione di avvalersi della presente clausola risolutiva.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="Art.11) Per quanto non previsto nel presente contratto, le cui clausole si intendono tutte essenziali ed inderogabili, si rinvia alle norme di legge in materia.";
+		$testo="Art.10) Per quanto non previsto nel presente contratto, le cui clausole si intendono tutte essenziali ed inderogabili, si rinvia alle norme di legge in materia.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 
 		$pdf->Ln(4);
-		$testo="Art.12) Ogni controversia inerente l'applicazione e /o l'interpretazione del presente contratto che non richieda l'intervento obbligatorio del Pubblico Ministero sarà fatta oggetto di un tentativo preliminare di mediazione presso l'organismo della Camera di Commercio di Padova. Foro competente è il foro di Padova.";
+		$testo="Art.11) Ogni controversia inerente l'applicazione e /o l'interpretazione del presente contratto che non richieda l'intervento obbligatorio del Pubblico Ministero sarà fatta oggetto di un tentativo preliminare di mediazione presso l'organismo della Camera di Commercio di Padova. Foro competente è il foro di Padova.";
 		$testo = utf8_decode($testo);
 		$pdf->MultiCell(0,5,$testo);
 		
@@ -2074,7 +2083,9 @@ $h1 = 6;
 	}
 
 	if ($ISC_mostra_dietespeciali == 1) {
-		$testo="-	che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da allergie, intolleranze o patologie che richiedano diete speciali ne daranno tempestiva comunicazione alla segreteria della Scuola tramite la compilazione del <a href='downloadAllegato.php?nomeallegato=E'>MODULO DI RICHIESTA DIETE SPECIALI</a>  corredato da certificato medico specialistico";
+		$testo="-	che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da <b>allergie, intolleranze o patologie che richiedano la somministrazione di farmaci e/o diete speciali</b>, ne daranno tempestiva comunicazione alla segreteria della Scuola tramite <b>la compilazione degli allegati <a href='downloadAllegato.php?nomeallegato=E_".$codscuola."'>MODULI DI RICHIESTA</a>  corredati da certificato medico specialistico</b>";
+
+
 		$testo = utf8_decode($testo);
 		$pdf->WriteHTML($testo);
 	} else {
@@ -2083,7 +2094,7 @@ $h1 = 6;
 		$pdf->MultiCell(0,4.3,$testo);
 	}
 
-	$pdf->Ln(5);
+	$pdf->Ln(7);
 	$pdf->SetFont($fontdefault,'',10);
 	$testo="-	che si impegnano a comunicare qualsiasi variazione riguardante i propri dati anagrafici entro e non oltre 30 giorni dalla variazione";
 	$testo = utf8_decode($testo);

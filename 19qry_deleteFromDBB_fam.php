@@ -45,7 +45,7 @@
 	mysqli_stmt_bind_param($stmtD4, "i", $ID_fam_alu);
 	mysqli_stmt_execute($stmtD4);
 	
-	$sqlD5 = "DELETE FROM ".$_SESSION['databaseB'].".tab_users WHERE ID_usr = ?;";
+	$sqlD5 = "DELETE FROM ".$_SESSION['databaseB'].".tab_users2 WHERE ID_usr = ?;";
 	$stmtD5 = mysqli_prepare($mysqli, $sqlD5);
 	mysqli_stmt_bind_param($stmtD5, "i", $ID_usr_fam);
 	mysqli_stmt_execute($stmtD5);

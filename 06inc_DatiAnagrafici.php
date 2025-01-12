@@ -47,6 +47,7 @@
                     </div>
                     <div class="parent" style="text-align: center; ">
                         <!--<img id="imgSfondo" width="100" height="100" alt="" src="assets/photos/imgs/unknown.png" data-src="assets/photos/imgs/unknown.png" data-src-retina="iassets/photos/mgs/unknown.png">-->
+
                         <img id="imgContainerx" class="imgContainerx" width="100" height="100" alt="" 
                         src="assets/photos/imgs/<? if ($img_alu != "") { echo (str_replace(' ', '', $img_alu).'?'.rand(100000,999999));} else {echo('unknown.png?'.rand(100000,999999));}?>" 
                         >
@@ -57,8 +58,9 @@
                         -->
                     </div>
                     <!--imgName è una input dove viene scritto il nome del file caricato-->
-                    <input class="form-control imgName" id="imgName" name="imgName" maxlength="30" placeholder="immagine" value="<?=str_replace(' ', '', $img_alu)?>">
-                    
+                    <!--questo campo va aggiornato in fase di primo caricamento perchè è da qui che viene pescato il valore da salvare poi in fase di salvataggio anagrafica-->
+                    <input  class="form-control imgName" id="imgName" name="imgName" maxlength="30" placeholder="immagine" value="<?=str_replace(' ', '', $img_alu)?>">
+
                     <div  class="row mt5">
                         Note
                     </div>

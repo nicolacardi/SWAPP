@@ -186,9 +186,9 @@
 	$dbB.".tab_famiglie.datirecuperati_fam, ".
 	"altripag.TotIscrizione, ".
 	$dbB.".tab_anagraficaalunni.noniscritto_alu, ".
-	$dbB.".tab_users.ID_usr, ".
-	$dbB.".tab_users.login_usr, ".
-	$dbB.".tab_users.bloccato_usr, ".
+	$dbB.".tab_users2.ID_usr, ".
+	$dbB.".tab_users2.login_usr, ".
+	$dbB.".tab_users2.bloccato_usr, ".
 	$dbB.".tab_famiglie.annopreiscrizione_fam ".
 
 	
@@ -205,13 +205,13 @@
 
 
 
-	" LEFT JOIN ".$dbB.".tab_users ON 				".$dbB.".tab_famiglie.ID_usr_fam = " .$dbB.".tab_users.ID_usr ".
+	" LEFT JOIN ".$dbB.".tab_users2 ON 				".$dbB.".tab_famiglie.ID_usr_fam = " .$dbB.".tab_users2.ID_usr ".
 
-	// " LEFT JOIN (SELECT ".$dbB.".tab_users.login_usr, ".$dbB.".tab_users.bloccato_usr  FROM ".$dbB.".tab_users 
+	// " LEFT JOIN (SELECT ".$dbB.".tab_users2.login_usr, ".$dbB.".tab_users2.bloccato_usr  FROM ".$dbB.".tab_users2 
 	// LEFT JOIN ".$dbB.".tab_classialunni ON " .$dbB.".tab_classialuni.ID_alu_cla =  ".$dbA.".tab_classialunni.ID_alu_cla AND "
 	// .$dbB.".tab_classialuni.annoscolastico_cla = ".$dbA.".tab_classialuni.annoscolastico_cla
-	// LEFT JOIN ".$dbB.".tab_famiglie ON " .$dbB.".tab_users.ID_usr =  ".$dbA.".tab_famiglie.ID_usr_fam
-	// ) ON ".$dbB.".tab_famiglie.ID_usr_fam = " .$dbB.".tab_users.ID_usr ".
+	// LEFT JOIN ".$dbB.".tab_famiglie ON " .$dbB.".tab_users2.ID_usr =  ".$dbA.".tab_famiglie.ID_usr_fam
+	// ) ON ".$dbB.".tab_famiglie.ID_usr_fam = " .$dbB.".tab_users2.ID_usr ".
 
 
 	//potrebbero esserci stati diversi pagamenti per l'iscrizione, quindi va eseguita la SUM di quelli (causale_pag = 2) in GROUP BY su alunno e annoscolastico_pag e poi di quella va fatta la JOIN in questa sql
@@ -569,7 +569,7 @@
 						$('#modal01Msg_OK').modal('show');
 						rej("no cognome fam");
 					} else {
-						
+						console.log ("OK da 19qry_checkCognome");
 						//se tutto ok allora procedo con l'invio della mail	
 						res(data);
 						//res("OK");

@@ -19,7 +19,6 @@ include_once("assets/functions/functions.php");
 	$return['titolo_ver'] = stripslashes($titolo_ver);
 	$return['classe_ver'] = $classe_ver;
 	$return['sezione_ver'] = $sezione_ver;
-	//$return['ckomettiint_ver'] = $ckomettiint_ver;
 	
 	echo json_encode($return);
 ?>

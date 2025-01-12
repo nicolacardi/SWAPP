@@ -71,6 +71,9 @@ while (mysqli_stmt_fetch($stmt4))
 <div class="row" style= "margin-top: 0px;">
 	<div id="TabsSchedaIMieiAlunni">
 		<ul class="nav nav-tabs ml20 mr20" id="TabsSchedaIMieiAlunniLabels">
+			<li class="pull-right">
+				<a href="#UploadFile" id="liTabUploadFile" data-toggle="tab" class="active">Upload File</a>
+			</li>
 			<li class="pull-right" <?if ($classe_cla!='VIII') {echo ("style= 'display:none;'");}?>>
 				<a href="#Altro" data-toggle="tab">Altro</a>
 			</li>
@@ -84,6 +87,10 @@ while (mysqli_stmt_fetch($stmt4))
 			<li class="pull-right"
 			<?if ($classe_cla!='VIII') {echo ("style= 'display:none;'");}?>>
 				<a href="#ConsOrientativo" data-toggle="tab">C.Orientativo</a>
+			</li>
+			<li class="pull-right"
+			<?if ($classe_cla!='VIII') {echo ("style= 'display:none;'");}?>>
+				<a href="#ConsOrientativo25" data-toggle="tab">C.Orientativo 25</a>
 			</li>
 			<li class="pull-right"
 			<?if (($classe_cla != 'V') && ($classe_cla!='VIII')) {echo ("style= 'display:none;'");}?>>
@@ -100,6 +107,7 @@ while (mysqli_stmt_fetch($stmt4))
 			<li class="pull-right">
 				<a href="#DatiAnagrafici" id="liTabDatiAnagrafici" data-toggle="tab" class="active">Dati Anagrafici</a>
 			</li>
+
 		</ul>
 		<div class="tab-content" id="TabsSchedaIMieiAlunniContent">
 
@@ -113,6 +121,9 @@ while (mysqli_stmt_fetch($stmt4))
 			<?//Tab Consiglio Orientativo
 			include_once ('02inc_ConsOrientativo.php');?>
 			
+			<?//Tab Consiglio Orientativo
+			include_once ('02inc_ConsOrientativo25.php');?>
+
 			<?//Tab Certificazione delle Competenze
 			include_once ('02inc_CertCompetenze.php');?>
 			
@@ -122,7 +133,8 @@ while (mysqli_stmt_fetch($stmt4))
 			<?//Tab Colloqui
 			include_once ('06inc_Colloqui.php');?>
 
-
+			<?//Tab upload File	
+			include_once ('02inc_UploadFile.php');?>
 			<!--******************************************* TAB ALTRO *********************************************************-->
 			<div class="tab-pane" id="Altro">
 				<div class="row"  style="margin: auto; width: 80%; margin-top:50px;border: 1px solid grey; border-radius: 4px;">
@@ -402,7 +414,7 @@ while (mysqli_stmt_fetch($stmt4))
 <!--*************************************** FINE FORM MODALE SALVATAGGIO PAGELLA  **************************************************-->
 
 <!--***************************************FORM MODALE SALVATAGGIO CONS ORIENTATIVO **************************************************-->
-	<div class="modal" id="modalSalvaConOri" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal" id="modalSalvaConOri" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" style="font-size:14px; width: 40%">
 			<div class="modal-content">
 				<div class="modal-body white">           
@@ -470,8 +482,65 @@ while (mysqli_stmt_fetch($stmt4))
 	</div>
 </div>
 <!--*************************************** FINE FORM MODALE EDIT GIUDIZIO **************************************************-->
+
+<!--***************************************FORM MODALE CARICAMENTO FILE *****************************************************-->
+<div class="modal" id="modalFileUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+	<div class="modal-dialog" style="font-size:14px; width: 40%">
+		<div class="modal-content">
+			<div class="modal-body white">           
+				<form id="form_FileUpload" method="post">
+					<div style="margin: 10px 0px 20px; font-size: 20px;">
+						Caricamento File
+					</div>
+					<!-- <input type="text" id="inputchiamante" hidden> -->
+					<div id="remove-contentFU" style="text-align: center;"> <!-- START REMOVE CONTENT -->
+						<div style="margin-top: 10px; margin-bottom: 10px;">
+							<?="(".$nome_alu_det." ".$cognome_alu_det.")";?>
+						</div>
+						<div style="text-align: center;">
+							Titolo del Documento
+						</div>
+						<div>
+							<input class="tablecell6" type="text" id ="descrizione_doc" style="text-align: center;width: 300px;"  value = "" >
+						</div>
+
+						<div style="text-align: center;">
+							Tipo Documento
+						</div>
+							<select name="tipo_doc"  id="tipo_doc">
+
+							<? $sql = "SELECT ID_tip, desc_tip FROM tab_tipidoc ORDER BY ID_tip";
+											$stmt = mysqli_prepare($mysqli, $sql);
+											mysqli_stmt_execute($stmt);
+											mysqli_stmt_bind_result($stmt, $ID_tip, $desc_tip);
+											while (mysqli_stmt_fetch($stmt)) {
+											?> <option value="<?=$ID_tip?>"><?=$desc_tip;?></option><?
+											}?>
+							</select>
+						</div>
+					
+					</div> <!-- END REMOVE CONTENT -->
+					<div class="alert alert-success" id="alertaggiungiFU" style="display:none; margin-top:10px;">
+						<h4 id="alertmsg" style="text-align:center;"> 
+							File caricato con successo!
+						</h4>
+					</div>
+					<div class="modal-footer" >
+						<button type="button" id="btn_cancelUploadFile" class="btnBlu pull-left" style="width:25%;" data-dismiss="modal">Annulla</button>
+						<input type="file" id="fileInput" accept=".pdf,.p7m" style="display: none;">
+						<button type="button" id="btn_OKUploadFile" class="btnBlu pull-right" style="width:25%;" onclick="document.getElementById('fileInput').click();">Scegli File</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!--*************************************** FINE FORM MODALE CARICAMENTO FILE ******************************************************-->
+
 <script>
 	
+
+
 	$('.votcell').keyup(function () {
 		let $this = $(this);
 		if (($this.val() < 0 || $this.val() > 10) && $this.val().length != 0) {
@@ -618,6 +687,22 @@ while (mysqli_stmt_fetch($stmt4))
 
 	}
 
+	function showModalSalvaConOri25(event) {
+
+		event.preventDefault();
+
+		$("#remove-contentSalvaConOri").show();
+		$("#alertaggiungiSalvaConOri").hide();
+		$("#btn_cancelSalvaConOri").html('Annulla');
+		$("#btn_OKSalvaConOri").show();
+		$('#btn_cancelSalvaConOri').addClass("pull-left");
+		$("#btn_cancelSalvaConOri").attr("onclick","");
+		$("#btn_OKSalvaConOri").attr("onclick","salvaConOri25()");
+		$('#modalSalvaConOri').modal({show: 'true'});
+
+	}
+
+
 	function ricarica() {
 		let ID_alu_cla = $('#hidden_ID_alu').val();
 		requeryDettaglio(ID_alu_cla);
@@ -646,9 +731,8 @@ while (mysqli_stmt_fetch($stmt4))
 		
 		let nmaterie = $('#numeromaterie_hidden_'+tipopagella).val(); //il suffisso tipopagella dice se pescare nella tab del tipo 1 o del tipo 2
 		
-		// console.log ('01AnagraficaPerAnno.php - salvaVoti')
-		// console.log (giuquad_cla);
-		// console.log("numero materie: "+nmaterie);
+		console.log ('02det_IMieiAlunni.php - salvaVoti')
+
 		//Se asilo, elementari, medie, cambia il numero di materie
 		for (materia = 0; materia < (nmaterie); materia++) {
 			//viene fatto UN POST PER OGNI VOTO!
@@ -659,8 +743,8 @@ while (mysqli_stmt_fetch($stmt4))
 			giu_cla = giu_cla.substring(1, giu_cla.length-1);
 			let commento_cla = $('#com'+quadrimestre+'_'+materia+'_'+tipopagella).val();
 			postData = { quadrimestre: quadrimestre, ID_alu_cla: ID_alu_cla, annoscolastico_cla: annoscolastico_cla, codmat_cla: codmat_cla, vot_cla: vot_cla, giu_cla: giu_cla, commento_cla: commento_cla, ggassenza_cla: ggassenza_cla, datapagella_cla: datapagella_cla, hafreq_cla: hafreq_cla, votofinale_cla: votofinale_cla, ammesso_cla: ammesso_cla, giuquad_cla: giuquad_cla, classe_cla: classe_cla, sezione_cla: sezione_cla, aselme_cla: aselme_cla};
-			// console.log ("02det_IMieiAlunni.php - SalvaVoti - postData a 02qry_updateVoti.php ");
-			// console.log(postData);
+			console.log ("02det_IMieiAlunni.php - SalvaVoti - postData a 02qry_updateVoti.php ");
+			console.log(postData);
 			
 			$.ajax({
 				type: 'POST',
@@ -679,7 +763,10 @@ while (mysqli_stmt_fetch($stmt4))
 
 
 					console.log ("02det_IMieiAlunni.php - SalvaVoti - ritorno da 02qry_updateVoti.php ");
-					console.log(data);
+					// console.log(data.sql);
+					// console.log(data.sql2);
+					// console.log(data.sql1);
+					// console.log(data.ID_cla);
 
 					if (materia == nmaterie -1) {
 						//requeryDettaglio(ID_alu_cla);
@@ -785,6 +872,51 @@ while (mysqli_stmt_fetch($stmt4))
 		return false; //return false (insieme a return nella chiamata onclick)
 		//è necessario per non far partire il form
 	}
+
+	function salvaConOri25() {
+
+		$('#modalSalvaConOri').modal({show: 'false'}); //si usa lo stesso modal previsto da SalvaConOri precedente
+		let ID_alu = $('#hidden_ID_alu').val();
+		let annoscolastico = $( "#selectannoscolastico option:selected" ).val();
+		let data_cor = $('#data_cor').val();
+
+		let postData = $("#form_ConsOrientativo25").serializeArray();
+
+		postData.push( {name: "ID_alu_cor", value: ID_alu});
+		postData.push( {name: "annoscolastico_cor", value: annoscolastico});
+		postData.push( {name: "data_cor", value: data_cor});
+
+		console.log ("02det_IMieiAlunni.php - salvaConOri25 - postData a 02qry_updateCons.php")
+		console.log (postData);
+		$.ajax({
+			type: 'POST',
+			url: "02qry_updateCons25.php",
+			data: postData,
+			dataType: 'json',
+			success: function(data){
+
+				console.log ("02det_IMieiAlunni.php - salvaConOri25 - ritorno da 02qry_updateCons25.php")
+				console.log (data.sql);
+				console.log (data.stopgo);
+
+				if (data.stopgo == "STOP") {
+					$('#titolo01Msg_OK').html('CONSIGLIO ORIENTATIVO');
+					$('#msg01Msg_OK').html(data.result_alert);
+					$('#modal01Msg_OK').modal('show');
+				} else {
+					$('#titolo01Msg_OK').html('CONSIGLIO ORIENTATIVO');
+					$('#msg01Msg_OK').html("Documento Completo<br><br>Salvataggio Effettuato");
+					$('#modal01Msg_OK').modal('show');
+				}
+
+			},
+			error: function(){
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '02det_IMieiAlunni ##fname##'");      
+			}
+		});
+		return false; //return false (insieme a return nella chiamata onclick)
+		//è necessario per non far partire il form
+	}
 	
 	function salvaCommento() {
 		let ID_alu_cla = $('#hidden_ID_alu').val();
@@ -817,6 +949,9 @@ while (mysqli_stmt_fetch($stmt4))
 	//}
 	
 	function scaricaPagellaPOST (e, ID_alu_cla, annoscolastico_cla, classe_cla, sezione_cla, quadrimestre, Doc) {
+
+
+
 		e.preventDefault();
 		//Doc può valere "ConOri", "CerCom", oppure può essere uno dei numeri che caratterizzano i vari template della pagella
 		//in ogni caso si tratta di un varchar
@@ -827,7 +962,7 @@ while (mysqli_stmt_fetch($stmt4))
 		//E TALE VA MANTENUTA
 
 		exit = false;
-		if ((Doc =="ConOri")&& (classe_cla != 'VIII')) {
+		if ((Doc =="ConOri" || Doc=="ConOri25") && (classe_cla != 'VIII')) {
 			$('#titolo01Msg_OK').html('CONSIGLIO ORIENTATIVO');
 			$('#msg01Msg_OK').html("L'alunno non frequenta la classe VIII");
 			$('#modal01Msg_OK').modal('show');
@@ -844,6 +979,7 @@ while (mysqli_stmt_fetch($stmt4))
 				data: postData,
 				dataType: 'json',
 				success: function(data){
+
 					if (data.stopgo == "STOP") {
 						$('#titolo01Msg_OK').html('CONSIGLIO ORIENTATIVO');
 						$('#msg01Msg_OK').html(data.result_alert);
@@ -853,7 +989,33 @@ while (mysqli_stmt_fetch($stmt4))
 					}
 				},
 				error: function(){
-					alert("Errore: contattare l'amministratore fornendo il codice di errore '02det_IMieiAlunni ##fname##'");      
+					alert("Errore: contattare l'amministratore fornendo il codice di errore '02det_IMieiAlunni ##scaricaPagellaPOST##'");      
+				}
+			});
+		}
+
+		if ((Doc=="ConOri25")&& (classe_cla == 'VIII')) {				
+			//verifico se ci sono tutti i dati necessari
+			postData = { annoscolastico: annoscolastico_cla, ID_alu: ID_alu_cla, ottava: 1 };
+			$.ajax({
+				async: false,
+				type: 'POST',
+				url: "12qry_checkConsOrientativo25.php",
+				data: postData,
+				dataType: 'json',
+				success: function(data){
+					console.log ("02det_IMieiAlunni.php - scaricaPagellaPOST - ritorno da 12qry_checkConsOrientativo25: data.sql");
+					console.log(data.sql);
+					if (data.stopgo == "STOP") {
+						$('#titolo01Msg_OK').html('CONSIGLIO ORIENTATIVO');
+						$('#msg01Msg_OK').html(data.result_alert);
+						$('#modal01Msg_OK').modal('show');
+						exit =  true;
+						
+					}
+				},
+				error: function(){
+					alert("Errore: contattare l'amministratore fornendo il codice di errore '02det_IMieiAlunni ##scaricaPagellaPOST##'");      
 				}
 			});
 		}

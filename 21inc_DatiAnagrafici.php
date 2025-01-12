@@ -61,14 +61,10 @@
                     if ($padremadre_soc == "padre") {$folder = "padri";}
                     if ($padremadre_soc == "madre") {$folder = "madri";}
                     ?>
-                    <!--<img id="imgSfondo" width="100" height="100" alt="" src="assets/photos/imgs/unknown.png" data-src="assets/photos/imgs/unknown.png" data-src-retina="assets/photos/imgs/unknown.png">-->
                     <img id="imgContainerx" class="imgContainerx" width="100" height="100" alt="" 
                     src="assets/photos/imgs<?=$folder?>/<?if ($img_soc != "") {echo(str_replace(' ', '', $img_soc).'?'.rand(100000,999999));} else {echo('unknown.png?'.rand(100000,999999));}?>" >
-                    <!--
-                        data-src="assets/photos/imgs/<?//if ($img_soc != "") {echo(str_replace(' ', '', $img_soc).'?'.rand(100000,999999));} else {echo('unknown.png?'.rand(100000,999999));}?>" data-src-retina="assets/photos/imgs/<?//=str_replace(' ', '', $img_soc).'?'.rand(100000,999999);?>"
-                    -->
                 </div>
-                <!--imgName è una input dove viene scritto il nome del file caricato-->
+                <!--imgName è una input nascosta dove viene scritto il nome del file caricato e da cui viene estratto il nome in fase di salvataggio-->
                 <input class="form-control imgName" id="imgName" name="imgName" maxlength="30" placeholder="immagine" value="<?=str_replace(' ', '', $img_soc)?>">
                 <br>
                 <div class="row" style="margin-top: 13px;">

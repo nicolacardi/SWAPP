@@ -117,7 +117,7 @@
 							DOCUMENTI DEGLI ALUNNI
 						</div>
 						<div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1" >
-							<div id="boxalunni1" style="border: 1px solid grey; border-radius: 4px; margin-top: 5px; height: 285px; ">
+							<div id="boxalunni1" style="border: 1px solid grey; border-radius: 4px; margin-top: 5px; height: 325px; ">
 								<div class="col-xs-12">
 									PER CLASSE INTERA
 								</div>
@@ -143,7 +143,7 @@
 							</div>
 						</div>
 						<div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-0 col-md-5 col-md-offset-0" >
-							<div style="border: 1px solid grey; border-radius: 4px; margin-top: 5px; height: 285px; ">
+							<div style="border: 1px solid grey; border-radius: 4px; margin-top: 5px; height: 325px; ">
 								<div class="col-xs-12">
 									PER SINGOLO ALUNNO
 								</div>
@@ -169,6 +169,9 @@
 								</div>
 								<div class="col-xs-12">
 									<button class="btnBlu w100 mt5" onclick="scaricaPagellaPOST(2, 'ConOri');" title="Cons.Orientativo->pdf"><img style="width: 17px; position: absolute; left:20px;" src='assets/img/Icone/pdf.svg'>Cons. Orientativo</button>
+								</div>
+								<div class="col-xs-12">
+									<button class="btnBlu w100 mt5" onclick="scaricaPagellaPOST(2, 'ConOri25');" title="Cons.Orientativo 2025->pdf"><img style="width: 17px; position: absolute; left:20px;" src='assets/img/Icone/pdf.svg'>Cons. Orientativo 2025</button>
 								</div>
 							</div>
 						</div>
@@ -313,7 +316,7 @@
 <script>
 	
 	function copyToHidden () {
-		console.log ($('#selectmaestro').val());
+		// console.log ($('#selectmaestro').val());
 		$('#hidden_ID_mae').val($('#selectmaestro').val());
 		//requery();
 	}
@@ -358,7 +361,8 @@
 		annoscolastico_cma = $( "#selectannoscolastico option:selected" ).val();
 		IDmaeTMP = $("#hidden_ID_mae").val();
 		postData = { annoscolastico_cma: annoscolastico_cma, IDmaeTMP : IDmaeTMP};
-		console.log (postData);
+		//console.log ("12EmissioneDocumenti.php - AggiornaComboMaestri - postData a 12qry_getComboMaestri.php");
+		//console.log (postData);
 		$.ajax({
 			async: false,
 			type: 'POST',
@@ -885,7 +889,7 @@
 		}
 
 		exit = false;
-		if ((Doc =="ConOri")&& (classe_cla != 'VIII')) {
+		if ((Doc =="ConOri" ||Doc=="ConOri25")&& (classe_cla != 'VIII')) {
 			$('#titolo01Msg_OK').html('CONSIGLIO ORIENTATIVO');
 			$('#msg01Msg_OK').html("L'alunno non frequenta la classe VIII");
 			$('#modal01Msg_OK').modal('show');
@@ -908,11 +912,32 @@
 						$('#msg01Msg_OK').html(data.result_alert);
 						$('#modal01Msg_OK').modal('show');
 						exit =  true;
-						
 					}
 				},
 				error: function(){
-					alert("Errore: contattare l'amministratore fornendo il codice di errore '12EmissioneDocumenti ##fname##'");     
+					alert("Errore: contattare l'amministratore fornendo il codice di errore '12EmissioneDocumenti ##scaricaPagellaPOST##'");     
+				}
+			});
+		}
+		if ((Doc=="ConOri25")&& (classe_cla == 'VIII')) {				
+			//verifico se ci sono tutti i dati necessari
+			postData = { annoscolastico: annoscolastico_cla, ID_alu: ID_alu_cla, ottava: 1 };
+			$.ajax({
+				async: false,
+				type: 'POST',
+				url: "12qry_checkConsOrientativo25.php",
+				data: postData,
+				dataType: 'json',
+				success: function(data){
+					if (data.stopgo == "STOP") {
+						$('#titolo01Msg_OK').html('CONSIGLIO ORIENTATIVO');
+						$('#msg01Msg_OK').html(data.result_alert);
+						$('#modal01Msg_OK').modal('show');
+						exit =  true;
+					}
+				},
+				error: function(){
+					alert("Errore: contattare l'amministratore fornendo il codice di errore '12EmissioneDocumenti ##scaricaPagellaPOST##'");      
 				}
 			});
 		}

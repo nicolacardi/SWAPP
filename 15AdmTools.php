@@ -19,6 +19,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 	<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
 	<script src="assets/tinymce2/tinymce.min.js"></script>
+	<script src="assets/functions/functionsJS.js"></script>
 	<? $_SESSION['page'] = "Amministrazione SWAPP";?>
 </head>
 
@@ -61,6 +62,8 @@
 					<li>
 						<a href="#Test" data-toggle="tab" >Test WYSIWIG</a>
 					</li>
+
+
 				</ul>
 <!--  *****************************OVERVIEW USERS**********************************************-->
 				<div class="tab-content" id="TabsAdministrationContent">
@@ -509,10 +512,9 @@
 						</div>
 
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>	
+
+
+
 
 <!--***************************************FORM MODALE INSERIMENTO NUOVA LOGIN **************************************************-->
 	<div class="modal" id="modalAddLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -987,8 +989,8 @@
 		let ord6 = $('#ordinacampo6Mat').text();
 		let ord7 = $('#ordinacampo7Mat').text();
 		postData = {ord1: ord1, ord2: ord2, ord3: ord3, ord4: ord4, ord5: ord5, ord6: ord6, ord7: ord7};
-		console.log ("15AdmTools.php - requerySetMaterie - postData a 15qry_SetMaterie.php");
-		console.log (postData);
+		// console.log ("15AdmTools.php - requerySetMaterie - postData a 15qry_SetMaterie.php");
+		// console.log (postData);
 		$.ajax({
 			type: 'POST',
 			url: "15qry_SetMaterie.php",
@@ -1076,7 +1078,7 @@
 				$("#maintableDoc").html(html);
 			},
 			error: function(){
-				alert("Errore: contattare l'amministratore fornendo il codice di errore '15AdmTools ##fname##'");     
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '15AdmTools - requeryDocumenti'");     
 			}
 		});
 	}
@@ -1368,7 +1370,9 @@
 		//console.log ('15qry_UseOverview.php - backupDB - lancio di 15qry_backup.php');
 		window.location.href = '15qry_backup.php?database='+AoB;
 	}
-	
+
+
+
 	function showModaltruncateDBB () {
 		//console.log ('15qry_UseOverview.php - backupDB - lancio di 15qry_backup.php');
 
@@ -1518,33 +1522,6 @@
 		}
 	}
 
-
-
-
-	// function test () {
-		
-	// 	//sempre per primo l'ID
-	// 	var nomiCampiA = ['ID_mtt', 'codmat_mtt', 'descmateria_mtt', 'as_mtt', 'el_mtt', 'me_mtt', 'ord_mtt'];
-	// 	var tabella = 'tab_materie';
-	// 	var ordinaA = ['0', '0', '1', '1', '1', '1'];
-	// 	var ordinaValA = ['--', 'za', 'az', '--', '--', 'az'];
-	// 	var defaultOrd = 'accessnumber_usr DESC, currlogon_usr, login_usr ';
-	// 	var mostraA = ['0', '1', '1', '1', '1', '1'];
-
-
-	// 	postData = { nomiCampiA: nomiCampiA, tabella: tabella, ordinaA: ordinaA, ordinaValA: ordinaValA, defaultOrd: defaultOrd};
-	// 	$.ajax({
-	// 		type: 'POST',
-	// 		url: "OrdinaEFiltra.php",
-	// 		data: postData,
-	// 		dataType: 'html',
-	// 		success: function(html){
-				
-	// 			console.log (html)
-				
-	// 		}
-	// 	});
-	// }
 
 
 	function showModalInsertCodiciObiettivi(ID_mat) {
@@ -1698,6 +1675,8 @@
 			}
 		});
 	}
+
+
 
 
 </script>

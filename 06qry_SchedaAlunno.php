@@ -413,6 +413,9 @@ $ID_alu = $_POST['ID_alu'];?>
 	<!----------------------------------------FUNZIONI DI CROPPIE----------------------------------------------------------------->			
 					<script>
 						
+
+
+
 						//setta le caratteristiche del plugin per la visualizzazione di Croppie agendo su uploadCrop
 						$uploadCrop = $('#uploadCrop').croppie({
 							enableExif: true,
@@ -469,14 +472,8 @@ $ID_alu = $_POST['ID_alu'];?>
 							}
 
 
-							// nome = $('#nome_alu').val();
-							// cognome = $('#cognome_alu').val();
-							fileName = nome + cognome;
-							fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
-							fileName = fileName.replace ("'", "");
-							fileName = fileName.replace (" ", "");
-							fileName = fileName.replace ("-", "");
-							fileName = fileName.replace ("`", "");
+							fileName =normalizeName(nome, cognome);
+
 							//prepara l'immagine croppata in forma base64 e la mette nella variabile resp
 							console.log ("++"+fileName);
 							$uploadCrop.croppie('result', {
@@ -603,12 +600,8 @@ $ID_alu = $_POST['ID_alu'];?>
 		let cognome_alu = $('#cognome_alu_det').val();
 		let mf_alu = $('#mf_alu_det').val();
 		if (img_alu != "") {
-			fileName = nome_alu + cognome_alu;
-			fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
-			fileName = fileName.replace ("'", "");
-			fileName = fileName.replace (" ", "");
-			fileName = fileName.replace ("-", "");
-			img_alu = fileName+".png";
+			fileName = normalizeName(nome_alu, cognome_alu);
+			img_alu = img_alu = fileName+".png";
 		}
 
 		let indirizzo_alu = $('#indirizzo_alu_det').val();
@@ -730,21 +723,15 @@ $ID_alu = $_POST['ID_alu'];?>
 
 
 		if (imgpadre_fam != "") {
-			fileName = nomepadre_fam + cognomepadre_fam;
-			fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
-			fileName = fileName.replace ("'", "");
-			fileName = fileName.replace (" ", "");
-			fileName = fileName.replace ("-", "");
+			fileName = normalizeName(nomepadre_fam, cognomepadre_fam);
 			imgpadre_fam = fileName+".png";
 		}
+
 		if (imgmadre_fam != "") {
-			fileName = nomemadre_fam + cognomemadre_fam;
-			fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
-			fileName = fileName.replace ("'", "");
-			fileName = fileName.replace (" ", "");
-			fileName = fileName.replace ("-", "");
+			fileName = normalizeName(nomemadre_fam, cognomemadre_fam);
 			imgmadre_fam = fileName+".png";
 		}
+
 
 
 		postData = { ID_alu: ID_alu, nome_alu: nome_alu, cognome_alu: cognome_alu, mf_alu: mf_alu, indirizzo_alu: indirizzo_alu, citta_alu: citta_alu, CAP_alu: CAP_alu, prov_alu: prov_alu, paese_alu: paese_alu, cf_alu: cf_alu, datanascita_alu: datanascita_alu, comunenascita_alu: comunenascita_alu, provnascita_alu: provnascita_alu, paesenascita_alu: paesenascita_alu, cittadinanza_alu: cittadinanza_alu, nomemadre_fam: nomemadre_fam, cognomemadre_fam: cognomemadre_fam, telefonomadre_fam: telefonomadre_fam, altrotelmadre_fam: altrotelmadre_fam, emailmadre_fam: emailmadre_fam, sociomadre: sociomadre, nomepadre_fam: nomepadre_fam, cognomepadre_fam: cognomepadre_fam, telefonopadre_fam: telefonopadre_fam, altrotelpadre_fam: altrotelpadre_fam, emailpadre_fam: emailpadre_fam, sociopadre: sociopadre, note_alu: note_alu, img_alu: img_alu, autfoto_alu: autfoto_alu, disabilita_alu: disabilita_alu, dettaglidisabilita_alu: dettaglidisabilita_alu, DSA_alu: DSA_alu, scuolaprimaprovenienza_alu: scuolaprimaprovenienza_alu, indirizzoscprimaproven_alu: indirizzoscprimaproven_alu, scuolaprovenienza_alu: scuolaprovenienza_alu, indirizzoscproven_alu: indirizzoscproven_alu, ckautfoto_alu: ckautfoto_alu, ckautmateriale_alu: ckautmateriale_alu, ckautuscite_alu: ckautuscite_alu, ckautuscitaautonoma_alu: ckautuscitaautonoma_alu, ckdoposcuola_alu: ckdoposcuola_alu, cktrasportopubblico_alu: cktrasportopubblico_alu, ckmensa_alu: ckmensa_alu, ckreligione_alu: ckreligione_alu, altreligione_alu: altreligione_alu, datanascitapadre_fam: datanascitapadre_fam , comunenascitapadre_fam : comunenascitapadre_fam, provnascitapadre_fam: provnascitapadre_fam, paesenascitapadre_fam: paesenascitapadre_fam, cittadinanzapadre_fam: cittadinanzapadre_fam, cfpadre_fam:cfpadre_fam, indirizzopadre_fam:indirizzopadre_fam, comunepadre_fam:comunepadre_fam, provpadre_fam:provpadre_fam, paesepadre_fam:paesepadre_fam, CAPpadre_fam:CAPpadre_fam, titolopadre_fam:titolopadre_fam, profpadre_fam:profpadre_fam, datanascitamadre_fam: datanascitamadre_fam , comunenascitamadre_fam : comunenascitamadre_fam, provnascitamadre_fam: provnascitamadre_fam, paesenascitamadre_fam: paesenascitamadre_fam, cittadinanzamadre_fam: cittadinanzamadre_fam, cfmadre_fam:cfmadre_fam, indirizzomadre_fam:indirizzomadre_fam, comunemadre_fam:comunemadre_fam, provmadre_fam:provmadre_fam, paesemadre_fam:paesemadre_fam, CAPmadre_fam:CAPmadre_fam, titolomadre_fam:titolomadre_fam, profmadre_fam:profmadre_fam, imgpadre_fam: imgpadre_fam, imgmadre_fam: imgmadre_fam, notemadre_fam: notemadre_fam, notepadre_fam: notepadre_fam, intestazionefatt_fam: intestazionefatt_fam, ibanmadre_fam: ibanmadre_fam, ibanpadre_fam: ibanpadre_fam, rapprmadre_fam: rapprmadre_fam, rapprpadre_fam: rapprpadre_fam, ruolopadre_fam: ruolopadre_fam, ruolomadre_fam: ruolomadre_fam, ID_fam_soc: ID_fam, padremadre: "any"};

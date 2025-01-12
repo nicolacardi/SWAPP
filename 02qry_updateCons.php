@@ -71,7 +71,6 @@
 	$sql = $sql." attitudini_cor = '". $attitudini_cor ."'";
 	
 	$stmt = mysqli_prepare($mysqli, $sql);
-	//mysqli_stmt_bind_param($stmt, "iss", $ID_alu_cer, $annoscolastico_cer, $codmat_cer);	
 	mysqli_stmt_execute($stmt);
 	$return['sql'] = $sql;
 	echo json_encode($return);

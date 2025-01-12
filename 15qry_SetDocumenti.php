@@ -1,4 +1,7 @@
-<?	include_once("database/databaseii.php");
+<?	
+
+//questo è il set documenti legati a TinyMCE: questa pagina non ha un ID_alu_doc in input mentre la 02setDocumenti ha un ID_alu_doc
+include_once("database/databaseii.php");
 	include_once("assets/functions/functions.php");
 	/* ora costruisco la clasuola ORDER BY sulla base di tutti i valori di ord */
 	if (isset ($_POST['ord1'])){
@@ -71,7 +74,7 @@
                 //  console.log (data.test);
 			},
 			error: function(){
-				alert("Errore: contattare l'amministratore fornendo il codice di errore '15qry_SetParametri ##fname##'");     
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '15qry_SetParametri ##setValoreDoc##'");     
 			}
 		});
 	}
@@ -94,7 +97,7 @@
                 tinymce.get("editor").setContent(data.contenuto_doc);
 			},
 			error: function(){
-				alert("Errore: contattare l'amministratore fornendo il codice di errore '15qry_SetParametri ##fname##'");     
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '15qry_SetParametri ##mostraInTinyMCE##'");     
 			}
 		});
         

@@ -27,28 +27,48 @@
 		$return['responso'] = "NO_1";
 		$return['msg'] = "Maestro non ancora assegnato alla materia selezionata in classe ".$classe_ora." ".$sezione_ora ;
 	} else {
-		//se è stato trovato un maestro vedo se non è già impegnato in altra classe
-		 $sql2 = "SELECT ID_ora, codmat_ora, classe_ora, sezione_ora FROM tab_orario WHERE ID_mae_ora  = ? AND data_ora  = ? AND ora_ora = ? ;";
-		$stmt2 = mysqli_prepare($mysqli, $sql2);
-		mysqli_stmt_bind_param($stmt2, "isi", $ID_mae_cma, $dataGG, $ora);
-		mysqli_stmt_execute($stmt2);
-		mysqli_stmt_bind_result($stmt2, $ID_ora, $codmat_ora, $classe_oraPrec, $sezione_oraPrec);
-		$ID_ora = 0;
-		while (mysqli_stmt_fetch($stmt2)) {
-			$ID_ora++;
+		//se è stato trovato un maestro vedo prima di tutto se si sta provando a inserire un'altra volta NELLA STESSA CLASSE
+		$sql3 = "SELECT ID_ora, codmat_ora, classe_ora, sezione_ora FROM tab_orario WHERE ID_mae_ora  = ? AND data_ora  = ? AND ora_ora = ? AND classe_ora = ?;";
+		$stmt3 = mysqli_prepare($mysqli, $sql3);
+		mysqli_stmt_bind_param($stmt3, "isis", $ID_mae_cma, $dataGG, $ora, $classe_ora);
+		mysqli_stmt_execute($stmt3);
+		mysqli_stmt_bind_result($stmt3, $ID_ora, $codmat_ora, $classe_oraPrec, $sezione_oraPrec);
+		$ID_oranellastessaclasse = 0;
+		while (mysqli_stmt_fetch($stmt3)) {
+			$ID_oranellastessaclasse++;
 		}
-		if ($ID_ora != 0) {
-			$return['responso'] = "NO_2";
-			$msg = "Il maestro ".$nome_mae." ".$cognome_mae." è già impegnato in classe ".$classe_oraPrec." ".$sezione_oraPrec;
-			//$msg = $msg."<br><br>Procedere solamente nel caso in cui il maestro insegni 'contemporaneamente' in classe  ".$classe_ora." ".$sezione_ora;
-			//$msg = $msg."<br><br>Cioè nel caso in cui le classi siano unite per quest'ora";
+
+		if ($ID_oranellastessaclasse != 0) {
+			$return['responso'] = "NO_3";
+			$msg = "Il maestro ".$nome_mae." ".$cognome_mae." è già impegnato in questa classe";
 			$return['msg'] = $msg;
-			//per l'ulteriore maestro non mostro tutto il messaggio ma solo una parte
-			//$msg2 = "Il maestro ".$nome_mae." ".$cognome_mae." \n è già impegnato almeno in classe ".$classe_oraPrec." ".$sezione_oraPrec;
-			$return['msg2'] = $msg2;
 		} else {
-			$return['msg'] = "Maestro disponibile in quest'ora";
-			$return['responso'] = "OK";
+			//se è stato trovato un maestro vedo se non è già impegnato in ALTRA classe
+			$sql2 = "SELECT ID_ora, codmat_ora, classe_ora, sezione_ora, IDfirmatutor_ora FROM tab_orario WHERE ID_mae_ora  = ? AND data_ora  = ? AND ora_ora = ? ;";
+			$stmt2 = mysqli_prepare($mysqli, $sql2);
+			mysqli_stmt_bind_param($stmt2, "isi", $ID_mae_cma, $dataGG, $ora);
+			mysqli_stmt_execute($stmt2);
+			mysqli_stmt_bind_result($stmt2, $ID_ora, $codmat_ora, $classe_oraPrec, $sezione_oraPrec, $IDfirmatutor_ora);
+			$ID_ora = 0;
+			while (mysqli_stmt_fetch($stmt2)) {
+				$ID_ora++;
+			}
+			if ($ID_ora != 0) {
+				//la pluriclasse di un tutor è IMPEDITA
+
+				$return['responso'] = "NO_2";
+				$msg = "Il maestro ".$nome_mae." ".$cognome_mae." è già impegnato almeno in classe ".$classe_oraPrec." ".$sezione_oraPrec;
+				$msg = $msg."<br><br>Procedere solamente nel caso in cui il maestro insegni 'contemporaneamente' in classe  ".$classe_ora." ".$sezione_ora; //implementazione PLURICLASSE
+				$msg = $msg."<br><br>Cioè nel caso in cui le classi siano unite per quest'ora"; //implementazione PLURICLASSE
+				$return['msg'] = $msg;
+				//per l'ulteriore maestro non mostro tutto il messaggio ma solo una parte
+				//$msg2 = "Il maestro ".$nome_mae." ".$cognome_mae." \n è già impegnato almeno in classe ".$classe_oraPrec." ".$sezione_oraPrec;
+				$return['msg2'] = $msg2;
+
+			} else {
+				$return['msg'] = "Maestro disponibile in quest'ora";
+				$return['responso'] = "OK";
+			}
 		}
 	}
 	$return['ID_mae_ora'] = $ID_mae_cma;

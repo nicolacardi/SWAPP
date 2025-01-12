@@ -4,7 +4,7 @@
     $tipoQuoteExport = $_GET['tipoQuoteExport'];
 
     $CodiciAvereConcordatoA = array('AS'=>410031, 'EL'=>410032, 'ME' =>410033, 'SU' =>000000);
-    $CodiciAvereConcordatoAIscTess = array('2'=>410009, '5'=>410008);
+    $CodiciAvereConcordatoAIscTess = array('2'=>410009, '5'=>410008, '6'=>260005);
     if ($tipoQuoteExport == "pagate"){$file_name = "txt/".date('Ymd_h.i.s').'_PAGAMENTI.txt';}
     if ($tipoQuoteExport == "concordate"){$file_name = "txt/".date('Ymd_h.i.s').'_CONCORDATE.txt';}
     $handle = fopen($file_name, "w");
@@ -46,8 +46,8 @@
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $ID_ret, $ID_pag, $importo_pag, $data_pag, $causale_pag, $tipo_pag, $soggetto_pag, $nricevuta_pag, $mese_ret_pad, $anno_ret, $nome_alu, $cognome_alu, $nomepadre_fam, $cognomepadre_fam, $nomemadre_fam, $cognomemadre_fam, $indirizzo_alu, $cap_alu, $citta_alu, $prov_alu, $cf_alu, $aselme_cla );
 
-        $CausaliIncassiA = array(1=>1018, 2=>1017, 3=>1017, 4=>1017); //2018: BONIFICO, 2017: CONTANTI, ALTRI: CONTANTI
-        $CodiciDareIncassiA = array(1=>126061, 2=>125001, 4=>125002);
+        $CausaliIncassiA = array(1=>1018, 2=>1017, 3=>1017, 4=>1017);   //2018: BONIFICO, 2017: CONTANTI, ALTRI: CONTANTI
+        $CodiciDareIncassiA = array(1=>126061, 2=>125001, 4=>125002);    
         $erroriEsportazione = "";
         
         
@@ -57,7 +57,7 @@
             //SE causale_pag = 2 (ISCRIZIONE) o causale_pag = 5 (QUOTA ASSOCIATIVA)
             // allora devo ANCHE creare una quota CONCORDATA che avrà NUMREG=2
             //e NUMDOC = 999999+id_pag SIA su concordata che su pagata
-            if ($causale_pag == 2 || $causale_pag == 5) {
+            if ($causale_pag == 2 || $causale_pag == 5 || $causale_pag == 7) {
                 // ******************************** INSERISCO UNA QUOTA CONCORDATA SE ISC o TESS ******************************
                 $numreg = 2;
                 //creo un ID che vado a inserire in NUMDOC e che è uguale nelle due testate (CONCORDATA e PAGATA).

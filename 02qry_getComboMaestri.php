@@ -37,7 +37,7 @@ while (mysqli_stmt_fetch($stmt)) {
 //a questo punto se IDmaeTMPpresente = 1 significa che il maestro che era selezionato C'E' ANCORA nella nuova combo che sto creando
 
 ?>
-<div style="margin-top: 5px; font-size: 11px; color: #3c3c3c;" >
+<div style="text-align: right; margin-right: 5px; margin-top: 5px; font-size: 11px; color: #3c3c3c;" >
 	
 	<?if ($_SESSION ["role_usr"] > 1){
 		echo ("(insegnante ".$nome_mae. " ". $cognome_mae).")";

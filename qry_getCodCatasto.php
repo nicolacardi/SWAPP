@@ -7,15 +7,15 @@ include_once("database/databaseii.php");
 include_once("assets/functions/functions.php");
 
 	$pattern_comune = $_POST['pattern_comune'];
-	$sql = "SELECT codicecatasto FROM tab_CAP WHERE comune_cap = ? ; ";
+	$sql = "SELECT CF_Cap FROM tab_CAP WHERE comune_cap = ? ; ";
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "s", $pattern_comune);
 	mysqli_stmt_execute($stmt);
-	mysqli_stmt_bind_result($stmt, $codcatasto);
+	mysqli_stmt_bind_result($stmt, $CF_Cap);
 	while (mysqli_stmt_fetch($stmt)) {
 	}
 	
-	$return['codcatasto'] = $codcatasto;
+	$return['CF_Cap'] = $CF_Cap;
 	
 	echo json_encode($return);
 ?>

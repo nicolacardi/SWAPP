@@ -4,14 +4,23 @@
         <div class="modal-content">
             <div class="modal-body white">           
                 <form id="form_News" method="post">
-                    <span class="titoloModal">Novità di SWAPP - Giugno 2023</span><br>
+                    <span class="titoloModal">Novità di SWAPP - Dicembre 2024</span><br>
                     <img style="width: 80px; text-align: center;" src="assets/img/Icone/Megafono.svg">
                     <div id="remove-content" style="text-align: justify; margin-top: 5px; margin-left: 80px; margin-right: 80px;"> <!-- START REMOVE CONTENT -->
                         PER I MAESTRI<br>
                         <br>
-                        - Nell'inserimento dei voti per i compiti e le interrogazioni <br>non serve più premere SALVA VOTI:<br>
-                        ogni singolo voto viene salvato automaticamente<br>ogni volta che viene modificato
+                        - Aggiornamento del modello del Consiglio orientativo al modello 2024-25 ministeriale
+                        <br>
+                        - Nella pagina degli alunni è disponibile una scheda "File Upload" utile per caricare file (.pdf o .p7m) come certificazioni BES, DSA PDP, PEI. Il limite è di 2 Mb.
                         <!-- - A questo scopo è disponibile un nuovo video specifico nella sezione  <a href ="./17Tutorials.php">Tutorials</a> -->
+                        <br><br>
+                        PER LE SEGRETERIE<br>
+                        <br>
+                        - Aggiunta la possibilità di calcolare codici fiscali anche per nati all'estero. Basta indicare nel campo comune il paese stesso
+                        <br><br>
+                        BUG FIX
+                        <br>
+                        - Sistemata la possibilità di caricare foto nel profilo di alunni con caratteri accentati nel nome
                         <br><br>
                         
                     </div> <!-- END REMOVE CONTENT -->

@@ -68,7 +68,7 @@ $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);
 
-$testo= "13.RITIRO ANTICIPATO IN CORSO D'ANNO. Chi desiderasse ritirare definitivamente il proprio/a figlio/a dalla scuola, nel corso dell'anno scolastico, deve comunicarlo per iscritto almeno 30 giorni prima; resta comunque espressamente inteso che sarà tenuto al pagamento dell'intero contributo scolastico annuale.";
+$testo= "13.RITIRO ANTICIPATO IN CORSO D'ANNO. In caso di ritiro durante l'anno scolastico è prevista una riduzione della quota annuale del 50% qualora questo avvenga prima del 31 dicembre, mentre la quota annuale è interamente dovuta in caso di ritiro successivo. Va comunicato per iscritto.";
 $pdf->SetFont($fontdefault,'',10);
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,5,$testo);

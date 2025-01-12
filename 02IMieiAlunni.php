@@ -211,8 +211,33 @@
 				alert("Errore: contattare l'amministratore fornendo il codice di errore '02IMieiAlunni ##fname##'");      
 			}
 		});
+
+
+
 	}
 	
+
+	function requerySetDocumenti(){
+		let ord1 = $('#ordinacampo1Doc').text();
+		let ord2 = $('#ordinacampo2Doc').text();
+		let ord3 = $('#ordinacampo3Doc').text();
+		let ord4 = $('#ordinacampo4Doc').text();
+		let ID_alu_doc = $("#hidden_ID_alu").val();
+		postData = {ord1: ord1, ord2: ord2, ord3: ord3, ord4:ord4, ID_alu_doc: ID_alu_doc};
+		$.ajax({
+			type: 'POST',
+			url: "15qry_SetDocumenti.php",
+			data: postData,
+			dataType: 'html',
+			success: function(html){
+				$("#maintableDoc").html(html);
+			},
+			error: function(){
+				alert("Errore: contattare l'amministratore fornendo il codice di errore '02inc_UploadFile ##requerySetDocumenti##'");     
+			}
+		});
+	}
+
 	function coloraRighe(ID_alu){
 		//pulisco colore delle celle di tutte le righe
 		$('#tabellaIMieiAlunni tbody tr:even td .tablecell3').css('background-color', '#e0e0e0').css('color', '#474747');

@@ -91,3 +91,34 @@ function firstUpperOnly(str) {
 
     return strFinal;
 }
+
+function timestampToDate(isoDate) {
+    if (!isoDate || isoDate === "0000-00-00" || isoDate === "1900-01-01") {
+        return "";
+    }
+
+    const date = new Date(isoDate);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Mesi da 0 a 11
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+}
+
+
+function normalizeName(nome, cognome) {
+    let fileName = nome + cognome;
+    
+    // Rimuove caratteri speciali
+    fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
+    fileName = fileName.replace("'", "");
+    fileName = fileName.replace(" ", "");
+    fileName = fileName.replace("-", "");
+    fileName = fileName.replace("`", "");
+
+    // Trasforma le lettere accentate in lettere normali
+    fileName = fileName.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    return fileName;
+}
+

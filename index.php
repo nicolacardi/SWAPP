@@ -1,4 +1,4 @@
-<? ob_start();
+<?php ob_start();
 	include_once('database/databaseii.php');
 	include_once("assets/functions/functions.php");
 ?>
@@ -19,7 +19,7 @@
 	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body style="background-image: url('assets/img/background2.jpg'); background-size: cover;"> 
-<?
+<?php
 	$_SESSION['format_date']="dd-mm-yy";
 	if (isset ($_POST['username']) && isset($_POST['password'])) {
 		$login_usr = $_POST['username'];
@@ -54,8 +54,8 @@
 				//metto un maestro (Nicola Cardi) per default
 				setSessionPar('ID_mae_default');
 				$ID_mae = $_SESSION['ID_mae_default'];
-				$nome_mae = "Nicola";
-				$cognome_mae = "Cardi";
+				$nome_mae = "";
+				$cognome_mae = "";
 				//se poi l'utente è un maestro allora ne trovo l'ID e lo metto in una variabile di sessione
 				//serve in molte pagine
 				if ($_SESSION ["role_usr"] > 1) {

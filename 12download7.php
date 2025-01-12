@@ -48,10 +48,10 @@ include("12RilevazioneProgressi.php");
 $pdf->AddPage("L", "A3");
 
 
-$pdf->SetXY (10,260);
+$pdf->SetXY (10,265);
 $pdf->SetFont($fontdefault,'',11);
 $pdf->Cell(190,10,utf8_decode($footerpagella), 0,1, 'C');
-$pdf->SetXY (220,260);
+$pdf->SetXY (220,265);
 $pdf->SetFont($fontdefault,'',11);
 $pdf->Cell(190,10,utf8_decode($footerpagella), 0,1, 'C');
 $pdf->SetXY (0,0);
@@ -64,8 +64,8 @@ include("12LogoAltoDxeSx.php");
 
 
 $w1 = 35;
-$w2 = 2;
-$w3 = 153;
+$w2 = 1;
+$w3 = 154;
 
 if ($pagprimotrim_cls == 1) {
     $x1 = 0;
@@ -103,8 +103,8 @@ if ($aselme_cla == "EL") {
 	$rowh = 25;
 	$mcrowHOr = 5;
 } else {
-	$h1 = 14;
-	$rowh = 15;
+	$h1 = 15;
+	$rowh = 16;
 	$mcrowHOr = 4.7;
 }
 
@@ -148,13 +148,13 @@ while (mysqli_stmt_fetch($stmt)) {
                 //non possibile
                 break;
             case "EL" :
-                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 4;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',8); $mcrowH = 4;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
                 break;
             case "ME" :
-                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',8); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
                 break;
             case "SU" :
-                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+                if (strlen($giu1_cla) > 248) { $pdf->SetFont($fontdefault,'',8); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
                 break;
         }
 
@@ -202,13 +202,13 @@ while (mysqli_stmt_fetch($stmt)) {
             //non possibile
             break;
         case "EL" :
-            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 4;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',8); $mcrowH = 4;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
             break;
         case "ME" :
-            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',8); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
             break;
         case "SU" :
-            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',9); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
+            if (strlen($giu2_cla) > 248) { $pdf->SetFont($fontdefault,'',8); $mcrowH = 3.5;} else { $pdf->SetFont($fontdefault,'',10); $mcrowH = $mcrowHOr;}
             break;
     }
 

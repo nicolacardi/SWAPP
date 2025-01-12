@@ -349,10 +349,13 @@ for ($settimana = 1; $settimana <= $settimane; $settimana++) {
 
 
 
+	// $stmt fa riferimento a 
+	//$sql = "SELECT data_ora, ora_ora, descmateria_mtt, nome_mae, cognome_mae, argomento_ora, compitiassegnati_ora, assente_ora, secondomaestro_ora FROM (tab_orario LEFT JOIN tab_anagraficamaestri ON maestroreale_ora = ID_mae) LEFT JOIN tab_materie ON codmat_ora = codmat_mtt WHERE data_ora BETWEEN ? AND  ? AND classe_ora = ? AND sezione_ora = ? AND firma_mae_ora <> 0 ORDER BY data_ora, ora_ora;";
+	//quindi è una serie di record, tutti relativi a un intervallo di date, quello della settimana
+	//si cicla qui dentro per estrarre quanto è da stampare
 
 
-
-
+	$parkedArgomentoeCompiti = "";
 	while (mysqli_stmt_fetch($stmt)) {
 
 		//questa routine è molto complicata dal fatto che ci sono i doppi maestri e questo fa sì che per ogni ID ci possano essere più ora_ora.
@@ -422,7 +425,7 @@ for ($settimana = 1; $settimana <= $settimane; $settimana++) {
 	if (strlen($parkedArgomentoeCompiti) > 180) {
 		$parkedArgomentoeCompiti = substr ($parkedArgomentoeCompiti, 0, 180)."...";
 	}
-	$pdf->Cell($w6,$spacemateriaY,utf8_decode($parkedArgomentoeCompiti), 0 ,0, 'L');
+	$pdf->Cell($w6,$spacemateriaY,utf8_decode($parkedArgomentoeCompiti), 0 ,0, 'L'); //QUI C'E LA STAMPA
 
 	$pdf->SetXY(140,260);
 	$pdf->Cell($w1+$w2+$w3,8,"dal ".timestamp_to_ggmmaaaa($datalunedi)." al ".timestamp_to_ggmmaaaa($datagg[5]), 1 ,0, 'C');

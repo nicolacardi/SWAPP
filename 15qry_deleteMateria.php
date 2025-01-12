@@ -1,7 +1,6 @@
 <? include_once("database/databaseii.php");
 	$ID_mtt = $_POST['ID_mtt'];
 
-    //cancello da tab_users
     $sql3 = "DELETE FROM tab_materie ".
     " WHERE ID_mtt = ? ;";	
     $stmt3 = mysqli_prepare($mysqli, $sql3);

@@ -284,7 +284,7 @@
 					<?}?>
 					<?if ($ISC_mostra_dietespeciali == 1) {?>
 						<div class="col-md-12 col-sm-12">
-							<span style="padding-left: 2px; padding-right: 2px;" id="blockckpresavisione4"><input type="checkbox" class="presavisione" id="ckpresavisione4" name="ckpresavisione5" <?if ($ckpresavisione4_fam == 1) {echo "checked";}?>></span> che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da allergie, intolleranze o patologie che richiedano diete speciali ne daranno tempestiva comunicazione alla segreteria tramite la compilazione del <a href="downloadAllegato.php?nomeallegato=E"  target="_blank">MODULO DI RICHIESTA DIETE SPECIALI</a> (corredato da certificato medico specialistico)
+							<span style="padding-left: 2px; padding-right: 2px;" id="blockckpresavisione4"><input type="checkbox" class="presavisione" id="ckpresavisione4" name="ckpresavisione5" <?if ($ckpresavisione4_fam == 1) {echo "checked";}?>></span> che nel caso il/i proprio/i figlio/i fosse/ro affetto/i da allergie, intolleranze o patologie che richiedano la somministrazione di farmaci e/o diete speciali ne daranno tempestiva comunicazione alla segreteria tramite la compilazione del <a href="downloadAllegato.php?nomeallegato=E_<?=$codscuola?>"  target="_blank">MODULO DI RICHIESTA</a> (corredato da certificato medico specialistico)
 						</div>
 					<?} else  {?>
 						<div class="col-md-12 col-sm-12">

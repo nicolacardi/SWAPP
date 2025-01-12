@@ -12,9 +12,9 @@
         <br>
         <div class="row">
             <div class="col-sm-12" style="text-align: center;" id="divImgContainer">
-                <img id="imgContainer1" style=" <? if ($img_alu=="") { echo ("display: none;");} ?> margin-top: 15px; border-radius: 8px; border 1px, black;" width="120" height="120" alt="" src="assets/photos/imgs/<?=$img_alu;?>">
-                <!-- data-src="assets/photos/imgs/<?//=$img_alu;?>"
-                data-src-retina="assets/photos/imgs/<?//=$img_alu;?>"-->
+                <? if (!empty($img_alu)) {?>
+                    <img id="imgContainer1"  style="margin-top: 15px; border-radius: 8px; border 1px, black;" width="120" height="120" alt="" src="assets/photos/imgs/<?=$img_alu;?>">
+                <?}?>
             </div>
             <div class="col-sm-1" style="margin-left:50px;">
             </div>

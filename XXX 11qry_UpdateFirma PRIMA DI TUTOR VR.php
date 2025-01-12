@@ -80,11 +80,6 @@
 
 
 
-
-
-
-
-
 				//CASO PLURICLASSE: UN INSEGNANTE STA INSEGNANDO IN PIU' CLASSI
 
 				//Se è così la firma deve essere messa anche nelle altre ID_ora!

@@ -83,7 +83,7 @@
 
 
 
-	$sql2= "SELECT tab_classialunni.classe_cla, ID_alu, nome_alu, cognome_alu, codmat_ora, descmateria_mtt, COUNT(ora_ora) as Orefatte FROM tab_orario LEFT JOIN tab_classialunni ON classe_ora = classe_cla LEFT JOIN tab_classi ON classe_cla = classe_cls LEFT JOIN tab_anagraficaalunni ON ID_alu_cla = ID_alu LEFT JOIN tab_materie ON tab_orario.codmat_ora = codmat_mtt WHERE tab_classialunni.annoscolastico_cla = ? AND tab_orario.codmat_ora <> 'nom' AND tab_orario.codmat_ora <> 'XX1' AND tab_orario.codmat_ora <> 'XX3' AND tab_orario.codmat_ora <> 'XX4' AND tab_orario.codmat_ora <> 'XX2' GROUP BY tab_classialunni.classe_cla, ID_alu_cla, codmat_ora, descmateria_mtt, ord_cls, ord_mtt ORDER BY ord_cls, cognome_alu, ord_mtt";
+	$sql2= "SELECT tab_classialunni.classe_cla, ID_alu, nome_alu, cognome_alu, codmat_ora, descmateria_mtt, COUNT(ora_ora) as Orefatte FROM tab_orario LEFT JOIN tab_classialunni ON classe_ora = classe_cla LEFT JOIN tab_classi ON classe_cla = classe_cls LEFT JOIN tab_anagraficaalunni ON ID_alu_cla = ID_alu LEFT JOIN tab_materie ON tab_orario.codmat_ora = codmat_mtt WHERE tab_classialunni.annoscolastico_cla = ? AND tab_orario.codmat_ora <> 'nom' AND tab_orario.codmat_ora <> 'XX1' AND tab_orario.codmat_ora <> 'XX3' AND tab_orario.codmat_ora <> 'XX4' AND tab_orario.codmat_ora <> 'XX2' AND tab_orario.codmat_ora <> 'XX5'  AND tab_orario.codmat_ora <> 'XX5'  GROUP BY tab_classialunni.classe_cla, ID_alu_cla, codmat_ora, descmateria_mtt, ord_cls, ord_mtt ORDER BY ord_cls, cognome_alu, ord_mtt";
 
 	$stmt2 = mysqli_prepare($mysqli, $sql2);
 	mysqli_stmt_bind_param($stmt2, "s", $annoscolastico_cla);

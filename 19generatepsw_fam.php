@@ -20,7 +20,7 @@
 		//verifico se già c'è lo user: NON FUNZIONA SE GIA' C'E' PERCHE' ID_usr_fam = 0 quando faccio la DELET + INSERT INTO di nuovo, 
 		//quindi il risultato di questa SELECT sarà sempre 0
 		//vado a modificare la SELECT INTO scrivendo la ID_usr_fam che c'era prima di cancellare quel record della tab_famiglie
-		$sql1 = "SELECT ID_usr_fam, login_usr FROM ".$_SESSION['databaseB'].".tab_famiglie JOIN ".$_SESSION['databaseB'].".tab_users ON ID_usr =  ID_usr_fam WHERE ID_fam = ?";
+		$sql1 = "SELECT ID_usr_fam, login_usr FROM ".$_SESSION['databaseB'].".tab_famiglie JOIN ".$_SESSION['databaseB'].".tab_users2 ON ID_usr =  ID_usr_fam WHERE ID_fam = ?";
 		$stmt1 = mysqli_prepare($mysqli, $sql1);
 		mysqli_stmt_bind_param($stmt1, "i", $ID_fam);
 		mysqli_stmt_execute($stmt1);
@@ -40,12 +40,12 @@
 			$login = $login. rand(1000,9999);					//aggiunge 4 numeri casuali dalzio->dalzio6674
 			$password = rand(1000000,9999999);
 			$ct_newPassword_hash = password_hash ($password, PASSWORD_BCRYPT);
-			$sql = "INSERT INTO ".$_SESSION['databaseB'].".tab_users (login_usr, password_usr, role_usr, pwdlastchange_usr) VALUES ('".$login."','".$ct_newPassword_hash."', 9, now())";
+			$sql = "INSERT INTO ".$_SESSION['databaseB'].".tab_users2 (login_usr, password_usr, role_usr, pwdlastchange_usr) VALUES ('".$login."','".$ct_newPassword_hash."', 9, now())";
 			$stmt = mysqli_prepare($mysqli, $sql);
 			mysqli_stmt_execute($stmt);
 			
 			//trovo ultimo ID_user inserito
-			$sql = "SELECT ID_usr FROM ".$_SESSION['databaseB'].".tab_users WHERE login_usr = '".$login."'";
+			$sql = "SELECT ID_usr FROM ".$_SESSION['databaseB'].".tab_users2 WHERE login_usr = '".$login."'";
 			//QUERY PARAMETRICA DA FARE
 			$stmt = mysqli_prepare($mysqli, $sql);
 			mysqli_stmt_execute($stmt);
@@ -64,7 +64,7 @@
 			//esiste già tutto, (è già stato inviato tutto in precedenza) ma la password non si può recuperare-> ne rigenero un'altra...
 			$password = rand(1000000,9999999);
 			$ct_newPassword_hash = password_hash ($password, PASSWORD_BCRYPT);
-			$sql = "UPDATE ".$_SESSION['databaseB'].".tab_users  SET password_usr = ? WHERE ID_usr = ? ";
+			$sql = "UPDATE ".$_SESSION['databaseB'].".tab_users2  SET password_usr = ? WHERE ID_usr = ? ";
 			$stmt = mysqli_prepare($mysqli, $sql);
 			mysqli_stmt_bind_param($stmt, "si", $ct_newPassword_hash, $ID_usr_fam);
 			mysqli_stmt_execute($stmt);

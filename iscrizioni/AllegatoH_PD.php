@@ -27,7 +27,7 @@ $pdf->SetStyleWriteTag("bul",   $fontdefault,               "N",    $fontsizedef
 
 
 $informativaprivacy= "Nel ringraziarLa per averci fornito i Suoi dati personali, portiamo a Sua conoscenza le finalità e le modalità del trattamento cui essi sono destinati.
-Secondo quanto previsto dagli artt. 13 e 14 del REG. UE 2016/679  recante disposizioni sulla tutela della persona e di altri soggetti, rispetto al trattamento di dati personali questa Istituzione Scolastica, rappresentata dal presidente pro-tempore, in qualità di Titolare del trattamento dei dati personali, per espletare le sue funzioni istituzionali e, in particolare, per gestire le attività di istruzione, educative e formative stabilite dal ".$POF_PTOF_PSDext.", nonchè per accogliere l'eventuale domanda di adesione a socio, deve acquisire i dati personali che Vi riguardano, inclusi quei dati che il REG. UE 2016/679 definisce ''particolari'' (art. 9). 
+Secondo quanto previsto dagli artt. 13 e 14 del REG. UE 2016/679  recante disposizioni sulla tutela della persona e di altri soggetti, rispetto al trattamento di dati personali questa Istituzione Scolastica, rappresentata dal presidente pro-tempore, in qualità di Titolare del trattamento dei dati personali, per espletare le sue funzioni istituzionali e, in particolare, per gestire le attività di istruzione, educative e formative stabilite dal ".$POF_PTOF_PSDext.", deve acquisire i dati personali che Vi riguardano, inclusi quei dati che il REG. UE 2016/679 definisce ''particolari'' (art. 9). 
 
 Vi informiamo pertanto che, per le esigenze di gestione sopra indicate, possono essere oggetto di trattamento le seguenti categorie di dati: 
 - dati relativi agli alunni, idonei a rilevare lo stato di salute, raccolti in riferimento a certificazioni di malattia, infortunio, esposizione a fattori di rischio, appartenenza a categorie protette, idoneità allo svolgimento di determinate attività, sorveglianza sanitaria; 
@@ -35,7 +35,7 @@ Vi informiamo pertanto che, per le esigenze di gestione sopra indicate, possono 
 - dati relativi agli alunni idonei a rilevare le convinzioni religiose o filosofiche ovvero l'adesione a organizzazioni di carattere religioso o filosofico, o quali la fruizione di permessi e festività aventi tali carattere; 
 
 Vi informiamo inoltre che il trattamento dei vostri dati personali avrà le seguenti finalità: 
-- partecipazione degli alunni alle attività organizzate in attuazione del del ".$POF_PTOF_PSDext."; 
+- partecipazione degli alunni alle attività organizzate in attuazione del ".$POF_PTOF_PSDext."; 
 - adempimento di obblighi derivanti da leggi, contratti, regolamenti in materia di igiene e sicurezza, in materia fiscale, in materia assicurativa; 
 - tutela dei diritti in sede giudiziaria. 
 

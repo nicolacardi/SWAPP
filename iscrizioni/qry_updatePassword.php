@@ -11,7 +11,7 @@
 		//$ct_password_hash = md5 ($ct_oldPassword);
 		$ct_password_hash = password_hash ($ct_oldPassword, PASSWORD_BCRYPT);
 		//prepara la clausola $pswlastchangestr
-		$sql = "SELECT `password_usr` FROM ".$_SESSION['databaseB'].".`tab_users` WHERE `ID_usr` = ? ";
+		$sql = "SELECT `password_usr` FROM ".$_SESSION['databaseB'].".`tab_users2` WHERE `ID_usr` = ? ";
 		$stmt = mysqli_prepare($mysqli, $sql);
 		mysqli_stmt_bind_param($stmt, "i", $ID_usr);
 		mysqli_stmt_execute($stmt);
@@ -32,7 +32,7 @@
 								//la password vecchia è corretta E le due psw nuove coincidono E non contengono caratteri speciali E non è uguale alla psw nuova E sono più lunghe del minimo
 								//$ct_newPassword_hash = md5 ($ct_newPassword);
 								$ct_newPassword_hash = password_hash ($ct_newPassword, PASSWORD_BCRYPT);
-								$sql = "UPDATE ".$_SESSION['databaseB'].".`tab_users` SET `password_usr` = ?, `pwdlastchange_usr` = now() WHERE `ID_usr` = ? ";
+								$sql = "UPDATE ".$_SESSION['databaseB'].".`tab_users2` SET `password_usr` = ?, `pwdlastchange_usr` = now() WHERE `ID_usr` = ? ";
 								$stmt = mysqli_prepare($mysqli, $sql);
 								mysqli_stmt_bind_param($stmt, "si", $ct_newPassword_hash, $ID_usr);
 								if (mysqli_stmt_execute($stmt)) {

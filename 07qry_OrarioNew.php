@@ -212,7 +212,7 @@
 
 
                     <!-- icona firmato e supplenza-->
-                    <? if ($materiaGGHH[100+$j*10+$x] != '-' && $materiaGGHH[100+$j*10+$x] != 'nomat' && $materiaGGHH[100+$j*10+$x] != 'XX1' && $materiaGGHH[100+$j*10+$x] != 'XX3' && $materiaGGHH[100+$j*10+$x] != 'XX4' ){?>
+                    <? if ($materiaGGHH[100+$j*10+$x] != '-' && $materiaGGHH[100+$j*10+$x] != 'nomat' && $materiaGGHH[100+$j*10+$x] != 'XX1' && $materiaGGHH[100+$j*10+$x] != 'XX3' && $materiaGGHH[100+$j*10+$x] != 'XX4' && $materiaGGHH[100+$j*10+$x] != 'XX5' ){?>
                         <img id="firmato" style="position: absolute; right: 28px; top: 6px; width: 15px; <? if ($nome_cognome_mae[$k*100+$j*10+$x] == ' ') {echo ('display: none');}?>" 
                         src="<?switch ($firma_mae_oraA[$k*100+$j*10+$x]){
                             case 0:echo 'assets/img/Icone/user-check-solid-red.svg';break;

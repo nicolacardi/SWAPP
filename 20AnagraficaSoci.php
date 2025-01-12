@@ -346,8 +346,8 @@
 		from = 			" tab_anagraficasoci LEFT JOIN tab_tipisoci ON tipo_soc = ID_tsc ";
 		where =			" 1=1 ";
 		orderBY = 		" cognome_soc ";
-		nomiCampiA = 	[ "idle", "descrizione_tsc", "dataiscrizione_soc", "cognome_soc", "nome_soc", "telefono_soc", "altrotel_soc", "email_soc", "datanascita_soc", "comunenascita_soc", "provnascita_soc", "paesenascita_soc", "cittadinanza_soc", "cf_soc", "indirizzo_soc", "comune_soc", "CAP_soc", "prov_soc", "paese_soc"];
-		dataNonDataA = 	["idle", 0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
+		nomiCampiA = 	[ "idle", "descrizione_tsc", "dataiscrizione_soc", "datadisiscrizione_soc", "cognome_soc", "nome_soc", "telefono_soc", "altrotel_soc", "email_soc", "datanascita_soc", "comunenascita_soc", "provnascita_soc", "paesenascita_soc", "cittadinanza_soc", "cf_soc", "indirizzo_soc", "comune_soc", "CAP_soc", "prov_soc", "paese_soc"];
+		dataNonDataA = 	["idle", 0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0];
 		columnColoring =	"";
 		postToDownload(template, filetitle, title, from, where, orderBY, nomiCampiA, dataNonDataA, columnColoring);
 

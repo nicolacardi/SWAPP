@@ -83,10 +83,11 @@ if ($ISC_mostra_regolinterno ==1) {
 if ($ISC_mostra_regolpediatrico ==1) {
     include_once("AllegatoC_".$codscuola.".php");
 }
+
 include_once("AllegatoD_".$codscuola.".php");
 
 if ($ISC_mostra_dietespeciali ==1) {
-    include_once("AllegatoE.php");
+    include_once("AllegatoE_".$codscuola.".php");
 }
 
 ?>

@@ -133,11 +133,10 @@
 					$('#imgProcediconCrop').on('click', function () {
 						nome = $('#nome_soc').val();
 						cognome = $('#cognome_soc').val();
-						fileName = nome + cognome;
-						fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
-						fileName = fileName.replace ("'", "");
-						fileName = fileName.replace (" ", "");
-						fileName = fileName.replace ("-", "");
+
+
+						fileName =normalizeName(nome, cognome);
+
 						//prepara l'immagine croppata in forma base64 e la mette nella variabile resp
 						console.log ("++"+fileName);
 						$uploadCrop.croppie('result', {

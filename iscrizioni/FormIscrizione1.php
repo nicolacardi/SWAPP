@@ -458,6 +458,8 @@ $_SESSION['anno2'] = $anno2;
 						<span style="text-decoration: underline;"> firmarlo ove richiesto e</span><br>
 						CONSEGNARLO IN SEGRETERIA<br>ENTRO LA SCADENZA PREVISTA.<br>
 						<br>
+						Non è ammesso apportare alcun tipo di<br>
+						variazione al modulo stampato.<br><br>
 						Vi ringraziamo per la collaborazione!
 						<br>
 						<span style="font-size: 11px;">(&nbsp;<input type="checkbox" id="cknonmostrarepiu_fam" name="cknonmostrarepiu_fam">&nbsp;non mostrare più )</span>

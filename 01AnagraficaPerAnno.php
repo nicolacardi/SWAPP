@@ -355,8 +355,8 @@
 
 
 		postData = { campo: campo, ord: ord, fil: fil, annoscolastico_cla: annoscolastico_cla,  listaattesa: listaattesa, campodata: campodata, data_limite_re: data_limite_re, primo_giorno_re: primo_giorno_re};
-		console.log ("01AnagraficaPerAnno - requery - postData a 01qry_AnagraficaPerAnno.php");
-		console.log (postData);
+		// console.log ("01AnagraficaPerAnno - requery - postData a 01qry_AnagraficaPerAnno.php");
+		// console.log (postData);
 		$.ajax({
 			type: 'POST',
 			url: "01qry_AnagraficaPerAnno.php",

@@ -32,7 +32,7 @@
 	$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load("TemplateExportRette.xlsx");
 
 
-	for ($x = 0; $x <= 12; $x++) {
+	for ($x = 0; $x <= 14; $x++) {
 		$spreadsheet->setActiveSheetIndex($x); // Comincia da 0
 		$spreadsheet->getActiveSheet()->SetCellValue("A1", $annoscolastico_cla);
 	}
@@ -344,19 +344,12 @@
 	}
 
 
-
-
-
-
-
-
-
-
-	include_once("04inc_GetCausaliPagamento.php");
-	//$causali_pagA = ["non rilevato", "retta", "iscrizione", "donazione", "spese didattiche", "quota associativa", "cauzione"];
+	include_once("04inc_GetCausaliPagamento.php"); //Crea gli array causali_pagA e ord_pcaA popolandoli a partire dalla tabella tab_pagamenticausali
+	//In precedenza le causali venivano qui fornite con un array
+	//$causali_pagA = ["non rilevato", "retta", "iscrizione", "donazione", "spese didattiche", "quota associativa", "cauzione", "iscr. classe successiva"];
 	$tipi_pagA = ["non rilevato", "bonifico", "contante", "carta di credito", "altro"];
 	$soggetto_pagA = ["non rilevato", "padre", "madre", "altro"];
-	$rigaA = [ 5, 5, 5, 5, 5];
+	$rigaA = [ 5, 5, 5, 5, 5, 5]; //ATTENZIONE: SE SI INTRODUCE UNA NUOVA CAUSALE QUI BISOGNA AGGIUNGERE UN VALORE E NEL FOGLIO EXCEL VA AGGIUNTO UN FOGLIO
 
 	
 
@@ -454,10 +447,10 @@
 	LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla AND annoscolastico_pag = annoscolastico_cla 
 	WHERE annoscolastico_cla = ?  AND listaattesa_cla = 0 AND causale_pag <> 1 ORDER BY classe_cla, sezione_cla, cognome_alu, nome_alu, data_pag ;";
 
-$sqlxxx = "SELECT nome_alu, cognome_alu, ID_pag, data_pag, importo_pag, causale_pag, tipo_pag, soggetto_pag, annoscolastico_pag, classe_cla, sezione_cla
-FROM tab_pagamenti	LEFT JOIN tab_anagraficaalunni ON ID_alu = ID_alu_pag
-LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla AND annoscolastico_pag = annoscolastico_cla 
-WHERE annoscolastico_cla = ".$annoscolastico_cla."  AND listaattesa_cla = 0 AND causale_pag <> 1 ORDER BY classe_cla, sezione_cla, cognome_alu, nome_alu, data_pag ;";
+// $sqlxxx = "SELECT nome_alu, cognome_alu, ID_pag, data_pag, importo_pag, causale_pag, tipo_pag, soggetto_pag, annoscolastico_pag, classe_cla, sezione_cla
+// FROM tab_pagamenti	LEFT JOIN tab_anagraficaalunni ON ID_alu = ID_alu_pag
+// LEFT JOIN tab_classialunni ON ID_alu = ID_alu_cla AND annoscolastico_pag = annoscolastico_cla 
+// WHERE annoscolastico_cla = ".$annoscolastico_cla."  AND listaattesa_cla = 0 AND causale_pag <> 1 ORDER BY classe_cla, sezione_cla, cognome_alu, nome_alu, data_pag ;";
 	$stmt = mysqli_prepare($mysqli, $sql);
 	mysqli_stmt_bind_param($stmt, "s", $annoscolastico_cla);
 	mysqli_stmt_execute($stmt);
@@ -469,8 +462,7 @@ WHERE annoscolastico_cla = ".$annoscolastico_cla."  AND listaattesa_cla = 0 AND 
 		//if ($n>1) {
 		if ($causale_pag>1) {
 			$n = $causale_pag - 2;
-			$spreadsheet->setActiveSheetIndex($causale_pag+7); // Comincia da 0
-
+			$spreadsheet->setActiveSheetIndex($causale_pag+7); // Il conteggio dei fogli comincia da 0 il foglio numero 7 è il primo delle causali
 
 			$spreadsheet->getActiveSheet()->SetCellValue("A".$rigaA[$n], $nome_alu);
 			$spreadsheet->getActiveSheet()->SetCellValue("B".$rigaA[$n], $cognome_alu);
@@ -486,7 +478,7 @@ WHERE annoscolastico_cla = ".$annoscolastico_cla."  AND listaattesa_cla = 0 AND 
 	}
 
 
-		//$causali_pagA = ["non rilevato", "retta", "iscrizione", "donazione", "spese didattiche", "quota associativa", "cauzione"];
+		//$causali_pagA = ["non rilevato", "retta", "iscrizione", "donazione", "spese didattiche", "quota associativa", "cauzione", "iscr. classe successiva"];
 
 
 	$writer = IOFactory::createWriter($spreadsheet, 'Xlsx');

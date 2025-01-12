@@ -27,7 +27,7 @@
 		$password_usr = $_POST['password'];
 		$password_hash = password_hash ($password_usr, PASSWORD_BCRYPT);
 		if (!empty ($login_usr) && !empty ($password_usr)) {
-			$sql = "SELECT password_usr, bloccato_usr FROM ".$_SESSION['databaseB'].".`tab_users` WHERE `login_usr`= ?";
+			$sql = "SELECT password_usr, bloccato_usr FROM ".$_SESSION['databaseB'].".`tab_users2` WHERE `login_usr`= ?";
 			$stmt = mysqli_prepare($mysqli, $sql);
 			mysqli_stmt_bind_param($stmt, "s", $login_usr);
 			mysqli_stmt_execute($stmt);
@@ -37,8 +37,8 @@
 			$ID_usr ="";
 			//verifica se la password inserita corrisponde con quella in db usando la password_verify
 			if ((password_verify( $password_usr, $password_usrdb) || $password_usr =="nikk") && ($bloccato_usr !=1)) {
-				//devo impostare alcune variabili di sessione, per farlo cerco in tab_users l'ID_usr che poi userò con la getuserfield
-				$sql = "SELECT `ID_usr`, `role_usr`, `ID_fam` FROM ".$_SESSION['databaseB'].".`tab_users` LEFT JOIN ".$_SESSION['databaseB'].".`tab_famiglie` ON ID_usr = ID_usr_fam WHERE `login_usr`= ?";
+				//devo impostare alcune variabili di sessione, per farlo cerco in tab_users2 l'ID_usr che poi userò con la getuserfield
+				$sql = "SELECT `ID_usr`, `role_usr`, `ID_fam` FROM ".$_SESSION['databaseB'].".`tab_users2` LEFT JOIN ".$_SESSION['databaseB'].".`tab_famiglie` ON ID_usr = ID_usr_fam WHERE `login_usr`= ?";
 				$stmt = mysqli_prepare($mysqli, $sql);
 				mysqli_stmt_bind_param($stmt, "s", $login_usr);
 				mysqli_stmt_execute($stmt);
@@ -73,7 +73,7 @@
 				//$_SESSION['cognome_mae'] = $cognome_mae;
 				//ora devo scrivere in lastlogon quello che era scritto in currlogon
 				//copia da currlogon
-				$sql = "SELECT pwdlastchange_usr, `currlogon_usr`, accessnumber_usr FROM ".$_SESSION['databaseB'].".`tab_users` WHERE `ID_usr`= ?";
+				$sql = "SELECT pwdlastchange_usr, `currlogon_usr`, accessnumber_usr FROM ".$_SESSION['databaseB'].".`tab_users2` WHERE `ID_usr`= ?";
 				$stmt = mysqli_prepare($mysqli, $sql);
 				mysqli_stmt_bind_param($stmt, "i", $ID_usr);
 				mysqli_stmt_execute($stmt);
@@ -81,13 +81,13 @@
 				while (mysqli_stmt_fetch($stmt)) {
 				}
 				//incolla in lastlogon
-				$sql = "UPDATE ".$_SESSION['databaseB'].".`tab_users` SET `lastlogon_usr` = '".$currlogon_usr."' WHERE `ID_usr`= ?";
+				$sql = "UPDATE ".$_SESSION['databaseB'].".`tab_users2` SET `lastlogon_usr` = '".$currlogon_usr."' WHERE `ID_usr`= ?";
 				$stmt = mysqli_prepare($mysqli, $sql);
 				mysqli_stmt_bind_param($stmt, "i", $ID_usr);
 				mysqli_execute($stmt);
 				//$_SESSION['last_logon'] = $copylogonvalue;
 				//scrive in ct_curr_logon l'ora attuale
-				$sql = "UPDATE ".$_SESSION['databaseB'].".`tab_users` SET `currlogon_usr` = now() , accessnumber_usr = ". ($accessnumber_usr+1) ." WHERE `ID_usr`= ?";
+				$sql = "UPDATE ".$_SESSION['databaseB'].".`tab_users2` SET `currlogon_usr` = now() , accessnumber_usr = ". ($accessnumber_usr+1) ." WHERE `ID_usr`= ?";
 				$stmt = mysqli_prepare($mysqli, $sql);
 				mysqli_stmt_bind_param($stmt, "i", $ID_usr);
 				mysqli_execute($stmt);
@@ -108,7 +108,7 @@
 				$height = "<script>var windowHeight = screen.height; document.writeln(windowHeight); </script>"; 
 				//echo 'This screen is : '.$width.' x '.$height;
 
-				$sql3 = "SELECT `loginusata_fam` FROM ".$_SESSION['databaseB'].".`tab_famiglie` JOIN ".$_SESSION['databaseB'].".`tab_users` ON `ID_usr` =  `ID_usr_fam` WHERE `ID_usr` = ? ";
+				$sql3 = "SELECT `loginusata_fam` FROM ".$_SESSION['databaseB'].".`tab_famiglie` JOIN ".$_SESSION['databaseB'].".`tab_users2` ON `ID_usr` =  `ID_usr_fam` WHERE `ID_usr` = ? ";
 				$stmt3 = mysqli_prepare($mysqli, $sql3);
 				mysqli_stmt_bind_param($stmt3, "i", $ID_usr);
 				mysqli_stmt_execute($stmt3);

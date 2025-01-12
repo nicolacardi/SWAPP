@@ -63,7 +63,6 @@
 		$next_numtipo_ver = $numtipo_vertest;
 	}
 
-	// $ckomettiint_ver = $_POST['ckomettiint_ver'];
 
 	$sql = "INSERT INTO tab_verbali (num_ver, numtipo_ver, data_ver, ora_ver, tipo_ver, iddocenti_ver, idalunni_ver, invitatiult_ver, titolo_ver, argnum_ver, argomento_ver, tematiche_ver, decisioni_ver, annoscolastico_ver, classe_ver, sezione_ver) VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ?, ? , ? , ? , ? , ? , ? , ?)";
 	$stmt = mysqli_prepare($mysqli, $sql);

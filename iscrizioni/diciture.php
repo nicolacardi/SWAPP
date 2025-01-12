@@ -15,7 +15,7 @@ switch ($codscuola) {
         $cfscuola = "05484330286";
         $ragionesocialescuola = "Cooperativa Sociale ARCA Educazione";
         $titolaretrattamentoTitolo = "il presidente pro-tempore di ARCA Educazione Cooperativa Sociale";
-        $titolaretrattamento = "Nicola cardi";
+        $titolaretrattamento = "Nicola Cardi";
         $linkPTOF = "https://www.arcascuola.it/img/PEDprimobiennio-LES.pdf";
         $scadpagamenti ="entro il giorno 5 di ciascun mese";
         $quotaiscrizione = "50 per ciascun/a alunno/a iscritto/a";

@@ -60,9 +60,9 @@
             }
 
             //bisogna in questa fase AGGIUNGERE l'intervallo e la pausa pranzo perchè non sono tra le materie assegnate ad alcun maestro
-            array_push($codmat_mttA,"XX1","XX3","XX4");
-            array_push($descmateria_mttA,"[PRANZO]","[INTERVALLO]", "[USCITA DID.]");
-            $nummaterie = $nummaterie + 3;
+            array_push($codmat_mttA,"XX1","XX3","XX4", "XX5");
+            array_push($descmateria_mttA,"[PRANZO]","[INTERVALLO]", "[USCITA DID.]", "[PCTO.EST]");
+            $nummaterie = $nummaterie + 4;
             ?>
             <!-- <tr>
                 <td>
@@ -195,7 +195,7 @@
 
 		let codmat_mtt = $( "#GH"+j+x+n+"new option:selected" ).val();		
 		
-		if (codmat_mtt != 'nomat' && codmat_mtt != 'XX1' && codmat_mtt != 'XX3' && codmat_mtt != 'XX4') {  //in teoria non serve questo if
+		if (codmat_mtt != 'nomat' && codmat_mtt != 'XX1' && codmat_mtt != 'XX3' && codmat_mtt != 'XX4' && codmat_mtt != 'XX5') {  //in teoria non serve questo if
 			let classe_ora = $( "#classe2_new" ).val();                             //campo del modale dove ho scritto la classe
 			let sezione_ora= $( "#sezione2_new" ).val();                            //campo del modale dove ho scritto la sezione
 			postData = { codmat_mtt : codmat_mtt, classe_ora: classe_ora, sezione_ora: sezione_ora, dataGG: dataGG, ora: x };
@@ -208,12 +208,12 @@
 				data: postData,
 				dataType: 'json',
 				success: function(data){
-                          //console.log ("07qry_getUlterioriMaestri.php - verificaMaestroNew - risposta da 07qry_checkMaestroNew");	
-                          //console.log ("responso=>           "+data.responso);
-                          //console.log ("msg=>                "+data.msg);
-                          //console.log ("nome_cognome_mae=>   "+data.nome_cognome_mae);
-                          //console.log ("test=>               "+data.test);
-                          //console.log ("ID_mae_cma=>         "+data.ID_mae_ora);
+                          console.log ("07qry_getUlterioriMaestri.php - verificaMaestroNew - risposta da 07qry_checkMaestroNew");	
+                          console.log ("responso=>           "+data.responso);
+                          console.log ("msg=>                "+data.msg);
+                          console.log ("nome_cognome_mae=>   "+data.nome_cognome_mae);
+                          console.log ("test=>               "+data.test);
+                          console.log ("ID_mae_cma=>         "+data.ID_mae_ora);
 					if (data.responso =='NO_1') {
                         //caso NO_1=Maestro non ancora assegnato alla materia selezionata in questa classe
                         //questo caso non dovrebbe accadere mai in quanto ora le materie mostrate sono solo quelle assegnate
@@ -226,17 +226,37 @@
 						$('#ID_mae_hidden2_new'+n).val("");
 					} else if (data.responso == 'NO_2'){
                         //caso NO_2=Il maestro è già impegnato in altra classe o nella stessa classe
-                        //qui in teoria potrebbe starci il caso della pluriclasse
-                        $select.val("nomat").change();
-						$('#nome_cognome_maenew'+n).val("");
-                        $('#alertModalTutor').removeClass('alert-success');
-                        $('#alertModalTutor').addClass('alert-danger');
-                        $('#alertmsgModalTutor').html(data.msg);
-                        $("#alertModalTutor").show();
+                        //qui ipotrebbe essere una pluriclasse: va avvisato l'utente
+                        //$select.val("nomat").change(); //commentato perchè implementazione PLURICLASSE
+						//$('#nome_cognome_maenew'+n).val(""); //commentato perchè implementazione PLURICLASSE
+                        $('#nome_cognome_maenew'+n).val(data.nome_cognome_mae);  //implementazione PLURICLASSE
+                        $('#alertModalTutor').removeClass('alert-success'); 
+                        $('#alertModalTutor').addClass('alert-danger'); 
+                        $('#alertmsgModalTutor').html(data.msg); 
+                        $("#alertModalTutor").show(); 
                         //$("#jx_torestore_hidden").val(String(j)+String(x));
-						$('#ID_mae_hidden2_new'+n).val("");
+						//$('#ID_mae_hidden2_new'+n).val(""); //commentato perchè implementazione PLURICLASSE
+                        $('#ID_mae_hidden2_new'+n).val(data.ID_mae_ora);
 						//$('#msgPluriclassenew').html(data.msg);
 						//$('#modalCheckIfPluriclasse').modal('show');
+                    } else if (data.responso == 'NO_3'){
+                        //Il maestro già sta nella stessa classe va bloccato
+                        $select.val("nomat").change();
+						$('#nome_cognome_maenew'+n).val("");
+                        $('#alertModalTutor').removeClass('alert-success'); 
+                        $('#alertModalTutor').addClass('alert-danger'); 
+                        $('#alertmsgModalTutor').html(data.msg); 
+                        $("#alertModalTutor").show(); 
+						$('#ID_mae_hidden2_new'+n).val("");
+                    } else if (data.responso == 'NO_4'){
+                        //Si sta provando a duplicare un tutorato, NO WAY
+                        $select.val("nomat").change();
+						$('#nome_cognome_maenew'+n).val("");
+                        $('#alertModalTutor').removeClass('alert-success'); 
+                        $('#alertModalTutor').addClass('alert-danger'); 
+                        $('#alertmsgModalTutor').html(data.msg); 
+                        $("#alertModalTutor").show(); 
+						$('#ID_mae_hidden2_new'+n).val("");
 					} else {
                         //quando il responso è OK:
 						$('#nome_cognome_maenew'+n).val(data.nome_cognome_mae);

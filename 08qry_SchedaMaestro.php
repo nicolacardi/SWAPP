@@ -359,11 +359,10 @@
 					$('#imgProcediconCrop').on('click', function () {
 						nome = $('#nome_mae').val();
 						cognome = $('#cognome_mae').val();
-						fileName = nome + cognome;
-						fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
-						fileName = fileName.replace ("'", "");
-						fileName = fileName.replace (" ", "");
-						fileName = fileName.replace ("-", "");
+
+						fileName =normalizeName(nome, cognome);
+
+
 						//prepara l'immagine croppata in forma base64 e la mette nella variabile resp
 						console.log ("++"+fileName);
 						$uploadCrop.croppie('result', {
@@ -447,14 +446,12 @@
 		let cognome_mae = $('#cognome_mae_det').val();
 		let mf_mae = $('#mf_mae_det').val();
 
+
 		if (img_mae != "") {
-			fileName = nome_mae + cognome_mae;
-			fileName = fileName.replace(/[\|&;\$%@"<>\(\)\+,]/g, "");
-			fileName = fileName.replace ("'", "");
-			fileName = fileName.replace (" ", "");
-			fileName = fileName.replace ("-", "");
+			fileName = normalizeName(nome_mae, cognome_mae);
 			img_mae = fileName+".png";
 		}
+
 		let indirizzo_mae = $('#indirizzo_mae_det').val();
 		let citta_mae = $('#citta_mae_det').val();
 		let CAP_mae = $('#CAP_mae_det').val();

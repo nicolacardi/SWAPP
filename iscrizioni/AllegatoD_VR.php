@@ -148,7 +148,7 @@ $testo= "c) iscrizione entro il ".$scadiscrizione.$anno1." e importo dell'intero
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$rowH,$testo);
 
-$testo= "d) iscrizione entro il ".$scadiscrizione.$anno1." a mezzo bonifico bancario e 12 rate tramite addebito SDD (ex RID) il giorno 10 di ogni mese da settembre ".$anno1." a agosto ".$anno2;
+$testo= "d) iscrizione entro il ".$scadiscrizione.$anno1." a mezzo bonifico bancario e 12 rate tramite addebito SDD (ex RID) il giorno 10 di ogni mese da settembre a agosto.";
 $testo = utf8_decode($testo);
 $pdf->MultiCell(0,$rowH,$testo);
 
